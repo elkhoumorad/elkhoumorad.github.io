@@ -1,1 +1,82 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Dimensional Plotter | The Time Reversal</title>
+    
+    <!-- External Scientific Libraries -->
+    <script src="https://cdn.plot.ly/plotly-2.27.0.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/mathjs/11.8.0/math.js"></script>
+    
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+    <nav class="top-nav">
+        <a href="../index.html" class="back-link">← Back to The Time Reversal Lab</a>
+        <span class="logo-text">Dimensional Plotter</span>
+    </nav>
 
+    <div class="app-container">
+        <!-- Ergonomic Control Sidebar -->
+        <aside class="sidebar">
+            <div class="control-group">
+                <label for="dimSelect">Dimension Space</label>
+                <select id="dimSelect">
+                    <option value="1">1D Line Plot: f(x)</option>
+                    <option value="2" selected>2D Surface Plot: f(x,y)</option>
+                    <option value="3">3D Isosurface: f(x,y,z)</option>
+                </select>
+            </div>
+
+            <div class="control-group">
+                <label for="funcInput">Function</label>
+                <input type="text" id="funcInput" value="sin(sqrt(x^2 + y^2))">
+                <small class="hint">Use x, y, z. Example: exp(-x^2)</small>
+            </div>
+
+            <div class="control-group interval-group">
+                <div class="axis-bounds">
+                    <label>X Min / Max</label>
+                    <div class="flex-row">
+                        <input type="number" id="xMin" value="-10">
+                        <input type="number" id="xMax" value="10">
+                    </div>
+                </div>
+
+                <div class="axis-bounds" id="yBounds">
+                    <label>Y Min / Max</label>
+                    <div class="flex-row">
+                        <input type="number" id="yMin" value="-10">
+                        <input type="number" id="yMax" value="10">
+                    </div>
+                </div>
+
+                <div class="axis-bounds" id="zBounds" style="display: none;">
+                    <label>Z Min / Max</label>
+                    <div class="flex-row">
+                        <input type="number" id="zMin" value="-10">
+                        <input type="number" id="zMax" value="10">
+                    </div>
+                </div>
+            </div>
+
+            <div class="control-group">
+                <label for="stepsInput">Resolution (Steps)</label>
+                <input type="number" id="stepsInput" value="40" min="10" max="100">
+                <small class="hint">Higher steps = smoother curve, but slower rendering.</small>
+            </div>
+
+            <button id="plotBtn" class="primary-btn">Generate Plot</button>
+            <div id="errorMsg" class="error-text"></div>
+        </aside>
+
+        <!-- Main Plotting Canvas -->
+        <main class="plot-area">
+            <div id="plotContainer"></div>
+        </main>
+    </div>
+
+    <script src="plot.js"></script>
+</body>
+</html>
