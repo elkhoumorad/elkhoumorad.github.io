@@ -74,19 +74,18 @@ footer a:hover {
     margin-top: 10px;
 }
 
-/* ADD THIS TO YOUR style.css FILE */
-
+/* Taming the logo size */
 .site-logo {
-    display: block;      /* Centers the image */
-    margin: 0 auto 20px;  /* Auto centers horizontally, adds space below */
-    max-width: 150px;     /* Sets a reasonable max size (Adjust this!) */
-    height: auto;         /* Maintains the logo's aspect ratio */
+    display: block;
+    margin: 0 auto 10px; /* Centers it and adds a small gap above the text */
+    width: 180px;         /* This controls the size - change this number to your liking */
+    height: auto;        /* Keeps the hourglass from looking squished */
+    filter: drop-shadow(0px 2px 4px rgba(0,0,0,0.1)); /* Optional: adds a tiny bit of depth */
 }
 
-/* Make the logo shrink on mobile screens */
+/* Make it even smaller on mobile phones */
 @media (max-width: 600px) {
     .site-logo {
-        max-width: 100px;
+        width: 120px;
     }
 }
-        
