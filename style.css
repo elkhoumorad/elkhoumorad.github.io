@@ -1,3 +1,4 @@
+@import url('https://fonts.cdnfonts.com/css/audrey');
 body {
             font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
             line-height: 1.6;
@@ -14,9 +15,13 @@ body {
             text-align: center;
         }
         h1 {
-            color: #2c3e50;
-            font-size: 2.5rem;
-            margin-bottom: 10px;
+    font-family: 'Audrey', sans-serif; /* This changes the font */
+    color: #2c3e50;
+    font-size: 3.5rem;                 /* Slightly bigger to show off the font */
+    margin-bottom: 10px;
+    text-transform: uppercase;         /* Audrey looks stunning in all caps */
+    letter-spacing: 4px;              /* This gives it that 'expensive' look */
+}
         }
         .tagline {
             font-style: italic;
