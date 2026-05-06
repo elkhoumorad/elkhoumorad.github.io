@@ -173,85 +173,81 @@ footer a:hover {
     }
 }
 
-/* Card Container */
+
+/* Clean, Modern Card Container */
 .journal-card {
-    border-bottom: 1px solid #ddd;
-    margin-bottom: 20px;
-    padding-bottom: 20px;
+    background-color: #ffffff;
+    border: 1px solid #eaeaea;
+    border-radius: 8px; /* Softer, modern corners */
+    padding: 24px;
+    margin-bottom: 24px;
+    box-shadow: 0 2px 8px rgba(0, 0, 0, 0.04); /* Very subtle depth */
+    transition: transform 0.2s ease, box-shadow 0.2s ease; /* Smooth hover animation */
 }
 
-/* Flexbox to create the two columns */
+/* Lift the card slightly when the user hovers over it */
+.journal-card:hover {
+    transform: translateY(-3px);
+    box-shadow: 0 6px 15px rgba(0, 0, 0, 0.08);
+}
+
+/* Flexbox to align thumbnail and text */
 .card-content {
     display: flex;
-    gap: 20px;
-    align-items: flex-start;
+    gap: 24px;
+    align-items: center; /* Centers the text vertically next to the image */
 }
 
-/* Left Column: The Thumbnail */
+/* Clean Thumbnail */
 .card-thumbnail {
-    flex: 0 0 150px; /* Specific width for the thumbnail */
-    height: 100px;
-    border: 2px solid #333;
-    border-radius: 15px; /* Deeply rounded corners */
-    display: flex;
-    align-items: center;
-    justify-content: center;
+    flex: 0 0 160px; /* Fixed width */
+    height: 110px;
+    border-radius: 6px;
     overflow: hidden;
-    background-color: #f0f0f0; /* Default background */
-    position: relative;
+    background-color: #f8f9fa; /* Light grey placeholder background */
+    border: 1px solid #f0f0f0; /* Barely visible border */
 }
 
 .thumbnail-img {
     width: 100%;
     height: 100%;
-    object-fit: cover;
+    object-fit: cover; /* Ensures the image fills the space without stretching */
 }
 
-/* Optional label for the thumbnail (as seen in your design) */
-.thumb-label {
-    position: absolute;
-    font-weight: bold;
-    color: #333;
-}
-
-/* Right Column: The Text (stacked title/legend) */
+/* Typography and Layout */
 .card-text {
-    flex: 1; /* Takes up remaining space */
+    flex: 1;
+    display: flex;
+    flex-direction: column;
 }
 
-.text-block {
-    border: 2px solid #333;
-    padding: 10px;
-    margin-bottom: 10px;
+.card-text h3 {
+    margin: 0 0 8px 0;
+    font-size: 1.25rem;
+    color: #2b2b2b; /* Softer than pure black */
+    font-weight: 600;
+    text-align: left; /* Left alignment is much more professional for articles */
 }
 
-.title-block {
-    background-color: #fff;
-}
-
-.title-block h3 {
-    margin: 0;
-    font-size: 1.1rem;
-    color: #2c3e50;
-    text-align: center; /* Center bold text as requested */
-}
-
-.legend-block {
-    background-color: #fafafa;
-}
-
-.legend-block p {
-    margin: 0;
-    font-size: 0.9rem;
+.card-text p {
+    margin: 0 0 16px 0;
+    font-size: 0.95rem;
     color: #555;
-    text-align: center; /* Center bold text as requested */
+    line-height: 1.6;
+    text-align: left;
 }
 
+/* Clean Link Styling */
 .read-more {
-    display: inline-block;
-    color: #007bff;
+    align-self: flex-start; /* Keeps the link aligned to the left */
+    color: #0066cc; /* A professional link blue */
     text-decoration: none;
-    font-weight: bold;
+    font-weight: 600;
     font-size: 0.9rem;
+    transition: color 0.2s ease;
 }
 
+.read-more:hover {
+    color: #004080; /* Darkens when hovered */
+    text-decoration: underline;
+}
