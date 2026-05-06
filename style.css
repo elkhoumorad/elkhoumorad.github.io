@@ -224,3 +224,28 @@ footer a:hover {
 .read-more:hover {
   text-decoration: underline;
 }
+
+
+
+.article-card {
+  /* ... your existing styles ... */
+  display: flex;
+  flex-direction: column;
+  background: white;
+  border: 1px solid #e1e4e8;
+  border-radius: 8px;
+  overflow: hidden;
+
+  /* 1. Add the transition here (Duration and Easing) */
+  transition: transform 0.3s ease, box-shadow 0.3s ease;
+  cursor: pointer;
+}
+
+/* 2. Add the Hover State */
+.article-card:hover {
+  /* This moves the card up by 5 pixels */
+  transform: translateY(-5px); 
+  
+  /* This adds a soft shadow to make it look like it's floating */
+  box-shadow: 0 10px 25px rgba(0, 0, 0, 0.1);
+}
