@@ -5,58 +5,100 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>The Time Reversal | Science Platform</title>
     
-    <link rel="icon" type="image/png" href="favicon.png">
+    <!-- Link to your external CSS file -->
+    <link rel="stylesheet" href="style.css">
     
     <!-- Google tag (gtag.js) -->
-<script async src="https://www.googletagmanager.com/gtag/js?id=G-922TS18EDX"></script>
-<script>
-  window.dataLayer = window.dataLayer || [];
-  function gtag(){dataLayer.push(arguments);}
-  gtag('js', new Date());
-
-  gtag('config', 'G-922TS18EDX');
-</script>
-
-    
-<link rel="stylesheet" href="style.css">
-    
+    <script async src="https://www.googletagmanager.com/gtag/js?id=G-922TS18EDX"></script>
+    <script>
+      window.dataLayer = window.dataLayer || [];
+      function gtag(){dataLayer.push(arguments);}
+      gtag('js', new Date());
+      gtag('config', 'G-922TS18EDX');
+    </script>
 </head>
 <body>
 
-
-    <header style="text-align: center; padding: 30px 0;">
-        <img src="your-logo-file.png" alt="The Time Reversal Logo" class="site-logo">
-        <h1>The Time Reversal</h1>
+    <header>
+        <div class="logo-container">
+            <!-- Matches the image file in your repository -->
+            <img src="your-logo-file.png" alt="Time Reversal Logo">
+        </div>
+        <h1>THE TIME REVERSAL</h1>
         <p class="tagline">An Educational Science Platform interested in state-of-the-art Physics and Chemistry</p>
+        <div class="header-divider"></div>
     </header>
 
-    <div class="content">
-        <h2>Welcome to the Lab</h2>
-        <p>This is the new home for deep dives into mathematical physics and interactive chemistry simulations.</p>
-        <p>Stay tuned for upcoming articles and simulations concerning these topics.</p>
+    <div class="main-wrapper">
+        
+        <!-- LEFT COLUMN: The Lab (Tools) -->
+        <aside class="sidebar-box">
+            <h3 class="sidebar-title">Interactive Tools</h3>
+            
+            <div class="tool-card">
+                <h4>SymmCalc: Irrep Reducer</h4>
+                <p>A comprehensive point group symmetry calculator. Reduces representations for groups from C2 up to Ih.</p>
+                <!-- Links to your symmetry folder -->
+                <a href="/symmetry-project/" class="btn">Launch Tool</a>
+            </div>
+
+            <div class="tool-card">
+                <h4>Function Plotter Pro</h4>
+                <p>Interactive 2D/3D mathematical function visualization utilizing JavaScript.</p>
+                <!-- Links to your plotter folder -->
+                <a href="/plotter-project/" class="btn">Launch Tool</a>
+            </div>
+
+            <div class="tool-card">
+                <h4>pH Titration Simulator</h4>
+                <p>Real-time acid-base reaction modeling for chemistry demonstrations.</p>
+                <a href="#" class="btn">Launch Tool</a>
+            </div>
+        </aside>
+
+        <!-- CENTER COLUMN: The Journal (Main Articles) -->
+        <main class="journal-entry">
+            <h2>Simulating Magnetic Skyrmions Dynamics</h2>
+            <div class="article-meta">Published by Morad | Filed under: Micromagnetics, C++</div>
+            
+            <p>Welcome to the main research hub. This stage is designed for long-form scientific writing, mathematical proofs, and theoretical deep dives.</p>
+            
+            <p>In this space, you can embed your findings on the stability of magnetic skyrmions. Because the column is wide and flexible, it easily accommodates complex LaTeX equations, numerical simulation graphs generated in MATLAB, and detailed methodology breakdowns.</p>
+            
+            <p>Whether exploring differential geometry, algebraic topology, or practical classroom applications for teaching electrical circuits, this central column ensures the reading experience remains clean and focused.</p>
+        </main>
+
+        <!-- RIGHT COLUMN: Dashboard & Navigation -->
+        <aside class="right-sidebar">
+            <div class="sidebar-box" style="margin-bottom: 20px;">
+                <h3 class="sidebar-title">About the Editor</h3>
+                <p style="font-size: 0.9rem;"><strong>Morad</strong> is a researcher specializing in micromagnetics and semiconductor physics, as well as a trainee teacher in physics and chemistry.</p>
+            </div>
+
+            <div class="sidebar-box">
+                <h3 class="sidebar-title">Recent Notes</h3>
+                <ul class="recent-list">
+                    <li><a href="#">Solving the 3D Schrödinger Equation</a></li>
+                    <li><a href="#">High School Internship: Classroom Management</a></li>
+                    <li><a href="#">Thermodynamics: Heat Transfer Models</a></li>
+                    <li><a href="#">Introduction to Fiber Bundles</a></li>
+                </ul>
+            </div>
+        </aside>
+
     </div>
 
+    <footer>
+        <p>&copy; 2026 The Time Reversal. Created by Morad.</p>
+        <p>
+            <a href="https://github.com/elkhoumorad">GitHub Profile</a> | 
+            <a href="mailto:your-email@example.com">Contact Author</a>
+        </p>
+        <p style="font-size: 0.7rem; margin-top: 10px;">Focused on State-of-the-art Physics & Chemistry</p>
+    </footer>
 
-<section class="tools-grid">
-    <h2>Interactive Tools</h2>
-    <div class="card">
-        <h3>SymmCalc: Irrep Reducer</h3>
-        <p>A comprehensive point group symmetry calculator. Reduces representations for groups from C2 up to Ih. Perfect for vibrational analysis and molecular orbital theory.</p>
-        <a href="symmetry-project/irrep.html" class="btn">Launch Tool</a>
-    </div>
-    
-    <!-- Placeholder for your next project -->
-    <div class="card">
-        <h3>Function Plotter Pro</h3>
-        <p>Interactive 2D/3D mathematical function visualization.</p>
-        <a href="plotter-project/index.html" class="btn">Launch Tool</a>
-    </div>
-</section>
-
-
-    
-<footer>
-    <p>&copy; 2026 The Time Reversal. Built by M.E.K.</p>
-</footer>
+    <!-- Link to your external JavaScript file -->
+    <script src="script.js"></script>
 </body>
 </html>
+
