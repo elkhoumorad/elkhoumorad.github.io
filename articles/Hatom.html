@@ -50,24 +50,24 @@
                     </div>
 
                     <h3>1. Radial Separation</h3>
-                    <p>Isolating the radial part $\psi_r$ and including the centrifugal term[cite: 1]:</p>
+                    <p>Isolating the radial part $\psi_r$ and including the centrifugal term:</p>
                     $$\frac{\partial^2\psi_r}{\partial r^2} + \frac{2}{r}\frac{\partial\psi_r}{\partial r} + \left[ \frac{2mE}{\hbar^2} - \frac{l(l+1)}{r^2} + \frac{2me^2}{4\pi\varepsilon\hbar^2 r} \right]\psi_r = 0$$
 
                     <h3>2. Transformation to Whittaker Form</h3>
                     <p>By defining the dimensionless variable $\rho$ and constants $k$ and $\beta$:</p>
                     <p>$$\beta^2 = -4k^2 \implies \beta = 2k \implies k = \frac{1}{na}$$</p>
-                    <p>The equation transforms into the Whittaker form[cite: 1]:</p>
+                    <p>The equation transforms into the Whittaker form:</p>
                     $$\frac{\partial^2\varphi}{\partial \rho^2} + \left[ -\frac{1}{4} + \frac{n}{\rho} - \frac{l(l+1)}{\rho^2} \right]\varphi = 0$$
 
                     <h3>3. The Total Normalized Wavefunction</h3>
-                    <p>Using the Whittaker function $M_{n, l+1/2}$, we define the radial normalization constant $A$:</p>
-                    $$A = \left( \frac{2}{na_0} \int_0^{+\infty} M_{n, l+1/2}(2\rho) d\rho \right)^{-1}$$
+                    <p>Using the Whittaker function $M_{n, \ell+1/2}$, we define the radial normalization constant $A$:</p>
+                    $$A = \left( \frac{2}{na_0} \int_0^{+\infty} M_{n, \ell+1/2}(2\rho) d\rho \right)^{-1}$$
 
                     <p>The total wavefunction $\psi_{n,l,m,\alpha}$ including the spherical harmonics and the pauli spinor $\alpha$ is then:</p>
-                    $$\psi_{n,l,m,\alpha}(\mathbf{r}) = \frac{1}{r} A \cdot M_{n, l+1/2}\left( \frac{2r}{na} \right) Y_{lm}(\theta, \phi) \alpha$$
+                    $$\psi_{n,\ell,m,\alpha}(\mathbf{r}) = \frac{1}{r} A \cdot M_{n, l+1/2}\left( \frac{2r}{na} \right) Y_{lm}(\theta, \phi) \alpha$$
                     
                     <p>Where the angular momentum coupling is defined as:</p>
-                    $$ |l m_l \otimes s m_s\rangle = \sum_{\tau=|\ell-s|}^{l+s} C_{l m_l s m_s}^{\tau m_\tau} |\tau m_l+m_s\rangle$$
+                    $$ |\ell m_\ell \otimes s m_s\rangle = \sum_{\tau=|\ell-s|}^{l+s} C_{l m_\ell s m_s}^{\tau m_\tau} |\tau m_\ell+m_s\rangle$$
                 </section>
             </article>
         </main>
