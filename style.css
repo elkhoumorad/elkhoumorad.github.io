@@ -172,3 +172,86 @@ footer a:hover {
         grid-template-columns: 1fr;
     }
 }
+
+/* Card Container */
+.journal-card {
+    border-bottom: 1px solid #ddd;
+    margin-bottom: 20px;
+    padding-bottom: 20px;
+}
+
+/* Flexbox to create the two columns */
+.card-content {
+    display: flex;
+    gap: 20px;
+    align-items: flex-start;
+}
+
+/* Left Column: The Thumbnail */
+.card-thumbnail {
+    flex: 0 0 150px; /* Specific width for the thumbnail */
+    height: 100px;
+    border: 2px solid #333;
+    border-radius: 15px; /* Deeply rounded corners */
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    overflow: hidden;
+    background-color: #f0f0f0; /* Default background */
+    position: relative;
+}
+
+.thumbnail-img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+}
+
+/* Optional label for the thumbnail (as seen in your design) */
+.thumb-label {
+    position: absolute;
+    font-weight: bold;
+    color: #333;
+}
+
+/* Right Column: The Text (stacked title/legend) */
+.card-text {
+    flex: 1; /* Takes up remaining space */
+}
+
+.text-block {
+    border: 2px solid #333;
+    padding: 10px;
+    margin-bottom: 10px;
+}
+
+.title-block {
+    background-color: #fff;
+}
+
+.title-block h3 {
+    margin: 0;
+    font-size: 1.1rem;
+    color: #2c3e50;
+    text-align: center; /* Center bold text as requested */
+}
+
+.legend-block {
+    background-color: #fafafa;
+}
+
+.legend-block p {
+    margin: 0;
+    font-size: 0.9rem;
+    color: #555;
+    text-align: center; /* Center bold text as requested */
+}
+
+.read-more {
+    display: inline-block;
+    color: #007bff;
+    text-decoration: none;
+    font-weight: bold;
+    font-size: 0.9rem;
+}
+
