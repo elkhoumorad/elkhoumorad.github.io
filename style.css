@@ -251,3 +251,32 @@ footer a:hover {
     color: #004080; /* Darkens when hovered */
     text-decoration: underline;
 }
+
+/* Styling for the new metadata section */
+.card-meta {
+  display: flex;
+  gap: 16px; /* Space between the two dates */
+  margin-top: 8px;
+  margin-bottom: 12px;
+  font-size: 0.85rem;
+  color: #666; /* A subtle gray so it doesn't distract from the title */
+  font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Helvetica, Arial, sans-serif;
+}
+
+/* Aligning the SVG icons with the text */
+.meta-date, .meta-updated {
+  display: flex;
+  align-items: center;
+  gap: 5px;
+}
+
+/* Make the SVG icons match the text color exactly */
+.card-meta svg {
+  opacity: 0.7;
+}
+
+/* Optional: Emphasize the 'Updated' date slightly if you want it to stand out */
+.meta-updated {
+  color: #444;
+  font-style: italic;
+}
