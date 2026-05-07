@@ -286,14 +286,12 @@ footer a:hover {
     margin-bottom: 40px;
 }
 
-/* Update your existing journal-entry class */
+/* 1. Clean up journal-entry so it behaves as a standard column */
 .journal-entry {
-    display: grid;
-    /*grid-template-columns: 1fr 320px; /* Left is flexible math, Right is fixed image space */
-    gap: 50px;
-    max-width: 1200px;
-    margin: 0 auto;
-    align-items: start;
+    background: white; /* Matches homepage card style [cite: 66] */
+    border-radius: 8px;
+    padding: 25px;
+    display: block; /* Removes the 2-column grid "culprit"  */
 }
 /* Hide the sidebar on mobile phones so it stacks nicely */
 @media (max-width: 900px) {
@@ -304,6 +302,21 @@ footer a:hover {
 
 
 
+/* 2. Fix the header for the 3-column layout */
+.journal-entry .post-header {
+    text-align: center;
+    margin-bottom: 30px;
+    grid-column: auto; /* Overrides previous grid-spanning rules [cite: 107] */
+}
+
+
+/* 3. Ensure images in sidebars fit perfectly */
+.sidebar-box figure img {
+    width: 100%;
+    height: auto;
+    border-radius: 4px;
+    margin-bottom: 10px;
+}
 
 
 /* Only triggers on pages with <body class="article-page"> */
