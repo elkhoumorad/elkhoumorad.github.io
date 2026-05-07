@@ -309,7 +309,4 @@ footer a:hover {
     top: 20px; /* Keeps the figure visible while you scroll through the math */
 }
 
-/* The left side column */
-.content-body {
-    grid-column: 1;
-}
+
