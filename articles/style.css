@@ -107,6 +107,38 @@ header.site-header h1 {
 
 
 
+/* articles/style.css */
+
+/* Target the figure sidebar specifically for large plots */
+.article-page .main-wrapper > aside.sidebar-box:last-of-type {
+    padding: 10px; /* Removes most of the internal white padding */
+    width: 320px; /* Gives the whole column a bit more width to breathe */
+}
+
+.article-page .main-wrapper > aside.sidebar-box:last-of-type .sidebar-title {
+    padding-left: 10px; /* Re-centers the title since we removed the box padding */
+}
+
+/* Ensure the image stretches fully into that extra space */
+.article-page .main-wrapper > aside.sidebar-box:last-of-type img {
+    cursor: zoom-in; /* Changes the mouse to a magnifying glass on hover */
+    width: 100%;
+}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 
 
 /* articles/style.css */
