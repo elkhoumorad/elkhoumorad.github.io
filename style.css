@@ -270,18 +270,20 @@ footer a:hover {
     margin-top: 20px;
 }
 
-/* Title for the Articles section */
-.articles-grid::before {
-    content: "Latest Research Articles";
-    display: block;
-    font-size: 1.5rem;
-    font-weight: bold;
-    margin-bottom: 25px;
-    color: #333;
+/* Creates the two-column layout */
+.article-grid {
+    display: grid;
+    grid-template-columns: 1fr 300px; /* 1fr = Flexible space for math, 300px = fixed space for images */
+    gap: 40px; /* Space between the invisible wall */
+    align-items: start;
 }
 
 
-
+/* Tells the title to stretch across BOTH columns */
+.post-header {
+    grid-column: 1 / -1; 
+    margin-bottom: 30px;
+}
 
 /* Turns your main container into a 2-column layout */
 .journal-entry {
@@ -300,16 +302,14 @@ footer a:hover {
     }
 }
 
+/* Forces the image to stay strictly in the right column */
 .article-sidebar {
-    float: right;       /* Pushes it to the right */
-    width: 320px;       /* Keeps it at a consistent width */
-    margin-left: 30px;  /* Space between text and image */
-    margin-bottom: 20px;/* Space below the image */
+    grid-column: 2;
+    position: sticky; /* Optional: keeps the image on screen as you scroll down the math */
+    top: 20px;
 }
 
-/* This stops the float from "leaking" out of the section */
-.content-body::after {
-    content: "";
-    display: table;
-    clear: both;
+/* Forces the math to stay strictly in the left column */
+.content-body {
+    grid-column: 1;
 }
