@@ -212,3 +212,18 @@ header.site-header h1 {
     background-color: #fff9c4;
     transition: background-color 0.5s;
 }
+
+
+
+/* articles/style.css */
+
+.main-wrapper {
+    align-items: start; /* CRITICAL: Allows children to have their own height and stick */
+}
+
+.sidebar-box:last-of-type {
+    position: -webkit-sticky; /* Support for Safari */
+    position: sticky;
+    top: 20px;               /* Distance from the top of the viewport when scrolling */
+    z-index: 10;             /* Keeps it above the text flow */
+}
