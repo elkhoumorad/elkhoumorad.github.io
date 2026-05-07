@@ -65,18 +65,87 @@
         </ul>
     </aside>
 
+
+
+
+        
     <article class="journal-entry">
         <header class="post-header">
             <h2>Hydrogen Atom Wave Function...</h2>
         </header>
         <section class="content-body">
-            <p>Standard approaches to the Hydrogen atom...</p>
-            <div class="math-block">
-                \begin{equation} ... \end{equation}
-            </div>
-        </section>
+                    <p>Standard approaches to the Hydrogen atom often leap directly to Laguerre polynomials. Here, we maintain mathematical rigor by utilizing the Whittaker differential equation to solve the radial component.</p>
+
+                    <div class="math-block">
+                        <p>We begin with the time-independent Schrödinger equation:</p>
+                      \begin{equation}
+                        \left( -\frac{\hbar^2}{2m}\Delta - \frac{e^2}{4\pi\varepsilon r} \right)\psi = E\psi
+                          \label{eq:a1_1}
+                      \end{equation}
+                      
+                      
+                    </div>
+
+                    <h3>1. Radial Separation</h3>
+                    <p>Isolating the radial part $\psi_r$ and including the centrifugal term:</p>
+                      \begin{equation}
+                    \frac{\partial^2\psi_r}{\partial r^2} + \frac{2}{r}\frac{\partial\psi_r}{\partial r} + \left[ \frac{2mE}{\hbar^2} - \frac{\ell(\ell+1)}{r^2} + \frac{2me^2}{4\pi\varepsilon\hbar^2 r} \right]\psi_r = 0
+                      \label{eq:a1_2}
+                      \end{equation}
+
+
+
+                   
+
+
+
+
+
+                  
+                    <h3>2. Transformation to Whittaker Form</h3>
+                    <p>By defining the dimensionless variable $\rho$ and constants $k$ and $\beta$:</p>
+                      \begin{equation}
+                    \beta^2 = -4k^2 \implies \beta = 2k \implies k = \frac{1}{na}
+                      \label{eq:a1_3}
+                      \end{equation}
+                    
+                    <p>The equation transforms into the Whittaker form:</p>
+                      \begin{equation}
+                    \frac{\partial^2\varphi}{\partial \rho^2} + \left[ -\frac{1}{4} + \frac{n}{\rho} - \frac{\ell(\ell+1)}{\rho^2} \right]\varphi = 0
+                      \label{eq:a1_4}
+                      \end{equation}
+                    
+
+                      
+
+                    <h3>3. The Total Normalized Wavefunction</h3>
+                    <p>Using the Whittaker function $M_{n, \ell+1/2}$, we define the radial normalization constant $A$: </p>
+                      \begin{equation}
+                    A =  \sqrt{  \frac{2}{na_0 \int_0^{+\infty} M_{n, \ell+1/2}^2(\rho) d\rho}   } 
+                      \label{eq:a1_5}
+                      \end{equation}
+                   
+
+                    <p>The total wavefunction $\psi_{n,l,m,\alpha}$ including the spherical harmonics and the pauli spinor $\alpha$ is then: </p>
+                      \begin{equation}
+                    \psi_{n,\ell,m,\alpha}(\mathbf{r}) = \frac{1}{r} A \cdot M_{n, l+1/2}\left( \frac{2r}{na} \right) Y_{lm}(\theta, \phi) \otimes \alpha
+                      \label{eq:a1_6}
+                      \end{equation}
+                   
+                    <p>Where the angular momentum coupling is defined as:</p>
+                      \begin{equation}
+                     |\ell m_\ell \otimes s m_s\rangle = \sum_{\tau=|\ell-s|}^{\ell+s} C_{\ell m_\ell s m_s}^{\tau m_\tau} |\tau m_\ell+m_s\rangle
+                      \label{eq:a1_7}
+                      \end{equation}
+                      
+                </section>
     </article>
 
+
+
+
+
+        
     <aside class="sidebar-box">
         <h3 class="sidebar-title">Figures</h3>
         <figure>
