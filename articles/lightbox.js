@@ -1,21 +1,27 @@
-// articles/lightbox.js
+// articles/lightbox.js (Updated for Freedom/Multiple Figures)
 
 document.addEventListener('DOMContentLoaded', function() {
     const lightbox = document.getElementById('physics-lightbox');
     const lightboxImage = document.getElementById('lightbox-display');
+    const closeBtn = document.getElementById('lightbox-close');
     
-    // 1. Detect clicks on the SIDEBAR image
-    document.getElementById('thumbnail-fig1').addEventListener('click', function() {
-        lightbox.style.display = 'flex'; // Open the window
-        lightboxImage.src = this.src;     // Copy the Whittaker plot source
+    // 1. Target ALL elements with the class 'clickable-plot'
+    const figures = document.getElementsByClassName('clickable-plot');
+
+    // 2. Loop through every figure found and add the same logic to each
+    for (let figure of figures) {
+        figure.addEventListener('click', function() {
+            lightbox.style.display = 'flex'; // Open the window
+            lightboxImage.src = this.src;     // Copy the plot source
+        });
+    }
+
+    // 3. Close Logic (Remains unique/ID)
+    closeBtn.addEventListener('click', function() {
+        lightbox.style.display = 'none';
     });
 
-    // 2. Detect clicks on the CLOSE (x) button
-    document.getElementById('lightbox-close').addEventListener('click', function() {
-        lightbox.style.display = 'none'; // Close the window
-    });
-
-    // 3. Optional: Detect clicks on the dark background to close it
+    // 4. Background Click Logic (Remains unique/ID)
     lightbox.addEventListener('click', function(event) {
         if (event.target === this) {
             lightbox.style.display = 'none';
