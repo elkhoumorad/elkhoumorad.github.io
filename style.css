@@ -303,16 +303,45 @@ footer a:hover {
 }
 
 
-/* This ONLY triggers when you are on the article page */
+
+
+
+/* Only triggers on pages with <body class="article-page"> */
 .article-page .journal-entry {
     display: grid;
-    grid-template-columns: 1fr 320px; 
+    grid-template-columns: 1fr 320px; /* The 'culprit' is now safely locked in here */
     gap: 40px;
     max-width: 1200px;
     margin: 0 auto;
+    align-items: start;
 }
 
-/* This keeps the article title centered across the two columns */
+/* Make the title span the full width of the article */
 .article-page .post-header {
     grid-column: 1 / span 2;
+    text-align: center;
 }
+
+/* Keep math on the left column */
+.article-page .content-body {
+    grid-column: 1;
+}
+
+/* Keep image on the right column and make it follow you */
+.article-page .article-sidebar {
+    grid-column: 2;
+    position: sticky;
+    top: 20px;
+}
+
+/* Mobile Fix: Stack everything if the screen is too small */
+@media (max-width: 900px) {
+    .article-page .journal-entry {
+        grid-template-columns: 1fr;
+    }
+    .article-page .post-header, .article-page .article-sidebar {
+        grid-column: 1;
+    }
+}
+
+
