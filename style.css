@@ -337,7 +337,7 @@ footer a:hover {
 
 /* Keep math on the left column */
 .article-page .content-body {
-    grid-column: 1;
+    grid-column: 2;
 }
 
 /* Keep image on the right column and make it follow you */
