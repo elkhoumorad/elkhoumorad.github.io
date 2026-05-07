@@ -55,13 +55,13 @@
                 <p>We analyze the motion of a particle with mass $m$ in a central potential field $V(r) = -k/r$. We define the angular momentum $L$ and the Hamiltonian $H$[cite: 59, 60]:</p>
                 
                 \begin{equation}
-                    L = mrv \label{eq:a2_1}
+                    L = m\vec{r}\times\vect{v} \label{eq:a2_1}
                 \end{equation}
                 \begin{equation}
                     H = \frac{p^2}{2m} - \frac{k}{r} \label{eq:a2_2}
                 \end{equation}
 
-                <p>When dealing with the Coulomb interaction, k is written as follows:</p>
+                <p>When dealing with the Coulomb interaction, $k$ is written as follows:</p>
                 \begin{equation}
                     k = \frac{e^2}{4\pi\varepsilon_0}
                 \label{eq:a2_3}
@@ -91,6 +91,13 @@
                 \end{equation}
 
                 <p>This equation is so useful becasue it links the angular acceleration $\ddot{\theta}$ with the angular velocity $\dot{\theta}$.</p>
+                <p>Next, we calculate the angular momentum $L$ by evaluating the vector product between $\vec{r}$ and $\vec{v}$, which filter out the components that have the same direction, in other word, only the $\vect{e_\theta}$ remains.</p>
+                
+                \begin{equation}
+                L=mr^2\dot{\theta}
+                \label{eq:a2_8}
+                \end{equation}
+                
 
                 
 
@@ -98,26 +105,26 @@
                 <p>Using the conservation of angular momentum $\dot{\theta} = L/mr^2$ [cite: 69], the radial acceleration becomes[cite: 68, 70]:</p>
                 \begin{equation}
                     \ddot{r} = \frac{L^2}{m^2r^3} - \frac{k}{mr^2}
-                \label{eq:a2_8}
+                \label{eq:a2_9}
                 \end{equation}
 
                 <p>Substituting $u = 1/r$ [cite: 72], we arrive at the differential equation for the orbit[cite: 74]:</p>
                 \begin{equation}
                     \frac{d^2u}{d\theta^2} + u = \frac{mk}{L^2}
-                \label{eq:a2_9}
+                \label{eq:a2_10}
                 \end{equation}
 
                 <p>The general solution for the path $r(\theta)$ is[cite: 75, 81]:</p>
                 \begin{equation}
                     r(\theta) = \frac{L^2/mk}{1 + \sqrt{1+\frac{2EL^2}{mk^2}}\cos\theta}
-                \label{eq:a2_10}
+                \label{eq:a2_11}
                 \end{equation}
                 <p>Where the eccentricity $\varepsilon$ is related to the energy $E$[cite: 79, 80].</p>
 
 
                 \begin{equation}
                     \varepsilon = \sqrt{1+\frac{2EL^2}{mk^2}}
-                \label{eq:a2_11}
+                \label{eq:a2_12}
                 \end{equation}
 
 
@@ -127,7 +134,7 @@
 
                 \begin{equation}
                     L = n\hbar
-                \label{eq:a2_12}
+                \label{eq:a2_13}
                 \end{equation}
 
 
@@ -136,7 +143,7 @@
                 <p>Finally, we relate the system energy to the fundamental constants[cite: 83, 84]:</p>
                 \begin{equation}
                     E(\varepsilon) = -\frac{1}{n^2} \frac{me^4}{32\pi^2\epsilon_0^2\hbar^2} (1 - \varepsilon^2)
-                \label{eq:a2_13}
+                \label{eq:a2_14}
                 \end{equation}
                 <p>The energy is minimized at $\varepsilon=0$, which gives the correct energy for the hydrgen atom. This shows that the orbits are circular following the fact that $\varepsilon = 0$.</p>
             </section>
