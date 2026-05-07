@@ -303,4 +303,16 @@ footer a:hover {
 }
 
 
+/* This ONLY triggers when you are on the article page */
+.article-page .journal-entry {
+    display: grid;
+    grid-template-columns: 1fr 320px; 
+    gap: 40px;
+    max-width: 1200px;
+    margin: 0 auto;
+}
 
+/* This keeps the article title centered across the two columns */
+.article-page .post-header {
+    grid-column: 1 / span 2;
+}
