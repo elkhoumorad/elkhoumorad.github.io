@@ -100,3 +100,50 @@ header.site-header h1 {
     }
     .main-wrapper > aside:first-of-type { display: none; }
 }
+
+
+
+
+
+
+
+
+
+/* articles/style.css */
+
+/* THE HIDDEN CONTAINER */
+.lightbox-overlay {
+    display: none;              /* Hidden by default, JS reveals it */
+    position: fixed;            /* Sits on top of the math */
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background-color: rgba(0, 0, 0, 0.9); /* Dark backdrop */
+    z-index: 9999;              /* Higher than any sticky headers */
+    justify-content: center;    /* Center the figure */
+    align-items: center;
+}
+
+/* THE ENLARGED PLOT */
+.lightbox-overlay img {
+    max-width: 90%;             /* Make it take up most of the screen */
+    max-height: 90%;
+    border-radius: 8px;
+    box-shadow: 0 10px 30px rgba(0,0,0,0.5);
+}
+
+/* THE CLOSE (x) BUTTON */
+.lightbox-close-btn {
+    position: absolute;
+    top: 20px;
+    right: 40px;
+    color: white;
+    font-size: 50px;
+    cursor: pointer;
+    transition: color 0.2s;
+}
+
+.lightbox-close-btn:hover {
+    color: #ff4d4d; /* Red highlight on hover */
+}
