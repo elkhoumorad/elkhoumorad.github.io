@@ -279,22 +279,22 @@ footer a:hover {
 }
 
 
-/* Tells the title to stretch across BOTH columns */
+/* Ensure the title stays centered and takes the full width */
 .post-header {
-    grid-column: 1 / -1; 
-    margin-bottom: 30px;
+    grid-column: 1 / span 2;
+    text-align: center;
+    margin-bottom: 40px;
 }
 
-/* Turns your main container into a 2-column layout */
+/* Update your existing journal-entry class */
 .journal-entry {
     display: grid;
-    grid-template-columns: 1fr 350px; /* Main text scales, sidebar stays 350px */
-    gap: 60px;
+    grid-template-columns: 1fr 320px; /* Left is flexible math, Right is fixed image space */
+    gap: 50px;
     max-width: 1200px;
     margin: 0 auto;
     align-items: start;
 }
-
 /* Hide the sidebar on mobile phones so it stacks nicely */
 @media (max-width: 900px) {
     .journal-entry {
@@ -302,14 +302,14 @@ footer a:hover {
     }
 }
 
-/* Forces the image to stay strictly in the right column */
+/* The right side column */
 .article-sidebar {
     grid-column: 2;
-    position: sticky; /* Optional: keeps the image on screen as you scroll down the math */
-    top: 20px;
+    position: sticky;
+    top: 20px; /* Keeps the figure visible while you scroll through the math */
 }
 
-/* Forces the math to stay strictly in the left column */
+/* The left side column */
 .content-body {
     grid-column: 1;
 }
