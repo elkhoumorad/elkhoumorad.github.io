@@ -16,7 +16,9 @@
   <script>
   window.MathJax = {
     tex: {
-      tags: 'ams' // This is the magic line for auto-numbering
+      tags: 'ams', // Enables equation numbering
+      inlineMath: [['$', '$'], ['\\(', '\\)']],
+      displayMath: [['$$', '$$'], ['\\[', '\\]']]
     }
   };
 </script>
@@ -27,11 +29,7 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Hydrogen Atom: Whittaker Perspective | The Time Reversal</title>
-    <!-- MathJax Configuration for better rendering -->
-    <script>
-        window.MathJax = { tex: { inlineMath: [['$', '$'], ['\\(', '\\)']] } };
-    </script>
-    <script src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js"></script>
+    
     <link rel="stylesheet" href="../../style.css">
 </head>
 
