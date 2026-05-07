@@ -300,4 +300,16 @@ footer a:hover {
     }
 }
 
+.article-sidebar {
+    float: right;       /* Pushes it to the right */
+    width: 320px;       /* Keeps it at a consistent width */
+    margin-left: 30px;  /* Space between text and image */
+    margin-bottom: 20px;/* Space below the image */
+}
 
+/* This stops the float from "leaking" out of the section */
+.content-body::after {
+    content: "";
+    display: table;
+    clear: both;
+}
