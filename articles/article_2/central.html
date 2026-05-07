@@ -1,1 +1,134 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <script async src="https://www.googletagmanager.com/gtag/js?id=G-922TS18EDX"></script>
+    <script>
+      window.dataLayer = window.dataLayer || [];
+      function gtag(){dataLayer.push(arguments);}
+      gtag('js', new Date());
+      gtag('config', 'G-922TS18EDX');
+    </script>
 
+    <script>
+      window.MathJax = {
+        tex: {
+          tags: 'ams',
+          inlineMath: [['$', '$'], ['\\(', '\\)']],
+          displayMath: [['$$', '$$'], ['\\[', '\\]']]
+        }
+      };
+    </script>
+    <script id="MathJax-script" async src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js"></script>
+
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Classical Central Potential | The Time Reversal</title>
+    <link rel="stylesheet" href="../style.css">
+</head>
+
+<body class="article-page">
+    <nav class="top-nav">
+        <a href="https://thetimereversal.com/" class="back-link">← Back to The Time Reversal Lab</a>
+    </nav>
+
+    <header class="site-header">
+        <h1>The Time Reversal</h1>
+        <p class="tagline">The Mathematical Way of Doing Physics</p>
+        <div class="header-divider"></div>
+    </header>
+
+    <main class="main-wrapper">
+        <aside class="sidebar-box">
+            <h3 class="sidebar-title">Quick Links</h3>
+            <ul class="recent-list">
+                <li><a href="#">Orbital Simulator</a></li>
+                <li><a href="#">Keplerian Dynamics</a></li>
+            </ul>
+        </aside>
+
+        <article class="journal-entry">
+            <header class="post-header">
+                <h2>Classical Central Potential: Orbital Dynamics</h2>
+            </header>
+            
+            <section class="content-body">
+                <p>We analyze the motion of a particle with mass $m$ in a central potential field $V(r) = -k/r$. We define the angular momentum $L$ and the Hamiltonian $H$[cite: 59, 60]:</p>
+                
+                \begin{equation}
+                    L = mrv \label{eq:cp_1}
+                \end{equation}
+                \begin{equation}
+                    H = \frac{p^2}{2m} - \frac{k}{r} \label{eq:cp_2}
+                \end{equation}
+
+                <p>The velocity and momentum relationship is established via the Lagrangian[cite: 61, 62]:</p>
+                \begin{equation}
+                    \frac{\partial L}{\partial v} = mv = p \implies H = \frac{1}{2}mv^2 - \frac{k}{r} \label{eq:cp_3}
+                \end{equation}
+
+                <h3>1. Kinematics in Polar Coordinates</h3>
+                <p>Expressing position $\vec{r}$, velocity $\vec{v}$, and acceleration $\vec{a}$ in polar unit vectors[cite: 65, 66, 67]:</p>
+                \begin{equation}
+                    \vec{r} = r\hat{e}_r
+                \end{equation}
+                \begin{equation}
+                    \vec{v} = \dot{r}\hat{e}_r + r\dot{\theta}\hat{e}_\theta
+                \end{equation}
+                \begin{equation}
+                    \vec{a} = (\ddot{r} - r\dot{\theta}^2)\hat{e}_r + (2\dot{r}\dot{\theta} + r\ddot{\theta})\hat{e}_\theta
+                \end{equation}
+
+                <h3>2. The Equation of the Orbit</h3>
+                <p>Using the conservation of angular momentum $\dot{\theta} = L/mr^2$ [cite: 69], the radial acceleration becomes[cite: 68, 70]:</p>
+                \begin{equation}
+                    \ddot{r} = \frac{L^2}{m^2r^3} - \frac{k}{mr^2}
+                \end{equation}
+
+                <p>Substituting $u = 1/r$ [cite: 72], we arrive at the differential equation for the orbit[cite: 74]:</p>
+                \begin{equation}
+                    \frac{d^2u}{d\theta^2} + u = \frac{mk}{L^2}
+                \end{equation}
+
+                <p>The general solution for the path $r(\theta)$ is[cite: 75, 81]:</p>
+                \begin{equation}
+                    r(\theta) = \frac{L^2/mk}{1 + \varepsilon\cos\theta}
+                \end{equation}
+                <p>Where the eccentricity $\varepsilon$ is related to the energy $E$[cite: 79, 80].</p>
+
+                <h3>3. Energy States</h3>
+                <p>Finally, we relate the system energy to the fundamental constants[cite: 83, 84]:</p>
+                \begin{equation}
+                    E = -\frac{1}{n^2} \frac{me^4}{32\pi^2\epsilon_0^2\hbar^2} (1 - \varepsilon^2)
+                \end{equation}
+            </section>
+
+            <section class="references-section">
+                <h3 class="sidebar-title">References</h3>
+                <ol class="bib-list">
+                    <li id="ref1">Goldstein, H. (1980). <i>Classical Mechanics</i>. Addison-Wesley.</li>
+                    <li id="ref2">Landau, L. D., & Lifshitz, E. M. (1976). <i>Mechanics</i>. Pergamon Press.</li>
+                </ol>
+            </section>
+        </article>
+
+        <aside class="sidebar-box">
+            <h3 class="sidebar-title">Figures</h3>
+            <figure>
+                <img id="fig-orbit" src="orbit_plot.png" alt="Orbital Trajectory" class="clickable-plot">
+                <figcaption>Fig 1: Classical trajectory for $E < 0$.</figcaption>
+            </figure>
+            <figure>
+                <img id="fig-pot" src="potential_well.png" alt="Effective Potential" class="clickable-plot">
+                <figcaption>Fig 2: Effective potential well.</figcaption>
+            </figure>
+        </aside>
+    </main>
+
+    <div id="physics-lightbox" class="lightbox-overlay">
+        <span id="lightbox-close" class="lightbox-close-btn">&times;</span>
+        <img id="lightbox-display" src="" alt="Enlarged View">
+    </div>
+
+    <script src="../lightbox.js"></script>
+</body>
+</html>
