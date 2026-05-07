@@ -55,51 +55,60 @@
                 <p>We analyze the motion of a particle with mass $m$ in a central potential field $V(r) = -k/r$. We define the angular momentum $L$ and the Hamiltonian $H$[cite: 59, 60]:</p>
                 
                 \begin{equation}
-                    L = mrv \label{eq:cp_1}
+                    L = mrv \label{eq:a2_1}
                 \end{equation}
                 \begin{equation}
-                    H = \frac{p^2}{2m} - \frac{k}{r} \label{eq:cp_2}
+                    H = \frac{p^2}{2m} - \frac{k}{r} \label{eq:a2_2}
                 \end{equation}
 
                 <p>The velocity and momentum relationship is established via the Lagrangian[cite: 61, 62]:</p>
                 \begin{equation}
-                    \frac{\partial L}{\partial v} = mv = p \implies H = \frac{1}{2}mv^2 - \frac{k}{r} \label{eq:cp_3}
+                    \frac{\partial L}{\partial v} = mv = p \implies H = \frac{1}{2}mv^2 - \frac{k}{r}
+                \label{eq:a2_3}
                 \end{equation}
 
                 <h3>1. Kinematics in Polar Coordinates</h3>
                 <p>Expressing position $\vec{r}$, velocity $\vec{v}$, and acceleration $\vec{a}$ in polar unit vectors[cite: 65, 66, 67]:</p>
                 \begin{equation}
                     \vec{r} = r\hat{e}_r
+                \label{eq:a2_4}
                 \end{equation}
                 \begin{equation}
                     \vec{v} = \dot{r}\hat{e}_r + r\dot{\theta}\hat{e}_\theta
+                \label{eq:a2_5}
                 \end{equation}
                 \begin{equation}
                     \vec{a} = (\ddot{r} - r\dot{\theta}^2)\hat{e}_r + (2\dot{r}\dot{\theta} + r\ddot{\theta})\hat{e}_\theta
+                \label{eq:a2_6}
                 \end{equation}
 
                 <h3>2. The Equation of the Orbit</h3>
                 <p>Using the conservation of angular momentum $\dot{\theta} = L/mr^2$ [cite: 69], the radial acceleration becomes[cite: 68, 70]:</p>
                 \begin{equation}
                     \ddot{r} = \frac{L^2}{m^2r^3} - \frac{k}{mr^2}
+                \label{eq:a2_7}
                 \end{equation}
 
                 <p>Substituting $u = 1/r$ [cite: 72], we arrive at the differential equation for the orbit[cite: 74]:</p>
                 \begin{equation}
                     \frac{d^2u}{d\theta^2} + u = \frac{mk}{L^2}
+                \label{eq:a2_8}
                 \end{equation}
 
                 <p>The general solution for the path $r(\theta)$ is[cite: 75, 81]:</p>
                 \begin{equation}
                     r(\theta) = \frac{L^2/mk}{1 + \varepsilon\cos\theta}
+                \label{eq:a2_9}
                 \end{equation}
                 <p>Where the eccentricity $\varepsilon$ is related to the energy $E$[cite: 79, 80].</p>
 
                 <h3>3. Energy States</h3>
                 <p>Finally, we relate the system energy to the fundamental constants[cite: 83, 84]:</p>
                 \begin{equation}
-                    E = -\frac{1}{n^2} \frac{me^4}{32\pi^2\epsilon_0^2\hbar^2} (1 - \varepsilon^2)
+                    E(\varepsilon) = -\frac{1}{n^2} \frac{me^4}{32\pi^2\epsilon_0^2\hbar^2} (1 - \varepsilon^2)
+                \label{eq:a2_10}
                 \end{equation}
+                <p>The energy is minimized at $\varepsilon=0$, which gives the correct energy for the hydrgen atom. This shows that the orbits are circular following the fact that $\varepsilon = 0$.</p>
             </section>
 
             <section class="references-section">
