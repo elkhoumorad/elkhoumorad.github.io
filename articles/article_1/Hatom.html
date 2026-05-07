@@ -12,7 +12,18 @@
   gtag('config', 'G-922TS18EDX');
 </script>
 
-    
+<!-- Equation numbering  -->
+  <script>
+  window.MathJax = {
+    tex: {
+      tags: 'ams' // This is the magic line for auto-numbering
+    }
+  };
+</script>
+<script id="MathJax-script" async src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js"></script>
+
+
+  
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Hydrogen Atom: Whittaker Perspective | The Time Reversal</title>
@@ -46,7 +57,9 @@
 
                     <div class="math-block">
                         <p>We begin with the time-independent Schrödinger equation:</p>
-                        $$\left( -\frac{\hbar^2}{2m}\Delta - \frac{e^2}{4\pi\varepsilon r} \right)\psi = E\psi$$
+                      \begin{equation}
+                        \left( -\frac{\hbar^2}{2m}\Delta - \frac{e^2}{4\pi\varepsilon r} \right)\psi = E\psi
+                      \end{equation}
                     </div>
 
                     <h3>1. Radial Separation</h3>
