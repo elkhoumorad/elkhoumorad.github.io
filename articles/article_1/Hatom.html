@@ -112,7 +112,7 @@
                       <p>Upon applying the orbital angular momentum operator on a random state we get:</p>
 
                       \begin{equation}
-                      \hat{L}^2 f(\theta,\phi) = \hbar^2 \ell(\ell+1) f(\theta,\phi)
+                      \hat{L}^2 f(\theta,\phi) = \ell(\ell+1) f(\theta,\phi)
                       \label{eq:a1_5}
                       \end{equation}
 
@@ -135,13 +135,13 @@
 
                     \begin{equation}
                     a=\frac{me^2}{4\pi\varepsilon\hbar^2} \ \ \ \ \ \ k^2=\frac{2mE}{\hbar^2}
-                      \label{eq:a1_5}
+                      \label{eq:a1_7}
                       \end{equation}
           <p>Which makes our differential equation look much cleaner</p>
 
           \begin{equation}
                     \frac{\partial^2\psi_r}{\partial r^2} + \frac{2}{r}\frac{\partial\psi_r}{\partial r} + \left[ k^2 - \frac{\ell(\ell+1)}{r^2} + \frac{2}{a r} \right]\psi_r = 0
-                      \label{eq:a1_4}
+                      \label{eq:a1_8}
                       \end{equation}
 
 
@@ -160,14 +160,14 @@
                     <h3>2. Transformation to Whittaker Form</h3>
                     <p>By defining the dimensionless variable $\rho$ and constants $k$ and $\beta$:</p>
                       \begin{equation}
-                    \beta^2 = -4k^2 \implies \beta = 2k \implies k = \frac{1}{na}
-                      \label{eq:a1_4}
+                    \beta^2 = -4k^2 \ \ \ \ \ \ k = \frac{1}{na}
+                      \label{eq:a1_9}
                       \end{equation}
                     
                     <p>The equation transforms into the Whittaker form[<a href="#ref1">1</a>]:</p>
                       \begin{equation}
                     \frac{\partial^2\varphi}{\partial \rho^2} + \left[ -\frac{1}{4} + \frac{n}{\rho} - \frac{\ell(\ell+1)}{\rho^2} \right]\varphi = 0
-                      \label{eq:a1_4}
+                      \label{eq:a1_10}
                       \end{equation}
                     
 
@@ -177,20 +177,20 @@
                     <p>Using the Whittaker function $M_{n, \ell+1/2}$, we define the radial normalization constant $A$: </p>
                       \begin{equation}
                     A =  \sqrt{  \frac{2}{na_0 \int_0^{+\infty} M_{n, \ell+1/2}^2(\rho) d\rho}   } 
-                      \label{eq:a1_5}
+                      \label{eq:a1_11}
                       \end{equation}
                    
 
                     <p>The total wavefunction $\psi_{n,l,m,\alpha}$ including the spherical harmonics and the pauli spinor $\alpha$ is then: </p>
                       \begin{equation}
                     \psi_{n,\ell,m,\alpha}(\mathbf{r}) = \frac{1}{r} A \cdot M_{n, l+1/2}\left( \frac{2r}{na} \right) Y_{lm}(\theta, \phi) \otimes \alpha
-                      \label{eq:a1_6}
+                      \label{eq:a1_12}
                       \end{equation}
                    
                     <p>Where the angular momentum coupling is defined as:</p>
                       \begin{equation}
                      |\ell m_\ell \otimes s m_s\rangle = \sum_{\tau=|\ell-s|}^{\ell+s} C_{\ell m_\ell s m_s}^{\tau m_\tau} |\tau m_\ell+m_s\rangle
-                      \label{eq:a1_7}
+                      \label{eq:a1_13}
                       \end{equation}
                       
                 </section>
