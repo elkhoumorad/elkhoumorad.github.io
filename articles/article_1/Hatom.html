@@ -158,16 +158,37 @@
 
                   
                     <h3>2. Transformation to Whittaker Form</h3>
-                    <p>By defining the dimensionless variable $\rho$ and constants $k$ and $\beta$:</p>
+                    <p>In order to find the Whittaker differential equation form, we need to perform a smal change of variable:</p>
                       \begin{equation}
-                    \beta^2 = -4k^2 \ \ \ \ \ \ k = \frac{1}{na}
+                    \phi(r)= \frac{\psi_r(r)}{r}
                       \label{eq:a1_9}
+                      \end{equation}
+
+                    <p>This will end up removing this term $\frac{2}{r}\frac{\partial\psi_r}{\partial r}$, then we multiply our resultant differential equation with $1/\beta^2$</p>
+
+                    \begin{equation}
+                    \frac{\partial^2\phi}{\partial \beta^2 r^2}  + \left[ \frac{k^2}{\beta^2} - \frac{\ell(\ell+1)}{\beta^2 r^2} + \frac{2}{a \beta^2 r} \right]\phi = 0
+                      \label{eq:a1_10}
+                      \end{equation}
+
+          <p>We define a new variable $\rho$</p>
+
+          \begin{equation}
+                    \rho = \beta r
+                      \label{eq:a1_11}
+                      \end{equation}
+
+          <p>Which allows us to write the differential equation as follows:</p>
+
+          \begin{equation}
+                    \frac{\partial^2\phi}{\partial \rho^2}  + \left[ \frac{k^2}{\beta^2} - \frac{\ell(\ell+1)}{\rho^2} + \frac{2/a\beta^2}{\rho} \right]\phi = 0
+                      \label{eq:a1_12}
                       \end{equation}
                     
                     <p>The equation transforms into the Whittaker form[<a href="#ref1">1</a>]:</p>
                       \begin{equation}
                     \frac{\partial^2\varphi}{\partial \rho^2} + \left[ -\frac{1}{4} + \frac{n}{\rho} - \frac{\ell(\ell+1)}{\rho^2} \right]\varphi = 0
-                      \label{eq:a1_10}
+                      \label{eq:a1_13}
                       \end{equation}
                     
 
@@ -177,20 +198,20 @@
                     <p>Using the Whittaker function $M_{n, \ell+1/2}$, we define the radial normalization constant $A$: </p>
                       \begin{equation}
                     A =  \sqrt{  \frac{2}{na_0 \int_0^{+\infty} M_{n, \ell+1/2}^2(\rho) d\rho}   } 
-                      \label{eq:a1_11}
+                      \label{eq:a1_14}
                       \end{equation}
                    
 
                     <p>The total wavefunction $\psi_{n,l,m,\alpha}$ including the spherical harmonics and the pauli spinor $\alpha$ is then: </p>
                       \begin{equation}
                     \psi_{n,\ell,m,\alpha}(\mathbf{r}) = \frac{1}{r} A \cdot M_{n, l+1/2}\left( \frac{2r}{na} \right) Y_{lm}(\theta, \phi) \otimes \alpha
-                      \label{eq:a1_12}
+                      \label{eq:a1_15}
                       \end{equation}
                    
                     <p>Where the angular momentum coupling is defined as:</p>
                       \begin{equation}
                      |\ell m_\ell \otimes s m_s\rangle = \sum_{\tau=|\ell-s|}^{\ell+s} C_{\ell m_\ell s m_s}^{\tau m_\tau} |\tau m_\ell+m_s\rangle
-                      \label{eq:a1_13}
+                      \label{eq:a1_16}
                       \end{equation}
                       
                 </section>
