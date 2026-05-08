@@ -227,13 +227,13 @@
                 <button class="calc-btn" onclick="insert('4')">4</button>
                 <button class="calc-btn" onclick="insert('5')">5</button>
                 <button class="calc-btn" onclick="insert('6')">6</button>
-                <button class="calc-btn" onclick="insert('c0')">c0</button>
+                <button class="calc-btn" onclick="insert('c0')">c</button>
                 <button class="calc-btn op" onclick="insert('-')">-</button>
 
                 <button class="calc-btn" onclick="insert('1')">1</button>
                 <button class="calc-btn" onclick="insert('2')">2</button>
                 <button class="calc-btn" onclick="insert('3')">3</button>
-                <button class="calc-btn" onclick="insert('m0')">m0</button>
+                <button class="calc-btn" onclick="insert('m0')">me</button>
                 <button class="calc-btn op" onclick="insert('+')">+</button>
 
                 <button class="calc-btn" onclick="insert('0')" style="grid-column: span 2;">0</button>
@@ -247,13 +247,13 @@
             <h3 class="sidebar-title">Loaded Constants</h3>
             <p style="font-size: 0.8rem; color: var(--text-muted); margin-top: -10px;">Click to insert</p>
             <ul class="constant-list">
-                <li onclick="insert('c0')"><span>c0</span> <span>2.997e8</span></li>
+                <li onclick="insert('c0')"><span>c</span> <span>2.997e8</span></li>
                 <li onclick="insert('Na')"><span>Na</span> <span>6.022e23</span></li>
-                <li onclick="insert('m0')"><span>m0</span> <span>9.109e-31</span></li>
+                <li onclick="insert('m0')"><span>me</span> <span>9.109e-31</span></li>
                 <li onclick="insert('e')"><span>e</span> <span>1.602e-19</span></li>
                 <li onclick="insert('eps0')"><span>eps0</span> <span>8.854e-12</span></li>
                 <li onclick="insert('h')"><span>h (reduced)</span> <span>1.054e-34</span></li>
-                <li onclick="insert('k0')"><span>k0</span> <span>1.380e-23</span></li>
+                <li onclick="insert('k0')"><span>kb</span> <span>1.380e-23</span></li>
             </ul>
         </aside>
     </main>
@@ -261,13 +261,13 @@
     <script>
         // --- 1. Initialize Math.js Scope with your custom constants ---
         const scope = {
-            c0: 299792458,
+            c: 299792458,
             Na: 6.02214076e23,
-            m0: 9.1093837015e-31,
+            me: 9.1093837015e-31,
             e: 1.602176634e-19,
             eps0: 8.8541878128e-12,
             h: 1.054571817e-34, 
-            k0: 1.380648520e-23
+            kb: 1.380648520e-23
         };
 
         const inputField = document.getElementById('calc-input');
