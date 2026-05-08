@@ -1,1 +1,162 @@
+body {
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+    line-height: 1.6;
+    padding: 20px;
+    max-width: 800px;
+    margin: auto;
+    background-color: #f4f4f9;
+}
 
+header {
+    text-align: center;
+    border-bottom: 2px solid #333;
+    margin-bottom: 30px;
+}
+
+.content {
+    /* Widen the center to use almost the entire screen */
+    width: 120%; 
+    max-width: none; /* Removes the 1200px or 1600px "ceiling" */
+    
+    margin: 10px auto;
+    padding: 20px;
+    background-color: #fff;
+    border-radius: 12px;
+    box-shadow: 0 4px 15px rgba(0,0,0,0.1);
+    
+    /* Ensures the content inside doesn't touch the very edge */
+    box-sizing: border-box;
+}
+
+/* Table Styling */
+table {
+    border-collapse: collapse;
+    width: 100%;
+    margin: 20px 0;
+    font-family: 'Times New Roman', serif;
+}
+
+th, td {
+    border: 1px solid #ddd;
+    padding: 12px;
+    text-align: center;
+}
+
+th {
+    background-color: #333;
+    color: white;
+}
+
+tr:nth-child(even) {
+    background-color: #f9f9f9;
+}
+
+#input-section {
+    margin-top: 20px;
+}
+
+input[type="text"] {
+    padding: 8px;
+    width: 200px;
+}
+
+button {
+    padding: 8px 15px;
+    background-color: #007bff;
+    color: white;
+    border: none;
+    cursor: pointer;
+}
+
+button:hover {
+    background-color: #0056b3;
+}
+
+#result-display {
+    margin-top: 30px;
+    padding: 15px;
+    background: #eef;
+    border-left: 5px solid #007bff;
+}
+
+
+/* ... keep your previous styles ... */
+
+#dynamic-inputs {
+    display: flex;
+    flex-wrap: nowrap; /* Prevents boxes from jumping to the next line */
+    gap: 10px;
+    margin: 20px 0;
+    overflow-x: auto; /* Adds a scrollbar if the screen is too small */
+    padding-bottom: 10px;
+}
+
+.char-case {
+    flex: 0 0 auto; /* Prevents the boxes from shrinking */
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
+.char-case input {
+    width: 60px; /* Slightly narrower to help them fit */
+    text-align: center;
+}
+
+.char-case label {
+    font-size: 0.9rem;
+    color: #555;
+}
+
+#output {
+    font-size: 1.4rem;
+    font-family: 'Times New Roman', serif;
+}
+
+/* This allows the table to scroll horizontally on small screens or for large groups */
+#table-container {
+    width: 100%;
+    overflow-x: auto; /* Adds a scrollbar only if the group is still too big for the screen */
+}
+
+/* Ensure the table doesn't shrink its columns too much */
+table {
+    width: 100%;
+    border-collapse: collapse;
+    /* This allows columns to breathe based on the math symbols inside */
+    table-layout: auto;
+}
+
+/* Optional: Make the header cells wrap if they are too long */
+th {
+    white-space: nowrap;
+    padding: 10px 5px;
+}
+
+.button-group {
+    display: flex;
+    gap: 15px;
+    margin-top: 20px;
+}
+
+.calc-btn {
+    background-color: #007bff;
+    color: white;
+    padding: 10px 25px;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+}
+
+.reset-btn {
+    background-color: #6c757d; /* A neutral gray color */
+    color: white;
+    padding: 10px 25px;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+}
+
+.reset-btn:hover {
+    background-color: #5a6268;
+}
