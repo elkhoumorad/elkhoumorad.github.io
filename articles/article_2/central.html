@@ -110,17 +110,32 @@
                 \label{eq:a2_9}
                 \end{equation}
 
+                <p>First we need reparamterize the differential equation from temporal to $\theta$-dependent, we can achieve this by the following:</p>
+
+                \begin{equation}
+                \frac{dr}{dt} = \frac{d\theta}{dt}\frac{dr}{d\theta}=\frac{L}{mr^2}\frac{dr}{d\theta}
+                \label{eq:a2_10}
+                \end{equation}
+
+                \begin{equation}
+                \frac{d^2r}{dt^2} = \frac{L^2}{m^2r^4}\frac{d^2r}{d\theta^2}-\frac{2L^2}{m^2r^5}\left( \frac{dr}{d\theta} \right)^2
+                \label{eq:a2_11}
+                \end{equation}
+
+
+                
+
                 <p>Substituting $u = 1/r$ [cite: 72], we arrive at the differential equation for the orbit:</p>
                 \begin{equation}
                     \frac{d^2u}{d\theta^2} + u = \frac{mk}{L^2}
-                \label{eq:a2_10}
+                \label{eq:a2_12}
                 \end{equation}
 
 
                 <p>This equation admits the following solution:</p>
                 \begin{equation}
                 u = A\cos(\theta)+\frac{mk}{L^2}
-                \label{eq:a2_11}
+                \label{eq:a2_13}
                 \end{equation}
 
                 
@@ -128,7 +143,7 @@
                 \begin{equation}
                 
                 A = \frac{mk}{L^2} \sqrt{1+\frac{2EL^2}{mk^2}}
-                \label{eq:a2_12}
+                \label{eq:a2_14}
                 \end{equation}
 
 
@@ -138,14 +153,14 @@
                 <p>The general solution for the path $r(\theta)$ is[cite: 75, 81]:</p>
                 \begin{equation}
                     r(\theta) = \frac{L^2/mk}{1 + \sqrt{1+\frac{2EL^2}{mk^2}}\cos\theta}
-                \label{eq:a2_13}
+                \label{eq:a2_15}
                 \end{equation}
                 <p>Where the eccentricity $\varepsilon$ is related to the energy $E$.</p>
 
 
                 \begin{equation}
                     \varepsilon = \sqrt{1+\frac{2EL^2}{mk^2}}
-                \label{eq:a2_14}
+                \label{eq:a2_16}
                 \end{equation}
 
 
@@ -155,7 +170,7 @@
 
                 \begin{equation}
                     L = n\hbar
-                \label{eq:a2_15}
+                \label{eq:a2_17}
                 \end{equation}
 
 
@@ -164,7 +179,7 @@
                 <p>Finally, we relate the system energy to the fundamental constants:</p>
                 \begin{equation}
                     E(\varepsilon) = -\frac{1}{n^2} \frac{me^4}{32\pi^2\epsilon_0^2\hbar^2} (1 - \varepsilon^2)
-                \label{eq:a2_16}
+                \label{eq:a2_18}
                 \end{equation}
                 <p>The energy is minimized at $\varepsilon=0$, which gives the correct energy for the hydrgen atom. This shows that the orbits are circular following the fact that $\varepsilon = 0$.</p>
             </section>
