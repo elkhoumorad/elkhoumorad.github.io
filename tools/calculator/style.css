@@ -46,9 +46,9 @@
         /* --- Calculator Layout --- */
         .main-wrapper {
             display: grid;
-            grid-template-columns: 1fr 400px; /* Main Calc | Sidebar Constants */
+            grid-template-columns: 1fr 450px; /* Main Calc | Sidebar Constants */
             gap: 30px;
-            max-width: 1200px;
+            max-width: 1000px;
             margin: 40px auto;
             padding: 0 20px;
             align-items: start;
