@@ -58,7 +58,7 @@
                     \vec{L} = m\vec{r}\times\vec{v} \label{eq:a2_1}
                 \end{equation}
                 \begin{equation}
-                    H = \frac{p^2}{2m} - \frac{k}{r} \label{eq:a2_2}
+                    E = \frac{p^2}{2m} - \frac{k}{r} \label{eq:a2_2}
                 \end{equation}
 
                 <p>When dealing with the Coulomb interaction, $k$ is written as follows:</p>
@@ -66,6 +66,8 @@
                     k = \frac{e^2}{4\pi\varepsilon_0}
                 \label{eq:a2_3}
                 \end{equation}
+
+                <p>In short, the plan is to establish the equation of movement "Newton second law" and solve it with the help of the conservation of the angular momentum $L$, which will give a solution that has a single free parameter $A$, this parameter will be determined with the help of the conservation of energy $E$, meaning that we will plug the solution in the expression of the energy, and solve it for a constant $E$ and $\Theta$.</p>
 
                 <h3>1. Kinematics in Polar Coordinates</h3>
                 <p>Expressing position $\vec{r}$, velocity $\vec{v}$, and acceleration $\vec{a}$ in polar unit vectors[cite: 65, 66, 67]:</p>
@@ -132,17 +134,33 @@
 
                 
 
-                <p>Substituting $u = 1/r$ [cite: 72], we arrive at the differential equation for the orbit:</p>
+                <p>Substituting $u = 1/r$, we get the following effects:</p>
+
+                \begin{equation}
+                \frac{dr}{d\theta} = -\frac{1}{u}\frac{du}{d\theta}
+                \label{eq:a2_13}
+                \end{equation}
+
+                \begin{equation}
+                \frac{d^2r}{d\theta^2} = -\frac{1}{u^2}\frac{d^2u}{d\theta^2} + \frac{2}{u^3} \left( \frac{du}{d\theta} \right)^2
+                \label{eq:a2_14}
+                \end{equation}
+
+
+                <p>Substituting back to the differential equation gives:</p>
+
+
+                
                 \begin{equation}
                     \frac{d^2u}{d\theta^2} + u = \frac{mk}{L^2}
-                \label{eq:a2_13}
+                \label{eq:a2_15}
                 \end{equation}
 
 
                 <p>This equation admits the following solution:</p>
                 \begin{equation}
                 u = A\cos(\theta)+\frac{mk}{L^2}
-                \label{eq:a2_14}
+                \label{eq:a2_16}
                 \end{equation}
 
                 
@@ -150,7 +168,7 @@
                 \begin{equation}
                 
                 A = \frac{mk}{L^2} \sqrt{1+\frac{2EL^2}{mk^2}}
-                \label{eq:a2_15}
+                \label{eq:a2_17}
                 \end{equation}
 
 
@@ -160,14 +178,14 @@
                 <p>The general solution for the path $r(\theta)$ is[cite: 75, 81]:</p>
                 \begin{equation}
                     r(\theta) = \frac{L^2/mk}{1 + \sqrt{1+\frac{2EL^2}{mk^2}}\cos\theta}
-                \label{eq:a2_16}
+                \label{eq:a2_18}
                 \end{equation}
                 <p>Where the eccentricity $\varepsilon$ is related to the energy $E$.</p>
 
 
                 \begin{equation}
                     \varepsilon = \sqrt{1+\frac{2EL^2}{mk^2}}
-                \label{eq:a2_17}
+                \label{eq:a2_19}
                 \end{equation}
 
 
@@ -177,7 +195,7 @@
 
                 \begin{equation}
                     L = n\hbar
-                \label{eq:a2_18}
+                \label{eq:a2_20}
                 \end{equation}
 
 
@@ -186,7 +204,7 @@
                 <p>Finally, we relate the system energy to the fundamental constants:</p>
                 \begin{equation}
                     E(\varepsilon) = -\frac{1}{n^2} \frac{me^4}{32\pi^2\epsilon_0^2\hbar^2} (1 - \varepsilon^2)
-                \label{eq:a2_19}
+                \label{eq:a2_21}
                 \end{equation}
                 <p>The energy is minimized at $\varepsilon=0$, which gives the correct energy for the hydrgen atom. This shows that the orbits are circular following the fact that $\varepsilon = 0$.</p>
             </section>
