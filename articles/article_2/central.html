@@ -52,7 +52,7 @@
             </header>
             
             <section class="content-body">
-                <p>We analyze the motion of a particle with mass $m$ in a central potential field $V(r) = -k/r$. We define the angular momentum $L$ and the Hamiltonian $H$:</p>
+                <p>We analyze the motion of a particle with mass $m$ in a central potential field $V(r) = -k/r$. We define the angular momentum $L$ and the Energy $E$:</p>
                 
                 \begin{equation}
                     \vec{L} = m\vec{r}\times\vec{v} \label{eq:a2_1}
@@ -116,17 +116,36 @@
                 \label{eq:a2_10}
                 \end{equation}
 
+
+                <p>This equation admits the following solution:</p>
+                \begin{equation}
+                u = A\cos(\theta)+\frac{mk}{L^2}
+                \label{eq:a2_11}
+                \end{equation}
+
+                
+                <p>In order to find the constant A, we need to plug this soution to the energy $E$:</p>
+                \begin{equation}
+                
+                A = \frac{mk}{L^2} \sqrt{1+\frac{2EL^2}{mk^2}}
+                \label{eq:a2_12}
+                \end{equation}
+
+
+
+                
+
                 <p>The general solution for the path $r(\theta)$ is[cite: 75, 81]:</p>
                 \begin{equation}
                     r(\theta) = \frac{L^2/mk}{1 + \sqrt{1+\frac{2EL^2}{mk^2}}\cos\theta}
-                \label{eq:a2_11}
+                \label{eq:a2_13}
                 \end{equation}
                 <p>Where the eccentricity $\varepsilon$ is related to the energy $E$.</p>
 
 
                 \begin{equation}
                     \varepsilon = \sqrt{1+\frac{2EL^2}{mk^2}}
-                \label{eq:a2_12}
+                \label{eq:a2_14}
                 \end{equation}
 
 
@@ -136,7 +155,7 @@
 
                 \begin{equation}
                     L = n\hbar
-                \label{eq:a2_13}
+                \label{eq:a2_15}
                 \end{equation}
 
 
@@ -145,7 +164,7 @@
                 <p>Finally, we relate the system energy to the fundamental constants:</p>
                 \begin{equation}
                     E(\varepsilon) = -\frac{1}{n^2} \frac{me^4}{32\pi^2\epsilon_0^2\hbar^2} (1 - \varepsilon^2)
-                \label{eq:a2_14}
+                \label{eq:a2_16}
                 \end{equation}
                 <p>The energy is minimized at $\varepsilon=0$, which gives the correct energy for the hydrgen atom. This shows that the orbits are circular following the fact that $\varepsilon = 0$.</p>
             </section>
