@@ -69,16 +69,17 @@ function updateCustomListUI() {
         li.innerHTML = `
             <div style="display: flex; align-items: center; width: 100%; padding: 8px 5px; border-bottom: 1px solid #f0f0f0;">
                 
-                <input type="checkbox" class="delete-checkbox" value="${name}" onchange="toggleDeleteButton()" style="margin-right: 15px; transform: scale(1.2); cursor: pointer;">
+                <input type="checkbox" class="delete-checkbox" value="${name}" onchange="toggleDeleteButton()" style="margin-right: 12px; transform: scale(1.2); cursor: pointer; flex-shrink: 0;">
 
-                <div onclick="insert('${name}')" title="Click to insert" style="display: flex; justify-content: space-between; align-items: baseline; flex: 1; cursor: pointer; min-width: 0;">
-                    <span style="display: flex; gap: 10px; align-items: baseline; overflow: hidden;">
-                        <strong style="font-family: 'Courier New', monospace;">${name}</strong>
-                        <span style="color: #7f8c8d; font-size: 0.8rem; white-space: nowrap; overflow: hidden; text-overflow: ellipsis;">${descText}</span>
-                    </span>
-                    <span style="font-family: 'Courier New', monospace; font-weight: 500; padding-left: 15px;">${val}</span>
+                <div onclick="insert('${name}')" title="Click to insert" style="display: flex; align-items: center; flex: 1; cursor: pointer; min-width: 0;">
+                    
+                    <strong style="font-family: 'Courier New', monospace; flex-shrink: 0;">${name}</strong>
+                    
+                    <span style="color: #7f8c8d; font-size: 0.75rem; margin-left: 8px; white-space: nowrap; overflow: hidden; text-overflow: ellipsis; max-width: 120px;">${descText}</span>
+                    
+                    <span style="font-family: 'Courier New', monospace; font-weight: 500; margin-left: auto; flex-shrink: 0;">${val}</span>
+                    
                 </div>
-                
             </div>
         `;
         
