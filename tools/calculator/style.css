@@ -146,9 +146,13 @@ header.site-header h1 {
     display: flex;
     justify-content: space-between;
     border-bottom: 1px solid #f0f0f0;
-    padding-bottom: 5px;
+    padding-bottom: 8px 0;
     cursor: pointer;
+    align-items: center;
+    border-bottom: 1px solid #f0f0f0;
 }
+
+
 
 .constant-list li:hover {
     color: var(--accent-blue);
@@ -189,14 +193,7 @@ header.site-header h1 {
 
 
 
-/* Ensure the list item is a flex container */
-.constant-list li {
-    display: flex;
-    align-items: center;
-    justify-content: space-between; /* Pushes content left and button right */
-    padding: 8px 0;
-    border-bottom: 1px solid #f0f0f0;
-}
+
 
 /* This is the clickable area for the constant */
 .constant-item-content {
@@ -226,4 +223,27 @@ header.site-header h1 {
 
 .delete-btn:hover {
     color: #d63031;
+}
+
+
+
+
+
+/* This handles the spacing between the symbol and the numeric value */
+.constant-item-content {
+    display: flex;
+    justify-content: space-between; /* Pushes name to left, value to right */
+    flex-grow: 1;
+    cursor: pointer;
+    font-family: 'Courier New', Courier, monospace;
+    margin-right: 15px; /* Creates a gap before the delete 'x' */
+}
+
+.const-name {
+    font-weight: bold;
+    color: var(--border-color);
+}
+
+.const-val {
+    color: var(--text-muted);
 }
