@@ -21,7 +21,6 @@ const scope = {
 };
 
 // Merge saved user constants into the math scope immediately
-// We check if the saved item is an object (new format with desc) or a number (old format)
 for (let key in savedConstants) {
     let item = savedConstants[key];
     scope[key] = typeof item === 'object' ? item.value : parseFloat(item);
@@ -61,24 +60,47 @@ function updateCustomListUI() {
 
     for (let name in savedConstants) {
         const item = savedConstants[name];
-        
-        // Handle backwards compatibility if you have old constants without descriptions saved
         const val = typeof item === 'object' ? item.value : item;
-        const descText = (typeof item === 'object' && item.desc) ? `(${item.desc})` : '';
+        const desc = (typeof item === 'object' && item.desc) ? item.desc : '';
 
+        // Build <li>
         const li = document.createElement('li');
-        
-        const descHTML = descText ? `<span style="font-size: 0.8rem; color: #7f8c8d; font-family: 'Segoe UI', sans-serif; overflow: hidden; text-overflow: ellipsis; white-space: nowrap;">${descText}</span>` : '';
-        li.style.cssText = 'display: flex; align-items: center; justify-content: space-between; margin-bottom: 10px; border-bottom: 1px solid #f0f0f0; padding-bottom: 8px; cursor: default;';
-        li.innerHTML = `
-            <div onclick="insert('${name}')" style="display: flex; align-items: center; flex: 1; min-width: 0; cursor: pointer; gap: 8px;">
-                <span style="font-weight: bold; font-family: 'Courier New', monospace; flex-shrink: 0;">${name}</span>
-                ${descHTML}
-                <span style="margin-left: auto; font-family: 'Courier New', monospace; flex-shrink: 0; padding-right: 8px;">${val}</span>
-            </div>
-            <button onclick="deleteConstant('${name}')" style="color: #ff7675; background: none; border: none; font-size: 1.2rem; cursor: pointer; flex-shrink: 0; line-height: 1; padding: 0 4px;">×</button>
-        `;
-        
+        li.style.cssText = 'display:flex; align-items:center; margin-bottom:10px; border-bottom:1px solid #f0f0f0; padding-bottom:8px; gap:6px;';
+
+        // Clickable left section
+        const div = document.createElement('div');
+        div.style.cssText = 'display:flex; align-items:center; flex:1; min-width:0; cursor:pointer; gap:8px;';
+        div.addEventListener('click', function() { insert(name); });
+
+        // Symbol
+        const nameSpan = document.createElement('span');
+        nameSpan.style.cssText = 'font-weight:bold; font-family:"Courier New",monospace; flex-shrink:0;';
+        nameSpan.textContent = name;
+        div.appendChild(nameSpan);
+
+        // Description (only if present)
+        if (desc) {
+            const descSpan = document.createElement('span');
+            descSpan.style.cssText = 'font-size:0.8rem; color:#7f8c8d; font-family:"Segoe UI",sans-serif; overflow:hidden; text-overflow:ellipsis; white-space:nowrap; flex:1;';
+            descSpan.textContent = '(' + desc + ')';
+            div.appendChild(descSpan);
+        }
+
+        // Value pushed to the right
+        const valSpan = document.createElement('span');
+        valSpan.style.cssText = 'margin-left:auto; font-family:"Courier New",monospace; flex-shrink:0; padding-right:6px;';
+        valSpan.textContent = val;
+        div.appendChild(valSpan);
+
+        li.appendChild(div);
+
+        // Delete button — no tooltip, only shows intent on hover via color
+        const btn = document.createElement('button');
+        btn.textContent = '×';
+        btn.style.cssText = 'color:#ff7675; background:none; border:none; font-size:1.2rem; cursor:pointer; flex-shrink:0; line-height:1; padding:0 4px;';
+        btn.addEventListener('click', function() { deleteConstant(name); });
+        li.appendChild(btn);
+
         listElement.appendChild(li);
     }
 }
@@ -95,14 +117,11 @@ function saveCustomConstant() {
     if (name && value && !isNaN(parseFloat(value))) {
         const numericValue = parseFloat(value);
         
-        // Save to browser memory as an object containing both value and description
         savedConstants[name] = { value: numericValue, desc: desc };
         localStorage.setItem('userConstants', JSON.stringify(savedConstants));
         
-        // Update the live math scope
         scope[name] = numericValue;
         
-        // Refresh UI and clear fields
         updateCustomListUI();
         nameField.value = '';
         descField.value = '';
@@ -113,7 +132,7 @@ function saveCustomConstant() {
 }
 
 function deleteConstant(name) {
-    if (confirm(`Remove "${name}" from your lab constants?`)) {
+    if (confirm('Remove "' + name + '" from your lab constants?')) {
         delete savedConstants[name];
         delete scope[name];
         localStorage.setItem('userConstants', JSON.stringify(savedConstants));
@@ -127,7 +146,7 @@ function calculate() {
     if (!expression) return;
 
     try {
-        let safeExpression = expression.replace(/Ans/g, `(${scope.Ans})`);
+        let safeExpression = expression.replace(/Ans/g, '(' + scope.Ans + ')');
         
         let result = math.evaluate(safeExpression, scope);
         scope.Ans = result;
