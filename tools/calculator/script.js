@@ -62,26 +62,35 @@ function updateCustomListUI() {
     for (let name in savedConstants) {
         const item = savedConstants[name];
         
-        // Handle backwards compatibility if you have old constants without descriptions saved
+        // Handle backwards compatibility 
         const val = typeof item === 'object' ? item.value : item;
         const descText = (typeof item === 'object' && item.desc) ? `(${item.desc})` : '';
 
         const li = document.createElement('li');
         
+        // Ensure the list item itself acts as a proper flex container
+        li.style.display = "flex";
+        li.style.justifyContent = "space-between";
+        li.style.alignItems = "center";
+        li.style.padding = "8px 0";
+        li.style.borderBottom = "1px solid #f0f0f0";
+        
+        // Inject inline styles to completely bypass any browser CSS caching issues
         li.innerHTML = `
-            <div class="constant-item-content" onclick="insert('${name}')">
-                <span class="const-left">
-                    <span class="const-name">${name}</span>
-                    <span class="const-desc">${descText}</span>
+            <div onclick="insert('${name}')" style="display: flex; justify-content: space-between; flex-grow: 1; align-items: center; cursor: pointer; padding-right: 15px; font-family: 'Courier New', Courier, monospace;">
+                <span style="display: flex; align-items: baseline; gap: 8px;">
+                    <span style="font-weight: bold; color: var(--border-color, #2c3e50);">${name}</span>
+                    <span style="color: #7f8c8d; font-size: 0.85em; font-family: 'Segoe UI', Tahoma, sans-serif;">${descText}</span>
                 </span>
-                <span>${val}</span>
+                <span style="color: #7f8c8d;">${val}</span>
             </div>
-            <button onclick="deleteConstant('${name}')" class="delete-btn" title="Delete">×</button>
+            <button onclick="deleteConstant('${name}')" title="Delete" style="background: none; border: none; color: #ff7675; font-size: 1.2rem; font-weight: bold; cursor: pointer; padding: 0 5px; line-height: 1;">×</button>
         `;
         
         listElement.appendChild(li);
     }
 }
+
 
 function saveCustomConstant() {
     const nameField = document.getElementById('custom-name');
