@@ -1,88 +1,76 @@
 // --- 1. Initialize Math.js Scope ---
-// We add 'Ans' to the scope, initialized to 0.
-const scope = {
-    c: 299792458,
-    Na: 6.02214076e23,
-    me: 9.1093837015e-31,
-    e: 1.602176634e-19,
-    eps0: 8.8541878128e-12,
-    h: 1.054571817e-34, 
-    kb: 1.380648520e-23,
-    Ans: 0 
-};
+    const scope = {
+        c0: 299792458,
+        Na: 6.02214076e23,
+        m0: 9.1093837015e-31,
+        e: 1.602176634e-19,
+        eps0: 8.8541878128e-12,
+        h: 1.054571817e-34, 
+        k0: 1.380648520e-23,
+        Ans: 0 // Starts at 0
+    };
 
-const inputField = document.getElementById('calc-input');
-const resultDisplay = document.getElementById('calc-result');
+    const inputField = document.getElementById('calc-input');
+    const resultDisplay = document.getElementById('calc-result');
 
-// --- 2. Smart Insert (Handles cursor position) ---
-function insert(value) {
-    inputField.focus(); // Force focus before grabbing cursor position
-    const start = inputField.selectionStart;
-    const end = inputField.selectionEnd;
-    const text = inputField.value;
-    
-    // Splice the new value exactly where the cursor is
-    inputField.value = text.substring(0, start) + value + text.substring(end);
-    
-    // Move the cursor forward past the newly inserted text
-    inputField.selectionStart = inputField.selectionEnd = start + value.length;
-}
-
-// --- 3. Bulletproof Backspace ---
-function backspace() {
-    inputField.focus(); 
-    const start = inputField.selectionStart;
-    const end = inputField.selectionEnd;
-    const text = inputField.value;
-
-    if (start === end && start > 0) {
-        // No text highlighted: delete the 1 character directly behind the cursor
-        inputField.value = text.substring(0, start - 1) + text.substring(end);
-        inputField.selectionStart = inputField.selectionEnd = start - 1;
-    } else if (start !== end) {
-        // Text is highlighted: delete the entire highlighted block
-        inputField.value = text.substring(0, start) + text.substring(end);
-        inputField.selectionStart = inputField.selectionEnd = start;
+    // --- 2. Simple Insert ---
+    function insert(value) {
+        inputField.value += value;
+        inputField.focus();
     }
-}
 
-// --- 4. Clear Function ---
-function clearInput() {
-    inputField.value = '';
-    resultDisplay.innerText = '= 0';
-    resultDisplay.style.color = "var(--border-color)";
-    inputField.focus();
-}
+    // --- 3. Foolproof Backspace ---
+    function backspace() {
+        let text = inputField.value;
+        if (text.length > 0) {
+            // Simply chops off the last character of the string
+            inputField.value = text.slice(0, -1);
+        }
+        inputField.focus();
+    }
 
-// --- 5. Calculation Engine ---
-function calculate() {
-    const expression = inputField.value;
-    if (!expression) return;
-
-    try {
-        // Evaluate against our custom constants + Ans
-        let result = math.evaluate(expression, scope);
-        
-        // Save the raw unformatted result into Ans for the next calculation
-        scope.Ans = result;
-        
-        // Format it nicely for the screen
-        let formattedResult = math.format(result, { precision: 7 });
-        
-        resultDisplay.innerText = '= ' + formattedResult;
+    // --- 4. Clear Function ---
+    function clearInput() {
+        inputField.value = '';
+        resultDisplay.innerText = '= 0';
         resultDisplay.style.color = "var(--border-color)";
-        
-    } catch (error) {
-        resultDisplay.innerText = 'Syntax Error';
-        resultDisplay.style.color = "#ff7675";
+        inputField.focus();
     }
-}
 
-// --- 6. Physical Keyboard Support ---
-inputField.addEventListener("keydown", function(event) {
-    if (event.key === "Enter") {
-        event.preventDefault();
-        calculate();
+    // --- 5. Calculation Engine ---
+    function calculate() {
+        const expression = inputField.value;
+        if (!expression) return;
+
+        try {
+            // Fix for Ans: This finds the word "Ans" and explicitly replaces it 
+            // with the actual saved number before doing the math. 
+            // E.g., "Ans * 2" safely becomes "(3) * 2"
+            let safeExpression = expression.replace(/Ans/g, `(${scope.Ans})`);
+            
+            // Evaluate the math
+            let result = math.evaluate(safeExpression, scope);
+            
+            // Update Ans with the new result
+            scope.Ans = result;
+            
+            // Format for display
+            let formattedResult = math.format(result, { precision: 7 });
+            
+            resultDisplay.innerText = '= ' + formattedResult;
+            resultDisplay.style.color = "var(--border-color)";
+            
+        } catch (error) {
+            console.error(error); // Logs the exact error to your browser console just in case
+            resultDisplay.innerText = 'Syntax Error';
+            resultDisplay.style.color = "#ff7675";
+        }
     }
-    // The physical Backspace key works natively, so we don't need to intercept it.
-});
+
+    // --- 6. Keyboard Support ---
+    inputField.addEventListener("keydown", function(event) {
+        if (event.key === "Enter") {
+            event.preventDefault();
+            calculate();
+        }
+    });
