@@ -80,7 +80,7 @@ function updateCustomListUI() {
                 <span style="display: flex; align-items: baseline; gap: 8px;">
                     <span style="font-weight: bold; font-family: 'Courier New', monospace;">${name}</span>
                     
-                    <span style="font-size: 0.75rem; color: #7f8c8d; max-width: 120px; white-space: nowrap; overflow: hidden; text-overflow: ellipsis;">${descText}</span>
+                    <span style="font-size: 0.75rem; color: #7f8c8d; max-width: 100px; white-space: nowrap; overflow: hidden; text-overflow: ellipsis;">${descText}</span>
                 </span>
 
                 <span style="font-family: 'Courier New', monospace; font-weight: 500; color: #333;">${val}</span>
