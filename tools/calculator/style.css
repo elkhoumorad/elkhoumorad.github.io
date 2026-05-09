@@ -181,11 +181,12 @@ header.site-header h1 {
     padding-right: 10px; /* Space between the number and the delete button */
 }
 
-.const-left {
-    display: flex;
-    align-items: baseline;
-    gap: 8px;
+/* Ensure the value doesn't run into the X */
+.const-val {
+    margin-left: auto !important;
+    padding-right: 10px !important; /* Extra safety buffer */
 }
+
 
 .const-name {
     font-weight: bold;
@@ -202,14 +203,17 @@ header.site-header h1 {
 
 /* --- Delete Button --- */
 .delete-btn {
+    
     background: none;
     border: none;
     color: #ff7675;
     font-size: 1.2rem;
     font-weight: bold;
     cursor: pointer;
-    padding: 0 5px;
     line-height: 1;
+    padding: 5px !important;
+    margin-left: 15px !important; /* This creates a gap between the number and the X */
+    flex-shrink: 0 !important;
 }
 
 .delete-btn:hover {
