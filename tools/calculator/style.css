@@ -149,6 +149,7 @@ header.site-header h1 {
     border-bottom: 1px solid #f0f0f0;
     padding-bottom: 8px;
     cursor: pointer;
+    width: 100%;
 }
 
 .constant-list li:hover {
@@ -159,10 +160,18 @@ header.site-header h1 {
 /* Bulletproof spacing for the dynamic items */
 .constant-item-content {
     display: flex;
-    justify-content: space-between;
+    flex: 1;
+    justify-content: flex-start;
     align-items: center;
     width: 100%; /* Forces the content to stretch */
     padding-right: 15px; /* Gap before the delete button */
+    gap: 15px;
+    min-width: 0;
+}
+
+.const-val {
+    margin-left: auto; /* This forces the value to the right, regardless of description length */
+    padding-right: 10px; /* Space between the number and the delete button */
 }
 
 .const-left {
@@ -179,6 +188,9 @@ header.site-header h1 {
     color: var(--text-muted);
     font-size: 0.85em;
     font-family: 'Segoe UI', Tahoma, sans-serif;
+    white-space: nowrap; /* Forces it to stay on one line */
+    overflow: hidden; 
+    text-overflow: ellipsis; /* Adds '...' if the description is way too long */
 }
 
 /* --- Delete Button --- */
