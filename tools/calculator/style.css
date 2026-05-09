@@ -169,6 +169,13 @@ header.site-header h1 {
     min-width: 0;
 }
 
+.constant-item-content span:last-child {
+    margin-left: auto;   /* Pushes the number to the right */
+    padding-right: 20px; /* CREATES THE GAP for the delete button */
+    font-family: 'Courier New', monospace;
+}
+
+
 .const-val {
     margin-left: auto; /* This forces the value to the right, regardless of description length */
     padding-right: 10px; /* Space between the number and the delete button */
