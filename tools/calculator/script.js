@@ -75,19 +75,20 @@ function updateCustomListUI() {
 
         // Force the internal layout directly
        li.innerHTML = `
-            <div onclick="insert('${name}')" style="display: flex; flex: 1; align-items: center; cursor: pointer; padding-right: 20px; min-width: 0;">
+            <div onclick="insert('${name}')" style="display: flex; flex: 1; align-items: center; cursor: pointer; min-width: 0;">
                 
-                <span style="display: flex; align-items: baseline; gap: 8px; flex-shrink: 0; min-width: 0;">
-                    <span style="font-weight: bold; font-family: 'Courier New', monospace;">${name}</span>
-                    <span style="font-size: 0.75rem; color: #7f8c8d; white-space: nowrap; overflow: hidden; text-overflow: ellipsis; max-width: 120px;">${descText}</span>
-                </span>
+                <span style="font-weight: bold; font-family: 'Courier New', monospace; flex-shrink: 0;">${name}</span>
+                
+                <span style="font-size: 0.75rem; color: #7f8c8d; margin-left: 8px;">${descText}</span>
 
-                <span style="flex-grow: 1; min-width: 20px;"></span>
+                <span style="margin-left: auto;"></span>
 
                 <span style="font-family: 'Courier New', monospace; font-weight: 500; color: #333; flex-shrink: 0;">${val}</span>
                 
+                <span>&nbsp;&nbsp;&nbsp;&nbsp;</span>
             </div>
-            <button onclick="deleteConstant('${name}')" title="Delete" style="background: none; border: none; color: #ff7675; font-size: 1.2rem; cursor: pointer; padding: 0 5px; flex-shrink: 0;">×</button>
+
+            <button onclick="deleteConstant('${name}')" title="Delete" style="background: none; border: none; color: #ff7675; font-size: 1.2rem; cursor: pointer; padding: 0 5px; flex-shrink: 0; line-height: 1;">×</button>
         `;
         
         listElement.appendChild(li);
