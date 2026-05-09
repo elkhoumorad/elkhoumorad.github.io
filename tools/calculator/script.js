@@ -74,7 +74,6 @@ function updateCustomListUI() {
         li.style.borderBottom = '1px solid #f0f0f0';
 
         // Force the internal layout directly
-       const li = document.createElement('li');
         
         // THE ANCHOR: This traps the absolute button inside the white box
         li.style.position = 'relative';
