@@ -82,10 +82,10 @@ function updateCustomListUI() {
                     <span style="font-size: 0.75rem; color: #7f8c8d; white-space: nowrap; overflow: hidden; text-overflow: ellipsis;">${descText}</span>
                 </span>
 
-                <span style="font-family: 'Courier New', monospace; font-weight: 500; color: #333; margin-left: 10px; flex-shrink: 0;">${val}</span>
+                <span style="font-family: 'Courier New', monospace; font-weight: 500; color: #333; margin-left: auto; flex-shrink: 0;">${val}</span>
                 
             </div>
-            <button onclick="deleteConstant('${name}')" title="Delete" style="background: none; border: none; color: #ff7675; font-size: 1.2rem; cursor: pointer; padding: 0 5px; flex-shrink: 0;">×</button>
+            <button onclick="deleteConstant('${name}')" title="Delete" style="background: none; border: none; color: #ff7675; font-size: 1.2rem; cursor: pointer; padding: 0 5px; margin-left: 5px; flex-shrink: 0;">×</button>
         `;
         
         listElement.appendChild(li);
