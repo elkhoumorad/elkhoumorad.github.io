@@ -60,24 +60,24 @@ function updateCustomListUI() {
 
     for (let name in savedConstants) {
         const item = savedConstants[name];
-        
         const val = typeof item === 'object' ? item.value : item;
         const descText = (typeof item === 'object' && item.desc) ? `(${item.desc})` : '';
 
         const li = document.createElement('li');
         
-        // The beautifully simple, button-free layout
+        // Layout: Checkbox on the left, clickable insert area on the right
         li.innerHTML = `
-            <div onclick="if(event.shiftKey) deleteConstant('${name}'); else insert('${name}');" 
-                 title="Click to insert | Shift + Click to delete"
-                 style="display: flex; justify-content: space-between; align-items: baseline; width: 100%; padding: 8px 5px; cursor: pointer;">
+            <div style="display: flex; align-items: center; width: 100%; padding: 8px 5px; border-bottom: 1px solid #f0f0f0;">
                 
-                <span style="display: flex; gap: 10px; align-items: baseline; overflow: hidden;">
-                    <strong style="font-family: 'Courier New', monospace;">${name}</strong>
-                    <span style="color: #7f8c8d; font-size: 0.8rem; white-space: nowrap; overflow: hidden; text-overflow: ellipsis;">${descText}</span>
-                </span>
-                
-                <span style="font-family: 'Courier New', monospace; font-weight: 500; padding-left: 15px;">${val}</span>
+                <input type="checkbox" class="delete-checkbox" value="${name}" onchange="toggleDeleteButton()" style="margin-right: 15px; transform: scale(1.2); cursor: pointer;">
+
+                <div onclick="insert('${name}')" title="Click to insert" style="display: flex; justify-content: space-between; align-items: baseline; flex: 1; cursor: pointer; min-width: 0;">
+                    <span style="display: flex; gap: 10px; align-items: baseline; overflow: hidden;">
+                        <strong style="font-family: 'Courier New', monospace;">${name}</strong>
+                        <span style="color: #7f8c8d; font-size: 0.8rem; white-space: nowrap; overflow: hidden; text-overflow: ellipsis;">${descText}</span>
+                    </span>
+                    <span style="font-family: 'Courier New', monospace; font-weight: 500; padding-left: 15px;">${val}</span>
+                </div>
                 
             </div>
         `;
@@ -86,10 +86,7 @@ function updateCustomListUI() {
     }
 }
 
-
-
-
-function saveCustomConstant() {
+    function saveCustomConstant() {
     const nameField = document.getElementById('custom-name');
     const descField = document.getElementById('custom-desc');
     const valueField = document.getElementById('custom-value');
@@ -114,6 +111,37 @@ function saveCustomConstant() {
         alert("Please enter a valid symbol and number.");
     }
 }
+
+// Shows or hides the main Delete button based on checkboxes
+function toggleDeleteButton() {
+    const checkboxes = document.querySelectorAll('.delete-checkbox');
+    const deleteBtn = document.getElementById('delete-selected-btn');
+    if (!deleteBtn) return;
+
+    // Check if at least one checkbox is ticked
+    const anyChecked = Array.from(checkboxes).some(cb => cb.checked);
+    deleteBtn.style.display = anyChecked ? 'block' : 'none';
+}
+
+
+// Deletes all checked items
+function deleteSelectedConstants() {
+    const checkboxes = document.querySelectorAll('.delete-checkbox:checked');
+    if (checkboxes.length === 0) return;
+
+    if (confirm(`Remove ${checkboxes.length} selected constant(s)?`)) {
+        checkboxes.forEach(cb => {
+            const name = cb.value;
+            delete savedConstants[name];
+            delete scope[name];
+        });
+
+        localStorage.setItem('userConstants', JSON.stringify(savedConstants));
+        updateCustomListUI();
+        toggleDeleteButton(); // Hide the button again
+    }
+}
+
 
 function deleteConstant(name) {
     if (confirm(`Remove "${name}" from your lab constants?`)) {
