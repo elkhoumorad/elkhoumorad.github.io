@@ -1,5 +1,3 @@
-// --- 1. Load existing custom constants from the browser's memory ---
-let savedConstants = JSON.parse(localStorage.getItem('userConstants')) || {};
 // --- 1. Initialize Math.js Scope ---
     const scope = {
         c: 299792458,
@@ -16,7 +14,6 @@ let savedConstants = JSON.parse(localStorage.getItem('userConstants')) || {};
         a0: 5.29177210544e-11,
         alpha: 7.2973525693e-3,
         Rh: 2.1798723611030e-18,
-        ...savedConstants, // This adds the user's constants automatically
         Ans: 0 // Starts at 0
     };
 
