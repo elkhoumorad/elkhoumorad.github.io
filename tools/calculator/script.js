@@ -69,14 +69,14 @@ function updateCustomListUI() {
         const li = document.createElement('li');
         
         li.innerHTML = `
-            <div class="constant-item-content" onclick="insert('${name}')">
-                <span class="const-left">
-                    <span class="const-name">${name}</span>
-                    <span class="const-desc">${descText}</span>
+            <div class="constant-item-content" onclick="insert('${name}')" style="display: flex; flex: 1; align-items: center; cursor: pointer; min-width: 0;">
+                <span class="const-left" style="display: flex; align-items: baseline; gap: 10px; flex: 1; min-width: 0;">
+                    <span class="const-name" style="font-weight: bold; flex-shrink: 0;">${name}</span>
+                    <span class="const-desc" style="font-size: 0.8rem; color: #7f8c8d; white-space: nowrap; overflow: hidden; text-overflow: ellipsis;">${descText}</span>
                 </span>
-                <span class="const-val">${val}</span>
+                <span class="const-val" style="margin-left: auto; padding-right: 20px; font-family: 'Courier New', monospace; flex-shrink: 0;">${val}</span>
             </div>
-            <button onclick="deleteConstant('${name}')" class="delete-btn" title="Delete" style="margin-left: 10px; color: #ff7675;">×</button>
+            <button onclick="deleteConstant('${name}')" class="delete-btn" title="Delete" style="margin-left: 10px; color: #ff7675; background: none; border: none; font-size: 1.2rem; cursor: pointer; flex-shrink: 0;">×</button>
         `;
         
         listElement.appendChild(li);
