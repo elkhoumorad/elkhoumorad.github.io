@@ -147,6 +147,7 @@ function saveCustomConstant() {
         document.getElementById('custom-name').value = '';
         document.getElementById('custom-value').value = '';
     }
+    
 }
 
 // 3. Ensure the list shows up when you first open the page
