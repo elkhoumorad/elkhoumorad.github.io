@@ -46,10 +46,10 @@
         /* --- Calculator Layout --- */
         .main-wrapper {
             display: grid;
-            grid-template-columns: 1fr 450px; /* Main Calc | Sidebar Constants */
-            gap: 30px;
-            max-width: 1200px;
-            margin: 40px auto;
+            grid-template-columns: 450px 1fr 450px; /* Main Calc | Sidebar Constants */
+            gap: 20px;
+            max-width: 1800px;
+            margin: 20px auto;
             padding: 0 20px;
             align-items: start;
         }
