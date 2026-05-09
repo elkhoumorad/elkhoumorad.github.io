@@ -60,26 +60,37 @@ function updateCustomListUI() {
 
     for (let name in savedConstants) {
         const item = savedConstants[name];
+        
         const val = typeof item === 'object' ? item.value : item;
         const descText = (typeof item === 'object' && item.desc) ? `(${item.desc})` : '';
 
         const li = document.createElement('li');
         
-        // Layout: Checkbox on the left, clickable insert area on the right
-        li.innerHTML = `
-            <div style="display: flex; align-items: center; width: 100%; padding: 8px 5px; border-bottom: 1px solid #f0f0f0;">
-                
-                <input type="checkbox" class="delete-checkbox" value="${name}" onchange="toggleDeleteButton()" style="margin-right: 12px; transform: scale(1.2); cursor: pointer; flex-shrink: 0;">
+        // Ensure the entire row is one solid box
+        li.style.display = "flex";
+        li.style.width = "100%";
+        li.style.alignItems = "center";
+        li.style.borderBottom = "1px solid #f0f0f0";
+        li.style.cursor = "pointer";
+        
+        // Add the hover effect directly to the row
+        li.onmouseover = function() { this.style.backgroundColor = '#fcfcfc'; }
+        li.onmouseout = function() { this.style.backgroundColor = 'transparent'; }
 
-                <div onclick="insert('${name}')" title="Click to insert" style="display: flex; align-items: center; flex: 1; cursor: pointer; min-width: 0;">
-                    
-                    <strong style="font-family: 'Courier New', monospace; flex-shrink: 0;">${name}</strong>
-                    
-                    <span style="color: #7f8c8d; font-size: 0.75rem; margin-left: 8px; white-space: nowrap; overflow: hidden; text-overflow: ellipsis; max-width: 120px;">${descText}</span>
-                    
-                    <span style="font-family: 'Courier New', monospace; font-weight: 500; margin-left: auto; flex-shrink: 0;">${val}</span>
-                    
-                </div>
+        // Grid Layout: 3 rigid columns (Name | Description | Value)
+        li.innerHTML = `
+            <div style="padding: 10px 10px 10px 5px; display: flex; align-items: center;">
+                <input type="checkbox" class="delete-checkbox" value="${name}" onchange="toggleDeleteButton()" style="transform: scale(1.2); cursor: pointer; margin: 0;">
+            </div>
+
+            <div onclick="insert('${name}')" title="Click to insert" style="display: grid; grid-template-columns: max-content 1fr max-content; gap: 12px; align-items: center; flex: 1; padding: 10px 5px 10px 0; min-width: 0;">
+                
+                <strong style="font-family: 'Courier New', monospace; font-size: 1rem;">${name}</strong>
+                
+                <span style="color: #7f8c8d; font-size: 0.8rem; white-space: nowrap; overflow: hidden; text-overflow: ellipsis;">${descText}</span>
+                
+                <span style="font-family: 'Courier New', monospace; font-weight: 500; font-size: 1rem;">${val}</span>
+                
             </div>
         `;
         
