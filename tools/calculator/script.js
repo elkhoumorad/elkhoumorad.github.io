@@ -59,13 +59,36 @@ function updateCustomListUI() {
 
     for (let name in savedConstants) {
         const li = document.createElement('li');
-        // Matches your "Loaded Constants" style
-        li.innerHTML = `<span>${name}</span> <span>${savedConstants[name]}</span>`;
-        // Make it clickable
-        li.onclick = function() { insert(name); };
+        
+        // Structure: Symbol/Value on the left, Delete button on the right
+        li.innerHTML = `
+            <div onclick="insert('${name}')" style="flex-grow: 1; display: flex; justify-content: space-between; cursor: pointer;">
+                <span>${name}</span> <span>${savedConstants[name]}</span>
+            </div>
+            <button onclick="deleteConstant('${name}')" class="delete-btn" title="Delete">×</button>
+        `;
+        
         listElement.appendChild(li);
     }
 }
+
+// Delete function
+
+
+function deleteConstant(name) {
+    if (confirm(`Remove "${name}" from your lab constants?`)) {
+        // 1. Remove from the memory object
+        delete savedConstants[name];
+        delete scope[name];
+        
+        // 2. Update browser storage
+        localStorage.setItem('userConstants', JSON.stringify(savedConstants));
+        
+        // 3. Refresh the UI
+        updateCustomListUI();
+    }
+}
+
 
 // Function to save a new constant
 function saveCustomConstant() {
