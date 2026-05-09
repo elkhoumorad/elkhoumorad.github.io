@@ -1,5 +1,4 @@
 // --- 1. Initialize memory from the browser FIRST ---
-// This prevents errors when updateCustomListUI() runs
 let savedConstants = JSON.parse(localStorage.getItem('userConstants')) || {};
 
 // --- 2. Initialize Math.js Scope ---
@@ -22,7 +21,11 @@ const scope = {
 };
 
 // Merge saved user constants into the math scope immediately
-Object.assign(scope, savedConstants);
+// We check if the saved item is an object (new format with desc) or a number (old format)
+for (let key in savedConstants) {
+    let item = savedConstants[key];
+    scope[key] = typeof item === 'object' ? item.value : parseFloat(item);
+}
 
 const inputField = document.getElementById('calc-input');
 const resultDisplay = document.getElementById('calc-result');
@@ -50,7 +53,6 @@ function clearInput() {
 
 // --- 4. Custom Constants Logic ---
 
-// Function to create the list items in the sidebar
 function updateCustomListUI() {
     const listElement = document.getElementById('user-constant-list');
     if (!listElement) return;
@@ -58,13 +60,21 @@ function updateCustomListUI() {
     listElement.innerHTML = '';
 
     for (let name in savedConstants) {
+        const item = savedConstants[name];
+        
+        // Handle backwards compatibility if you have old constants without descriptions saved
+        const val = typeof item === 'object' ? item.value : item;
+        const descText = (typeof item === 'object' && item.desc) ? `(${item.desc})` : '';
+
         const li = document.createElement('li');
         
-        // We wrap name and value in spans to allow the "space-between" layout
         li.innerHTML = `
             <div class="constant-item-content" onclick="insert('${name}')">
-                <span class="const-name">${name}</span>
-                <span class="const-val">${savedConstants[name]}</span>
+                <span class="const-left">
+                    <span class="const-name">${name}</span>
+                    <span class="const-desc">${descText}</span>
+                </span>
+                <span>${val}</span>
             </div>
             <button onclick="deleteConstant('${name}')" class="delete-btn" title="Delete">×</button>
         `;
@@ -72,46 +82,42 @@ function updateCustomListUI() {
         listElement.appendChild(li);
     }
 }
-// Delete function
 
-
-function deleteConstant(name) {
-    if (confirm(`Remove "${name}" from your lab constants?`)) {
-        // 1. Remove from the memory object
-        delete savedConstants[name];
-        delete scope[name];
-        
-        // 2. Update browser storage
-        localStorage.setItem('userConstants', JSON.stringify(savedConstants));
-        
-        // 3. Refresh the UI
-        updateCustomListUI();
-    }
-}
-
-
-// Function to save a new constant
 function saveCustomConstant() {
     const nameField = document.getElementById('custom-name');
+    const descField = document.getElementById('custom-desc');
     const valueField = document.getElementById('custom-value');
     
     const name = nameField.value.trim();
+    const desc = descField.value.trim();
     const value = valueField.value.trim();
 
     if (name && value && !isNaN(parseFloat(value))) {
-        // Save to browser memory
-        savedConstants[name] = value;
+        const numericValue = parseFloat(value);
+        
+        // Save to browser memory as an object containing both value and description
+        savedConstants[name] = { value: numericValue, desc: desc };
         localStorage.setItem('userConstants', JSON.stringify(savedConstants));
         
         // Update the live math scope
-        scope[name] = parseFloat(value);
+        scope[name] = numericValue;
         
         // Refresh UI and clear fields
         updateCustomListUI();
         nameField.value = '';
+        descField.value = '';
         valueField.value = '';
     } else {
         alert("Please enter a valid symbol and number.");
+    }
+}
+
+function deleteConstant(name) {
+    if (confirm(`Remove "${name}" from your lab constants?`)) {
+        delete savedConstants[name];
+        delete scope[name];
+        localStorage.setItem('userConstants', JSON.stringify(savedConstants));
+        updateCustomListUI();
     }
 }
 
@@ -121,7 +127,6 @@ function calculate() {
     if (!expression) return;
 
     try {
-        // Explicitly replace Ans with its value before evaluating
         let safeExpression = expression.replace(/Ans/g, `(${scope.Ans})`);
         
         let result = math.evaluate(safeExpression, scope);
@@ -146,5 +151,4 @@ inputField.addEventListener("keydown", function(event) {
     }
 });
 
-// Load the custom list when the window opens
 window.addEventListener('load', updateCustomListUI);
