@@ -76,7 +76,7 @@ function updateCustomListUI() {
                 </span>
                 <span style="margin-left: auto; padding-right: 25px;">${val}</span>
             </div>
-            <button onclick="deleteConstant('${name}')" class="delete-btn" title="Delete">×</button>
+            <button onclick="deleteConstant('${name}')" class="delete-btn" title="Delete" style="margin-left: 20px;">×</button>
         `;
         
         listElement.appendChild(li);
