@@ -46,10 +46,9 @@ header.site-header h1 {
 /* --- Three-Column Layout --- */
 .main-wrapper {
     display: grid;
-    /* Sidebar | Main Calc | Sidebar */
     grid-template-columns: 400px 1fr 400px; 
     gap: 25px;
-    max-width: 1850px; /* Increased to fit the 3rd column comfortably */
+    max-width: 1850px; 
     margin: 40px auto;
     padding: 0 20px;
     align-items: start;
@@ -141,75 +140,48 @@ header.site-header h1 {
     font-size: 0.9rem;
 }
 
+/* Base list item setup */
 .constant-list li {
     margin-bottom: 10px;
     display: flex;
     justify-content: space-between;
-    border-bottom: 1px solid #f0f0f0;
-    padding-bottom: 8px 0;
-    cursor: pointer;
     align-items: center;
     border-bottom: 1px solid #f0f0f0;
+    padding-bottom: 8px;
+    cursor: pointer;
 }
-
-
 
 .constant-list li:hover {
     color: var(--accent-blue);
     background-color: #fcfcfc;
 }
 
-/* --- New: Custom Constant Form Styling --- */
-.custom-form input {
-    width: 100%;
-    padding: 10px;
-    margin-bottom: 10px;
-    border: 1px solid #ddd;
-    border-radius: 4px;
-    box-sizing: border-box; /* Crucial for keeping inputs inside the box */
-    font-family: inherit;
-}
-
-.custom-form button {
-    width: 100%;
-    margin-top: 5px;
-}
-
-/* --- Mobile Responsive --- */
-@media (max-width: 1400px) {
-    .main-wrapper {
-        grid-template-columns: 1fr; /* Stack everything on tablets/small laptops */
-        max-width: 800px;
-    }
-}
-
-@media (max-width: 600px) {
-    .calc-grid {
-        grid-template-columns: repeat(4, 1fr); /* 4 columns on tiny screens */
-    }
-}
-
-
-
-
-
-
-
-/* This is the clickable area for the constant */
+/* Bulletproof spacing for the dynamic items */
 .constant-item-content {
     display: flex;
     justify-content: space-between;
-    flex-grow: 1; /* Takes up all available space except for the delete button */
-    cursor: pointer;
-    font-family: 'Courier New', Courier, monospace;
-    margin-right: 10px;
+    align-items: center;
+    width: 100%; /* Forces the content to stretch */
+    padding-right: 15px; /* Gap before the delete button */
 }
 
-.constant-item-content:hover .const-name {
-    color: var(--accent-blue);
+.const-left {
+    display: flex;
+    align-items: baseline;
+    gap: 8px;
 }
 
-/* Keep the delete button small and to the right */
+.const-name {
+    font-weight: bold;
+}
+
+.const-desc {
+    color: var(--text-muted);
+    font-size: 0.85em;
+    font-family: 'Segoe UI', Tahoma, sans-serif;
+}
+
+/* --- Delete Button --- */
 .delete-btn {
     background: none;
     border: none;
@@ -225,25 +197,33 @@ header.site-header h1 {
     color: #d63031;
 }
 
-
-
-
-
-/* This handles the spacing between the symbol and the numeric value */
-.constant-item-content {
-    display: flex;
-    justify-content: space-between; /* Pushes name to left, value to right */
-    flex-grow: 1;
-    cursor: pointer;
-    font-family: 'Courier New', Courier, monospace;
-    margin-right: 15px; /* Creates a gap before the delete 'x' */
+/* --- New: Custom Constant Form Styling --- */
+.custom-form input {
+    width: 100%;
+    padding: 10px;
+    margin-bottom: 10px;
+    border: 1px solid #ddd;
+    border-radius: 4px;
+    box-sizing: border-box; 
+    font-family: inherit;
 }
 
-.const-name {
-    font-weight: bold;
-    color: var(--border-color);
+.custom-form button {
+    width: 100%;
+    margin-top: 5px;
 }
 
-.const-val {
-    color: var(--text-muted);
+/* --- Mobile Responsive --- */
+@media (max-width: 1400px) {
+    .main-wrapper {
+        grid-template-columns: 1fr;
+        max-width: 800px;
+    }
+}
+
+@media (max-width: 600px) {
+    .calc-grid {
+        grid-template-columns: repeat(4, 1fr);
+    }
+    .const-desc { display: none; } /* Hide descriptions on tiny screens */
 }
