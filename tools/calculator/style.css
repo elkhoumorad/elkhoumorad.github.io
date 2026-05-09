@@ -184,3 +184,31 @@ header.site-header h1 {
         grid-template-columns: repeat(4, 1fr); /* 4 columns on tiny screens */
     }
 }
+
+
+
+
+
+.delete-btn {
+    background: none;
+    border: none;
+    color: #ff7675;
+    font-size: 1.2rem;
+    font-weight: bold;
+    cursor: pointer;
+    margin-left: 15px;
+    padding: 0 5px;
+    transition: transform 0.1s, color 0.1s;
+}
+
+.delete-btn:hover {
+    color: #d63031;
+    transform: scale(1.2);
+}
+
+/* Ensure the li doesn't break layout with the button */
+.constant-list li {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+}
