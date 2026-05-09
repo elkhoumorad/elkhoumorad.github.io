@@ -57,9 +57,25 @@
 
          // --- Backspace Function ---
 function backspace() {
-    const currentInput = inputField.value;
-    // .slice(0, -1) takes the string from the start to the second-to-last character
-    inputField.value = currentInput.slice(0, -1);
-    inputField.focus(); 
+    // Re-identify the input field to ensure we are targeting the right element
+    const input = document.getElementById('calc-input');
+    
+    if (input) {
+        const start = input.selectionStart;
+        const end = input.selectionEnd;
+        const value = input.value;
+
+        if (start === end) {
+            // No text selected: remove the single character before the cursor
+            input.value = value.substring(0, start - 1) + value.substring(end);
+            input.setSelectionRange(start - 1, start - 1);
+        } else {
+            // Text is selected: remove the entire selection (like a real backspace)
+            input.value = value.substring(0, start) + value.substring(end);
+            input.setSelectionRange(start, start);
+        }
+        
+        input.focus();
+    }
 }
         });
