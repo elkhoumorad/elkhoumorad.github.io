@@ -68,15 +68,14 @@ function updateCustomListUI() {
 
         const li = document.createElement('li');
         
+        li.style.cssText = 'display: flex; align-items: center; justify-content: space-between; margin-bottom: 10px; border-bottom: 1px solid #f0f0f0; padding-bottom: 8px; cursor: default;';
         li.innerHTML = `
-            <div class="constant-item-content" onclick="insert('${name}')" style="display: flex; flex: 1; align-items: center; cursor: pointer; min-width: 0;">
-                <span class="const-left" style="display: flex; align-items: baseline; gap: 10px; flex: 1; min-width: 0;">
-                    <span class="const-name" style="font-weight: bold; flex-shrink: 0;">${name}</span>
-                    <span class="const-desc" style="font-size: 0.8rem; color: #7f8c8d; white-space: nowrap; overflow: hidden; text-overflow: ellipsis;">${descText}</span>
-                </span>
-                <span class="const-val" style="margin-left: auto; padding-right: 20px; font-family: 'Courier New', monospace; flex-shrink: 0;">${val}</span>
+            <div onclick="insert('${name}')" style="display: flex; align-items: center; flex: 1; min-width: 0; cursor: pointer; gap: 8px;">
+                <span style="font-weight: bold; font-family: 'Courier New', monospace; flex-shrink: 0;">${name}</span>
+                <span style="font-size: 0.8rem; color: #7f8c8d; font-family: 'Segoe UI', sans-serif; overflow: hidden; text-overflow: ellipsis; white-space: nowrap;">${descText}</span>
+                <span style="margin-left: auto; font-family: 'Courier New', monospace; flex-shrink: 0; padding-right: 8px;">${val}</span>
             </div>
-            <button onclick="deleteConstant('${name}')" class="delete-btn" title="Delete" style="margin-left: 10px; color: #ff7675; background: none; border: none; font-size: 1.2rem; cursor: pointer; flex-shrink: 0;">×</button>
+            <button onclick="deleteConstant('${name}')" title="Delete" style="color: #ff7675; background: none; border: none; font-size: 1.2rem; cursor: pointer; flex-shrink: 0; line-height: 1; padding: 0 4px;">×</button>
         `;
         
         listElement.appendChild(li);
