@@ -49,41 +49,42 @@
             </div>
 
             <div class="calc-grid">
-                <button class="calc-btn op" onclick="insert('sin(')">sin</button>
-                <button class="calc-btn op" onclick="insert('cos(')">cos</button>
-                <button class="calc-btn op" onclick="insert('tan(')">tan</button>
-                <button class="calc-btn op" onclick="insert('(')">(</button>
-                <button class="calc-btn op" onclick="insert(')')">)</button>
-                
-                <button class="calc-btn op" onclick="insert('exp(')">exp</button>
-                <button class="calc-btn op" onclick="insert('sqrt(')">√</button>
-                <button class="calc-btn op" onclick="insert('^')">^</button>
-                <button class="calc-btn clear" onclick="clearInput()">AC</button>
-                <button class="calc-btn op" onclick="insert('/')">/</button>
+    <button class="calc-btn op" onclick="insert('sin(')">sin</button>
+    <button class="calc-btn op" onclick="insert('cos(')">cos</button>
+    <button class="calc-btn op" onclick="insert('tan(')">tan</button>
+    <button class="calc-btn op" onclick="insert('(')">(</button>
+    <button class="calc-btn op" onclick="insert(')')">)</button>
+    
+    <button class="calc-btn op" onclick="insert('exp(')">exp</button>
+    <button class="calc-btn op" onclick="insert('sqrt(')">√</button>
+    <button class="calc-btn op" onclick="insert('^')">^</button>
+    <button class="calc-btn op" style="background-color: #fab1a0;" onclick="backspace()">⌫</button>
+    <button class="calc-btn clear" onclick="clearInput()">AC</button>
 
-                <button class="calc-btn" onclick="insert('7')">7</button>
-                <button class="calc-btn" onclick="insert('8')">8</button>
-                <button class="calc-btn" onclick="insert('9')">9</button>
-                <button class="calc-btn" onclick="insert('e')">e</button> <button class="calc-btn op" onclick="insert('*')">*</button>
+    <button class="calc-btn" onclick="insert('7')">7</button>
+    <button class="calc-btn" onclick="insert('8')">8</button>
+    <button class="calc-btn" onclick="insert('9')">9</button>
+    <button class="calc-btn" onclick="insert('e')">e</button>
+    <button class="calc-btn op" onclick="insert('*')">*</button>
 
-                <button class="calc-btn" onclick="insert('4')">4</button>
-                <button class="calc-btn" onclick="insert('5')">5</button>
-                <button class="calc-btn" onclick="insert('6')">6</button>
-                <button class="calc-btn" onclick="insert('c')">c</button>
-                <button class="calc-btn op" onclick="insert('-')">-</button>
+    <button class="calc-btn" onclick="insert('4')">4</button>
+    <button class="calc-btn" onclick="insert('5')">5</button>
+    <button class="calc-btn" onclick="insert('6')">6</button>
+    <button class="calc-btn" onclick="insert('c0')">c0</button>
+    <button class="calc-btn op" onclick="insert('-')">-</button>
 
-                <button class="calc-btn" onclick="insert('1')">1</button>
-                <button class="calc-btn" onclick="insert('2')">2</button>
-                <button class="calc-btn" onclick="insert('3')">3</button>
-                <button class="calc-btn" onclick="insert('me')">me</button>
-                <button class="calc-btn op" onclick="insert('+')">+</button>
+    <button class="calc-btn" onclick="insert('1')">1</button>
+    <button class="calc-btn" onclick="insert('2')">2</button>
+    <button class="calc-btn" onclick="insert('3')">3</button>
+    <button class="calc-btn" onclick="insert('m0')">m0</button>
+    <button class="calc-btn op" onclick="insert('+')">+</button>
 
-                <button class="calc-btn" onclick="insert('0')" style="grid-column: span 2;">0</button>
-                <button class="calc-btn" onclick="insert('.')">.</button>
-                <button class="calc-btn" onclick="insert('h')">h</button>
-                <button class="calc-btn eval" onclick="calculate()">=</button>
-                <button class="calc-btn op" style="background-color: #fab1a0;" onclick="backspace()">⌫</button>
-            </div>
+    <button class="calc-btn" onclick="insert('0')">0</button>
+    <button class="calc-btn" onclick="insert('.')">.</button>
+    <button class="calc-btn op" style="background-color: #ffeaa7;" onclick="insert('Ans')">Ans</button>
+    <button class="calc-btn" onclick="insert('h')">h</button>
+    <button class="calc-btn eval" onclick="calculate()">=</button>
+</div>
         </article>
 
         <aside class="sidebar-box">
