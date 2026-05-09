@@ -60,7 +60,7 @@ function updateCustomListUI() {
     for (let name in savedConstants) {
         const li = document.createElement('li');
         
-        // We create a container for the text and a separate one for the button
+        // We wrap name and value in spans to allow the "space-between" layout
         li.innerHTML = `
             <div class="constant-item-content" onclick="insert('${name}')">
                 <span class="const-name">${name}</span>
