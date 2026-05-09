@@ -105,3 +105,49 @@ function saveCustomConstant() {
             calculate();
         }
     });
+
+// 1. Function to create the list items in the sidebar
+function updateCustomListUI() {
+    const listElement = document.getElementById('user-constant-list');
+    if (!listElement) return;
+
+    // Clear existing list to prevent duplicates
+    listElement.innerHTML = '';
+
+    // Loop through everything saved in the browser memory
+    for (let name in savedConstants) {
+        const li = document.createElement('li');
+        
+        // This matches the style of your "Loaded Constants" [cite: 6, 7]
+        li.innerHTML = `<span>${name}</span> <span>${savedConstants[name]}</span>`;
+        
+        // Make it clickable so it enters the calculator just like 'me' or 'h' [cite: 6, 7]
+        li.onclick = function() { insert(name); };
+        
+        listElement.appendChild(li);
+    }
+}
+
+// 2. Modify your Save function to update the UI immediately
+function saveCustomConstant() {
+    const name = document.getElementById('custom-name').value.trim();
+    const value = document.getElementById('custom-value').value;
+
+    if (name && value) {
+        savedConstants[name] = value;
+        localStorage.setItem('userConstants', JSON.stringify(savedConstants));
+        
+        // Update the math scope so you can use it immediately
+        scope[name] = parseFloat(value);
+        
+        // Refresh the list on the screen
+        updateCustomListUI();
+        
+        // Clear the input boxes
+        document.getElementById('custom-name').value = '';
+        document.getElementById('custom-value').value = '';
+    }
+}
+
+// 3. Ensure the list shows up when you first open the page
+window.addEventListener('load', updateCustomListUI);
