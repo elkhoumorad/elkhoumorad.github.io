@@ -60,22 +60,29 @@ function updateCustomListUI() {
     for (let name in savedConstants) {
         const item = savedConstants[name];
         
-        // Handle backwards compatibility for old constants
+        // Safety check for old vs new format
         const val = typeof item === 'object' ? item.value : item;
         const descText = (typeof item === 'object' && item.desc) ? `(${item.desc})` : '';
 
         const li = document.createElement('li');
         
-        // Structure: 1 div for the insert area, 1 button for the delete
+        // Force the row layout directly
+        li.style.display = 'flex';
+        li.style.justifyContent = 'space-between';
+        li.style.alignItems = 'center';
+        li.style.padding = '8px 0';
+        li.style.borderBottom = '1px solid #f0f0f0';
+
+        // Force the internal layout directly
         li.innerHTML = `
-            <div class="constant-item-content" onclick="insert('${name}')">
-                <span class="const-left">
-                    <span class="const-name">${name}</span>
-                    <span class="const-desc">${descText}</span>
+            <div onclick="insert('${name}')" style="display: flex; flex: 1; justify-content: space-between; align-items: center; cursor: pointer; padding-right: 20px;">
+                <span style="display: flex; align-items: baseline; gap: 8px;">
+                    <span style="font-weight: bold; font-family: 'Courier New', monospace;">${name}</span>
+                    <span style="font-size: 0.75rem; color: #7f8c8d;">${descText}</span>
                 </span>
-                <span class="const-val">${val}</span>
+                <span style="font-family: 'Courier New', monospace; font-weight: 500; color: #333;">${val}</span>
             </div>
-            <button onclick="deleteConstant('${name}')" class="delete-btn" title="Delete">×</button>
+            <button onclick="deleteConstant('${name}')" title="Delete" style="background: none; border: none; color: #ff7675; font-size: 1.2rem; cursor: pointer; padding: 0 5px; flex-shrink: 0;">×</button>
         `;
         
         listElement.appendChild(li);
