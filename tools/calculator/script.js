@@ -1,13 +1,13 @@
 // --- 1. Initialize Math.js Scope ---
 // We add 'Ans' to the scope, initialized to 0.
 const scope = {
-    c0: 299792458,
+    c: 299792458,
     Na: 6.02214076e23,
-    m0: 9.1093837015e-31,
+    me: 9.1093837015e-31,
     e: 1.602176634e-19,
     eps0: 8.8541878128e-12,
     h: 1.054571817e-34, 
-    k0: 1.380648520e-23,
+    kb: 1.380648520e-23,
     Ans: 0 
 };
 
