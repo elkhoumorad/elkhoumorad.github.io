@@ -60,10 +60,11 @@ function updateCustomListUI() {
     for (let name in savedConstants) {
         const li = document.createElement('li');
         
-        // Structure: Symbol/Value on the left, Delete button on the right
+        // We create a container for the text and a separate one for the button
         li.innerHTML = `
-            <div onclick="insert('${name}')" style="flex-grow: 1; display: flex; justify-content: space-between; cursor: pointer;">
-                <span>${name}</span> <span>${savedConstants[name]}</span>
+            <div class="constant-item-content" onclick="insert('${name}')">
+                <span class="const-name">${name}</span>
+                <span class="const-val">${savedConstants[name]}</span>
             </div>
             <button onclick="deleteConstant('${name}')" class="delete-btn" title="Delete">×</button>
         `;
@@ -71,7 +72,6 @@ function updateCustomListUI() {
         listElement.appendChild(li);
     }
 }
-
 // Delete function
 
 
