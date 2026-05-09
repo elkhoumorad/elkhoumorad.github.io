@@ -74,7 +74,7 @@ function updateCustomListUI() {
                     <span class="const-name">${name}</span>
                     <span class="const-desc">${descText}</span>
                 </span>
-                <span>${val}</span>
+                <span style="margin-left: auto; padding-right: 25px;">${val}</span>
             </div>
             <button onclick="deleteConstant('${name}')" class="delete-btn" title="Delete">×</button>
         `;
