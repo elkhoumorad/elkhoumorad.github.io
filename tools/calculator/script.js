@@ -54,4 +54,12 @@
                 event.preventDefault();
                 calculate();
             }
+
+         // --- Backspace Function ---
+function backspace() {
+    const currentInput = inputField.value;
+    // .slice(0, -1) takes the string from the start to the second-to-last character
+    inputField.value = currentInput.slice(0, -1);
+    inputField.focus(); 
+}
         });
