@@ -51,7 +51,6 @@ function clearInput() {
 }
 
 // --- 4. Custom Constants Logic ---
-
 function updateCustomListUI() {
     const listElement = document.getElementById('user-constant-list');
     if (!listElement) return;
@@ -60,47 +59,25 @@ function updateCustomListUI() {
 
     for (let name in savedConstants) {
         const item = savedConstants[name];
+        
+        // Handle backwards compatibility for old constants
         const val = typeof item === 'object' ? item.value : item;
-        const desc = (typeof item === 'object' && item.desc) ? item.desc : '';
+        const descText = (typeof item === 'object' && item.desc) ? `(${item.desc})` : '';
 
-        // Build <li>
         const li = document.createElement('li');
-        li.style.cssText = 'display:flex; align-items:center; margin-bottom:10px; border-bottom:1px solid #f0f0f0; padding-bottom:8px; gap:6px;';
-
-        // Clickable left section
-        const div = document.createElement('div');
-        div.style.cssText = 'display:flex; align-items:center; flex:1; min-width:0; cursor:pointer; gap:8px;';
-        div.addEventListener('click', function() { insert(name); });
-
-        // Symbol
-        const nameSpan = document.createElement('span');
-        nameSpan.style.cssText = 'font-weight:bold; font-family:"Courier New",monospace; flex-shrink:0;';
-        nameSpan.textContent = name;
-        div.appendChild(nameSpan);
-
-        // Description (only if present)
-        if (desc) {
-            const descSpan = document.createElement('span');
-            descSpan.style.cssText = 'font-size:0.8rem; color:#7f8c8d; font-family:"Segoe UI",sans-serif; overflow:hidden; text-overflow:ellipsis; white-space:nowrap; flex:1;';
-            descSpan.textContent = '(' + desc + ')';
-            div.appendChild(descSpan);
-        }
-
-        // Value pushed to the right
-        const valSpan = document.createElement('span');
-        valSpan.style.cssText = 'margin-left:auto; font-family:"Courier New",monospace; flex-shrink:0; padding-right:6px;';
-        valSpan.textContent = val;
-        div.appendChild(valSpan);
-
-        li.appendChild(div);
-
-        // Delete button — no tooltip, only shows intent on hover via color
-        const btn = document.createElement('button');
-        btn.textContent = '×';
-        btn.style.cssText = 'color:#ff7675; background:none; border:none; font-size:1.2rem; cursor:pointer; flex-shrink:0; line-height:1; padding:0 4px;';
-        btn.addEventListener('click', function() { deleteConstant(name); });
-        li.appendChild(btn);
-
+        
+        // Structure: 1 div for the insert area, 1 button for the delete
+        li.innerHTML = `
+            <div class="constant-item-content" onclick="insert('${name}')">
+                <span class="const-left">
+                    <span class="const-name">${name}</span>
+                    <span class="const-desc">${descText}</span>
+                </span>
+                <span class="const-val">${val}</span>
+            </div>
+            <button onclick="deleteConstant('${name}')" class="delete-btn" title="Delete">×</button>
+        `;
+        
         listElement.appendChild(li);
     }
 }
@@ -132,7 +109,7 @@ function saveCustomConstant() {
 }
 
 function deleteConstant(name) {
-    if (confirm('Remove "' + name + '" from your lab constants?')) {
+    if (confirm(`Remove "${name}" from your lab constants?`)) {
         delete savedConstants[name];
         delete scope[name];
         localStorage.setItem('userConstants', JSON.stringify(savedConstants));
@@ -146,7 +123,7 @@ function calculate() {
     if (!expression) return;
 
     try {
-        let safeExpression = expression.replace(/Ans/g, '(' + scope.Ans + ')');
+        let safeExpression = expression.replace(/Ans/g, `(${scope.Ans})`);
         
         let result = math.evaluate(safeExpression, scope);
         scope.Ans = result;
