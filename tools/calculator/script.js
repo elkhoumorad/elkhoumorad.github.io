@@ -51,6 +51,7 @@ function clearInput() {
 }
 
 // --- 4. Custom Constants Logic ---
+
 function updateCustomListUI() {
     const listElement = document.getElementById('user-constant-list');
     if (!listElement) return;
@@ -60,42 +61,33 @@ function updateCustomListUI() {
     for (let name in savedConstants) {
         const item = savedConstants[name];
         
-        // Safety check for old vs new format
         const val = typeof item === 'object' ? item.value : item;
         const descText = (typeof item === 'object' && item.desc) ? `(${item.desc})` : '';
 
         const li = document.createElement('li');
         
-        // Force the row layout directly
-        li.style.display = 'flex';
-        li.style.justifyContent = 'space-between';
-        li.style.alignItems = 'center';
-        li.style.padding = '8px 0';
-        li.style.borderBottom = '1px solid #f0f0f0';
-
-        // Force the internal layout directly
-        
-        // THE ANCHOR: This traps the absolute button inside the white box
-        li.style.position = 'relative';
-
+        // The beautifully simple, button-free layout
         li.innerHTML = `
-            <div onclick="insert('${name}')" style="display: flex; flex: 1; justify-content: space-between; align-items: center; cursor: pointer; padding-right: 35px; min-width: 0;">
+            <div onclick="if(event.shiftKey) deleteConstant('${name}'); else insert('${name}');" 
+                 title="Click to insert | Shift + Click to delete"
+                 style="display: flex; justify-content: space-between; align-items: baseline; width: 100%; padding: 8px 5px; cursor: pointer;">
                 
-                <span style="display: flex; align-items: baseline; gap: 8px; min-width: 0;">
-                    <span style="font-weight: bold; font-family: 'Courier New', monospace; flex-shrink: 0;">${name}</span>
-                    <span style="font-size: 0.75rem; color: #7f8c8d; max-width: 120px; white-space: nowrap; overflow: hidden; text-overflow: ellipsis;">${descText}</span>
+                <span style="display: flex; gap: 10px; align-items: baseline; overflow: hidden;">
+                    <strong style="font-family: 'Courier New', monospace;">${name}</strong>
+                    <span style="color: #7f8c8d; font-size: 0.8rem; white-space: nowrap; overflow: hidden; text-overflow: ellipsis;">${descText}</span>
                 </span>
-
-                <span style="font-family: 'Courier New', monospace; font-weight: 500; color: #333; flex-shrink: 0;">${val}</span>
+                
+                <span style="font-family: 'Courier New', monospace; font-weight: 500; padding-left: 15px;">${val}</span>
                 
             </div>
-            
-            <button onclick="deleteConstant('${name}')" title="Delete" style="position: absolute; right: 0; top: 50%; transform: translateY(-50%); background: none; border: none; color: #ff7675; font-size: 1.2rem; cursor: pointer; padding: 0 5px;">×</button>
         `;
         
         listElement.appendChild(li);
     }
 }
+
+
+
 
 function saveCustomConstant() {
     const nameField = document.getElementById('custom-name');
