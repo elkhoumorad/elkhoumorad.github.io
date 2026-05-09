@@ -1,8 +1,6 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-
-    <!-- Google tag (gtag.js) -->
     <script async src="https://www.googletagmanager.com/gtag/js?id=G-922TS18EDX"></script>
     <script>
       window.dataLayer = window.dataLayer || [];
@@ -10,19 +8,13 @@
       gtag('js', new Date());
       gtag('config', 'G-922TS18EDX');
     </script>
-
-
     
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Physics Calculator | The Time Reversal</title>
     
     <script src="https://cdnjs.cloudflare.com/ajax/libs/mathjs/11.8.0/math.js"></script>
-
-     <link rel="stylesheet" href="style.css">
-
-
-    
+    <link rel="stylesheet" href="style.css">
 </head>
 <body>
 
@@ -37,44 +29,28 @@
     </header>
 
     <main class="main-wrapper">
-
-
-
-
-
-        
-
-
-
-
-
-
-
         <aside class="sidebar-box">
-        <h3 class="sidebar-title">Characteristic Constants</h3>
-        <p style="font-size: 0.8rem; color: var(--text-muted); margin-top: -10px;">Derived/Compound values</p>
-        <ul class="constant-list">
-        <li onclick="insert('a0')"><span>a0 (Bohr Radius)</span> <span>5.291e-11 m</span></li>
-        <li onclick="insert('alpha')"><span>alpha (Fine Structure)</span> <span>7.297e-3</span></li>
-        <li onclick="insert('Rh')"><span>Rh (Rydberg energy)</span> <span>2.179e-18</span></li>
-        </ul>
-
-            
-
-            
+            <h3 class="sidebar-title">Loaded Constants</h3>
+            <p style="font-size: 0.8rem; color: var(--text-muted); margin-top: -10px;">Click to insert</p>
+            <ul class="constant-list">
+                <li onclick="insert('c')"><span>c (Speed of light)</span> <span>2.997e8</span></li>
+                <li onclick="insert('Na')"><span>Na (Avogadro)</span> <span>6.022e23</span></li>
+                <li onclick="insert('me')"><span>me (electron mass)</span> <span>9.109e-31</span></li>
+                <li onclick="insert('mp')"><span>mp (proton mass)</span> <span>1.672e-27</span></li>
+                <li onclick="insert('mn')"><span>mn (neutron mass)</span> <span>1.674e-27</span></li>
+                <li onclick="insert('e')"><span>e (charge)</span> <span>1.602e-19</span></li>
+                <li onclick="insert('eps0')"><span>eps0 (Permittivity)</span> <span>8.854e-12</span></li>
+                <li onclick="insert('mu0')"><span>mu0 (Permeability)</span> <span>1.256e-6</span></li>
+                <li onclick="insert('h')"><span>h (reduced Planck)</span> <span>1.054e-34</span></li>
+                <li onclick="insert('kb')"><span>kb (Boltzmann)</span> <span>1.380e-23</span></li>
+                <li onclick="insert('G')"><span>G (Gravitational)</span> <span>6.674e-11</span></li>
+            </ul>
         </aside>
 
-
-
-
-
-
-
-        
         <article class="journal-entry">
             <h2>Scientific Evaluator</h2>
             <p style="font-size: 0.9rem; color: var(--text-muted); margin-bottom: 20px;">
-                Type your expression using the keyboard or buttons. Example: <code>(me * c^2) / e</code>
+                Type expression or use buttons. Example: <code>(me * c^2) / e</code>
             </p>
 
             <div class="calc-display">
@@ -83,7 +59,6 @@
             </div>
 
             <div class="calc-grid">
-
                 <button class="calc-btn op" onclick="insert('sin(')">sin</button>
                 <button class="calc-btn op" onclick="insert('cos(')">cos</button>
                 <button class="calc-btn op" onclick="insert('tan(')">tan</button>
@@ -125,58 +100,29 @@
                 <button class="calc-btn op" style="background-color: #ffeaa7;" onclick="insert('Ans')">Ans</button>
                 <button class="calc-btn" onclick="insert('h')">ℏ</button>
                 <button class="calc-btn eval" onclick="calculate()">=</button>
-    
             </div>
         </article>
 
-
-            <aside class="sidebar-box">
-            <h3 class="sidebar-title">Loaded Constants</h3>
-            <p style="font-size: 0.8rem; color: var(--text-muted); margin-top: -10px;">Click to insert</p>
+        <aside class="sidebar-box">
+            <h3 class="sidebar-title">Characteristic Constants</h3>
             <ul class="constant-list">
-                <li onclick="insert('c')"><span>c (Speed of light)</span> <span>2.997e8 m.s^-1</span></li>
-                <li onclick="insert('Na')"><span>Na (Avogadro number)</span> <span>6.022e23 mol^-1</span></li>
-                <li onclick="insert('me')"><span>me (electron mass)</span> <span>9.109e-31 kg</span></li>
-                <li onclick="insert('mp')"><span>mp (proton mass)</span> <span>1.672e-27 kg</span></li>
-                <li onclick="insert('mn')"><span>mn (neutron mass)</span> <span>1.674e-27 kg</span></li>
-                <li onclick="insert('e')"><span>e (elementary charge)</span> <span>1.602e-19 C</span></li>
-                <li onclick="insert('eps0')"><span>eps0 (Vacuum permittivity)</span> <span>8.854e-12 F.m^-1</span></li>
-                <li onclick="insert('mu0')"><span>mu0 (Vacuum permeability)</span> <span>1.256e-6 H.m^-1</span></li>
-                <li onclick="insert('h')"><span>h (reduced Planck constant)</span> <span>1.054e-34 J.s</span></li>
-                <li onclick="insert('kb')"><span>kb (Boltzmann constant)</span> <span>1.380e-23 J.K^-1</span></li>
-                <li onclick="insert('G')"><span>G (Gravitational constant)</span> <span>6.674e-11 N.m^2.kg^-2</span></li>
+                <li onclick="insert('a0')"><span>a0 (Bohr Radius)</span> <span>5.291e-11</span></li>
+                <li onclick="insert('alpha')"><span>alpha (Fine Struct)</span> <span>7.297e-3</span></li>
+                <li onclick="insert('Rh')"><span>Rh (Rydberg)</span> <span>2.179e-18</span></li>
             </ul>
 
+            <div class="custom-form" style="margin-top: 30px; border-top: 2px solid var(--bg-color); padding-top: 20px;">
+                <h4 class="sidebar-title">Personal Lab Data</h4>
+                <input type="text" id="custom-name" placeholder="Symbol (e.g. k_eff)">
+                <input type="text" id="custom-value" placeholder="Value (e.g. 1.38e-23)">
+                <button onclick="saveCustomConstant()" class="calc-btn op" style="width:100%">Save Constant</button>
                 
-
-
-                
+                <ul id="user-constant-list" class="constant-list" style="margin-top: 15px;">
+                    </ul>
+            </div>
         </aside>
-
-
-
-        
-
-        
-
-
-
-        
-
-
-
-
-
-
-        
     </main>
 
-
-
-    
     <script src="script.js"></script>
-
-
-    
 </body>
 </html>
