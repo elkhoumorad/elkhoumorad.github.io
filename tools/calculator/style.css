@@ -1,160 +1,186 @@
 /* --- The Time Reversal Theme --- */
-        :root {
-            --bg-color: #f4f4f9;
-            --text-main: #333;
-            --text-muted: #7f8c8d;
-            --accent-blue: #007bff;
-            --border-color: #2c3e50;
-            --calc-bg: #ffffff;
-            --btn-bg: #e0e6ed;
-            --btn-hover: #cbd5e1;
-        }
+:root {
+    --bg-color: #f4f4f9;
+    --text-main: #333;
+    --text-muted: #7f8c8d;
+    --accent-blue: #007bff;
+    --border-color: #2c3e50;
+    --calc-bg: #ffffff;
+    --btn-bg: #e0e6ed;
+    --btn-hover: #cbd5e1;
+}
 
-        body {
-            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
-            color: var(--text-main);
-            background-color: var(--bg-color);
-            margin: 0;
-            padding: 0;
-        }
+body {
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+    color: var(--text-main);
+    background-color: var(--bg-color);
+    margin: 0;
+    padding: 0;
+}
 
-        header.site-header {
-            text-align: center;
-            padding: 40px 20px 20px;
-        }
+header.site-header {
+    text-align: center;
+    padding: 40px 20px 20px;
+}
 
-        header.site-header h1 {
-            color: var(--border-color);
-            font-size: 2.5rem;
-            margin: 0 0 10px 0;
-            font-style: italic;
-            letter-spacing: 2px;
-        }
+header.site-header h1 {
+    color: var(--border-color);
+    font-size: 2.5rem;
+    margin: 0 0 10px 0;
+    font-style: italic;
+    letter-spacing: 2px;
+}
 
-        .tagline {
-            font-size: 0.95rem;
-            color: var(--text-muted);
-            margin-bottom: 20px;
-        }
+.tagline {
+    font-size: 0.95rem;
+    color: var(--text-muted);
+    margin-bottom: 20px;
+}
 
-        .header-divider {
-            max-width: 1200px;
-            margin: 0 auto;
-            border-bottom: 2px solid var(--border-color);
-        }
+.header-divider {
+    max-width: 1200px;
+    margin: 0 auto;
+    border-bottom: 2px solid var(--border-color);
+}
 
-        /* --- Calculator Layout --- */
-        .main-wrapper {
-            display: grid;
-            grid-template-columns: 450px 1fr 450px; /* Main Calc | Sidebar Constants */
-            gap: 20px;
-            max-width: 1800px;
-            margin: 20px auto;
-            padding: 0 20px;
-            align-items: start;
-        }
+/* --- Three-Column Layout --- */
+.main-wrapper {
+    display: grid;
+    /* Sidebar | Main Calc | Sidebar */
+    grid-template-columns: 400px 1fr 400px; 
+    gap: 25px;
+    max-width: 1850px; /* Increased to fit the 3rd column comfortably */
+    margin: 40px auto;
+    padding: 0 20px;
+    align-items: start;
+}
 
-        .journal-entry {
-            background: white;
-            padding: 35px;
-            border-radius: 8px;
-            box-shadow: 0 2px 10px rgba(0,0,0,0.05);
-        }
+.journal-entry {
+    background: white;
+    padding: 35px;
+    border-radius: 8px;
+    box-shadow: 0 2px 10px rgba(0,0,0,0.05);
+}
 
-        /* --- Calculator UI Elements --- */
-        .calc-display {
-            width: 100%;
-            margin-bottom: 20px;
-        }
+/* --- Calculator UI --- */
+.calc-display {
+    width: 100%;
+    margin-bottom: 20px;
+}
 
-        #calc-input {
-            width: 100%;
-            box-sizing: border-box;
-            font-family: 'Courier New', Courier, monospace;
-            font-size: 1.5rem;
-            padding: 15px;
-            border: 2px solid var(--btn-bg);
-            border-radius: 6px;
-            margin-bottom: 10px;
-            outline: none;
-            transition: border-color 0.2s;
-        }
+#calc-input {
+    width: 100%;
+    box-sizing: border-box;
+    font-family: 'Courier New', Courier, monospace;
+    font-size: 1.5rem;
+    padding: 15px;
+    border: 2px solid var(--btn-bg);
+    border-radius: 6px;
+    margin-bottom: 10px;
+    outline: none;
+    transition: border-color 0.2s;
+}
 
-        #calc-input:focus {
-            border-color: var(--accent-blue);
-        }
+#calc-input:focus {
+    border-color: var(--accent-blue);
+}
 
-        #calc-result {
-            font-size: 1.8rem;
-            font-weight: bold;
-            color: var(--border-color);
-            text-align: right;
-            min-height: 40px;
-            padding: 0 10px;
-        }
+#calc-result {
+    font-size: 1.8rem;
+    font-weight: bold;
+    color: var(--border-color);
+    text-align: right;
+    min-height: 40px;
+    padding: 0 10px;
+}
 
-        .calc-grid {
-            display: grid;
-            grid-template-columns: repeat(6, 1fr);
-            gap: 10px;
-        }
+.calc-grid {
+    display: grid;
+    grid-template-columns: repeat(6, 1fr);
+    gap: 10px;
+}
 
-        .calc-btn {
-            background-color: var(--btn-bg);
-            border: none;
-            padding: 15px 0;
-            font-size: 1.1rem;
-            border-radius: 4px;
-            cursor: pointer;
-            transition: background 0.1s;
-            font-family: 'Segoe UI', sans-serif;
-        }
+.calc-btn {
+    background-color: var(--btn-bg);
+    border: none;
+    padding: 15px 0;
+    font-size: 1.1rem;
+    border-radius: 4px;
+    cursor: pointer;
+    transition: background 0.1s;
+    font-family: 'Segoe UI', sans-serif;
+}
 
-        .calc-btn:hover { background-color: var(--btn-hover); }
-        .calc-btn.op { background-color: #d1d8e0; font-weight: bold; }
-        .calc-btn.eval { background-color: var(--border-color); color: white; }
-        .calc-btn.eval:hover { background-color: #1a252f; }
-        .calc-btn.clear { background-color: #ff7675; color: white; }
+.calc-btn:hover { background-color: var(--btn-hover); }
+.calc-btn.op { background-color: #d1d8e0; font-weight: bold; }
+.calc-btn.eval { background-color: var(--border-color); color: white; }
+.calc-btn.eval:hover { background-color: #1a252f; }
+.calc-btn.clear { background-color: #ff7675; color: white; }
 
-        /* --- Sidebar --- */
-        .sidebar-box {
-            background: white;
-            padding: 30px;
-            border-radius: 8px;
-            box-shadow: 0 2px 10px rgba(0,0,0,0.05);
-        }
+/* --- Sidebars & Lists --- */
+.sidebar-box {
+    background: white;
+    padding: 30px;
+    border-radius: 8px;
+    box-shadow: 0 2px 10px rgba(0,0,0,0.05);
+}
 
-        .sidebar-title {
-            font-size: 1.1rem;
-            font-weight: bold;
-            border-bottom: 2px solid var(--bg-color);
-            padding-bottom: 10px;
-            margin-bottom: 15px;
-        }
+.sidebar-title {
+    font-size: 1.1rem;
+    font-weight: bold;
+    border-bottom: 2px solid var(--bg-color);
+    padding-bottom: 10px;
+    margin-bottom: 15px;
+}
 
-        .constant-list {
-            list-style: none;
-            padding: 0;
-            margin: 0;
-            font-family: 'Courier New', Courier, monospace;
-            font-size: 0.9rem;
-        }
+.constant-list {
+    list-style: none;
+    padding: 0;
+    margin: 0;
+    font-family: 'Courier New', Courier, monospace;
+    font-size: 0.9rem;
+}
 
-        .constant-list li {
-            margin-bottom: 10px;
-            display: flex;
-            justify-content: space-between;
-            border-bottom: 1px solid #f0f0f0;
-            padding-bottom: 5px;
-            cursor: pointer;
-        }
-        
-        .constant-list li:hover {
-            color: var(--accent-blue);
-        }
+.constant-list li {
+    margin-bottom: 10px;
+    display: flex;
+    justify-content: space-between;
+    border-bottom: 1px solid #f0f0f0;
+    padding-bottom: 5px;
+    cursor: pointer;
+}
 
-        /* Mobile tweaks */
-        @media (max-width: 800px) {
-            .main-wrapper { grid-template-columns: 1fr; }
-            .calc-grid { grid-template-columns: repeat(4, 1fr); }
-        }
+.constant-list li:hover {
+    color: var(--accent-blue);
+    background-color: #fcfcfc;
+}
+
+/* --- New: Custom Constant Form Styling --- */
+.custom-form input {
+    width: 100%;
+    padding: 10px;
+    margin-bottom: 10px;
+    border: 1px solid #ddd;
+    border-radius: 4px;
+    box-sizing: border-box; /* Crucial for keeping inputs inside the box */
+    font-family: inherit;
+}
+
+.custom-form button {
+    width: 100%;
+    margin-top: 5px;
+}
+
+/* --- Mobile Responsive --- */
+@media (max-width: 1400px) {
+    .main-wrapper {
+        grid-template-columns: 1fr; /* Stack everything on tablets/small laptops */
+        max-width: 800px;
+    }
+}
+
+@media (max-width: 600px) {
+    .calc-grid {
+        grid-template-columns: repeat(4, 1fr); /* 4 columns on tiny screens */
+    }
+}
