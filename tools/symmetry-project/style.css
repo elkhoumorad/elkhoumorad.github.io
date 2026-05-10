@@ -171,7 +171,7 @@ footer {
     color: var(--text-muted);
     border-top: 0.5px solid #ddd;
     background-color: white;
-    width: 118%;
+    width: 117%;
 }
 footer a {
     color: var(--border-color);
