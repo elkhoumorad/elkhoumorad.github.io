@@ -60,14 +60,6 @@ h1 {
 }
 
 /* --- NEW: Top Icon Row Styling --- */
-.top-icon-row {
-    max-width: 1400px;
-    margin: 30px auto 0 auto;
-    padding: 0 20px;
-    display: flex;
-    gap: 25px;
-    justify-content: flex-start;
-}
 /* Styling for the icon row container */
 .top-icon-row {
     max-width: 1400px;
