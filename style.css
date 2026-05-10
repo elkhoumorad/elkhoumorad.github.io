@@ -152,6 +152,111 @@ footer a:hover {
     color: var(--accent-blue);
 }
 
+/* Styling the Scoop area */
+.scoop-container {
+    margin-bottom: 40px;
+    padding-bottom: 20px;
+}
+
+/* The Professional Divider */
+.section-divider {
+    border: 0;
+    height: 1px;
+    background-image: linear-gradient(to right, rgba(0, 0, 0, 0), rgba(0, 0, 0, 0.1), rgba(0, 0, 0, 0));
+    margin-bottom: 50px;
+    margin-top: 20px;
+}
+
+/* --- THE ARTICLES GRID (Added this so your articles sit side-by-side) --- */
+.articles-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fill, minmax(300px, 1fr));
+    gap: 30px;
+}
+
+/* 1. Tame the giant image */
+.card-image {
+  width: 100%;
+  height: 200px; /* Slightly shorter so it looks like a sleek thumbnail */
+  object-fit: cover; 
+  object-position: center;
+  border-bottom: 1px solid #eee; 
+}
+
+/* 2. Fix the layout of the text area */
+.card-content {
+  display: flex;
+  flex-direction: column; 
+  padding: 20px;
+}
+
+/* 3. Space out the Title */
+.card-title {
+  margin-top: 0;
+  margin-bottom: 12px; 
+  font-size: 1.3rem;
+  line-height: 1.3;
+}
+
+/* 4. Keep the dates cleanly together and align the SVGs */
+.card-meta {
+  display: flex;
+  flex-wrap: wrap; /* Allows wrapping on small screens */
+  gap: 15px;
+  margin-bottom: 15px;
+  color: #666;
+  font-size: 0.8rem;
+}
+
+/* PERFECT ALIGNMENT FOR THE ICONS */
+.card-meta span {
+    display: flex;
+    align-items: center;
+    gap: 5px; /* Space between icon and text */
+}
+.card-meta svg {
+    color: #95a5a6; /* Soft grey for the icons */
+}
+
+/* 5. Space out the description and link */
+.card-description {
+  margin-top: 0;
+  margin-bottom: 20px;
+  line-height: 1.6;
+  font-size: 0.95rem;
+  color: #555;
+}
+
+.read-more {
+  align-self: flex-start; 
+  font-weight: bold;
+  color: #0056b3; 
+  text-decoration: none;
+  font-size: 0.9rem;
+}
+
+.read-more:hover {
+  text-decoration: underline;
+}
+
+/* Article Card Container & Animations */
+.article-card {
+  display: flex;
+  flex-direction: column;
+  background: white;
+  border: 1px solid #e1e4e8;
+  border-radius: 8px;
+  overflow: hidden;
+  transition: transform 0.3s ease, box-shadow 0.3s ease;
+  cursor: pointer;
+  height: 100%; /* Keeps cards the same height in the grid */
+}
+
+.article-card:hover {
+  transform: translateY(-5px); 
+  box-shadow: 0 10px 25px rgba(0, 0, 0, 0.1);
+}
+
 /* Responsive Design */
 @media (max-width: 1100px) {
     .main-wrapper {
@@ -171,102 +276,7 @@ footer a:hover {
     .right-sidebar {
         grid-template-columns: 1fr;
     }
+    .articles-grid {
+        grid-template-columns: 1fr; /* Stack articles on mobile */
+    }
 }
-
-
-/* 1. Tame the giant image */
-.card-image {
-  width: 100%;
-  height: 250px; /* Locks the height so it doesn't take over the page */
-  object-fit: cover; /* Ensures the image doesn't warp or stretch */
-  object-position: center;
-  border-bottom: 1px solid #eee; /* Clean divider line */
-}
-
-/* 2. Fix the layout of the text area */
-.card-content {
-  display: flex;
-  flex-direction: column; /* THIS IS THE MAGIC FIX: Stacks items vertically */
-  padding: 20px;
-}
-
-/* 3. Space out the Title */
-.card-title {
-  margin-top: 0;
-  margin-bottom: 8px; /* Brings it closer to the dates */
-  font-size: 1.4rem;
-}
-
-/* 4. Keep the dates cleanly together */
-.card-meta {
-  display: flex;
-  flex-direction: row; /* Keeps the two dates side-by-side */
-  gap: 15px;
-  margin-bottom: 15px;
-  color: #666;
-  font-size: 0.85rem;
-}
-
-/* 5. Space out the description and link */
-.card-description {
-  margin-top: 0;
-  margin-bottom: 20px;
-  line-height: 1.6;
-}
-
-.read-more {
-  align-self: flex-start; /* Keeps the link neatly on the left */
-  font-weight: bold;
-  color: #0056b3; /* Or whatever your theme's link color is */
-  text-decoration: none;
-}
-
-.read-more:hover {
-  text-decoration: underline;
-}
-
-
-
-.article-card {
-  /* ... your existing styles ... */
-  display: flex;
-  flex-direction: column;
-  background: white;
-  border: 1px solid #e1e4e8;
-  border-radius: 8px;
-  overflow: hidden;
-
-  /* 1. Add the transition here (Duration and Easing) */
-  transition: transform 0.3s ease, box-shadow 0.3s ease;
-  cursor: pointer;
-}
-
-/* 2. Add the Hover State */
-.article-card:hover {
-  /* This moves the card up by 5 pixels */
-  transform: translateY(-5px); 
-  
-  /* This adds a soft shadow to make it look like it's floating */
-  box-shadow: 0 10px 25px rgba(0, 0, 0, 0.1);
-}
-
-
-
-
-
-
-/* Styling the Scoop area */
-.scoop-container {
-    margin-bottom: 40px;
-    padding-bottom: 20px;
-}
-
-/* The Professional Divider */
-.section-divider {
-    border: 0;
-    height: 1px;
-    background-image: linear-gradient(to right, rgba(0, 0, 0, 0), rgba(0, 0, 0, 0.1), rgba(0, 0, 0, 0));
-    margin-bottom: 50px;
-    margin-top: 20px;
-}
-
