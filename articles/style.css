@@ -43,6 +43,46 @@ header.site-header h1 {
     border-bottom: 2px solid var(--border-color);
 }
 
+
+/* --- NEW: Top Icon Row Styling --- */
+/* Styling for the icon row container */
+.top-icon-row {
+    max-width: 1400px;
+    /* Reduced top margin from 30px to 20px to pull it closer to the header line */
+    margin: 20px auto 10px auto; 
+    padding: 0 20px;
+    display: flex;
+    gap: 30px; 
+    /* THIS IS THE FIX: Centers the icons perfectly in the middle of the screen */
+    justify-content: center; 
+}
+
+/* The link wrapper */
+.img-icon-link {
+    display: inline-block;
+    transition: transform 0.2s ease;
+    text-decoration: none;
+}
+
+/* The actual PNG image */
+.img-icon-link img {
+    width: 45px;  /* Set your preferred size here */
+    height: auto;
+    display: block;
+    opacity: 0.85; /* Makes them look slightly more integrated */
+    transition: opacity 0.2s ease;
+}
+
+/* Hover effects */
+.img-icon-link:hover {
+    transform: translateY(-3px); /* Gentle lift on hover */
+}
+
+.img-icon-link:hover img {
+    opacity: 1; /* Brightens on hover */
+}
+
+
 /* --- 3-COLUMN ARTICLE LAYOUT --- */
 .main-wrapper {
     display: grid;
