@@ -361,17 +361,7 @@ footer a:hover {
     transform: scale(1.1);
 }
 
-#chat-window {
-    width: 300px;
-    height: 400px;
-    background-color: white;
-    border-radius: 10px;
-    box-shadow: 0 5px 25px rgba(0,0,0,0.2);
-    margin-bottom: 15px;
-    display: flex;
-    flex-direction: column;
-    overflow: hidden;
-}
+
 
 .chat-header {
     background-color: var(--border-color);
@@ -387,12 +377,7 @@ footer a:hover {
     font-size: 1rem;
 }
 
-.chat-body {
-    flex-grow: 1;
-    padding: 15px;
-    background-color: #f9f9f9;
-    overflow-y: auto;
-}
+
 
 /* --- Chat Message Bubbles --- */
 .bot-msg, .user-msg {
@@ -429,22 +414,75 @@ footer a:hover {
 
 
 
-.chip {
-    background: #e1e8ed;
-    border: 1px solid var(--accent-blue);
-    color: var(--accent-blue);
-    padding: 5px 12px;
-    border-radius: 15px;
-    font-size: 0.8rem;
-    cursor: pointer;
+
+
+
+
+
+
+/* --- Improved Suggestion Chips --- */
+#chat-suggestions {
+    display: flex;
+    gap: 10px;
+    padding: 12px 15px;
+    background: #fff;
+    border-top: 1px solid #eee;
+    /* This allows chips to scroll sideways instead of stacking/cramming */
+    overflow-x: auto;
     white-space: nowrap;
-    transition: all 0.2s;
+    /* Hides the scrollbar for a cleaner look while still allowing swipe */
+    -ms-overflow-style: none;
+    scrollbar-width: none;
+}
+
+#chat-suggestions::-webkit-scrollbar {
+    display: none;
+}
+
+.chip {
+    background: #f0f4f8;
+    border: 1.5px solid var(--accent-blue);
+    color: var(--accent-blue);
+    padding: 6px 16px;
+    border-radius: 20px;
+    font-size: 0.85rem;
+    font-weight: 500;
+    cursor: pointer;
+    transition: all 0.2s ease;
+    flex-shrink: 0; /* Prevents the chips from squishing */
 }
 
 .chip:hover {
     background: var(--accent-blue);
     color: white;
 }
+
+/* --- Adjusting the Chat Window Height --- */
+#chat-window {
+    width: 350px; /* Slightly wider for better text flow */
+    height: 500px; /* Taller so you can actually see the history */
+    background-color: white;
+    border-radius: 12px;
+    box-shadow: 0 10px 30px rgba(0,0,0,0.15);
+    display: flex;
+    flex-direction: column;
+}
+
+.chat-body {
+    flex: 1; /* This makes the message area take up all remaining space */
+    padding: 15px;
+    overflow-y: auto;
+}
+
+
+
+
+
+
+
+
+
+
 
 /* Make messages fade in smoothly */
 .bot-msg, .user-msg {
