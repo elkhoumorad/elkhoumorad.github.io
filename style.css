@@ -68,24 +68,39 @@ h1 {
     gap: 25px;
     justify-content: flex-start;
 }
-.circle-icon {
+/* Styling for the icon row container */
+.top-icon-row {
+    max-width: 1400px;
+    margin: 30px auto 0 auto;
+    padding: 0 20px;
     display: flex;
-    align-items: center;
-    justify-content: center;
-    width: 80px;
-    height: 80px;
-    border: 3px solid #000;
-    border-radius: 50%;
-    text-decoration: none;
-    color: #000;
-    font-family: serif;
-    font-size: 1.2rem;
-    background-color: white;
-    transition: transform 0.2s ease, box-shadow 0.2s ease;
+    gap: 30px; /* Increased gap for a cleaner look */
+    justify-content: flex-start;
 }
-.circle-icon:hover {
-    transform: scale(1.05);
-    box-shadow: 0 4px 10px rgba(0,0,0,0.1);
+
+/* The link wrapper */
+.img-icon-link {
+    display: inline-block;
+    transition: transform 0.2s ease;
+    text-decoration: none;
+}
+
+/* The actual PNG image */
+.img-icon-link img {
+    width: 45px;  /* Set your preferred size here */
+    height: auto;
+    display: block;
+    opacity: 0.85; /* Makes them look slightly more integrated */
+    transition: opacity 0.2s ease;
+}
+
+/* Hover effects */
+.img-icon-link:hover {
+    transform: translateY(-3px); /* Gentle lift on hover */
+}
+
+.img-icon-link:hover img {
+    opacity: 1; /* Brightens on hover */
 }
 /* --------------------------------- */
 
