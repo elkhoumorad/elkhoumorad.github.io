@@ -177,6 +177,19 @@
                 <input type="text" id="chat-input" placeholder="Type a message..." style="flex-grow: 1; padding: 8px; border: 1px solid #ccc; border-radius: 4px;">
                 <button id="chat-send" style="padding: 8px 12px; border-radius: 4px; margin-left: 5px; background: var(--accent-blue); color: white; border: none; cursor: pointer;">Send</button>
             </div>
+
+
+
+            <div id="chat-suggestions" style="padding: 10px; display: flex; gap: 8px; overflow-x: auto; background: #fff; border-top: 1px solid #eee;">
+            <button class="chip" onclick="handleChip('Skyrmions')">Skyrmions</button>
+            <button class="chip" onclick="handleChip('SymmCalc')">Symmetry Tool</button>
+            <button class="chip" onclick="handleChip('Contact')">Contact</button>
+            </div>
+
+
+
+
+            
         </div>
 
         <button id="chat-bubble">
