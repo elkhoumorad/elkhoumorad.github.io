@@ -18,15 +18,35 @@ body {
     padding: 0;
 }
 
-header.site-header {
-    text-align: center;
+/* Header Styling */
+header {
     padding: 40px 20px 20px;
+    max-width: 1400px;
+    margin: 0 auto;
 }
 
-header.site-header h1 {
+.header-content {
+    display: flex;
+    align-items: center; /* Vertically centers the text with the logo */
+    gap: 20px; /* Space between the logo and the title */
+    margin-bottom: 20px;
+}
+
+.logo-container img {
+    max-height: 90px; /* Sized to match your screenshot */
+    display: block;
+}
+
+.title-container {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+}
+
+h1 {
     color: var(--border-color);
     font-size: 2.5rem;
-    margin: 0 0 10px 0;
+    margin: 0; /* Tucked tight against the tagline */
     font-style: italic;
     letter-spacing: 2px;
 }
@@ -34,13 +54,51 @@ header.site-header h1 {
 .tagline {
     font-size: 0.95rem;
     color: var(--text-muted);
-    margin-bottom: 20px;
+    margin: 5px 0 0 0; /* Just a tiny gap below the h1 */
 }
 
 .header-divider {
-    max-width: 1200px;
-    margin: 0 auto;
+    width: 100%;
     border-bottom: 2px solid var(--border-color);
+}
+
+
+/* --- NEW: Top Icon Row Styling --- */
+/* Styling for the icon row container */
+.top-icon-row {
+    max-width: 1400px;
+    /* Reduced top margin from 30px to 20px to pull it closer to the header line */
+    margin: 20px auto 10px auto; 
+    padding: 0 20px;
+    display: flex;
+    gap: 30px; 
+    /* THIS IS THE FIX: Centers the icons perfectly in the middle of the screen */
+    justify-content: center; 
+}
+
+/* The link wrapper */
+.img-icon-link {
+    display: inline-block;
+    transition: transform 0.2s ease;
+    text-decoration: none;
+}
+
+/* The actual PNG image */
+.img-icon-link img {
+    width: 45px;  /* Set your preferred size here */
+    height: auto;
+    display: block;
+    opacity: 0.85; /* Makes them look slightly more integrated */
+    transition: opacity 0.2s ease;
+}
+
+/* Hover effects */
+.img-icon-link:hover {
+    transform: translateY(-3px); /* Gentle lift on hover */
+}
+
+.img-icon-link:hover img {
+    opacity: 1; /* Brightens on hover */
 }
 
 /* --- Three-Column Layout --- */
