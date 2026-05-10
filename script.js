@@ -63,31 +63,51 @@ function getBotResponse(input) {
 }
 
 
+// Function for the suggestion chips
+function handleChip(text) {
+    chatInput.value = text;
+    sendMessage();
+}
+
+
+
 // Function to handle sending a message
 function sendMessage() {
     const text = chatInput.value.trim();
     if (text === '') return;
 
-    // Display User Message
+    // 1. User Message
     const userMsg = document.createElement('p');
     userMsg.className = 'user-msg';
     userMsg.textContent = text;
     chatBody.appendChild(userMsg);
-
     chatInput.value = '';
     chatBody.scrollTop = chatBody.scrollHeight;
 
-    // Instant Bot Response
+    // 2. Show "Typing..." dots
+    const typingIndicator = document.createElement('p');
+    typingIndicator.className = 'bot-msg typing-dots';
+    typingIndicator.innerHTML = '<span>.</span><span>.</span><span>.</span>';
+    chatBody.appendChild(typingIndicator);
+
     setTimeout(() => {
+        chatBody.removeChild(typingIndicator);
         const botMsg = document.createElement('p');
         botMsg.className = 'bot-msg';
-        botMsg.textContent = getBotResponse(text);
         
+        // Search Logic
+        let response = "I'm not sure about that. Try one of the buttons above!";
+        const query = text.toLowerCase();
+        for (const key in knowledgeBase) {
+            if (query.includes(key)) { response = knowledgeBase[key]; break; }
+        }
+        
+        // Use innerHTML instead of textContent so you can put <b>bold</b> or <a>links</a> in your knowledgeBase!
+        botMsg.innerHTML = response; 
         chatBody.appendChild(botMsg);
         chatBody.scrollTop = chatBody.scrollHeight;
-    }, 400); // 400ms delay just to make it feel 'natural'
+    }, 800); // 800ms feels more "human"
 }
-
 // Trigger send when clicking the button
 chatSend.addEventListener('click', sendMessage);
 
