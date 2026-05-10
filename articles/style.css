@@ -34,12 +34,11 @@ header.site-header h1 {
 .tagline {
     font-size: 0.95rem;
     color: var(--text-muted);
-    margin-bottom: 20px;
+    margin: 5px 0 0 0; /* Just a tiny gap below the h1 */
 }
 
 .header-divider {
-    max-width: 1200px;
-    margin: 0 auto;
+    width: 100%;
     border-bottom: 2px solid var(--border-color);
 }
 
