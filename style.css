@@ -63,11 +63,13 @@ h1 {
 /* Styling for the icon row container */
 .top-icon-row {
     max-width: 1400px;
-    margin: 30px auto 0 auto;
+    /* Reduced top margin from 30px to 20px to pull it closer to the header line */
+    margin: 20px auto 10px auto; 
     padding: 0 20px;
     display: flex;
-    gap: 30px; /* Increased gap for a cleaner look */
-    justify-content: flex-start;
+    gap: 30px; 
+    /* THIS IS THE FIX: Centers the icons perfectly in the middle of the screen */
+    justify-content: center; 
 }
 
 /* The link wrapper */
