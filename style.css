@@ -394,13 +394,30 @@ footer a:hover {
     overflow-y: auto;
 }
 
+/* --- Chat Message Bubbles --- */
+.bot-msg, .user-msg {
+    padding: 10px 14px;
+    border-radius: 15px;
+    font-size: 0.9rem;
+    margin-bottom: 10px;
+    display: table; /* Prevents bubbles from stretching the whole width */
+    max-width: 85%;
+    line-height: 1.4;
+    word-wrap: break-word;
+}
+
 .bot-msg {
     background-color: #e1e8ed;
-    padding: 10px;
-    border-radius: 8px;
-    font-size: 0.9rem;
-    margin: 0;
-    display: inline-block;
+    color: #333;
+    margin-right: auto; /* Aligns to the left */
+    border-bottom-left-radius: 2px;
+}
+
+.user-msg {
+    background-color: var(--accent-blue);
+    color: white;
+    margin-left: auto; /* Aligns to the right */
+    border-bottom-right-radius: 2px;
 }
 
 .chat-input-area {
