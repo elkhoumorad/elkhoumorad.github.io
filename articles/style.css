@@ -17,17 +17,36 @@ body {
     padding: 0;
 }
 
-/* --- RESTORING THE TIME REVERSAL BRANDING --- */
-header.site-header {
-    text-align: center;
+/* Header Styling */
+header {
     padding: 40px 20px 20px;
+    max-width: 1400px;
+    margin: 0 auto;
 }
 
-header.site-header h1 {
+.header-content {
+    display: flex;
+    align-items: center; /* Vertically centers the text with the logo */
+    gap: 20px; /* Space between the logo and the title */
+    margin-bottom: 20px;
+}
+
+.logo-container img {
+    max-height: 90px; /* Sized to match your screenshot */
+    display: block;
+}
+
+.title-container {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+}
+
+h1 {
     color: var(--border-color);
     font-size: 2.5rem;
-    margin: 0 0 10px 0;
-    font-style: italic; /* The signature Time Reversal look */
+    margin: 0; /* Tucked tight against the tagline */
+    font-style: italic;
     letter-spacing: 2px;
 }
 
