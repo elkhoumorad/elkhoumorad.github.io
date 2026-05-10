@@ -426,3 +426,39 @@ footer a:hover {
     border-top: 1px solid #ddd;
     display: flex;
 }
+
+
+
+.chip {
+    background: #e1e8ed;
+    border: 1px solid var(--accent-blue);
+    color: var(--accent-blue);
+    padding: 5px 12px;
+    border-radius: 15px;
+    font-size: 0.8rem;
+    cursor: pointer;
+    white-space: nowrap;
+    transition: all 0.2s;
+}
+
+.chip:hover {
+    background: var(--accent-blue);
+    color: white;
+}
+
+/* Make messages fade in smoothly */
+.bot-msg, .user-msg {
+    animation: fadeIn 0.3s ease;
+}
+
+@keyframes fadeIn {
+    from { opacity: 0; transform: translateY(5px); }
+    to { opacity: 1; transform: translateY(0); }
+}
+
+/* Typing dot animation */
+.typing-dots span {
+    animation: blink 1s infinite;
+    margin: 0 1px;
+}
+@keyframes blink { 0% { opacity: 0.2; } 50% { opacity: 1; } 100% { opacity: 0.2; } }
