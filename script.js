@@ -1,5 +1,16 @@
 // The Time Reversal - Main Script
-
+// --- The Research Knowledge Base ---
+// You can expand this as much as you want!
+const knowledgeBase = {
+    "skyrmion": "Magnetic skyrmions are topologically protected quasiparticles. My research investigates energy barriers and topological stability in thin films.",
+    "quantum dot": "Quantum dots are nanometer-scale semiconductors. I focus on their potential in quantum computing and optoelectronics.",
+    "symmetry": "SymmCalc handles irreducible representations for molecular point groups. It’s a tool I built to bridge group theory and chemistry.",
+    "calculator": "The Physics Calculator includes essential constants and unit converters. You can launch it from the 'Interactive Tools' sidebar.",
+    "who are you": "I am the Research Assistant for 'The Time Reversal.' I can explain Morad's projects and the physics behind them.",
+    "contact": "You can reach Morad via the email icon in the header or the 'About' section.",
+    "hello": "Halleluja! I'm here to help. Ask me about Skyrmions, SymmCalc, or the Physics Calculator.",
+    "thank": "You're welcome! Let me know if you have more physics questions."
+};
 document.addEventListener('DOMContentLoaded', () => {
     console.log("Welcome to The Time Reversal Lab!");
     
@@ -35,34 +46,46 @@ const chatInput = document.getElementById('chat-input');
 const chatSend = document.getElementById('chat-send');
 const chatBody = document.getElementById('chat-body');
 
+
+
+function getBotResponse(input) {
+    const query = input.toLowerCase();
+    
+    // Check for keywords
+    for (const key in knowledgeBase) {
+        if (query.includes(key)) {
+            return knowledgeBase[key];
+        }
+    }
+    
+    // Default response if no keyword is found
+    return "That's an interesting point. While I don't have a specific note on that yet, you might find related information in the 'Recent Notes' section!";
+}
+
+
 // Function to handle sending a message
 function sendMessage() {
     const text = chatInput.value.trim();
-    if (text === '') return; // Don't send empty messages
+    if (text === '') return;
 
-    // 1. Create and display the User's message
+    // Display User Message
     const userMsg = document.createElement('p');
     userMsg.className = 'user-msg';
     userMsg.textContent = text;
     chatBody.appendChild(userMsg);
 
-    // Clear the input box and scroll to the bottom
     chatInput.value = '';
     chatBody.scrollTop = chatBody.scrollHeight;
 
-    // 2. Simulate the Bot's response (Wait 1 second)
+    // Instant Bot Response
     setTimeout(() => {
         const botMsg = document.createElement('p');
         botMsg.className = 'bot-msg';
-        
-        // This is where you would normally connect to a real AI/Backend
-        botMsg.textContent = "I'm just a frontend demo right now! To answer real physics questions, I need to be connected to a backend server.";
+        botMsg.textContent = getBotResponse(text);
         
         chatBody.appendChild(botMsg);
-        
-        // Scroll to the bottom again to show the new message
         chatBody.scrollTop = chatBody.scrollHeight;
-    }, 1000); 
+    }, 400); // 400ms delay just to make it feel 'natural'
 }
 
 // Trigger send when clicking the button
