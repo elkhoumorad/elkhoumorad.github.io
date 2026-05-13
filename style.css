@@ -500,3 +500,42 @@ footer a:hover {
     margin: 0 1px;
 }
 @keyframes blink { 0% { opacity: 0.2; } 50% { opacity: 1; } 100% { opacity: 0.2; } }
+
+
+/* --- Language Switcher --- */
+.lang-switcher {
+    position: absolute;
+    top: 15px;
+    right: 20px;
+    display: flex;
+    align-items: center;
+    gap: 8px;
+    font-size: 0.9rem;
+    font-weight: 600;
+    font-family: sans-serif;
+}
+
+.lang-btn {
+    text-decoration: none;
+    color: #888;
+    padding: 4px 8px;
+    border-radius: 6px;
+    transition: all 0.2s ease;
+}
+
+.lang-btn:hover {
+    background-color: #f0f4f8;
+    color: var(--accent-blue); /* Assuming you still have your blue accent variable */
+}
+
+/* Highlights the language the user is currently looking at */
+.lang-btn.active {
+    color: var(--accent-blue);
+    background-color: #e1e8ed;
+    cursor: default;
+}
+
+.lang-divider {
+    color: #ddd;
+    user-select: none; /* Prevents users from accidentally highlighting the line */
+}
