@@ -1,1 +1,143 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+    <script>
+      window.MathJax = {
+        tex: {
+          inlineMath: [['$', '$'], ['\\(', '\\)']],
+          displayMath: [['$$', '$$'], ['\\[', '\\]']],
+          tags: 'ams'
+        }
+      };
+    </script>
+    <script id="MathJax-script" async src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js"></script>
 
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Dipôles RC et RL | 2ème Année Bac</title>
+    <link rel="stylesheet" href="../../style.css">
+</head>
+<body class="article-page">
+
+    <header>
+        <div class="header-content">
+            <div class="logo-container">
+                <img src="../../images/logo.png" alt="Logo">
+            </div>
+            <div class="title-container">
+                <h1>THE TIME REVERSAL</h1>
+                <p class="tagline">Portail Lycée - 2ème Année Bac Scientifique</p>
+            </div>
+        </div>
+        <div class="header-divider"></div>
+    </header>
+
+    <div class="top-icon-row">
+        <a href="/index-fr.html" class="img-icon-link"><img src="/images/home.png" alt="Accueil"></a>
+        <a href="#" class="img-icon-link"><img src="/images/physics.png" alt="Physique"></a>
+    </div>
+
+    <div class="main-wrapper">
+        
+        <aside class="sidebar-box slide-up">
+            <h3 class="sidebar-title">Sommaire du Cours</h3>
+            <ul class="lesson-nav">
+                <li><a href="#composants">1. Condensateur et Bobine</a></li>
+                <li><a href="#rc">2. Le Dipôle RC (Charge)</a></li>
+                <li><a href="#rl">3. Le Dipôle RL (Établissement)</a></li>
+                <li><a href="#graphique">4. Détermination de $\tau$</a></li>
+            </ul>
+        </aside>
+
+        <main class="journal-entry slide-up">
+            <div class="lesson-header">
+                <span class="badge" style="background: linear-gradient(135deg, #74b9ff, #0984e3);">Physique - Électricité</span>
+                <h2>Les Dipôles RC et RL</h2>
+                <p class="author-meta">👨‍🏫 Cours rédigé par Morad | Niveau : 2ème Année Bac Scientifique</p>
+            </div>
+
+            <section id="composants" class="reveal">
+                <h3>1. Les stars du circuit : Condensateur et Bobine</h3>
+                <p>En plus de la résistance $R$, l'électricité de 2ème Bac introduit deux nouveaux composants capables d'emmagasiner de l'énergie.</p>
+                
+                <div class="formula-box" style="border-left-color: #0984e3;">
+                    <p><strong>Le Condensateur (Capacité $C$) :</strong> Il stocke l'énergie sous forme électrique. La tension à ses bornes ne peut pas subir de variation brusque.</p>
+                    $$q = C \cdot u_C \quad \text{et} \quad i = \frac{dq}{dt} = C \frac{du_C}{dt}$$
+                    
+                    <p><strong>La Bobine (Inductance $L$ et résistance interne $r$) :</strong> Elle s'oppose à toute variation du courant (retard). Elle stocke l'énergie sous forme magnétique.</p>
+                    $$u_L = r \cdot i + L \frac{di}{dt}$$
+                </div>
+            </section>
+
+            <section id="rc" class="reveal">
+                <h3>2. Le Dipôle RC : Charge d'un condensateur</h3>
+                <p>Lorsqu'on branche un condensateur initialement déchargé en série avec une résistance $R$ et un générateur idéal de tension $E$, le condensateur va se charger progressivement.</p>
+                
+                <p><strong>Équation différentielle :</strong> D'après la loi d'additivité des tensions, on a $E = u_R + u_C$. En remplaçant $u_R$ par $R \cdot i$ et $i$ par $C \frac{du_C}{dt}$, on obtient :</p>
+                
+                <div class="formula-box">
+                    $$R \cdot C \frac{du_C}{dt} + u_C = E$$
+                </div>
+
+                <ul class="data-list">
+                    <li>La grandeur $\tau = R \cdot C$ est la <strong>constante de temps</strong> du circuit RC (en secondes). Elle caractérise la rapidité de la charge.</li>
+                    <li>L'énergie électrique emmagasinée est : $E_e = \frac{1}{2} C \cdot u_C^2$.</li>
+                </ul>
+            </section>
+
+            <section id="rl" class="reveal">
+                <h3>3. Le Dipôle RL : Établissement du courant</h3>
+                <p>Si on remplace le condensateur par une bobine, la logique est identique ! À la fermeture du circuit, le courant n'atteint pas sa valeur maximale instantanément car la bobine s'y oppose.</p>
+                
+                <p><strong>Équation différentielle :</strong> La loi d'additivité donne $E = u_R + u_L$. En remplaçant $u_R = R \cdot i$ et $u_L = r \cdot i + L \frac{di}{dt}$, on obtient (avec $R_{eq} = R + r$) :</p>
+                
+                <div class="formula-box" style="border-left-color: #6c5ce7;">
+                    $$\frac{L}{R_{eq}} \frac{di}{dt} + i = \frac{E}{R_{eq}}$$
+                </div>
+
+                <ul class="data-list">
+                    <li>La constante de temps du circuit RL est : $\tau = \frac{L}{R_{eq}}$.</li>
+                    <li>Le courant maximal atteint en régime permanent est : $I_0 = \frac{E}{R_{eq}}$.</li>
+                    <li>L'énergie magnétique emmagasinée est : $E_m = \frac{1}{2} L \cdot i^2$.</li>
+                </ul>
+            </section>
+
+            <section id="graphique" class="reveal">
+                <h3>4. Le classique du Bac : Trouver $\tau$ graphiquement</h3>
+                <p>Les équations différentielles ci-dessus ont des solutions exponentielles ($u_C(t)$ et $i(t)$) qui donnent des courbes caractéristiques en "S". Savoir lire ces courbes est indispensable.</p>
+                
+                <div class="astuce-box" style="background: #e3f2fd; box-shadow: 0 4px 15px rgba(33, 150, 243, 0.15);">
+                    <strong style="color: #1565c0;">🛠 Comment déterminer $\tau$ sur un graphe ? (2 Méthodes)</strong>
+                    <ol>
+                        <li><strong>Méthode de la tangente :</strong> $\tau$ est l'abscisse du point d'intersection entre la tangente à l'origine ($t=0$) et l'asymptote horizontale du régime permanent (la ligne $y = E$ ou $y = I_0$).</li>
+                        <li><strong>Méthode des 63% (Charge) :</strong> $\tau$ est le temps correspondant à $63\%$ de la valeur maximale. Tu calcules $0,63 \times E$, tu cherches cette valeur sur l'axe des ordonnées, et tu lis l'abscisse correspondante. <em>(Note : pour une décharge ou une rupture de courant, on utilise $37\%$, soit $0,37 \times E$).</em></li>
+                    </ol>
+                </div>
+            </section>
+        </main>
+
+        <aside class="sidebar-box sticky-sidebar slide-up">
+            <h3 class="sidebar-title">Graphes Temporels</h3>
+            <p style="font-size: 0.85rem; color: var(--text-muted);">Clique sur l'image pour l'agrandir.</p>
+            
+            
+            <img src="../../images/charge-rc-schema.jpg" alt="Courbe de charge du dipôle RC" class="zoomable-img" style="margin-bottom: 20px;">
+            <p class="caption">1. Dipôle RC : La tension $u_C(t)$ augmente progressivement vers $E$. La tangente à $t=0$ coupe l'asymptote en $t = \tau$.</p>
+            
+            <hr style="border: none; border-top: 1px dashed var(--border-color); margin: 20px 0;">
+
+            
+            <img src="../../images/etablissement-rl-schema.jpg" alt="Établissement du courant dipôle RL" class="zoomable-img">
+            <p class="caption">2. Dipôle RL : Le courant $i(t)$ monte vers $I_0 = E/(R+r)$. Même principe pour la tangente.</p>
+        </aside>
+
+    </div>
+
+    <div class="lightbox-overlay" id="lightbox">
+        <span class="lightbox-close-btn" id="close-lightbox">&times;</span>
+        <img id="lightbox-img" src="" alt="Zoomed Image">
+    </div>
+
+    <script src="../../script.js"></script>
+</body>
+</html>
