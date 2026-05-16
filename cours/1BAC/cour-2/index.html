@@ -1,1 +1,137 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+    <script>
+      window.MathJax = {
+        tex: {
+          inlineMath: [['$', '$'], ['\\(', '\\)']],
+          displayMath: [['$$', '$$'], ['\\[', '\\]']],
+          tags: 'ams'
+        }
+      };
+    </script>
+    <script id="MathJax-script" async src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js"></script>
 
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Théorème de l'Énergie Cinétique | 1ère Année Bac</title>
+    <link rel="stylesheet" href="../../style.css">
+</head>
+<body class="article-page">
+
+    <header>
+        <div class="header-content">
+            <div class="logo-container">
+                <img src="/images/logo.png" alt="Logo">
+            </div>
+            <div class="title-container">
+                <h1>THE TIME REVERSAL</h1>
+                <p class="tagline">Portail Lycée - 1ère Année Bac Scientifique</p>
+            </div>
+        </div>
+        <div class="header-divider"></div>
+    </header>
+
+    <div class="top-icon-row">
+        <a href="/index-fr.html" class="img-icon-link"><img src="/images/home.png" alt="Accueil"></a>
+        <a href="#" class="img-icon-link"><img src="/images/physics.png" alt="Physique"></a>
+    </div>
+
+    <div class="main-wrapper">
+        
+        <aside class="sidebar-box slide-up">
+            <h3 class="sidebar-title">Sommaire du Cours</h3>
+            <ul class="lesson-nav">
+                <li><a href="#definition">1. L'Énergie Cinétique ($E_c$)</a></li>
+                <li><a href="#theoreme">2. Énoncé du Théorème (TEC)</a></li>
+                <li><a href="#methode">3. Méthode de résolution</a></li>
+            </ul>
+        </aside>
+
+        <main class="journal-entry slide-up">
+            <div class="lesson-header">
+                <span class="badge">Mécanique</span>
+                <h2>Le Théorème de l'Énergie Cinétique (TEC)</h2>
+                <p class="author-meta">👨‍🏫 Cours rédigé par Morad | Niveau : 1ère Année Bac Scientifique</p>
+            </div>
+
+            <section id="definition" class="reveal">
+                <h3>1. Qu'est-ce que l'Énergie Cinétique ?</h3>
+                <p>Un objet en mouvement possède de l'énergie du simple fait de sa vitesse. Cette énergie, liée au mouvement, est appelée <strong>Énergie Cinétique</strong> (notée $E_c$). Un objet immobile n'a aucune énergie cinétique.</p>
+                
+                <div class="formula-box">
+                    <p>Pour un solide en <strong>translation</strong>, l'énergie cinétique se calcule avec :</p>
+                    $$E_c = \frac{1}{2} \cdot m \cdot v^2$$
+                </div>
+                
+                <ul class="data-list">
+                    <li><strong>$E_c$</strong> : Énergie cinétique en <strong>Joules (J)</strong>.</li>
+                    <li><strong>$m$</strong> : Masse du solide en <strong>kilogrammes (kg)</strong>.</li>
+                    <li><strong>$v$</strong> : Vitesse du solide en <strong>mètres par seconde (m/s)</strong>.</li>
+                </ul>
+
+                <div class="astuce-box" style="background: #ffcccb; box-shadow: 0 4px 15px rgba(255, 0, 0, 0.15);">
+                    <strong style="color: #c0392b;">⚠️ Le Piège des Unités !</strong> 
+                    <p style="color: #333;">Dans les exercices, la vitesse est souvent donnée en $km/h$. N'oublie <strong>jamais</strong> de la convertir en $m/s$ avant d'utiliser la formule !<br>
+                    <em>Rappel : on divise par 3,6. Exemple : $72 \text{ km/h} = \frac{72}{3,6} = 20 \text{ m/s}$.</em></p>
+                </div>
+            </section>
+
+            <section id="theoreme" class="reveal">
+                <h3>2. Énoncé du Théorème (TEC)</h3>
+                <p>Comment la vitesse d'un objet change-t-il ? C'est parce que des forces travaillent sur lui ! Le <strong>Théorème de l'Énergie Cinétique (TEC)</strong> relie directement la variation de vitesse au travail des forces.</p>
+                
+                <div class="formula-box" style="border-left-color: #f1c40f;">
+                    <p><strong>Énoncé :</strong> Dans un référentiel galiléen, la variation de l'énergie cinétique d'un solide en translation entre deux instants $A$ et $B$ est égale à <strong>la somme algébrique des travaux</strong> de toutes les forces extérieures appliquées à ce solide entre $A$ et $B$.</p>
+                    $$\Delta E_c = E_{c_B} - E_{c_A} = \sum W_{A \rightarrow B}(\vec{F}_{ext})$$
+                    $$\frac{1}{2} m v_B^2 - \frac{1}{2} m v_A^2 = W(\vec{P}) + W(\vec{R}) + W(\vec{F}) + ...$$
+                </div>
+                
+                <p><strong>Que veut dire cette équation concrètement ?</strong></p>
+                <ul>
+                    <li>Si la somme des travaux est <strong>positive</strong> (travail moteur), $\Delta E_c > 0$ : l'objet <strong>accélère</strong>.</li>
+                    <li>Si la somme des travaux est <strong>négative</strong> (travail résistant), $\Delta E_c < 0$ : l'objet <strong>ralentit</strong>.</li>
+                </ul>
+            </section>
+
+            <section id="methode" class="reveal">
+                <h3>3. La méthode magique pour les exercices</h3>
+                <p>Le TEC est l'outil le plus puissant de la mécanique en 1ère Bac. Il permet de trouver une vitesse finale, une force de frottement ou une distance de freinage sans avoir à calculer le temps.</p>
+                
+                <div class="astuce-box" style="background: #e3f2fd; box-shadow: 0 4px 15px rgba(33, 150, 243, 0.15);">
+                    <strong style="color: #1565c0;">🛠 Les 4 étapes pour appliquer le TEC :</strong>
+                    <ol>
+                        <li><strong>Système :</strong> Préciser le solide étudié.</li>
+                        <li><strong>Bilan des forces :</strong> Faire la liste de toutes les forces extérieures (Poids $\vec{P}$, Réaction $\vec{R}$, Frottements $\vec{f}$, etc.).</li>
+                        <li><strong>Calculer les travaux :</strong> Exprimer le travail de CHAQUE force (attention aux angles et au travail du poids !).</li>
+                        <li><strong>Appliquer le TEC :</strong> Écrire l'équation $\Delta E_c = \sum W$, remplacer par les expressions trouvées, et isoler l'inconnue demandée.</li>
+                    </ol>
+                </div>
+            </section>
+        </main>
+
+        <aside class="sidebar-box sticky-sidebar slide-up">
+            <h3 class="sidebar-title">Schémas</h3>
+            <p style="font-size: 0.85rem; color: var(--text-muted);">Clique sur l'image pour l'agrandir.</p>
+            
+            
+            <img src="../../images/energie-cinetique-schema.jpg" alt="L'Énergie Cinétique dépend de la masse et de la vitesse" class="zoomable-img" style="margin-bottom: 20px;">
+            <p class="caption">1. L'Énergie cinétique $E_c$ dépend de la masse $m$ et du carré de la vitesse $v^2$.</p>
+            
+            <hr style="border: none; border-top: 1px dashed var(--border-color); margin: 20px 0;">
+
+            
+            <img src="../../images/tec-schema.jpg" alt="Théorème de l'énergie cinétique avec des forces appliquées sur un solide" class="zoomable-img">
+            <p class="caption">2. La variation d'énergie cinétique entre A et B est due au travail des forces extérieures.</p>
+        </aside>
+
+    </div>
+
+    <div class="lightbox-overlay" id="lightbox">
+        <span class="lightbox-close-btn" id="close-lightbox">&times;</span>
+        <img id="lightbox-img" src="" alt="Zoomed Image">
+    </div>
+
+    <script src="../../script.js"></script>
+</body>
+</html>
