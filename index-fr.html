@@ -88,57 +88,139 @@
             
             <div class="curriculum-grid">
                 
-                <div class="level-card">
+                <div class="level-container">
                     <div class="level-header tcs-bg">
                         <h3>Tronc Commun</h3>
                         <span>Scientifique & Technologique</span>
                     </div>
-                    <div class="level-body">
-                        <ul class="course-list">
-                            <li><a href="cours/TC/cour-1/">Gravitation Universelle</a></li>
-                            <li><a href="cours/TC/cour-2/">Actions Mécaniques</a></li>
-                            <li><a href="cours/TC/cour-3/">Extraction et Séparation</a></li>
-                            <li><a href="cours/TC/cour-4/">Modèle de l'Atome</a></li>
-                            <li><a href="cours/TC/cour-5/">Le Mouvement</a></li>
-                            <li><a href="cours/TC/cour-6/">La classification périodique</a></li>
-                        </ul>
-                        <a href="#" class="level-btn expand-btn">Voir tout le programme &rarr;</a>
+                    
+                    <div class="stacked-cards-wrapper">
+                        <div class="stack-card card-3">
+                            <div class="card-title">📅 Planification Annuelle</div>
+                            <ul class="course-list">
+                                <li><a href="#">Progression Physique</a></li>
+                                <li><a href="#">Progression Chimie</a></li>
+                                <li><a href="#">Cahier de textes</a></li>
+                            </ul>
+                        </div>
+                        
+                        <div class="stack-card card-2">
+                            <div class="card-title">📝 Fiches Pédagogiques</div>
+                            <ul class="course-list">
+                                <li><a href="#">Fiches Mécanique</a></li>
+                                <li><a href="#">Fiches Chimie</a></li>
+                                <li><a href="#">Travaux Pratiques (TP)</a></li>
+                            </ul>
+                        </div>
+
+                        <div class="stack-card card-1 active-card">
+                            <div class="card-title">📚 Cours & Résumés</div>
+                            <ul class="course-list">
+                                <li><a href="cours/TC/cour-1/">Gravitation Universelle</a></li>
+                                <li><a href="cours/TC/cour-2/">Actions Mécaniques</a></li>
+                                <li><a href="cours/TC/cour-3/">Extraction et Séparation</a></li>
+                                <li><a href="cours/TC/cour-4/">Modèle de l'Atome</a></li>
+                                <li><a href="cours/TC/cour-5/">Le Mouvement</a></li>
+                                <li><a href="cours/TC/cour-6/">La classification périodique</a></li>
+                            </ul>
+                            <a href="#" class="level-btn expand-btn" style="margin-top: 15px;">Voir tout le programme &rarr;</a>
+                        </div>
+                    </div>
+                    
+                    <div class="stack-controls">
+                        <button class="stack-btn" data-target="card-1" style="color: var(--primary); border-bottom: 2px solid var(--primary);">Cours</button>
+                        <button class="stack-btn" data-target="card-2">Fiches</button>
+                        <button class="stack-btn" data-target="card-3">Planification</button>
                     </div>
                 </div>
 
-                <div class="level-card">
+                <div class="level-container">
                     <div class="level-header bac1-bg">
                         <h3>1ère Année Bac</h3>
                         <span>Sciences Expérimentales / Maths</span>
                     </div>
-                    <div class="level-body">
-                        <ul class="course-list">
-                            <li><a href="cours/1BAC/cour-1/">Travail et Puissance</a></li>
-                            <li><a href="cours/1BAC/cour-2/">Théorème de l'Énergie Cinétique</a></li>
-                            <li><a href="cours/1BAC/cour-3/">Mesure en Chimie</a></li>
-                            <li><a href="cours/1BAC/cour-4/">Suivi d'une Transformation</a></li>
-                            <li><a href="cours/1BAC/cour-5/">Travail du poids et Énergie Potentielle</a></li>
-                            <li><a href="cours/1BAC/cour-6/">Les dosages (Titrages)</a></li>
-                        </ul>
-                        <a href="#" class="level-btn expand-btn">Voir tout le programme &rarr;</a>
+                    
+                    <div class="stacked-cards-wrapper">
+                        <div class="stack-card card-3">
+                            <div class="card-title">📅 Planification Annuelle</div>
+                            <ul class="course-list">
+                                <li><a href="#">Progression Semestrielle</a></li>
+                                <li><a href="#">Calendrier des Contrôles</a></li>
+                            </ul>
+                        </div>
+                        
+                        <div class="stack-card card-2">
+                            <div class="card-title">📝 Fiches Pédagogiques</div>
+                            <ul class="course-list">
+                                <li><a href="#">Fiche : Mécanique</a></li>
+                                <li><a href="#">Fiche : Chimie</a></li>
+                                <li><a href="#">Grilles d'évaluation</a></li>
+                            </ul>
+                        </div>
+
+                        <div class="stack-card card-1 active-card">
+                            <div class="card-title">📚 Cours & Résumés</div>
+                            <ul class="course-list">
+                                <li><a href="cours/1BAC/cour-1/">Travail et Puissance</a></li>
+                                <li><a href="cours/1BAC/cour-2/">Théorème de l'Énergie Cinétique</a></li>
+                                <li><a href="cours/1BAC/cour-3/">Mesure en Chimie</a></li>
+                                <li><a href="cours/1BAC/cour-4/">Suivi d'une Transformation</a></li>
+                                <li><a href="cours/1BAC/cour-5/">Travail du poids et Énergie Potentielle</a></li>
+                                <li><a href="cours/1BAC/cour-6/">Les dosages (Titrages)</a></li>
+                            </ul>
+                            <a href="#" class="level-btn expand-btn" style="margin-top: 15px;">Voir tout le programme &rarr;</a>
+                        </div>
+                    </div>
+                    
+                    <div class="stack-controls">
+                        <button class="stack-btn" data-target="card-1" style="color: var(--primary); border-bottom: 2px solid var(--primary);">Cours</button>
+                        <button class="stack-btn" data-target="card-2">Fiches</button>
+                        <button class="stack-btn" data-target="card-3">Planification</button>
                     </div>
                 </div>
 
-                <div class="level-card">
+                <div class="level-container">
                     <div class="level-header bac2-bg">
                         <h3>2ème Année Bac</h3>
                         <span>Sciences Physiques / SVT / SM</span>
                     </div>
-                    <div class="level-body">
-                        <ul class="course-list">
-                            <li><a href="cours/2BAC/cour-1/">Ondes Mécaniques et Lumineuses</a></li>
-                            <li><a href="cours/2BAC/cour-2/">Dipôles RC et RL</a></li>
-                            <li><a href="cours/2BAC/cour-3/">Circuits RLC et Oscillations</a></li>
-                            <li><a href="cours/2BAC/cour-4/">Suivi Temporel et Vitesse</a></li>
-                            <li><a href="cours/2BAC/cour-5/">Les Transformations Nucléaires</a></li>
-                            <li><a href="cours/2BAC/cour-6/">L'état d'équilibre d'un système</a></li>
-                        </ul>
-                        <a href="#" class="level-btn expand-btn">Voir tout le programme &rarr;</a>
+                    
+                    <div class="stacked-cards-wrapper">
+                        <div class="stack-card card-3">
+                            <div class="card-title">📅 Planification Annuelle</div>
+                            <ul class="course-list">
+                                <li><a href="#">Préparation au Bac National</a></li>
+                                <li><a href="#">Sujets Corrigés</a></li>
+                            </ul>
+                        </div>
+                        
+                        <div class="stack-card card-2">
+                            <div class="card-title">📝 Fiches Pédagogiques</div>
+                            <ul class="course-list">
+                                <li><a href="#">Fiche : Ondes</a></li>
+                                <li><a href="#">Fiche : Électricité</a></li>
+                                <li><a href="#">TP : Chimie</a></li>
+                            </ul>
+                        </div>
+
+                        <div class="stack-card card-1 active-card">
+                            <div class="card-title">📚 Cours & Résumés</div>
+                            <ul class="course-list">
+                                <li><a href="cours/2BAC/cour-1/">Ondes Mécaniques et Lumineuses</a></li>
+                                <li><a href="cours/2BAC/cour-2/">Dipôles RC et RL</a></li>
+                                <li><a href="cours/2BAC/cour-3/">Circuits RLC et Oscillations</a></li>
+                                <li><a href="cours/2BAC/cour-4/">Suivi Temporel et Vitesse</a></li>
+                                <li><a href="cours/2BAC/cour-5/">Les Transformations Nucléaires</a></li>
+                                <li><a href="cours/2BAC/cour-6/">L'état d'équilibre d'un système</a></li>
+                            </ul>
+                            <a href="#" class="level-btn expand-btn" style="margin-top: 15px;">Voir tout le programme &rarr;</a>
+                        </div>
+                    </div>
+                    
+                    <div class="stack-controls">
+                        <button class="stack-btn" data-target="card-1" style="color: var(--primary); border-bottom: 2px solid var(--primary);">Cours</button>
+                        <button class="stack-btn" data-target="card-2">Fiches</button>
+                        <button class="stack-btn" data-target="card-3">Planification</button>
                     </div>
                 </div>
 
