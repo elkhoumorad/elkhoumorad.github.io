@@ -1,1 +1,151 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+    <script>
+      window.MathJax = {
+        tex: {
+          inlineMath: [['$', '$'], ['\\(', '\\)']],
+          displayMath: [['$$', '$$'], ['\\[', '\\]']],
+          tags: 'ams'
+        }
+      };
+    </script>
+    <script id="MathJax-script" async src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js"></script>
 
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Suivi Temporel et Vitesse | 2ème Année Bac</title>
+    <link rel="stylesheet" href="../../style.css">
+</head>
+<body class="article-page">
+
+    <header>
+        <div class="header-content">
+            <div class="logo-container">
+                <img src="/images/logo.png" alt="Logo">
+            </div>
+            <div class="title-container">
+                <h1>THE TIME REVERSAL</h1>
+                <p class="tagline">Portail Lycée - 2ème Année Bac Scientifique</p>
+            </div>
+        </div>
+        <div class="header-divider"></div>
+    </header>
+
+    <div class="top-icon-row">
+        <a href="/index-fr.html" class="img-icon-link"><img src="/images/home.png" alt="Accueil"></a>
+        <a href="#" class="img-icon-link"><img src="/images/chemistry.png" alt="Chimie"></a>
+    </div>
+
+    <div class="main-wrapper">
+        
+        <aside class="sidebar-box slide-up">
+            <h3 class="sidebar-title">Sommaire du Cours</h3>
+            <ul class="lesson-nav">
+                <li><a href="#techniques">1. Les techniques de suivi</a></li>
+                <li><a href="#vitesse">2. La Vitesse Volumique</a></li>
+                <li><a href="#demi-reaction">3. Le temps de demi-réaction ($t_{1/2}$)</a></li>
+                <li><a href="#facteurs">4. Les facteurs cinétiques</a></li>
+            </ul>
+        </aside>
+
+        <main class="journal-entry slide-up">
+            <div class="lesson-header">
+                <span class="badge" style="background: linear-gradient(135deg, #55efc4, #00b894);">Chimie - Cinétique</span>
+                <h2>Suivi Temporel et Vitesse d'une Réaction</h2>
+                <p class="author-meta">👨‍🏫 Cours rédigé par Morad | Niveau : 2ème Année Bac Scientifique</p>
+            </div>
+
+            <section id="techniques" class="reveal">
+                <h3>1. Transformations lentes et techniques de suivi</h3>
+                <p>Certaines réactions sont <strong>rapides</strong> (instantanées à l'œil nu, comme les explosions ou les précipitations), mais d'autres sont <strong>lentes</strong> et peuvent durer des minutes, des heures, voire des mois (comme la formation de la rouille).</p>
+                <p>Pour suivre l'évolution d'une transformation lente (c'est-à-dire mesurer l'avancement $x$ à chaque instant $t$), on utilise deux types de méthodes :</p>
+                
+                <ul class="data-list">
+                    <li><strong>Méthodes chimiques :</strong> Le titrage (ou dosage). Nécessite de prélever des échantillons et de bloquer la réaction avec de l'eau glacée (la "trempe").</li>
+                    <li><strong>Méthodes physiques :</strong> Mesure de la <em>Pression</em> (si un gaz est produit), de la <em>Conductivité</em> (si des ions sont créés/consommés), ou du <em>pH</em> (si des ions $H_3O^+$ ou $HO^-$ sont impliqués). Ces méthodes sont continues et plus précises !</li>
+                </ul>
+            </section>
+
+            <section id="vitesse" class="reveal">
+                <h3>2. La Vitesse Volumique de Réaction ($v$)</h3>
+                <p>C'est la grandeur qui permet d'évaluer la rapidité avec laquelle une transformation se produit à un instant précis.</p>
+                
+                <div class="formula-box">
+                    <p>La vitesse volumique $v(t)$ à l'instant $t$ est définie par :</p>
+                    $$v(t) = \frac{1}{V_S} \cdot \frac{dx}{dt}$$
+                </div>
+                
+                <ul class="data-list">
+                    <li><strong>$v(t)$</strong> : Vitesse volumique en $mol \cdot L^{-1} \cdot s^{-1}$ (ou $min^{-1}$).</li>
+                    <li><strong>$V_S$</strong> : Le volume total de la solution en Litres ($L$).</li>
+                    <li><strong>$\frac{dx}{dt}$</strong> : La dérivée de l'avancement $x$ par rapport au temps.</li>
+                </ul>
+
+                <div class="astuce-box" style="background: #ffcccb; box-shadow: 0 4px 15px rgba(255, 0, 0, 0.15);">
+                    <strong style="color: #c0392b;">⚠️ Le Piège du Volume Total ($V_S$) !</strong> 
+                    <p style="color: #333;">Dans les exercices, on mélange souvent un volume $V_1$ d'un réactif avec un volume $V_2$ d'un autre. N'oublie <strong>jamais</strong> que $V_S = V_1 + V_2$ ! Si tu ne prends que $V_1$, ton calcul de vitesse sera faux.</p>
+                </div>
+
+                <div class="astuce-box" style="background: #e3f2fd; box-shadow: 0 4px 15px rgba(33, 150, 243, 0.15);">
+                    <strong style="color: #1565c0;">🛠 Comment calculer $v(t)$ graphiquement ?</strong>
+                    <p>En mathématiques, la dérivée $\frac{dx}{dt}$ correspond au <strong>coefficient directeur (la pente) de la tangente</strong> à la courbe à l'instant $t$.</p>
+                    <ol>
+                        <li>On trace la tangente à la courbe $x=f(t)$ à l'instant demandé.</li>
+                        <li>On choisit deux points $A(t_A, x_A)$ et $B(t_B, x_B)$ sur cette tangente (les plus éloignés possible pour plus de précision).</li>
+                        <li>On calcule la pente : $a = \frac{x_B - x_A}{t_B - t_A}$.</li>
+                        <li>On multiplie par $\frac{1}{V_S}$ pour trouver la vitesse volumique !</li>
+                    </ol>
+                    <p style="font-weight:bold; color:#1565c0;">Note : La vitesse est maximale à $t=0$ puis elle diminue au cours du temps car la concentration des réactifs diminue.</p>
+                </div>
+            </section>
+
+            <section id="demi-reaction" class="reveal">
+                <h3>3. Le Temps de demi-réaction ($t_{1/2}$)</h3>
+                <p>C'est une caractéristique très importante d'une réaction chimique. Il permet d'évaluer rapidement la durée totale de la réaction.</p>
+                
+                <div class="formula-box" style="border-left-color: #e84393;">
+                    <p><strong>Définition :</strong> Le temps de demi-réaction $t_{1/2}$ est la durée au bout de laquelle l'avancement $x$ atteint la moitié de sa valeur finale $x_f$ (ou $x_{max}$ si la réaction est totale).</p>
+                    $$x(t_{1/2}) = \frac{x_f}{2}$$
+                </div>
+                
+                <p><strong>Méthode graphique :</strong> On repère l'asymptote horizontale de la courbe (qui donne $x_f$). On divise cette valeur par 2. On place $\frac{x_f}{2}$ sur l'axe des ordonnées, on rejoint la courbe, et on lit l'abscisse : c'est $t_{1/2}$ !</p>
+            </section>
+
+            <section id="facteurs" class="reveal">
+                <h3>4. Les Facteurs Cinétiques</h3>
+                <p>Un facteur cinétique est un paramètre physique qui modifie la vitesse d'une réaction chimique sans modifier son état final. Les deux principaux sont :</p>
+
+                <ul class="data-list">
+                    <li><strong>La Température :</strong> Plus la température est élevée, plus les molécules s'agitent vite. Il y a donc plus de chocs efficaces entre les réactifs, et la réaction est plus rapide. (C'est pour ça qu'on met les aliments au frigo : pour ralentir leur dégradation !).</li>
+                    <li><strong>La concentration initiale des réactifs :</strong> Plus les réactifs sont concentrés, plus la probabilité qu'ils se rencontrent et réagissent est grande. La vitesse initiale sera donc plus élevée.</li>
+                </ul>
+                <p>On peut aussi utiliser un <strong>catalyseur</strong> (une substance qui accélère la réaction sans être consommée et sans apparaître dans l'équation du bilan).</p>
+            </section>
+        </main>
+
+        <aside class="sidebar-box sticky-sidebar slide-up">
+            <h3 class="sidebar-title">Graphes Cinétiques</h3>
+            <p style="font-size: 0.85rem; color: var(--text-muted);">Clique sur l'image pour l'agrandir.</p>
+            
+            
+            <img src="../../images/vitesse-tangente-schema.jpg" alt="Détermination graphique de la vitesse avec la tangente" class="zoomable-img" style="margin-bottom: 20px;">
+            <p class="caption">1. La pente de la tangente diminue au cours du temps : la réaction ralentit.</p>
+            
+            <hr style="border: none; border-top: 1px dashed var(--border-color); margin: 20px 0;">
+
+            
+            <img src="../../images/demi-reaction-schema.jpg" alt="Détermination du temps de demi-réaction t1/2" class="zoomable-img">
+            <p class="caption">2. Lecture graphique du temps de demi-réaction $t_{1/2}$ à partir de $x_{max}/2$.</p>
+        </aside>
+
+    </div>
+
+    <div class="lightbox-overlay" id="lightbox">
+        <span class="lightbox-close-btn" id="close-lightbox">&times;</span>
+        <img id="lightbox-img" src="" alt="Zoomed Image">
+    </div>
+
+    <script src="../../script.js"></script>
+</body>
+</html>
