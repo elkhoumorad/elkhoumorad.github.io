@@ -1,1 +1,108 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+    <script>
+      window.MathJax = { tex: { tags: 'ams' } };
+    </script>
+    <script id="MathJax-script" async src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js"></script>
 
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Gravitation Universelle | Tronc Commun</title>
+    <link rel="stylesheet" href="style-cours.css">
+</head>
+<body class="article-page">
+
+    <header>
+        <div class="header-content">
+            <div class="logo-container">
+                <img src="../images/logo.png" alt="Logo">
+            </div>
+            <div class="title-container">
+                <h1>THE TIME REVERSAL</h1>
+                <p class="tagline">Portail Lycée - Tronc Commun Scientifique</p>
+            </div>
+        </div>
+        <div class="header-divider"></div>
+    </header>
+
+    <div class="top-icon-row">
+        <a href="../index-fr.html" class="img-icon-link"><img src="../images/home.png" alt="Accueil"></a>
+        <a href="#" class="img-icon-link"><img src="../images/physics.png" alt="Physique"></a>
+    </div>
+
+    <div class="main-wrapper">
+        
+        <aside class="sidebar-box slide-up">
+            <h3 class="sidebar-title">Sommaire du Cours</h3>
+            <ul class="lesson-nav">
+                <li><a href="#intro">1. L'interaction gravitationnelle</a></li>
+                <li><a href="#loi">2. Loi de Newton</a></li>
+                <li><a href="#poids">3. Poids d'un corps</a></li>
+            </ul>
+        </aside>
+
+        <main class="journal-entry slide-up">
+            <div class="lesson-header">
+                <span class="badge">Mécanique</span>
+                <h2>La Gravitation Universelle</h2>
+                <p class="author-meta">👨‍🏫 Cours rédigé par Morad | Niveau : Tronc Commun Scientifique</p>
+            </div>
+
+            <section id="intro" class="reveal">
+                <h3>1. Qu'est-ce que l'interaction gravitationnelle ?</h3>
+                <p>As-tu déjà remarqué que tout objet lâché tombe vers le sol ? C'est à cause de la Terre qui l'attire. De la même manière, le Soleil attire la Terre, ce qui la force à tourner autour de lui. Cette force d'attraction à distance entre des corps possédant une masse s'appelle la <strong>gravitation universelle</strong>.</p>
+            </section>
+
+            <section id="loi" class="reveal">
+                <h3>2. La Loi de Newton (Loi de la gravitation)</h3>
+                <p>Deux corps ponctuels $A$ et $B$, de masses $m_A$ et $m_B$, séparés par une distance $d$, exercent l'un sur l'autre des forces d'attraction gravitationnelle de même valeur, de même direction, mais de sens opposés.</p>
+                
+                <div class="formula-box">
+                    <p>La valeur de cette force est donnée par la relation :</p>
+                    $$F_{A/B} = F_{B/A} = G \frac{m_A \cdot m_B}{d^2}$$
+                </div>
+                
+                <ul class="data-list">
+                    <li><strong>$F$</strong> : Force en Newton ($N$)</li>
+                    <li><strong>$m_A, m_B$</strong> : Masses en kilogrammes ($kg$)</li>
+                    <li><strong>$d$</strong> : Distance entre les centres en mètres ($m$)</li>
+                    <li><strong>$G$</strong> : Constante de gravitation universelle ($G \approx 6,67 \times 10^{-11} \; N \cdot m^2 \cdot kg^{-2}$)</li>
+                </ul>
+            </section>
+
+            <section id="poids" class="reveal">
+                <h3>3. Le Poids d'un corps : Un cas particulier</h3>
+                <p>Le poids $\vec{P}$ d'un corps à la surface de la Terre n'est rien d'autre que la force d'attraction gravitationnelle exercée par la Terre sur ce corps !</p>
+                
+                <div class="formula-box">
+                    $$P = m \cdot g$$
+                </div>
+
+                <div class="astuce-box">
+                    <strong>💡 Astuce de calcul :</strong> 
+                    <p>En égalisant l'expression du poids et l'expression de la force de gravitation, on peut trouver la valeur de l'intensité de la pesanteur $g$ à une altitude $h$ :</p>
+                    $$g = G \frac{M_T}{(R_T + h)^2}$$
+                    <p>Où $M_T$ est la masse de la Terre et $R_T$ son rayon.</p>
+                </div>
+            </section>
+        </main>
+
+        <aside class="sidebar-box sticky-sidebar slide-up">
+            <h3 class="sidebar-title">Schémas</h3>
+            <p style="font-size: 0.85rem; color: var(--text-muted);">Clique sur l'image pour l'agrandir.</p>
+            
+            <img src="../images/gravitation-schema.jpg" alt="Schéma des forces de gravitation" class="zoomable-img">
+            <p class="caption">Représentation des vecteurs forces $\vec{F}_{A/B}$ et $\vec{F}_{B/A}$.</p>
+        </aside>
+
+    </div>
+
+    <div class="lightbox-overlay" id="lightbox">
+        <span class="lightbox-close-btn" id="close-lightbox">&times;</span>
+        <img id="lightbox-img" src="" alt="Zoomed Image">
+    </div>
+
+    <script src="script-cours.js"></script>
+</body>
+</html>
