@@ -1,1 +1,159 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+    <script async src="https://www.googletagmanager.com/gtag/js?id=G-922TS18EDX"></script>
+    <script>
+      window.dataLayer = window.dataLayer || [];
+      function gtag(){dataLayer.push(arguments);}
+      gtag('js', new Date());
+      gtag('config', 'G-922TS18EDX');
+    </script>
+    
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Calculatrice de Physique | The Time Reversal</title>
+    
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/mathjs/11.8.0/math.js"></script>
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
 
+
+    <header>
+        <div class="header-content">
+            <div class="logo-container">
+                <img src="/images/logo.png" alt="Logo de Time Reversal">
+            </div>
+            <div class="title-container">
+                <h1>THE TIME REVERSAL</h1>
+                <p class="tagline">Une plateforme scientifique et éducative dédiée à la physique et à la chimie de pointe</p>
+            </div>
+        </div>
+        <div class="header-divider"></div>
+    </header>
+
+    <div class="top-icon-row">
+    <a href="https://thetimereversal.com/" class="img-icon-link">
+        <img src="/images/home.png" alt="GitHub">
+    </a>
+    <a href="#" class="img-icon-link">
+        <img src="/images/physics.png" alt="Scholar">
+    </a>
+    <a href="#" class="img-icon-link">
+        <img src="/images/chemistry.png" alt="Email">
+    </a>
+    <a href="/tools/plotter-project/" class="img-icon-link">
+        <img src="/images/plotter.png" alt="Lien">
+    </a>
+</div>
+
+
+    <main class="main-wrapper">
+        <aside class="sidebar-box">
+            <h3 class="sidebar-title">Constantes Chargées</h3>
+            <p style="font-size: 0.8rem; color: var(--text-muted); margin-top: -10px;">Cliquez pour insérer</p>
+            <ul class="constant-list">
+                <li onclick="insert('c')"><span class="const-left">c <span class="const-desc">(Vitesse de la lumière)</span></span> <span class="const-val">2.997e8</span></li>
+                <li onclick="insert('Na')"><span class="const-left">Na <span class="const-desc">(Avogadro)</span></span> <span class="const-val">6.022e23</span></li>
+                <li onclick="insert('me')"><span class="const-left">me <span class="const-desc">(Masse de l'électron)</span></span> <span class="const-val">9.109e-31</span></li>
+                <li onclick="insert('mp')"><span class="const-left">mp <span class="const-desc">(Masse du proton)</span></span> <span class="const-val">1.672e-27</span></li>
+                <li onclick="insert('mn')"><span class="const-left">mn <span class="const-desc">(Masse du neutron)</span></span> <span class="const-val">1.674e-27</span></li>
+                <li onclick="insert('e')"><span class="const-left">e <span class="const-desc">(Charge élémentaire)</span></span> <span class="const-val">1.602e-19</span></li>
+                <li onclick="insert('eps0')"><span class="const-left">eps0 <span class="const-desc">(Permittivité)</span></span> <span class="const-val">8.854e-12</span></li>
+                <li onclick="insert('mu0')"><span class="const-left">mu0 <span class="const-desc">(Perméabilité)</span></span> <span class="const-val">1.256e-6</span></li>
+                <li onclick="insert('h')"><span class="const-left">h <span class="const-desc">(Planck réduite)</span></span> <span class="const-val">1.054e-34</span></li>
+                <li onclick="insert('kb')"><span class="const-left">kb <span class="const-desc">(Boltzmann)</span></span> <span class="const-val">1.380e-23</span></li>
+                <li onclick="insert('G')"><span class="const-left">G <span class="const-desc">(Gravitationnelle)</span></span> <span class="const-val">6.674e-11</span></li>
+            </ul>
+        </aside>
+
+        <article class="journal-entry">
+            <h2>Évaluateur Scientifique</h2>
+            <p style="font-size: 0.9rem; color: var(--text-muted); margin-bottom: 20px;">
+                Saisissez une expression ou utilisez les boutons. Exemple : <code>(me * c^2) / e</code>
+            </p>
+
+            <div class="calc-display">
+                <input type="text" id="calc-input" placeholder="Entrez une expression..." autocomplete="off" autofocus>
+                <div id="calc-result">= 0</div>
+            </div>
+
+            <div class="calc-grid">
+                <button class="calc-btn op" onclick="insert('sin(')">sin</button>
+                <button class="calc-btn op" onclick="insert('cos(')">cos</button>
+                <button class="calc-btn op" onclick="insert('tan(')">tan</button>
+                <button class="calc-btn op" onclick="insert('(')">(</button>
+                <button class="calc-btn op" onclick="insert(')')">)</button>
+                <button class="calc-btn op" onclick="insert('/')">/</button>
+                
+                <button class="calc-btn op" onclick="insert('exp(')">exp</button>
+                <button class="calc-btn op" onclick="insert('sqrt(')">√</button>
+                <button class="calc-btn op" onclick="insert('^')">^</button>
+                <button class="calc-btn op" onclick="insert('log(')">log</button>
+                <button class="calc-btn op" style="background-color: #fab1a0;" onclick="backspace()">⌫</button>
+                <button class="calc-btn clear" onclick="clearInput()">AC</button>
+
+                <button class="calc-btn" onclick="insert('7')">7</button>
+                <button class="calc-btn" onclick="insert('8')">8</button>
+                <button class="calc-btn" onclick="insert('9')">9</button>
+                <button class="calc-btn" onclick="insert('e')">e</button>
+                <button class="calc-btn" onclick="insert('Na')">Na</button>
+                <button class="calc-btn op" onclick="insert('*')">*</button>
+
+                <button class="calc-btn" onclick="insert('4')">4</button>
+                <button class="calc-btn" onclick="insert('5')">5</button>
+                <button class="calc-btn" onclick="insert('6')">6</button>
+                <button class="calc-btn" onclick="insert('c')">c</button>
+                <button class="calc-btn" onclick="insert('eps0')">ε0</button>
+                <button class="calc-btn op" onclick="insert('-')">-</button>
+
+                <button class="calc-btn" onclick="insert('1')">1</button>
+                <button class="calc-btn" onclick="insert('2')">2</button>
+                <button class="calc-btn" onclick="insert('3')">3</button>
+                <button class="calc-btn" onclick="insert('me')">me</button>
+                <button class="calc-btn" onclick="insert('kb')">kb</button>
+                <button class="calc-btn op" onclick="insert('+')">+</button>
+
+                <button class="calc-btn" onclick="insert('0')">0</button>
+                <button class="calc-btn" onclick="insert('.')">.</button>
+                <button class="calc-btn" onclick="insert('pi')">π</button>
+                <button class="calc-btn op" style="background-color: #ffeaa7;" onclick="insert('Ans')">Ans</button>
+                <button class="calc-btn" onclick="insert('h')">ℏ</button>
+                <button class="calc-btn eval" onclick="calculate()">=</button>
+            </div>
+        </article>
+
+        <aside class="sidebar-box">
+            <h3 class="sidebar-title">Constantes Caractéristiques</h3>
+            <ul class="constant-list">
+                <li onclick="insert('a0')"><span class="const-left">a0 <span class="const-desc">(Rayon de Bohr)</span></span> <span class="const-val">5.291e-11</span></li>
+                <li onclick="insert('alpha')"><span class="const-left">alpha <span class="const-desc">(Structure fine)</span></span> <span class="const-val">7.297e-3</span></li>
+                <li onclick="insert('Rh')"><span class="const-left">Rh <span class="const-desc">(Rydberg)</span></span> <span class="const-val">2.179e-18</span></li>
+            </ul>
+
+            <div class="custom-form" style="margin-top: 30px; border-top: 2px solid var(--bg-color); padding-top: 20px;">
+                <h4 class="sidebar-title">Données Labo Personnelles</h4>
+                <input type="text" id="custom-name" placeholder="Symbole (ex. G)">
+                <input type="text" id="custom-desc" placeholder="Description (ex. Gravitationnelle)">
+                <input type="text" id="custom-value" placeholder="Valeur (ex. 6.674e-11)">
+                <button onclick="saveCustomConstant()" class="calc-btn op" style="width:100%">Enregistrer la Constante</button>
+                
+                <ul id="user-constant-list" class="constant-list" style="margin-top: 15px;">
+                    </ul>
+                
+                <button id="delete-selected-btn" onclick="deleteSelectedConstants()" class="calc-btn clear" style="width: 100%; margin-top: 15px; display: none;">Supprimer la Sélection</button>
+            </div>
+            
+        </aside>
+    </main>
+
+    <script src="script.js?v=13"></script>
+
+
+    <footer>
+        <p>&copy; 2026 The Time Reversal. Développé par Morad.</p>
+    </footer>
+
+    
+</body>
+</html>
