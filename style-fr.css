@@ -147,7 +147,7 @@ header {
 }
 
 /* --- 7. CARDS & SURFACES (Android Style) --- */
-.sidebar-box, .tool-card, .scoop-container, .article-card, .level-card {
+.sidebar-box, .tool-card, .scoop-container, .article-card, .level-container {
     background: var(--surface);
     border-radius: var(--radius-card);
     padding: 25px;
@@ -156,13 +156,16 @@ header {
     transition: all 0.3s ease;
 }
 
+/* Override padding for level-container so header touches edges */
+.level-container { padding: 0; }
+
 /* Apply staggered animations to layout columns */
 .sidebar-box { animation: slideUpFade 0.6s ease-out backwards; animation-delay: 0.2s; }
 .journal-entry { animation: slideUpFade 0.6s ease-out backwards; animation-delay: 0.3s; }
 .right-sidebar { animation: slideUpFade 0.6s ease-out backwards; animation-delay: 0.4s; }
 
 /* Interactive Hover States */
-.tool-card:hover, .article-card:hover, .level-card:hover {
+.tool-card:hover, .article-card:hover {
     transform: translateY(-6px);
     box-shadow: var(--shadow-hover);
     border-color: var(--primary);
@@ -198,66 +201,138 @@ header {
     box-shadow: 0 4px 12px rgba(26, 115, 232, 0.3);
 }
 
-/* --- 9. HIGH SCHOOL CURRICULUM GRID --- */
+/* ==========================================================================
+   --- 9. HIGH SCHOOL STACKED CURRICULUM (THE NEW UI) --- 
+   ========================================================================== */
+
 .curriculum-grid {
     display: grid;
     grid-template-columns: 1fr;
-    gap: 20px;
+    gap: 40px; 
     margin-top: 20px;
-}
-
-.level-card {
-    padding: 0; /* Override to allow header color to touch edges */
-    overflow: hidden;
 }
 
 .level-header {
     padding: 20px 25px;
     color: white;
 }
-
 .level-header h3 { margin: 0 0 5px 0; font-size: 1.4rem; }
 .level-header span { font-size: 0.85rem; opacity: 0.9; }
 
-/* Rich Gradients for Android feel */
 .tcs-bg { background: linear-gradient(135deg, #1A73E8, #4285F4); }
 .bac1-bg { background: linear-gradient(135deg, #00B4DB, #0083B0); }
 .bac2-bg { background: linear-gradient(135deg, #8E2DE2, #4A00E0); }
 
-.level-body {
-    padding: 25px;
-}
-
-.level-body ul {
-    list-style: none;
-    padding: 0;
-    margin: 0 0 20px 0;
-}
-
-.level-body ul li {
-    margin-bottom: 12px;
-    padding-left: 24px;
+.stacked-cards-wrapper {
     position: relative;
+    padding: 30px 25px 20px 25px;
+    height: 350px; /* Tall enough to accommodate expanded list */
+    perspective: 1000px;
 }
 
-.level-body ul li::before {
-    content: '→';
+.stack-card {
     position: absolute;
-    left: 0;
-    color: var(--primary);
+    top: 20px;
+    left: 25px;
+    right: 25px;
+    background: white;
+    border-radius: 12px;
+    padding: 20px;
+    box-shadow: 0 4px 15px rgba(0,0,0,0.08);
+    border: 1px solid #eee;
+    transition: all 0.4s cubic-bezier(0.175, 0.885, 0.32, 1.275);
+    background-color: #fafbfc;
+    overflow-y: auto; /* Allows scrolling inside if expanded */
+    max-height: 290px; 
+}
+
+/* Stacked 3D visual logic */
+.card-3 { transform: translateY(20px) scale(0.90); z-index: 1; opacity: 0.6; filter: blur(1px); }
+.card-2 { transform: translateY(10px) scale(0.95); z-index: 2; opacity: 0.8; }
+.card-1 { transform: translateY(0) scale(1); z-index: 3; opacity: 1; background-color: white; }
+
+/* Fan out on hover */
+.stacked-cards-wrapper:hover .card-3 { transform: translateY(35px) scale(0.92); opacity: 0.8; filter: blur(0); }
+.stacked-cards-wrapper:hover .card-2 { transform: translateY(15px) scale(0.96); opacity: 0.9; }
+.stacked-cards-wrapper:hover .card-1 { transform: translateY(-5px) scale(1.02); }
+
+/* Active Card (Brought to front) */
+.stack-card.active-card {
+    transform: translateY(0) scale(1);
+    z-index: 10;
+    opacity: 1;
+    background-color: white;
+    filter: blur(0);
+    box-shadow: 0 10px 25px rgba(0,0,0,0.1);
+}
+
+.card-title {
     font-weight: bold;
+    color: var(--primary);
+    margin-bottom: 15px;
+    border-bottom: 1px solid #eee;
+    padding-bottom: 5px;
 }
 
-.level-body ul li a {
-    text-decoration: none;
-    color: var(--text-main);
-    font-weight: 500;
-    transition: color 0.2s;
+/* Stack Controls (Tabs at the bottom) */
+.stack-controls {
+    display: flex;
+    justify-content: space-around;
+    background: #f8f9fa;
+    border-top: 1px solid var(--border-color);
+    padding: 10px;
 }
 
-.level-body ul li a:hover { color: var(--primary); }
+.stack-btn {
+    background: none;
+    border: none;
+    color: var(--text-muted);
+    font-weight: 600;
+    font-size: 0.9rem;
+    cursor: pointer;
+    padding: 8px 15px;
+    transition: all 0.2s;
+    border-bottom: 2px solid transparent;
+}
 
-/* --- 10. CHATBOT (Floating Action Button & Bottom Sheet) --- */
+.stack-btn:hover { color: var(--primary); }
+
+/* ==========================================================================
+   --- 10. LISTS & EXPANDABLE LOGIC --- 
+   ========================================================================== */
+
+.course-list { list-style: none; padding: 0; margin: 0; }
+.course-list li { margin-bottom: 12px; padding-left: 24px; position: relative; }
+.course-list li::before { content: '→'; position: absolute; left: 0; color: var(--primary); font-weight: bold; }
+.course-list li a { text-decoration: none; color: var(--text-main); font-weight: 500; transition: color 0.2s; }
+.course-list li a:hover { color: var(--primary); }
+
+/* Hide items from 5th onwards by default */
+.course-list li:nth-child(n+5) {
+    display: none;
+    opacity: 0;
+    transform: translateY(-10px);
+}
+
+/* Show items when list gets .expanded class */
+.course-list.expanded li:nth-child(n+5) {
+    display: block;
+    animation: slideDownItem 0.4s ease forwards;
+}
+
+/* Cascade delay for new items */
+.course-list.expanded li:nth-child(5) { animation-delay: 0.05s; }
+.course-list.expanded li:nth-child(6) { animation-delay: 0.10s; }
+.course-list.expanded li:nth-child(7) { animation-delay: 0.15s; }
+.course-list.expanded li:nth-child(8) { animation-delay: 0.20s; }
+
+@keyframes slideDownItem {
+    to { opacity: 1; transform: translateY(0); }
+}
+
+/* ==========================================================================
+   --- 11. CHATBOT WIDGET --- 
+   ========================================================================== */
 #chat-widget {
     position: fixed;
     bottom: 30px;
@@ -407,27 +482,26 @@ header {
     border-color: var(--primary);
 }
 
+/* ==========================================================================
+   --- 12. FX & EXTRAS --- 
+   ========================================================================== */
 
-
-
-
-
-/* --- Floating Background Bubbles --- */
+/* Floating Background Bubbles */
 #bubble-wrap {
     position: fixed;
     top: 0;
     left: 0;
     width: 100vw;
     height: 100vh;
-    z-index: -1; /* Keeps it behind everything */
-    pointer-events: none; /* So it doesn't block clicks */
+    z-index: -1; 
+    pointer-events: none; 
     overflow: hidden;
 }
 
 .floating-bubble {
     position: absolute;
     bottom: -100px;
-    background: rgba(26, 115, 232, 0.05); /* Very faint blue */
+    background: rgba(26, 115, 232, 0.05); 
     border-radius: 50%;
     animation: floatUp linear infinite;
 }
@@ -437,10 +511,10 @@ header {
     100% { transform: translateY(-120vh) rotate(360deg); opacity: 0; }
 }
 
-/* --- Android Ripple Effect --- */
-.btn, .level-btn, .chip {
+/* Android Ripple Effect */
+.btn, .level-btn, .chip, .stack-btn {
     position: relative;
-    overflow: hidden; /* Contains the ripple */
+    overflow: hidden; 
 }
 
 .ripple-effect {
@@ -455,32 +529,4 @@ header {
 @keyframes animateRipple {
     0% { width: 0; height: 0; opacity: 0.5; }
     100% { width: 300px; height: 300px; opacity: 0; }
-}
-
-
-/* --- Expandable Curriculum List --- */
-/* Cache tous les éléments à partir du 5ème par défaut */
-.course-list li:nth-child(n+5) {
-    display: none;
-    opacity: 0;
-    transform: translateY(-10px);
-}
-
-/* Affiche les éléments quand la liste est "dépliée" */
-.course-list.expanded li:nth-child(n+5) {
-    display: block;
-    animation: slideDownItem 0.4s ease forwards;
-}
-
-/* Ajoute un petit délai progressif pour chaque ligne (effet cascade) */
-.course-list.expanded li:nth-child(5) { animation-delay: 0.05s; }
-.course-list.expanded li:nth-child(6) { animation-delay: 0.10s; }
-.course-list.expanded li:nth-child(7) { animation-delay: 0.15s; }
-.course-list.expanded li:nth-child(8) { animation-delay: 0.20s; }
-
-@keyframes slideDownItem {
-    to {
-        opacity: 1;
-        transform: translateY(0);
-    }
 }
