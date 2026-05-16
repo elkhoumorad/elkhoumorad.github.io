@@ -1,1 +1,125 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+    <script>
+      window.MathJax = {
+        tex: {
+          inlineMath: [['$', '$'], ['\\(', '\\)']],
+          displayMath: [['$$', '$$'], ['\\[', '\\]']],
+          tags: 'ams'
+        }
+      };
+    </script>
+    <script id="MathJax-script" async src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js"></script>
 
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Actions Mécaniques | Tronc Commun</title>
+    <link rel="stylesheet" href="../../style.css">
+</head>
+<body class="article-page">
+
+    <header>
+        <div class="header-content">
+            <div class="logo-container">
+                <img src="/images/logo.png" alt="Logo">
+            </div>
+            <div class="title-container">
+                <h1>THE TIME REVERSAL</h1>
+                <p class="tagline">Portail Lycée - Tronc Commun Scientifique</p>
+            </div>
+        </div>
+        <div class="header-divider"></div>
+    </header>
+
+    <div class="top-icon-row">
+        <a href="/index-fr.html" class="img-icon-link"><img src="/images/home.png" alt="Accueil"></a>
+        <a href="#" class="img-icon-link"><img src="/images/physics.png" alt="Physique"></a>
+    </div>
+
+    <div class="main-wrapper">
+        
+        <aside class="sidebar-box slide-up">
+            <h3 class="sidebar-title">Sommaire du Cours</h3>
+            <ul class="lesson-nav">
+                <li><a href="#concept">1. Concept d'action mécanique</a></li>
+                <li><a href="#modelisation">2. Modélisation : La force</a></li>
+                <li><a href="#bilan">3. Le bilan des forces</a></li>
+            </ul>
+        </aside>
+
+        <main class="journal-entry slide-up">
+            <div class="lesson-header">
+                <span class="badge">Mécanique</span>
+                <h2>Les Actions Mécaniques</h2>
+                <p class="author-meta">👨‍🏫 Cours rédigé par Morad | Niveau : Tronc Commun Scientifique</p>
+            </div>
+
+            <section id="concept" class="reveal">
+                <h3>1. Qu'est-ce qu'une action mécanique ?</h3>
+                <p>En physique, on dit qu'un corps (l'acteur) exerce une <strong>action mécanique</strong> sur un autre corps (le receveur) si cette action est capable de produire l'un des effets suivants :</p>
+                
+                <ul class="data-list">
+                    <li><strong>Effet dynamique :</strong> Mettre le corps en mouvement ou modifier son mouvement (vitesse ou trajectoire).</li>
+                    <li><strong>Effet statique :</strong> Déformer le corps ou le maintenir en équilibre.</li>
+                </ul>
+
+                <div class="astuce-box">
+                    <strong>📌 Classification des actions mécaniques :</strong> 
+                    <p>On divise généralement les actions mécaniques en deux grandes familles :</p>
+                    <ul>
+                        <li><strong>Actions de contact :</strong> Nécessitent un contact direct (ex: pousser une porte, tension d'un fil). Elles peuvent être <em>localisées</em> (sur un point) ou <em>réparties</em> (sur une surface, comme le vent dans une voile).</li>
+                        <li><strong>Actions à distance :</strong> Sans contact physique (ex: force magnétique, force gravitationnelle). Elles sont toujours réparties sur tout le volume du corps.</li>
+                    </ul>
+                </div>
+            </section>
+
+            <section id="modelisation" class="reveal">
+                <h3>2. Modélisation : La notion de Force</h3>
+                <p>Pour étudier une action mécanique de manière mathématique, on la modélise par un outil mathématique appelé <strong>Force</strong>, représenté par un vecteur noté $\vec{F}$.</p>
+                
+                <p>Toute force $\vec{F}$ est caractérisée par 4 éléments fondamentaux :</p>
+                <ul class="data-list">
+                    <li><strong>Point d'application :</strong> Le point où la force s'exerce (point de contact ou centre de gravité $G$ pour une force à distance).</li>
+                    <li><strong>Direction (droite d'action) :</strong> La droite suivant laquelle la force agit (ex: verticale, horizontale, oblique).</li>
+                    <li><strong>Sens :</strong> L'orientation sur la droite d'action (ex: vers le haut, vers la droite, vers le centre de la Terre).</li>
+                    <li><strong>Intensité :</strong> La "puissance" de la force. Elle se note sans flèche ($F$), s'exprime en <strong>Newton ($N$)</strong> et se mesure avec un dynamomètre.</li>
+                </ul>
+            </section>
+
+            <section id="bilan" class="reveal">
+                <h3>3. La méthode : Faire le bilan des forces</h3>
+                <p>Dans chaque exercice de mécanique, la première étape indispensable est de faire le <strong>bilan des forces</strong> appliquées. Voici la méthode infaillible :</p>
+                
+                <div class="formula-box">
+                    <p><strong>Étape 1 :</strong> Définir le système étudié.</p>
+                    $$\text{Système} = \{ \text{L'objet dont on étudie le mouvement ou l'équilibre} \}$$
+                    <p><strong>Étape 2 :</strong> Recenser les forces à distance (généralement le poids $\vec{P}$).</p>
+                    <p><strong>Étape 3 :</strong> Recenser les forces de contact (fil $\vec{T}$, support $\vec{R}$, ressort $\vec{F}$, etc.).</p>
+                </div>
+
+                <div class="astuce-box">
+                    <strong>💡 Règle d'or :</strong> 
+                    <p>Pour ne rater aucune force de contact, fais mentalement le tour de la "frontière" de ton système. Partout où un autre objet touche ton système, il y a une force de contact !</p>
+                </div>
+            </section>
+        </main>
+
+        <aside class="sidebar-box sticky-sidebar slide-up">
+            <h3 class="sidebar-title">Schémas</h3>
+            <p style="font-size: 0.85rem; color: var(--text-muted);">Clique sur l'image pour l'agrandir.</p>
+            
+            <img src="../../images/action-mecanique-schema.jpg" alt="Vecteur Force et ses caractéristiques" class="zoomable-img">
+            <p class="caption">Représentation d'un vecteur force $\vec{F}$ (point d'application, direction, sens, intensité).</p>
+        </aside>
+
+    </div>
+
+    <div class="lightbox-overlay" id="lightbox">
+        <span class="lightbox-close-btn" id="close-lightbox">&times;</span>
+        <img id="lightbox-img" src="" alt="Zoomed Image">
+    </div>
+
+    <script src="../../script.js"></script>
+</body>
+</html>
