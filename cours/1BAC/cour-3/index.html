@@ -1,1 +1,153 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+    <script>
+      window.MathJax = {
+        tex: {
+          inlineMath: [['$', '$'], ['\\(', '\\)']],
+          displayMath: [['$$', '$$'], ['\\[', '\\]']],
+          tags: 'ams'
+        }
+      };
+    </script>
+    <script id="MathJax-script" async src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js"></script>
 
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Mesure en Chimie | 1ère Année Bac</title>
+    <link rel="stylesheet" href="../../style.css">
+</head>
+<body class="article-page">
+
+    <header>
+        <div class="header-content">
+            <div class="logo-container">
+                <img src="/images/logo.png" alt="Logo">
+            </div>
+            <div class="title-container">
+                <h1>THE TIME REVERSAL</h1>
+                <p class="tagline">Portail Lycée - 1ère Année Bac Scientifique</p>
+            </div>
+        </div>
+        <div class="header-divider"></div>
+    </header>
+
+    <div class="top-icon-row">
+        <a href="/index-fr.html" class="img-icon-link"><img src="/images/home.png" alt="Accueil"></a>
+        <a href="#" class="img-icon-link"><img src="/images/chemistry.png" alt="Chimie"></a>
+    </div>
+
+    <div class="main-wrapper">
+        
+        <aside class="sidebar-box slide-up">
+            <h3 class="sidebar-title">Sommaire du Cours</h3>
+            <ul class="lesson-nav">
+                <li><a href="#mole">1. La Mole et Masse Molaire</a></li>
+                <li><a href="#solides-liquides">2. Quantité de matière (Solides/Liquides)</a></li>
+                <li><a href="#gaz">3. Le cas des Gaz Parfaits</a></li>
+                <li><a href="#concentrations">4. Les Concentrations</a></li>
+            </ul>
+        </aside>
+
+        <main class="journal-entry slide-up">
+            <div class="lesson-header">
+                <span class="badge" style="background: linear-gradient(135deg, #55efc4, #00b894);">Chimie</span>
+                <h2>La Mesure en Chimie</h2>
+                <p class="author-meta">👨‍🏫 Cours rédigé par Morad | Niveau : 1ère Année Bac Scientifique</p>
+            </div>
+
+            <section id="mole" class="reveal">
+                <h3>1. La Mole : Le "paquet" du chimiste</h3>
+                <p>Les atomes sont si petits qu'il est impossible de les compter un par un. Les chimistes ont donc inventé une unité de compte : la <strong>mole</strong> ($mol$). Une mole est simplement un paquet contenant toujours le même nombre d'entités (atomes, ions, ou molécules).</p>
+                
+                <div class="formula-box">
+                    <p>Ce nombre est donné par la <strong>Constante d'Avogadro ($N_A$)</strong> :</p>
+                    $$N_A \approx 6,02 \times 10^{23} \text{ mol}^{-1}$$
+                    <p>La quantité de matière $n$ d'un échantillon contenant $N$ entités est :</p>
+                    $$n = \frac{N}{N_A}$$
+                </div>
+                
+                <p><strong>La Masse Molaire ($M$) :</strong> C'est la masse d'une mole entière de cette espèce. Elle s'exprime en $g/mol$. Pour une molécule (ex: $H_2O$), on additionne les masses molaires atomiques : $M(H_2O) = 2 \times M(H) + M(O) = 2 \times 1 + 16 = 18 \text{ g/mol}$.</p>
+            </section>
+
+            <section id="solides-liquides" class="reveal">
+                <h3>2. Calcul de la quantité de matière $n$ (Solides & Liquides)</h3>
+                <p>Selon l'état physique et les données du problème, il existe plusieurs façons de calculer $n$ :</p>
+                
+                <div class="formula-box" style="border-left-color: #00cec9;">
+                    <p><strong>1. À partir de la masse $m$ (Solides ou Liquides) :</strong></p>
+                    $$n = \frac{m}{M}$$
+                    <p><em>Avec $m$ en grammes ($g$) et $M$ en $g/mol$.</em></p>
+                </div>
+
+                <div class="astuce-box" style="background: #e0f7fa; box-shadow: 0 4px 15px rgba(0, 188, 212, 0.15);">
+                    <strong style="color: #00838f;">💡 Astuce pour les liquides (Densité et Masse volumique) :</strong>
+                    <p style="color: #006064;">Si l'énoncé te donne un volume $V$ de liquide et sa densité $d$ (ou sa masse volumique $\rho$), souviens-toi que $m = \rho \cdot V$. L'équation devient donc :</p>
+                    $$n = \frac{\rho \cdot V}{M} \quad \text{ou} \quad n = \frac{d \cdot \rho_{eau} \cdot V}{M}$$
+                </div>
+            </section>
+
+            <section id="gaz" class="reveal">
+                <h3>3. Le cas particulier des Gaz et la Loi des Gaz Parfaits</h3>
+                <p>Pour les gaz, il est beaucoup plus facile de mesurer un volume qu'une masse. On utilise le <strong>Volume Molaire ($V_m$)</strong>, qui est le volume occupé par une mole de gaz dans des conditions de température et de pression données.</p>
+                
+                <p>La formule simple est : $$n = \frac{V}{V_m}$$</p>
+
+                <p><strong>Mais attention !</strong> Si on change la pression ou la température, on doit utiliser l'arme absolue du chimiste : <strong>L'équation d'état des gaz parfaits</strong>.</p>
+
+                <div class="formula-box" style="border-left-color: #e84393;">
+                    $$P \cdot V = n \cdot R \cdot T$$
+                </div>
+
+                <div class="astuce-box" style="background: #ffcccb; box-shadow: 0 4px 15px rgba(255, 0, 0, 0.15);">
+                    <strong style="color: #c0392b;">⚠️ ALERTE ROUGE : Les unités du Gaz Parfait !</strong> 
+                    <p style="color: #333;">C'est ici que 90% des élèves font des erreurs. Dans cette formule <strong>uniquement</strong>, les unités sont spéciales :</p>
+                    <ul style="color: #333; font-weight: bold;">
+                        <li>$P$ (Pression) doit être en Pascal ($Pa$). Si on te donne des hectopascals ($hPa$), $1 \text{ hPa} = 100 \text{ Pa}$.</li>
+                        <li>$V$ (Volume) doit être en Mètres cubes ($m^3$) et NON EN LITRES ! ($1 \text{ L} = 10^{-3} \text{ m}^3$).</li>
+                        <li>$T$ (Température) doit être en Kelvin ($K$). On utilise la formule : $T(K) = \theta (^\circ C) + 273,15$.</li>
+                    </ul>
+                </div>
+            </section>
+
+            <section id="concentrations" class="reveal">
+                <h3>4. Les Concentrations en solution aqueuse</h3>
+                <p>Quand on dissout un soluté dans un solvant (l'eau), on obtient une solution. On mesure le "dosage" de cette solution avec deux types de concentrations :</p>
+                
+                <ul class="data-list">
+                    <li><strong>Concentration Molaire ($C$) :</strong> C'est le nombre de moles par litre de solution. Unité : $mol/L$ (ou $mol \cdot L^{-1}$).
+                        $$C = \frac{n}{V_{solution}}$$
+                    </li>
+                    <li><strong>Concentration Massique ($C_m$) :</strong> C'est la masse de soluté par litre de solution. Unité : $g/L$.
+                        $$C_m = \frac{m}{V_{solution}}$$
+                    </li>
+                </ul>
+
+                <p>Il existe une relation très utile pour passer de l'une à l'autre :</p>
+                $$C_m = C \cdot M$$
+            </section>
+        </main>
+
+        <aside class="sidebar-box sticky-sidebar slide-up">
+            <h3 class="sidebar-title">Schémas</h3>
+            <p style="font-size: 0.85rem; color: var(--text-muted);">Clique sur l'image pour l'agrandir.</p>
+            
+            <img src="../../images/mesure-mole-schema.jpg" alt="Le concept de la Mole en chimie" class="zoomable-img" style="margin-bottom: 20px;">
+            <p class="caption">1. La Mole : Passer de l'échelle microscopique (atomes) à l'échelle macroscopique (grammes).</p>
+            
+            <hr style="border: none; border-top: 1px dashed var(--border-color); margin: 20px 0;">
+
+            <img src="../../images/gaz-parfaits-schema.jpg" alt="Les paramètres de l'équation des gaz parfaits" class="zoomable-img">
+            <p class="caption">2. Les 3 paramètres macroscopiques d'un gaz : Pression (P), Volume (V), et Température (T).</p>
+        </aside>
+
+    </div>
+
+    <div class="lightbox-overlay" id="lightbox">
+        <span class="lightbox-close-btn" id="close-lightbox">&times;</span>
+        <img id="lightbox-img" src="" alt="Zoomed Image">
+    </div>
+
+    <script src="../../script.js"></script>
+</body>
+</html>
