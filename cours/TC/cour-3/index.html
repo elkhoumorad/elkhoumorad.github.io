@@ -1,1 +1,130 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+    <script>
+      window.MathJax = {
+        tex: {
+          inlineMath: [['$', '$'], ['\\(', '\\)']],
+          displayMath: [['$$', '$$'], ['\\[', '\\]']],
+          tags: 'ams'
+        }
+      };
+    </script>
+    <script id="MathJax-script" async src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js"></script>
 
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Extraction et Séparation | Tronc Commun</title>
+    <link rel="stylesheet" href="../../style-cours.css">
+</head>
+<body class="article-page">
+
+    <header>
+        <div class="header-content">
+            <div class="logo-container">
+                <img src="../../images/logo.png" alt="Logo">
+            </div>
+            <div class="title-container">
+                <h1>THE TIME REVERSAL</h1>
+                <p class="tagline">Portail Lycée - Tronc Commun Scientifique</p>
+            </div>
+        </div>
+        <div class="header-divider"></div>
+    </header>
+
+    <div class="top-icon-row">
+        <a href="../../index-fr.html" class="img-icon-link"><img src="../../images/home.png" alt="Accueil"></a>
+        <a href="#" class="img-icon-link"><img src="../../images/chemistry.png" alt="Chimie"></a>
+    </div>
+
+    <div class="main-wrapper">
+        
+        <aside class="sidebar-box slide-up">
+            <h3 class="sidebar-title">Sommaire du Cours</h3>
+            <ul class="lesson-nav">
+                <li><a href="#solvant">1. Extraction par solvant</a></li>
+                <li><a href="#hydro">2. L'Hydrodistillation</a></li>
+                <li><a href="#ccm">3. Chromatographie (CCM)</a></li>
+            </ul>
+        </aside>
+
+        <main class="journal-entry slide-up">
+            <div class="lesson-header">
+                <span class="badge" style="background: linear-gradient(135deg, #55efc4, #00b894);">Chimie</span>
+                <h2>Extraction et Séparation</h2>
+                <p class="author-meta">👨‍🏫 Cours rédigé par Morad | Niveau : Tronc Commun Scientifique</p>
+            </div>
+
+            <section id="solvant" class="reveal">
+                <h3>1. Extraction par solvant (Décantation)</h3>
+                <p>Cette technique permet d'extraire une espèce chimique dissoute dans un solvant (souvent l'eau) en utilisant un autre solvant, appelé <strong>solvant extracteur</strong>. On utilise pour cela une ampoule à décanter.</p>
+                
+                <div class="astuce-box">
+                    <strong>💡 Comment choisir le bon solvant extracteur ?</strong> 
+                    <p>Il doit respecter deux règles d'or :</p>
+                    <ul>
+                        <li>L'espèce chimique à extraire doit y être <strong>très soluble</strong> (plus soluble que dans le solvant de départ).</li>
+                        <li>Il ne doit <strong>pas être miscible</strong> avec le solvant de départ (les deux liquides ne doivent pas se mélanger, formant ainsi deux phases distinctes).</li>
+                    </ul>
+                </div>
+
+                <div class="formula-box">
+                    <p>Pour savoir quelle phase (aqueuse ou organique) sera au-dessus dans l'ampoule, on regarde la densité $d$ :</p>
+                    $$d = \frac{\rho}{\rho_{eau}}$$
+                    <p>Le liquide avec la densité la plus faible (le plus léger) flottera au-dessus de l'autre.</p>
+                </div>
+            </section>
+
+            <section id="hydro" class="reveal">
+                <h3>2. L'Hydrodistillation (Entraînement à la vapeur)</h3>
+                <p>C'est une technique très ancienne utilisée pour extraire les huiles essentielles des plantes (comme la lavande ou la menthe).</p>
+                
+                <ul class="data-list">
+                    <li><strong>Principe :</strong> On fait bouillir un mélange d'eau et de la substance naturelle. La vapeur d'eau va "arracher" et entraîner les espèces chimiques volatiles.</li>
+                    <li><strong>Condensation :</strong> Ce gaz passe ensuite dans un réfrigérant à eau où il redevient liquide (c'est le distillat).</li>
+                    <li><strong>Relargage :</strong> On ajoute souvent de l'eau salée au distillat pour diminuer la solubilité de l'huile essentielle et faciliter la séparation finale.</li>
+                </ul>
+            </section>
+
+            <section id="ccm" class="reveal">
+                <h3>3. Séparation et Identification : La CCM</h3>
+                <p>La <strong>Chromatographie sur Couche Mince (CCM)</strong> sert à séparer les constituants d'un mélange et à les identifier en les comparant avec des espèces pures de référence.</p>
+                
+                <p>Les espèces chimiques sont entraînées par un liquide (l'éluant) qui monte par capillarité sur une plaque (la phase fixe). Chaque espèce monte à une vitesse différente selon son affinité avec l'éluant et la plaque.</p>
+
+                <div class="formula-box">
+                    <p>On identifie une espèce grâce à son <strong>Rapport frontal ($R_f$)</strong> :</p>
+                    $$R_f = \frac{h}{H}$$
+                </div>
+
+                <ul class="data-list">
+                    <li><strong>$h$</strong> : Distance parcourue par la tache de l'espèce chimique.</li>
+                    <li><strong>$H$</strong> : Distance parcourue par le front de l'éluant.</li>
+                    <li><em>Note : Deux taches à la même hauteur (même $R_f$) correspondent à la même espèce chimique !</em></li>
+                </ul>
+            </section>
+        </main>
+
+        <aside class="sidebar-box sticky-sidebar slide-up">
+            <h3 class="sidebar-title">Schémas</h3>
+            <p style="font-size: 0.85rem; color: var(--text-muted);">Clique sur l'image pour l'agrandir.</p>
+            
+            <img src="../../images/hydrodistillation-schema.jpg" alt="Montage d'hydrodistillation" class="zoomable-img" style="margin-bottom: 20px;">
+            <p class="caption">1. Le montage complet d'une hydrodistillation avec son réfrigérant à eau.</p>
+            
+            <hr style="border: none; border-top: 1px dashed var(--border-color); margin: 20px 0;">
+
+            <img src="../../images/ccm-schema.jpg" alt="Plaque de chromatographie" class="zoomable-img">
+            <p class="caption">2. Lecture d'une plaque CCM (Calcul des rapports frontaux).</p>
+        </aside>
+
+    </div>
+
+    <div class="lightbox-overlay" id="lightbox">
+        <span class="lightbox-close-btn" id="close-lightbox">&times;</span>
+        <img id="lightbox-img" src="" alt="Zoomed Image">
+    </div>
+
+    <script src="../../script-cours.js"></script>
+</body>
+</html>
