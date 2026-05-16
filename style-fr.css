@@ -1,541 +1,408 @@
+/* ==========================================================================
+   THE TIME REVERSAL - MATERIAL 'ANDROID' APP THEME
+   ========================================================================== */
+
+/* --- 1. CORE VARIABLES (Material Color Palette) --- */
 :root {
-    --bg-color: #f4f4f9;
-    --text-main: #333;
-    --text-muted: #7f8c8d;
-    --accent-blue: #007bff;
-    --border-color: #2c3e50;
+    --app-bg: #F0F4F8; /* Light grayish-blue app background */
+    --surface: #FFFFFF; /* Pure white for cards */
+    --primary: #1A73E8; /* Android/Google Blue */
+    --primary-hover: #1557B0;
+    --text-main: #202124;
+    --text-muted: #5F6368;
+    --border-color: #E8EAED;
+    
+    /* Android Geometry */
+    --radius-card: 24px;
+    --radius-btn: 50px; /* Pill shape */
+    
+    /* Layered Shadows */
+    --shadow-sm: 0 2px 6px rgba(0,0,0,0.04);
+    --shadow-md: 0 8px 24px rgba(0,0,0,0.08);
+    --shadow-hover: 0 12px 32px rgba(26, 115, 232, 0.15);
+}
+
+/* --- 2. GLOBAL RESET & ANIMATIONS --- */
+* {
+    box-sizing: border-box;
+    font-family: 'Inter', 'Roboto', 'Segoe UI', sans-serif;
 }
 
 body {
-    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
-    line-height: 1.6;
-    color: var(--text-main);
-    background-color: var(--bg-color);
     margin: 0;
-    padding: 0;
+    background-color: var(--app-bg);
+    color: var(--text-main);
+    line-height: 1.6;
+    overflow-x: hidden;
 }
 
-/* Header Styling */
+/* The "App Open" Cascade Animation */
+@keyframes slideUpFade {
+    from { opacity: 0; transform: translateY(30px); }
+    to { opacity: 1; transform: translateY(0); }
+}
+
+/* --- 3. APP BAR (Sticky Header with Glassmorphism) --- */
 header {
-    padding: 40px 20px 20px;
-    max-width: 1400px;
-    margin: 0 auto;
+    background: rgba(255, 255, 255, 0.85);
+    backdrop-filter: blur(12px); /* Frosted glass effect */
+    -webkit-backdrop-filter: blur(12px);
+    position: sticky;
+    top: 0;
+    z-index: 100;
+    border-bottom: 1px solid var(--border-color);
+    box-shadow: var(--shadow-sm);
+    padding: 15px 0;
 }
 
 .header-content {
+    max-width: 1400px;
+    margin: 0 auto;
     display: flex;
-    align-items: center; /* Vertically centers the text with the logo */
-    gap: 20px; /* Space between the logo and the title */
-    margin-bottom: 20px;
+    align-items: center;
+    justify-content: center;
+    position: relative;
+    padding: 0 20px;
 }
 
 .logo-container img {
-    max-height: 90px; /* Sized to match your screenshot */
-    display: block;
+    height: 50px;
+    margin-right: 15px;
 }
 
-.title-container {
-    display: flex;
-    flex-direction: column;
-    justify-content: center;
-}
-
-h1 {
-    color: var(--border-color);
-    font-size: 2.5rem;
-    margin: 0; /* Tucked tight against the tagline */
-    font-style: italic;
-    letter-spacing: 2px;
+.title-container h1 {
+    margin: 0;
+    font-size: 1.8rem;
+    font-weight: 800;
+    letter-spacing: -0.5px;
+    color: var(--primary);
 }
 
 .tagline {
-    font-size: 0.95rem;
+    margin: 0;
+    font-size: 0.85rem;
     color: var(--text-muted);
-    margin: 5px 0 0 0; /* Just a tiny gap below the h1 */
 }
 
-.header-divider {
-    width: 100%;
-    border-bottom: 2px solid var(--border-color);
-}
-
-/* --- NEW: Top Icon Row Styling --- */
-/* Styling for the icon row container */
-.top-icon-row {
-    max-width: 1400px;
-    /* Reduced top margin from 30px to 20px to pull it closer to the header line */
-    margin: 20px auto 10px auto; 
-    padding: 0 20px;
+/* --- 4. LANGUAGE SWITCHER (Segmented Control) --- */
+.lang-switcher {
+    position: absolute;
+    right: 20px;
+    background: var(--app-bg);
+    padding: 4px;
+    border-radius: var(--radius-btn);
     display: flex;
-    gap: 30px; 
-    /* THIS IS THE FIX: Centers the icons perfectly in the middle of the screen */
-    justify-content: center; 
+    gap: 2px;
 }
 
-/* The link wrapper */
-.img-icon-link {
-    display: inline-block;
-    transition: transform 0.2s ease;
+.lang-btn {
     text-decoration: none;
+    color: var(--text-muted);
+    padding: 6px 14px;
+    border-radius: var(--radius-btn);
+    font-size: 0.85rem;
+    font-weight: 600;
+    transition: all 0.3s ease;
 }
 
-/* The actual PNG image */
+.lang-btn.active {
+    background: var(--surface);
+    color: var(--primary);
+    box-shadow: var(--shadow-sm);
+}
+
+/* --- 5. TOP NAVIGATION ICONS --- */
+.top-icon-row {
+    display: flex;
+    justify-content: center;
+    gap: 25px;
+    margin: 30px 0;
+    animation: slideUpFade 0.6s ease-out backwards;
+    animation-delay: 0.1s;
+}
+
 .img-icon-link img {
-    width: 45px;  /* Set your preferred size here */
-    height: auto;
-    display: block;
-    opacity: 0.85; /* Makes them look slightly more integrated */
-    transition: opacity 0.2s ease;
-}
-
-/* Hover effects */
-.img-icon-link:hover {
-    transform: translateY(-3px); /* Gentle lift on hover */
+    height: 40px;
+    width: 40px;
+    border-radius: 50%;
+    background: var(--surface);
+    padding: 8px;
+    box-shadow: var(--shadow-md);
+    transition: transform 0.3s cubic-bezier(0.175, 0.885, 0.32, 1.275);
 }
 
 .img-icon-link:hover img {
-    opacity: 1; /* Brightens on hover */
+    transform: scale(1.15) translateY(-5px);
 }
-/* --------------------------------- */
 
-/* 3-Column Layout */
+/* --- 6. MAIN APP LAYOUT (Grid System) --- */
 .main-wrapper {
-    display: grid;
-    grid-template-columns: 280px 1fr 280px;
-    gap: 30px;
     max-width: 1400px;
-    margin: 30px auto 40px auto; /* Slightly reduced top margin to sit closer to icons */
-    padding: 0 20px;
+    margin: 0 auto;
+    padding: 0 20px 50px;
+    display: grid;
+    grid-template-columns: 300px 1fr 300px;
+    gap: 30px;
+    align-items: start;
 }
 
-/* Shared Card Styling for Columns */
-.sidebar-box, .journal-entry {
-    background: white;
-    border-radius: 8px;
-    box-shadow: 0 2px 10px rgba(0,0,0,0.05);
+/* --- 7. CARDS & SURFACES (Android Style) --- */
+.sidebar-box, .tool-card, .scoop-container, .article-card, .level-card {
+    background: var(--surface);
+    border-radius: var(--radius-card);
     padding: 25px;
-    height: fit-content;
+    box-shadow: var(--shadow-md);
+    border: 1px solid var(--border-color);
+    transition: all 0.3s ease;
 }
 
-/* Sidebar Specifics */
+/* Apply staggered animations to layout columns */
+.sidebar-box { animation: slideUpFade 0.6s ease-out backwards; animation-delay: 0.2s; }
+.journal-entry { animation: slideUpFade 0.6s ease-out backwards; animation-delay: 0.3s; }
+.right-sidebar { animation: slideUpFade 0.6s ease-out backwards; animation-delay: 0.4s; }
+
+/* Interactive Hover States */
+.tool-card:hover, .article-card:hover, .level-card:hover {
+    transform: translateY(-6px);
+    box-shadow: var(--shadow-hover);
+    border-color: var(--primary);
+}
+
 .sidebar-title {
-    font-size: 1.1rem;
-    font-weight: bold;
-    border-bottom: 2px solid var(--bg-color);
+    margin-top: 0;
+    font-size: 1.2rem;
+    color: var(--primary);
+    border-bottom: 2px solid var(--app-bg);
     padding-bottom: 10px;
-    margin-top: 0;
-    margin-bottom: 20px;
 }
 
-/* Tool Cards (Left Column) */
-.tool-card {
-    background: var(--bg-color);
-    padding: 15px;
-    border-radius: 6px;
-    margin-bottom: 15px;
-}
-.tool-card h4 {
-    margin: 0 0 5px 0;
-    font-size: 1rem;
-}
-.tool-card p {
-    font-size: 0.85rem;
-    margin: 0 0 15px 0;
-    color: #555;
-}
-.btn {
+/* --- 8. BUTTONS (Pill Shapes) --- */
+.btn, .level-btn {
     display: inline-block;
-    background: var(--accent-blue);
-    color: white;
-    padding: 8px 15px;
+    background: var(--app-bg);
+    color: var(--primary);
     text-decoration: none;
-    border-radius: 4px;
-    font-size: 0.85rem;
-    font-weight: bold;
-}
-.btn:hover {
-    background: #0056b3;
-}
-
-/* Article Content (Center Column) */
-.journal-entry h2 {
-    margin-top: 0;
-    font-size: 2rem;
-    color: var(--border-color);
-}
-.article-meta {
-    font-size: 0.85rem;
-    color: var(--text-muted);
-    margin-bottom: 20px;
-    font-style: italic;
-}
-
-/* Right Column Links */
-.recent-list {
-    list-style: none;
-    padding: 0;
-    margin: 0;
-}
-.recent-list li {
-    margin-bottom: 12px;
+    padding: 10px 20px;
+    border-radius: var(--radius-btn);
+    font-weight: 600;
     font-size: 0.9rem;
-}
-.recent-list a {
-    color: var(--text-main);
-    text-decoration: none;
-}
-.recent-list a:hover {
-    color: var(--accent-blue);
-    text-decoration: underline;
-}
-
-/* Footer */
-footer {
+    transition: all 0.3s ease;
     text-align: center;
-    margin-top: 50px;
-    padding: 30px;
-    font-size: 0.9rem;
-    color: var(--text-muted);
-    border-top: 1px solid #ddd;
-    background-color: white;
-}
-footer a {
-    color: var(--border-color);
-    text-decoration: none;
-    font-weight: bold;
-}
-footer a:hover {
-    color: var(--accent-blue);
+    width: max-content;
+    margin-top: 10px;
 }
 
-/* Styling the Scoop area */
-.scoop-container {
-    margin-bottom: 40px;
-    padding-bottom: 20px;
+.btn:hover, .level-btn:hover {
+    background: var(--primary);
+    color: var(--surface);
+    box-shadow: 0 4px 12px rgba(26, 115, 232, 0.3);
 }
 
-/* The Professional Divider */
-.section-divider {
-    border: 0;
-    height: 1px;
-    background-image: linear-gradient(to right, rgba(0, 0, 0, 0), rgba(0, 0, 0, 0.1), rgba(0, 0, 0, 0));
-    margin-bottom: 50px;
+/* --- 9. HIGH SCHOOL CURRICULUM GRID --- */
+.curriculum-grid {
+    display: grid;
+    grid-template-columns: 1fr;
+    gap: 20px;
     margin-top: 20px;
 }
 
-/* --- THE ARTICLES GRID --- */
-.articles-grid {
-    display: grid;
-    grid-template-columns: repeat(auto-fill, minmax(300px, 1fr));
-    gap: 30px;
+.level-card {
+    padding: 0; /* Override to allow header color to touch edges */
+    overflow: hidden;
 }
 
-.card-image {
-  width: 100%;
-  height: 200px;
-  object-fit: cover; 
-  object-position: center;
-  border-bottom: 1px solid #eee; 
+.level-header {
+    padding: 20px 25px;
+    color: white;
 }
 
-.card-content {
-  display: flex;
-  flex-direction: column; 
-  padding: 20px;
+.level-header h3 { margin: 0 0 5px 0; font-size: 1.4rem; }
+.level-header span { font-size: 0.85rem; opacity: 0.9; }
+
+/* Rich Gradients for Android feel */
+.tcs-bg { background: linear-gradient(135deg, #1A73E8, #4285F4); }
+.bac1-bg { background: linear-gradient(135deg, #00B4DB, #0083B0); }
+.bac2-bg { background: linear-gradient(135deg, #8E2DE2, #4A00E0); }
+
+.level-body {
+    padding: 25px;
 }
 
-.card-title {
-  margin-top: 0;
-  margin-bottom: 12px; 
-  font-size: 1.3rem;
-  line-height: 1.3;
+.level-body ul {
+    list-style: none;
+    padding: 0;
+    margin: 0 0 20px 0;
 }
 
-.card-meta {
-  display: flex;
-  flex-wrap: wrap; 
-  gap: 15px;
-  margin-bottom: 15px;
-  color: #666;
-  font-size: 0.8rem;
-}
-.card-meta span {
-    display: flex;
-    align-items: center;
-    gap: 5px; 
-}
-.card-meta svg {
-    color: #95a5a6; 
+.level-body ul li {
+    margin-bottom: 12px;
+    padding-left: 24px;
+    position: relative;
 }
 
-.card-description {
-  margin-top: 0;
-  margin-bottom: 20px;
-  line-height: 1.6;
-  font-size: 0.95rem;
-  color: #555;
+.level-body ul li::before {
+    content: '→';
+    position: absolute;
+    left: 0;
+    color: var(--primary);
+    font-weight: bold;
 }
 
-.read-more {
-  align-self: flex-start; 
-  font-weight: bold;
-  color: #0056b3; 
-  text-decoration: none;
-  font-size: 0.9rem;
-}
-.read-more:hover {
-  text-decoration: underline;
+.level-body ul li a {
+    text-decoration: none;
+    color: var(--text-main);
+    font-weight: 500;
+    transition: color 0.2s;
 }
 
-.article-card {
-  display: flex;
-  flex-direction: column;
-  background: white;
-  border: 1px solid #e1e4e8;
-  border-radius: 8px;
-  overflow: hidden;
-  transition: transform 0.3s ease, box-shadow 0.3s ease;
-  cursor: pointer;
-  height: 100%;
-}
-.article-card:hover {
-  transform: translateY(-5px); 
-  box-shadow: 0 10px 25px rgba(0, 0, 0, 0.1);
-}
+.level-body ul li a:hover { color: var(--primary); }
 
-/* Responsive Design */
-@media (max-width: 1100px) {
-    .main-wrapper {
-        grid-template-columns: 250px 1fr;
-    }
-    .right-sidebar {
-        grid-column: 1 / -1; 
-        display: grid;
-        grid-template-columns: 1fr 1fr;
-        gap: 20px;
-    }
-}
-@media (max-width: 800px) {
-    .main-wrapper {
-        grid-template-columns: 1fr;
-    }
-    .right-sidebar {
-        grid-template-columns: 1fr;
-    }
-    .articles-grid {
-        grid-template-columns: 1fr;
-    }
-    .top-icon-row {
-        justify-content: center; /* Center icons on mobile */
-        flex-wrap: wrap;
-    }
-}
-
-
-
-/* --- Floating Chatbot --- */
+/* --- 10. CHATBOT (Floating Action Button & Bottom Sheet) --- */
 #chat-widget {
     position: fixed;
     bottom: 30px;
     right: 30px;
-    z-index: 1000; /* Keeps it above everything else */
+    z-index: 1000;
     display: flex;
     flex-direction: column;
     align-items: flex-end;
 }
 
 #chat-bubble {
-    width: 60px;
-    height: 60px;
-    background-color: var(--accent-blue);
+    width: 65px;
+    height: 65px;
+    background: var(--primary);
     color: white;
     border: none;
     border-radius: 50%;
     font-size: 1.8rem;
     cursor: pointer;
-    box-shadow: 0 4px 15px rgba(0,0,0,0.2);
-    transition: transform 0.2s;
+    box-shadow: 0 6px 16px rgba(26, 115, 232, 0.4);
+    transition: transform 0.3s cubic-bezier(0.175, 0.885, 0.32, 1.275);
 }
 
 #chat-bubble:hover {
-    transform: scale(1.1);
+    transform: scale(1.1) rotate(5deg);
 }
 
-
+#chat-window {
+    width: 360px;
+    height: 550px;
+    background: var(--surface);
+    border-radius: var(--radius-card);
+    box-shadow: 0 12px 40px rgba(0,0,0,0.15);
+    margin-bottom: 20px;
+    display: flex;
+    flex-direction: column;
+    overflow: hidden;
+    animation: slideUpFade 0.3s ease-out;
+}
 
 .chat-header {
-    background-color: var(--border-color);
+    background: var(--primary);
     color: white;
-    padding: 15px;
+    padding: 20px;
     display: flex;
     justify-content: space-between;
     align-items: center;
 }
 
-.chat-header h4 {
-    margin: 0;
-    font-size: 1rem;
+.chat-header h4 { margin: 0; font-size: 1.1rem; }
+
+.chat-body {
+    flex: 1;
+    padding: 20px;
+    background: #F8FAFC;
+    overflow-y: auto;
 }
 
-
-
-/* --- Chat Message Bubbles --- */
 .bot-msg, .user-msg {
-    padding: 10px 14px;
-    border-radius: 15px;
-    font-size: 0.9rem;
-    margin-bottom: 10px;
-    display: table; /* Prevents bubbles from stretching the whole width */
+    padding: 12px 18px;
+    border-radius: 20px;
+    font-size: 0.95rem;
+    margin-bottom: 12px;
     max-width: 85%;
     line-height: 1.4;
-    word-wrap: break-word;
+    animation: slideUpFade 0.3s ease;
 }
 
 .bot-msg {
-    background-color: #e1e8ed;
-    color: #333;
-    margin-right: auto; /* Aligns to the left */
-    border-bottom-left-radius: 2px;
+    background: white;
+    color: var(--text-main);
+    margin-right: auto;
+    border-bottom-left-radius: 4px;
+    box-shadow: var(--shadow-sm);
 }
 
 .user-msg {
-    background-color: var(--accent-blue);
+    background: var(--primary);
     color: white;
-    margin-left: auto; /* Aligns to the right */
-    border-bottom-right-radius: 2px;
+    margin-left: auto;
+    border-bottom-right-radius: 4px;
+    box-shadow: var(--shadow-sm);
 }
 
 .chat-input-area {
-    padding: 10px;
-    background-color: white;
-    border-top: 1px solid #ddd;
+    padding: 15px;
+    background: var(--surface);
+    border-top: 1px solid var(--border-color);
     display: flex;
+    gap: 10px;
 }
 
+#chat-input {
+    flex-grow: 1;
+    padding: 12px 15px;
+    border: 1px solid var(--border-color);
+    border-radius: var(--radius-btn);
+    background: var(--app-bg);
+    outline: none;
+    transition: border 0.3s;
+}
 
+#chat-input:focus { border-color: var(--primary); }
 
+#chat-send {
+    padding: 10px 20px;
+    border-radius: var(--radius-btn);
+    background: var(--primary);
+    color: white;
+    border: none;
+    cursor: pointer;
+    font-weight: bold;
+    transition: background 0.3s;
+}
 
+#chat-send:hover { background: var(--primary-hover); }
 
-
-
-
-
-/* --- Improved Suggestion Chips --- */
 #chat-suggestions {
     display: flex;
     gap: 10px;
     padding: 12px 15px;
-    background: #fff;
-    border-top: 1px solid #eee;
-    /* This allows chips to scroll sideways instead of stacking/cramming */
+    background: var(--surface);
     overflow-x: auto;
-    white-space: nowrap;
-    /* Hides the scrollbar for a cleaner look while still allowing swipe */
     -ms-overflow-style: none;
     scrollbar-width: none;
+    border-top: 1px solid var(--border-color);
 }
 
-#chat-suggestions::-webkit-scrollbar {
-    display: none;
-}
+#chat-suggestions::-webkit-scrollbar { display: none; }
 
 .chip {
-    background: #f0f4f8;
-    border: 1.5px solid var(--accent-blue);
-    color: var(--accent-blue);
-    padding: 6px 16px;
-    border-radius: 20px;
+    background: var(--surface);
+    border: 1px solid var(--border-color);
+    color: var(--text-muted);
+    padding: 8px 16px;
+    border-radius: var(--radius-btn);
     font-size: 0.85rem;
-    font-weight: 500;
     cursor: pointer;
     transition: all 0.2s ease;
-    flex-shrink: 0; /* Prevents the chips from squishing */
+    flex-shrink: 0;
+    box-shadow: var(--shadow-sm);
 }
 
 .chip:hover {
-    background: var(--accent-blue);
-    color: white;
-}
-
-/* --- Adjusting the Chat Window Height --- */
-#chat-window {
-    width: 350px; /* Slightly wider for better text flow */
-    height: 500px; /* Taller so you can actually see the history */
-    background-color: white;
-    border-radius: 12px;
-    box-shadow: 0 10px 30px rgba(0,0,0,0.15);
-    display: flex;
-    flex-direction: column;
-}
-
-.chat-body {
-    flex: 1; /* This makes the message area take up all remaining space */
-    padding: 15px;
-    overflow-y: auto;
-}
-
-
-
-
-
-
-
-
-
-
-
-/* Make messages fade in smoothly */
-.bot-msg, .user-msg {
-    animation: fadeIn 0.3s ease;
-}
-
-@keyframes fadeIn {
-    from { opacity: 0; transform: translateY(5px); }
-    to { opacity: 1; transform: translateY(0); }
-}
-
-/* Typing dot animation */
-.typing-dots span {
-    animation: blink 1s infinite;
-    margin: 0 1px;
-}
-@keyframes blink { 0% { opacity: 0.2; } 50% { opacity: 1; } 100% { opacity: 0.2; } }
-
-
-/* --- Language Switcher --- */
-.lang-switcher {
-    position: absolute;
-    top: 15px;
-    right: 20px;
-    display: flex;
-    align-items: center;
-    gap: 8px;
-    font-size: 0.9rem;
-    font-weight: 600;
-    font-family: sans-serif;
-}
-
-.lang-btn {
-    text-decoration: none;
-    color: #888;
-    padding: 4px 8px;
-    border-radius: 6px;
-    transition: all 0.2s ease;
-}
-
-.lang-btn:hover {
-    background-color: #f0f4f8;
-    color: var(--accent-blue); /* Assuming you still have your blue accent variable */
-}
-
-/* Highlights the language the user is currently looking at */
-.lang-btn.active {
-    color: var(--accent-blue);
-    background-color: #e1e8ed;
-    cursor: default;
-}
-
-.lang-divider {
-    color: #ddd;
-    user-select: none; /* Prevents users from accidentally highlighting the line */
+    background: var(--app-bg);
+    color: var(--primary);
+    border-color: var(--primary);
 }
