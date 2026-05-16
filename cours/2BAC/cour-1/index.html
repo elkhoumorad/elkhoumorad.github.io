@@ -1,1 +1,145 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+    <script>
+      window.MathJax = {
+        tex: {
+          inlineMath: [['$', '$'], ['\\(', '\\)']],
+          displayMath: [['$$', '$$'], ['\\[', '\\]']],
+          tags: 'ams'
+        }
+      };
+    </script>
+    <script id="MathJax-script" async src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js"></script>
 
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Ondes Mécaniques et Lumineuses | 2ème Année Bac</title>
+    <link rel="stylesheet" href="../../style.css">
+</head>
+<body class="article-page">
+
+    <header>
+        <div class="header-content">
+            <div class="logo-container">
+                <img src="../../images/logo.png" alt="Logo">
+            </div>
+            <div class="title-container">
+                <h1>THE TIME REVERSAL</h1>
+                <p class="tagline">Portail Lycée - 2ème Année Bac Scientifique</p>
+            </div>
+        </div>
+        <div class="header-divider"></div>
+    </header>
+
+    <div class="top-icon-row">
+        <a href="/index-fr.html" class="img-icon-link"><img src="/images/home.png" alt="Accueil"></a>
+        <a href="#" class="img-icon-link"><img src="/images/physics.png" alt="Physique"></a>
+    </div>
+
+    <div class="main-wrapper">
+        
+        <aside class="sidebar-box slide-up">
+            <h3 class="sidebar-title">Sommaire du Cours</h3>
+            <ul class="lesson-nav">
+                <li><a href="#mecaniques">1. Ondes mécaniques progressives</a></li>
+                <li><a href="#periodiques">2. Ondes périodiques et $\lambda$</a></li>
+                <li><a href="#lumineuses">3. Les Ondes Lumineuses</a></li>
+                <li><a href="#diffraction">4. Le phénomène de Diffraction</a></li>
+            </ul>
+        </aside>
+
+        <main class="journal-entry slide-up">
+            <div class="lesson-header">
+                <span class="badge" style="background: linear-gradient(135deg, #74b9ff, #0984e3);">Physique</span>
+                <h2>Ondes Mécaniques et Lumineuses</h2>
+                <p class="author-meta">👨‍🏫 Cours rédigé par Morad | Niveau : 2ème Année Bac Scientifique</p>
+            </div>
+
+            <section id="mecaniques" class="reveal">
+                <h3>1. Ondes mécaniques progressives</h3>
+                <p>Une onde mécanique est le phénomène de propagation d'une perturbation dans un milieu matériel <strong>élastique</strong> (corde, eau, air), avec transport d'énergie mais <strong>sans transport de matière</strong>.</p>
+                
+                <ul class="data-list">
+                    <li><strong>Onde Transversale :</strong> La direction de perturbation est perpendiculaire à la direction de propagation (ex: corde, surface de l'eau).</li>
+                    <li><strong>Onde Longitudinale :</strong> La direction de perturbation est parallèle à la direction de propagation (ex: ressort, son dans l'air).</li>
+                </ul>
+
+                <div class="formula-box">
+                    <p><strong>Le retard temporel ($\tau$) :</strong> C'est le temps que met l'onde pour aller d'un point $A$ à un point $B$ distants d'une longueur $d$, à la vitesse (célérité) $v$ :</p>
+                    $$\tau = \frac{d}{v}$$
+                    <p>Le point $B$ refait exactement le même mouvement que $A$, mais avec un retard $\tau$ : $y_B(t) = y_A(t - \tau)$</p>
+                </div>
+            </section>
+
+            <section id="periodiques" class="reveal">
+                <h3>2. Ondes mécaniques progressives périodiques</h3>
+                <p>Si la source de l'onde crée des perturbations régulières, l'onde possède une double périodicité :</p>
+                
+                <ul class="data-list">
+                    <li><strong>Périodicité temporelle ($T$) :</strong> La durée (en secondes) pour qu'un point du milieu reprenne la même position. La fréquence $N$ (ou $f$) est $N = 1/T$ (en Hertz).</li>
+                    <li><strong>Périodicité spatiale ($\lambda$) :</strong> Appelé <strong>longueur d'onde</strong>. C'est la distance (en mètres) parcourue par l'onde pendant une période $T$.</li>
+                </ul>
+
+                <div class="formula-box" style="border-left-color: #00cec9;">
+                    <p>La relation fondamentale des ondes :</p>
+                    $$v = \frac{\lambda}{T} = \lambda \cdot N$$
+                </div>
+            </section>
+
+            <section id="lumineuses" class="reveal">
+                <h3>3. Les Ondes Lumineuses (Électromagnétiques)</h3>
+                <p>Contrairement aux ondes mécaniques, la lumière n'a <strong>pas besoin d'un milieu matériel</strong> pour se propager. Elle se propage très bien dans le vide, à une vitesse maximale : la célérité $c \approx 3 \times 10^8 \text{ m/s}$.</p>
+                
+                <div class="astuce-box" style="background: #ffcccb; box-shadow: 0 4px 15px rgba(255, 0, 0, 0.15);">
+                    <strong style="color: #c0392b;">⚠️ La Règle d'Or de la Lumière !</strong> 
+                    <p style="color: #333;">La couleur d'une lumière (donc sa fréquence $\nu$) est fixée par la source. <strong>La fréquence ne change JAMAIS</strong> quand la lumière passe d'un milieu à un autre (ex: de l'air vers le verre). <br>Par contre, sa vitesse $v$ et sa longueur d'onde $\lambda$ diminuent !</p>
+                </div>
+
+                <div class="formula-box">
+                    <p><strong>L'indice de réfraction ($n$) :</strong> Caractérise un milieu transparent. Il est toujours $n \geq 1$.</p>
+                    $$n = \frac{c}{v} = \frac{\lambda_0}{\lambda}$$
+                    <p>Avec $\lambda_0$ la longueur d'onde dans le vide, et $\lambda$ la longueur d'onde dans le milieu.</p>
+                </div>
+            </section>
+
+            <section id="diffraction" class="reveal">
+                <h3>4. Le phénomène de Diffraction (Le classique du Bac !)</h3>
+                <p>Lorsqu'une onde lumineuse (ex: un laser) rencontre un obstacle ou une fente de petite dimension $a$ (proche de $\lambda$), elle s'étale. Ce phénomène, appelé diffraction, prouve que <strong>la lumière a un caractère ondulatoire</strong>.</p>
+                
+                <div class="astuce-box" style="background: #e3f2fd; box-shadow: 0 4px 15px rgba(33, 150, 243, 0.15);">
+                    <strong style="color: #1565c0;">🛠 Démonstration de la largeur de la tache centrale ($L$) :</strong>
+                    <ol>
+                        <li>On sait que l'écart angulaire est donné par : <strong>$\theta = \frac{\lambda}{a}$</strong></li>
+                        <li>D'après la géométrie du schéma (triangle rectangle) : <strong>$\tan(\theta) = \frac{L/2}{D}$</strong></li>
+                        <li>Pour les petits angles, $\tan(\theta) \approx \theta$ en radians.</li>
+                        <li>On a donc : $\frac{\lambda}{a} = \frac{L}{2D}$</li>
+                        <li>On isole $L$ : <span style="font-size: 1.2rem; font-weight: bold; color: #0984e3;">$L = \frac{2 \lambda D}{a}$</span></li>
+                    </ol>
+                </div>
+            </section>
+        </main>
+
+        <aside class="sidebar-box sticky-sidebar slide-up">
+            <h3 class="sidebar-title">Schémas</h3>
+            <p style="font-size: 0.85rem; color: var(--text-muted);">Clique sur l'image pour l'agrandir.</p>
+            
+            <img src="../../images/longueur-onde-schema.jpg" alt="Longueur d'onde et retard temporel" class="zoomable-img" style="margin-bottom: 20px;">
+            <p class="caption">1. Double périodicité spatiale et temporelle d'une onde sur une corde.</p>
+            
+            <hr style="border: none; border-top: 1px dashed var(--border-color); margin: 20px 0;">
+
+            <img src="../../images/diffraction-schema.jpg" alt="Montage de la diffraction de la lumière" class="zoomable-img">
+            <p class="caption">2. Diffraction d'un laser par une fente de largeur $a$. Écran situé à une distance $D$.</p>
+        </aside>
+
+    </div>
+
+    <div class="lightbox-overlay" id="lightbox">
+        <span class="lightbox-close-btn" id="close-lightbox">&times;</span>
+        <img id="lightbox-img" src="" alt="Zoomed Image">
+    </div>
+
+    <script src="../../script.js"></script>
+</body>
+</html>
