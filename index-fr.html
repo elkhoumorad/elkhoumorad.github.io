@@ -1,11 +1,91 @@
-<main class="journal-entry">
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+    <script async src="https://www.googletagmanager.com/gtag/js?id=G-922TS18EDX"></script>
+    <script>
+      window.dataLayer = window.dataLayer || [];
+      function gtag(){dataLayer.push(arguments);}
+      gtag('js', new Date());
+      gtag('config', 'G-922TS18EDX');
+    </script>
+
+    <script>
+      window.MathJax = {
+        tex: { tags: 'ams' }
+      };
+    </script>
+    <script id="MathJax-script" async src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js"></script>
+
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>The Time Reversal | Portail Lycée</title>
+    <link rel="icon" type="image/png" href="/favicon.png">
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+
+    <header>
+        <div class="header-content">
+            <div class="logo-container">
+                <img src="images/logo.png" alt="Logo The Time Reversal">
+            </div>
+            <div class="title-container">
+                <h1>THE TIME REVERSAL</h1>
+                <p class="tagline">Une plateforme scientifique et éducative dédiée à la physique et la chimie</p>
+            </div>
+            
+            <div class="lang-switcher">
+                <a href="index.html" class="lang-btn">EN</a>
+                <a href="index-fr.html" class="lang-btn active">FR</a>
+            </div>
+        </div>
+    </header>
+
+    <div class="top-icon-row">
+        <a href="index-fr.html" class="img-icon-link">
+            <img src="images/home.png" alt="Accueil">
+        </a>
+        <a href="#" class="img-icon-link">
+            <img src="images/physics.png" alt="Physique">
+        </a>
+        <a href="#" class="img-icon-link">
+            <img src="images/chemistry.png" alt="Chimie">
+        </a>
+        <a href="tools/plotter-project/" class="img-icon-link">
+            <img src="images/plotter.png" alt="Traceur">
+        </a>
+    </div>
+
+    <div class="main-wrapper">
+        
+        <aside class="sidebar-box">
+            <h3 class="sidebar-title">Outils Interactifs</h3>
+            
+            <div class="tool-card">
+                <h4>SymmCalc : Réducteur d'Irreps</h4>
+                <p>Calculateur complet de symétrie de groupe ponctuel. Utile pour les études avancées.</p>
+                <a href="tools/symmetry-project/" class="btn">Lancer l'outil</a>
+            </div>
+
+            <div class="tool-card">
+                <h4>Function Plotter Pro</h4>
+                <p>Visualisation interactive 2D/3D de fonctions mathématiques pour vos études.</p>
+                <a href="tools/plotter-project/" class="btn">Lancer l'outil</a>
+            </div>
+
+            <div class="tool-card">
+                <h4>Calculatrice Physique</h4>
+                <p>Une calculatrice intégrant toutes les constantes utiles pour les exercices.</p>
+                <a href="tools/calculator/" class="btn">Lancer l'outil</a>
+            </div>
+        </aside>
+        
+        <main class="journal-entry">
             <div class="scoop-container">
                 <h2>Programme du Lycée : Physique et Chimie</h2>
                 <p>Bienvenue sur le portail éducatif. Sélectionnez votre niveau ci-dessous pour accéder aux cours, résumés, séries d'exercices et travaux pratiques.</p>
             </div>
             
-            <hr class="section-divider">
-                
             <div class="curriculum-grid">
                 
                 <div class="level-card">
@@ -58,3 +138,58 @@
 
             </div>
         </main>
+
+        <aside class="right-sidebar">
+            <div class="sidebar-box" style="margin-bottom: 20px;">
+                <h3 class="sidebar-title">À propos du Professeur</h3>
+                <p style="font-size: 0.9rem;"><strong>Morad</strong> est un enseignant de physique-chimie et chercheur, passionné par la transmission du savoir scientifique et le développement d'outils interactifs pour faciliter l'apprentissage.</p>
+            </div>
+
+            <div class="sidebar-box">
+                <h3 class="sidebar-title">Dernières Leçons</h3>
+                <ul class="recent-list" style="list-style: none; padding: 0;">
+                    <li style="margin-bottom: 10px;">→ <a href="#" style="text-decoration: none; color: var(--text-main);">Circuits RLC en série</a></li>
+                    <li style="margin-bottom: 10px;">→ <a href="#" style="text-decoration: none; color: var(--text-main);">Les ondes mécaniques progressives</a></li>
+                    <li style="margin-bottom: 10px;">→ <a href="#" style="text-decoration: none; color: var(--text-main);">Réactions acido-basiques</a></li>
+                    <li style="margin-bottom: 10px;">→ <a href="#" style="text-decoration: none; color: var(--text-main);">Mouvement d'un projectile</a></li>
+                </ul>
+            </div>
+        </aside>
+
+    </div>
+
+    <footer style="text-align: center; padding: 20px; color: var(--text-muted);">
+        <p style="margin: 0;">&copy; 2026 The Time Reversal. Créé par Morad.</p>
+        <p style="font-size: 0.75rem; margin-top: 5px;">Portail éducatif de Physique et Chimie</p>
+    </footer>
+
+    <div id="chat-widget">
+        <div id="chat-window" style="display: none;">
+            <div class="chat-header">
+                <h4>Assistant Virtuel</h4>
+                <button id="close-chat" style="background: none; border: none; color: white; cursor: pointer; font-size: 1.4rem;">&times;</button>
+            </div>
+            <div class="chat-body" id="chat-body">
+                <p class="bot-msg">Bonjour ! Avez-vous une question sur une leçon de physique ou de chimie ?</p>
+            </div>
+            
+            <div id="chat-suggestions">
+                <button class="chip" onclick="handleChip('Circuits RLC')">Circuits RLC</button>
+                <button class="chip" onclick="handleChip('Ondes')">Ondes</button>
+                <button class="chip" onclick="handleChip('Contact')">Contact</button>
+            </div>
+
+            <div class="chat-input-area">
+                <input type="text" id="chat-input" placeholder="Posez votre question...">
+                <button id="chat-send">Envoyer</button>
+            </div>
+        </div>
+
+        <button id="chat-bubble">
+            💬
+        </button>
+    </div>
+
+    <script src="script.js"></script>
+</body>
+</html>
