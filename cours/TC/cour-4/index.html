@@ -1,1 +1,142 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+    <script>
+      window.MathJax = {
+        tex: {
+          inlineMath: [['$', '$'], ['\\(', '\\)']],
+          displayMath: [['$$', '$$'], ['\\[', '\\]']],
+          tags: 'ams'
+        }
+      };
+    </script>
+    <script id="MathJax-script" async src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js"></script>
 
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Modèle de l'Atome | Tronc Commun</title>
+    <link rel="stylesheet" href="../../style.css">
+</head>
+<body class="article-page">
+
+    <header>
+        <div class="header-content">
+            <div class="logo-container">
+                <img src="/images/logo.png" alt="Logo">
+            </div>
+            <div class="title-container">
+                <h1>THE TIME REVERSAL</h1>
+                <p class="tagline">Portail Lycée - Tronc Commun Scientifique</p>
+            </div>
+        </div>
+        <div class="header-divider"></div>
+    </header>
+
+    <div class="top-icon-row">
+        <a href="/index-fr.html" class="img-icon-link"><img src="/images/home.png" alt="Accueil"></a>
+        <a href="#" class="img-icon-link"><img src="/images/chemistry.png" alt="Chimie"></a>
+    </div>
+
+    <div class="main-wrapper">
+        
+        <aside class="sidebar-box slide-up">
+            <h3 class="sidebar-title">Sommaire du Cours</h3>
+            <ul class="lesson-nav">
+                <li><a href="#constituants">1. Les constituants de l'atome</a></li>
+                <li><a href="#symbole">2. Symbole et Isotopes</a></li>
+                <li><a href="#couches">3. Le cortège électronique</a></li>
+            </ul>
+        </aside>
+
+        <main class="journal-entry slide-up">
+            <div class="lesson-header">
+                <span class="badge" style="background: linear-gradient(135deg, #55efc4, #00b894);">Chimie</span>
+                <h2>Le Modèle de l'Atome</h2>
+                <p class="author-meta">👨‍🏫 Cours rédigé par Morad | Niveau : Tronc Commun Scientifique</p>
+            </div>
+
+            <section id="constituants" class="reveal">
+                <h3>1. De quoi est fait un atome ?</h3>
+                <p>L'atome est la brique de base de la matière. Bien qu'il soit infiniment petit, il n'est pas "plein". Il a une <strong>structure lacunaire</strong> (il est fait à 99,99% de vide !). Il est composé de deux parties principales :</p>
+                
+                <ul class="data-list">
+                    <li><strong>Un noyau central :</strong> Très dense et chargé positivement, il contient des particules appelées <strong>nucléons</strong> (les protons $\oplus$ et les neutrons sans charge).</li>
+                    <li><strong>Des électrons ($\ominus$) :</strong> Particules extrêmement légères et chargées négativement qui tournent à très grande vitesse autour du noyau.</li>
+                </ul>
+
+                <div class="astuce-box">
+                    <strong>💡 La règle de neutralité :</strong> 
+                    <p>Dans la nature, un atome est toujours <strong>électriquement neutre</strong>. Cela veut dire qu'il possède toujours exactement le même nombre de protons (charges $+$) que d'électrons (charges $-$) !</p>
+                </div>
+            </section>
+
+            <section id="symbole" class="reveal">
+                <h3>2. Le symbole du noyau et les Isotopes</h3>
+                <p>Pour décrire la carte d'identité du noyau d'un élément chimique, on utilise une écriture standardisée :</p>
+                
+                <div class="formula-box">
+                    <p>Le noyau d'un atome $\text{X}$ se note :</p>
+                    $$_{Z}^{A} \text{X}$$
+                </div>
+                
+                <ul class="data-list">
+                    <li><strong>$X$</strong> : Le symbole chimique de l'élément (ex: $\text{C}$ pour Carbone, $\text{Fe}$ pour Fer).</li>
+                    <li><strong>$A$ (Nombre de masse)</strong> : Le nombre total de <strong>nucléons</strong> (protons + neutrons) dans le noyau.</li>
+                    <li><strong>$Z$ (Numéro atomique)</strong> : Le nombre de <strong>protons</strong> (qui est aussi égal au nombre d'électrons puisque l'atome est neutre).</li>
+                </ul>
+
+                <p>Pour calculer le nombre de neutrons $N$, il suffit de faire une petite soustraction :</p>
+                $$N = A - Z$$
+
+                <div class="astuce-box" style="background: #e0f7fa; box-shadow: 0 4px 15px rgba(0, 188, 212, 0.15);">
+                    <strong style="color: #00838f;">📌 Que sont les Isotopes ?</strong>
+                    <p style="color: #006064;">Des atomes sont dits <strong>isotopes</strong> s'ils ont le même numéro atomique $Z$ (donc c'est le même élément chimique), mais un nombre de masse $A$ différent (ils n'ont pas le même nombre de neutrons). <br><em>Exemple : Le Carbone $12$ ($_{6}^{12}\text{C}$) et le Carbone $14$ ($_{6}^{14}\text{C}$).</em></p>
+                </div>
+            </section>
+
+            <section id="couches" class="reveal">
+                <h3>3. Le cortège électronique (Les couches K, L, M)</h3>
+                <p>Les électrons ne tournent pas n'importe où ! Ils se répartissent sur des niveaux d'énergie bien précis que l'on appelle <strong>couches électroniques</strong>, notées K, L, M, N...</p>
+                
+                <p>Chaque couche ne peut contenir qu'un nombre maximum d'électrons, donné par la formule $2n^2$ (où $n$ est le numéro de la couche) :</p>
+                
+                <ul class="data-list">
+                    <li><strong>Couche K</strong> ($n=1$) : Maximum <strong>2</strong> électrons.</li>
+                    <li><strong>Couche L</strong> ($n=2$) : Maximum <strong>8</strong> électrons.</li>
+                    <li><strong>Couche M</strong> ($n=3$) : Maximum <strong>18</strong> électrons (mais on s'arrête souvent à 8 pour les éléments du Tronc Commun !).</li>
+                </ul>
+
+                <div class="formula-box" style="border-left-color: #e84393;">
+                    <p><strong>Exemple de configuration électronique :</strong></p>
+                    <p>Pour l'atome d'Oxygène ($_{8}^{16}\text{O}$), on a $Z=8$, donc 8 électrons à ranger :</p>
+                    $$\text{Configuration : } (K)^2 (L)^6$$
+                </div>
+                <p>Les électrons situés sur la toute dernière couche remplie sont appelés <strong>électrons de valence (ou périphériques)</strong>. Ce sont eux qui vont participer aux réactions chimiques !</p>
+            </section>
+        </main>
+
+        <aside class="sidebar-box sticky-sidebar slide-up">
+            <h3 class="sidebar-title">Schémas</h3>
+            <p style="font-size: 0.85rem; color: var(--text-muted);">Clique sur l'image pour l'agrandir.</p>
+            
+            
+            <img src="../../images/atome-schema.jpg" alt="Structure de l'atome" class="zoomable-img" style="margin-bottom: 20px;">
+            <p class="caption">1. Structure lacunaire : Un noyau central dense et des électrons en orbite.</p>
+            
+            <hr style="border: none; border-top: 1px dashed var(--border-color); margin: 20px 0;">
+
+            
+            <img src="../../images/couches-schema.jpg" alt="Couches électroniques K, L, M" class="zoomable-img">
+            <p class="caption">2. Remplissage successif des couches électroniques K, L, M.</p>
+        </aside>
+
+    </div>
+
+    <div class="lightbox-overlay" id="lightbox">
+        <span class="lightbox-close-btn" id="close-lightbox">&times;</span>
+        <img id="lightbox-img" src="" alt="Zoomed Image">
+    </div>
+
+    <script src="../../script.js"></script>
+</body>
+</html>
