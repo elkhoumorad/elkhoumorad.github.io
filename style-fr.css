@@ -1,1 +1,541 @@
+:root {
+    --bg-color: #f4f4f9;
+    --text-main: #333;
+    --text-muted: #7f8c8d;
+    --accent-blue: #007bff;
+    --border-color: #2c3e50;
+}
 
+body {
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+    line-height: 1.6;
+    color: var(--text-main);
+    background-color: var(--bg-color);
+    margin: 0;
+    padding: 0;
+}
+
+/* Header Styling */
+header {
+    padding: 40px 20px 20px;
+    max-width: 1400px;
+    margin: 0 auto;
+}
+
+.header-content {
+    display: flex;
+    align-items: center; /* Vertically centers the text with the logo */
+    gap: 20px; /* Space between the logo and the title */
+    margin-bottom: 20px;
+}
+
+.logo-container img {
+    max-height: 90px; /* Sized to match your screenshot */
+    display: block;
+}
+
+.title-container {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+}
+
+h1 {
+    color: var(--border-color);
+    font-size: 2.5rem;
+    margin: 0; /* Tucked tight against the tagline */
+    font-style: italic;
+    letter-spacing: 2px;
+}
+
+.tagline {
+    font-size: 0.95rem;
+    color: var(--text-muted);
+    margin: 5px 0 0 0; /* Just a tiny gap below the h1 */
+}
+
+.header-divider {
+    width: 100%;
+    border-bottom: 2px solid var(--border-color);
+}
+
+/* --- NEW: Top Icon Row Styling --- */
+/* Styling for the icon row container */
+.top-icon-row {
+    max-width: 1400px;
+    /* Reduced top margin from 30px to 20px to pull it closer to the header line */
+    margin: 20px auto 10px auto; 
+    padding: 0 20px;
+    display: flex;
+    gap: 30px; 
+    /* THIS IS THE FIX: Centers the icons perfectly in the middle of the screen */
+    justify-content: center; 
+}
+
+/* The link wrapper */
+.img-icon-link {
+    display: inline-block;
+    transition: transform 0.2s ease;
+    text-decoration: none;
+}
+
+/* The actual PNG image */
+.img-icon-link img {
+    width: 45px;  /* Set your preferred size here */
+    height: auto;
+    display: block;
+    opacity: 0.85; /* Makes them look slightly more integrated */
+    transition: opacity 0.2s ease;
+}
+
+/* Hover effects */
+.img-icon-link:hover {
+    transform: translateY(-3px); /* Gentle lift on hover */
+}
+
+.img-icon-link:hover img {
+    opacity: 1; /* Brightens on hover */
+}
+/* --------------------------------- */
+
+/* 3-Column Layout */
+.main-wrapper {
+    display: grid;
+    grid-template-columns: 280px 1fr 280px;
+    gap: 30px;
+    max-width: 1400px;
+    margin: 30px auto 40px auto; /* Slightly reduced top margin to sit closer to icons */
+    padding: 0 20px;
+}
+
+/* Shared Card Styling for Columns */
+.sidebar-box, .journal-entry {
+    background: white;
+    border-radius: 8px;
+    box-shadow: 0 2px 10px rgba(0,0,0,0.05);
+    padding: 25px;
+    height: fit-content;
+}
+
+/* Sidebar Specifics */
+.sidebar-title {
+    font-size: 1.1rem;
+    font-weight: bold;
+    border-bottom: 2px solid var(--bg-color);
+    padding-bottom: 10px;
+    margin-top: 0;
+    margin-bottom: 20px;
+}
+
+/* Tool Cards (Left Column) */
+.tool-card {
+    background: var(--bg-color);
+    padding: 15px;
+    border-radius: 6px;
+    margin-bottom: 15px;
+}
+.tool-card h4 {
+    margin: 0 0 5px 0;
+    font-size: 1rem;
+}
+.tool-card p {
+    font-size: 0.85rem;
+    margin: 0 0 15px 0;
+    color: #555;
+}
+.btn {
+    display: inline-block;
+    background: var(--accent-blue);
+    color: white;
+    padding: 8px 15px;
+    text-decoration: none;
+    border-radius: 4px;
+    font-size: 0.85rem;
+    font-weight: bold;
+}
+.btn:hover {
+    background: #0056b3;
+}
+
+/* Article Content (Center Column) */
+.journal-entry h2 {
+    margin-top: 0;
+    font-size: 2rem;
+    color: var(--border-color);
+}
+.article-meta {
+    font-size: 0.85rem;
+    color: var(--text-muted);
+    margin-bottom: 20px;
+    font-style: italic;
+}
+
+/* Right Column Links */
+.recent-list {
+    list-style: none;
+    padding: 0;
+    margin: 0;
+}
+.recent-list li {
+    margin-bottom: 12px;
+    font-size: 0.9rem;
+}
+.recent-list a {
+    color: var(--text-main);
+    text-decoration: none;
+}
+.recent-list a:hover {
+    color: var(--accent-blue);
+    text-decoration: underline;
+}
+
+/* Footer */
+footer {
+    text-align: center;
+    margin-top: 50px;
+    padding: 30px;
+    font-size: 0.9rem;
+    color: var(--text-muted);
+    border-top: 1px solid #ddd;
+    background-color: white;
+}
+footer a {
+    color: var(--border-color);
+    text-decoration: none;
+    font-weight: bold;
+}
+footer a:hover {
+    color: var(--accent-blue);
+}
+
+/* Styling the Scoop area */
+.scoop-container {
+    margin-bottom: 40px;
+    padding-bottom: 20px;
+}
+
+/* The Professional Divider */
+.section-divider {
+    border: 0;
+    height: 1px;
+    background-image: linear-gradient(to right, rgba(0, 0, 0, 0), rgba(0, 0, 0, 0.1), rgba(0, 0, 0, 0));
+    margin-bottom: 50px;
+    margin-top: 20px;
+}
+
+/* --- THE ARTICLES GRID --- */
+.articles-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fill, minmax(300px, 1fr));
+    gap: 30px;
+}
+
+.card-image {
+  width: 100%;
+  height: 200px;
+  object-fit: cover; 
+  object-position: center;
+  border-bottom: 1px solid #eee; 
+}
+
+.card-content {
+  display: flex;
+  flex-direction: column; 
+  padding: 20px;
+}
+
+.card-title {
+  margin-top: 0;
+  margin-bottom: 12px; 
+  font-size: 1.3rem;
+  line-height: 1.3;
+}
+
+.card-meta {
+  display: flex;
+  flex-wrap: wrap; 
+  gap: 15px;
+  margin-bottom: 15px;
+  color: #666;
+  font-size: 0.8rem;
+}
+.card-meta span {
+    display: flex;
+    align-items: center;
+    gap: 5px; 
+}
+.card-meta svg {
+    color: #95a5a6; 
+}
+
+.card-description {
+  margin-top: 0;
+  margin-bottom: 20px;
+  line-height: 1.6;
+  font-size: 0.95rem;
+  color: #555;
+}
+
+.read-more {
+  align-self: flex-start; 
+  font-weight: bold;
+  color: #0056b3; 
+  text-decoration: none;
+  font-size: 0.9rem;
+}
+.read-more:hover {
+  text-decoration: underline;
+}
+
+.article-card {
+  display: flex;
+  flex-direction: column;
+  background: white;
+  border: 1px solid #e1e4e8;
+  border-radius: 8px;
+  overflow: hidden;
+  transition: transform 0.3s ease, box-shadow 0.3s ease;
+  cursor: pointer;
+  height: 100%;
+}
+.article-card:hover {
+  transform: translateY(-5px); 
+  box-shadow: 0 10px 25px rgba(0, 0, 0, 0.1);
+}
+
+/* Responsive Design */
+@media (max-width: 1100px) {
+    .main-wrapper {
+        grid-template-columns: 250px 1fr;
+    }
+    .right-sidebar {
+        grid-column: 1 / -1; 
+        display: grid;
+        grid-template-columns: 1fr 1fr;
+        gap: 20px;
+    }
+}
+@media (max-width: 800px) {
+    .main-wrapper {
+        grid-template-columns: 1fr;
+    }
+    .right-sidebar {
+        grid-template-columns: 1fr;
+    }
+    .articles-grid {
+        grid-template-columns: 1fr;
+    }
+    .top-icon-row {
+        justify-content: center; /* Center icons on mobile */
+        flex-wrap: wrap;
+    }
+}
+
+
+
+/* --- Floating Chatbot --- */
+#chat-widget {
+    position: fixed;
+    bottom: 30px;
+    right: 30px;
+    z-index: 1000; /* Keeps it above everything else */
+    display: flex;
+    flex-direction: column;
+    align-items: flex-end;
+}
+
+#chat-bubble {
+    width: 60px;
+    height: 60px;
+    background-color: var(--accent-blue);
+    color: white;
+    border: none;
+    border-radius: 50%;
+    font-size: 1.8rem;
+    cursor: pointer;
+    box-shadow: 0 4px 15px rgba(0,0,0,0.2);
+    transition: transform 0.2s;
+}
+
+#chat-bubble:hover {
+    transform: scale(1.1);
+}
+
+
+
+.chat-header {
+    background-color: var(--border-color);
+    color: white;
+    padding: 15px;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
+.chat-header h4 {
+    margin: 0;
+    font-size: 1rem;
+}
+
+
+
+/* --- Chat Message Bubbles --- */
+.bot-msg, .user-msg {
+    padding: 10px 14px;
+    border-radius: 15px;
+    font-size: 0.9rem;
+    margin-bottom: 10px;
+    display: table; /* Prevents bubbles from stretching the whole width */
+    max-width: 85%;
+    line-height: 1.4;
+    word-wrap: break-word;
+}
+
+.bot-msg {
+    background-color: #e1e8ed;
+    color: #333;
+    margin-right: auto; /* Aligns to the left */
+    border-bottom-left-radius: 2px;
+}
+
+.user-msg {
+    background-color: var(--accent-blue);
+    color: white;
+    margin-left: auto; /* Aligns to the right */
+    border-bottom-right-radius: 2px;
+}
+
+.chat-input-area {
+    padding: 10px;
+    background-color: white;
+    border-top: 1px solid #ddd;
+    display: flex;
+}
+
+
+
+
+
+
+
+
+
+/* --- Improved Suggestion Chips --- */
+#chat-suggestions {
+    display: flex;
+    gap: 10px;
+    padding: 12px 15px;
+    background: #fff;
+    border-top: 1px solid #eee;
+    /* This allows chips to scroll sideways instead of stacking/cramming */
+    overflow-x: auto;
+    white-space: nowrap;
+    /* Hides the scrollbar for a cleaner look while still allowing swipe */
+    -ms-overflow-style: none;
+    scrollbar-width: none;
+}
+
+#chat-suggestions::-webkit-scrollbar {
+    display: none;
+}
+
+.chip {
+    background: #f0f4f8;
+    border: 1.5px solid var(--accent-blue);
+    color: var(--accent-blue);
+    padding: 6px 16px;
+    border-radius: 20px;
+    font-size: 0.85rem;
+    font-weight: 500;
+    cursor: pointer;
+    transition: all 0.2s ease;
+    flex-shrink: 0; /* Prevents the chips from squishing */
+}
+
+.chip:hover {
+    background: var(--accent-blue);
+    color: white;
+}
+
+/* --- Adjusting the Chat Window Height --- */
+#chat-window {
+    width: 350px; /* Slightly wider for better text flow */
+    height: 500px; /* Taller so you can actually see the history */
+    background-color: white;
+    border-radius: 12px;
+    box-shadow: 0 10px 30px rgba(0,0,0,0.15);
+    display: flex;
+    flex-direction: column;
+}
+
+.chat-body {
+    flex: 1; /* This makes the message area take up all remaining space */
+    padding: 15px;
+    overflow-y: auto;
+}
+
+
+
+
+
+
+
+
+
+
+
+/* Make messages fade in smoothly */
+.bot-msg, .user-msg {
+    animation: fadeIn 0.3s ease;
+}
+
+@keyframes fadeIn {
+    from { opacity: 0; transform: translateY(5px); }
+    to { opacity: 1; transform: translateY(0); }
+}
+
+/* Typing dot animation */
+.typing-dots span {
+    animation: blink 1s infinite;
+    margin: 0 1px;
+}
+@keyframes blink { 0% { opacity: 0.2; } 50% { opacity: 1; } 100% { opacity: 0.2; } }
+
+
+/* --- Language Switcher --- */
+.lang-switcher {
+    position: absolute;
+    top: 15px;
+    right: 20px;
+    display: flex;
+    align-items: center;
+    gap: 8px;
+    font-size: 0.9rem;
+    font-weight: 600;
+    font-family: sans-serif;
+}
+
+.lang-btn {
+    text-decoration: none;
+    color: #888;
+    padding: 4px 8px;
+    border-radius: 6px;
+    transition: all 0.2s ease;
+}
+
+.lang-btn:hover {
+    background-color: #f0f4f8;
+    color: var(--accent-blue); /* Assuming you still have your blue accent variable */
+}
+
+/* Highlights the language the user is currently looking at */
+.lang-btn.active {
+    color: var(--accent-blue);
+    background-color: #e1e8ed;
+    cursor: default;
+}
+
+.lang-divider {
+    color: #ddd;
+    user-select: none; /* Prevents users from accidentally highlighting the line */
+}
