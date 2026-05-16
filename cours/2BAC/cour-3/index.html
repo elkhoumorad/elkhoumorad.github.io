@@ -1,1 +1,138 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+    <script>
+      window.MathJax = {
+        tex: {
+          inlineMath: [['$', '$'], ['\\(', '\\)']],
+          displayMath: [['$$', '$$'], ['\\[', '\\]']],
+          tags: 'ams'
+        }
+      };
+    </script>
+    <script id="MathJax-script" async src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js"></script>
 
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Circuits RLC et Oscillations | 2ème Année Bac</title>
+    <link rel="stylesheet" href="../../style.css">
+</head>
+<body class="article-page">
+
+    <header>
+        <div class="header-content">
+            <div class="logo-container">
+                <img src="/images/logo.png" alt="Logo">
+            </div>
+            <div class="title-container">
+                <h1>THE TIME REVERSAL</h1>
+                <p class="tagline">Portail Lycée - 2ème Année Bac Scientifique</p>
+            </div>
+        </div>
+        <div class="header-divider"></div>
+    </header>
+
+    <div class="top-icon-row">
+        <a href="/index-fr.html" class="img-icon-link"><img src="/images/home.png" alt="Accueil"></a>
+        <a href="#" class="img-icon-link"><img src="/images/physics.png" alt="Physique"></a>
+    </div>
+
+    <div class="main-wrapper">
+        
+        <aside class="sidebar-box slide-up">
+            <h3 class="sidebar-title">Sommaire du Cours</h3>
+            <ul class="lesson-nav">
+                <li><a href="#regimes">1. Décharge et Régimes d'oscillation</a></li>
+                <li><a href="#lc">2. Le circuit LC idéal</a></li>
+                <li><a href="#rlc">3. Le circuit RLC réel</a></li>
+                <li><a href="#energie">4. Échanges d'énergie</a></li>
+            </ul>
+        </aside>
+
+        <main class="journal-entry slide-up">
+            <div class="lesson-header">
+                <span class="badge" style="background: linear-gradient(135deg, #74b9ff, #0984e3);">Physique - Électricité</span>
+                <h2>Circuits RLC et Oscillations Libres</h2>
+                <p class="author-meta">👨‍🏫 Cours rédigé par Morad | Niveau : 2ème Année Bac Scientifique</p>
+            </div>
+
+            <section id="regimes" class="reveal">
+                <h3>1. Décharge d'un condensateur dans une bobine</h3>
+                <p>On charge totalement un condensateur (de capacité $C$), puis on le relie à une bobine (d'inductance $L$ et de résistance interne $r$) et un conducteur ohmique (de résistance $R$). L'énergie va basculer du condensateur vers la bobine, créant des <strong>oscillations électriques</strong>.</p>
+                
+                <p>La résistance totale du circuit est $R_{tot} = R + r$. Selon la valeur de $R_{tot}$, on observe 3 régimes :</p>
+                <ul class="data-list">
+                    <li><strong>Régime Périodique ($R_{tot} = 0$) :</strong> Oscillations sinusoïdales pures. L'amplitude ne diminue jamais (circuit idéal).</li>
+                    <li><strong>Régime Pseudo-périodique ($R_{tot}$ faible) :</strong> Oscillations amorties. L'amplitude diminue progressivement à cause de l'effet Joule.</li>
+                    <li><strong>Régime Apériodique ($R_{tot}$ grande) :</strong> Pas d'oscillations. Le condensateur se décharge directement vers zéro.</li>
+                </ul>
+            </section>
+
+            <section id="lc" class="reveal">
+                <h3>2. Le circuit idéal LC (Oscillateur non amorti)</h3>
+                <p>Si on néglige toute résistance ($R_{tot} = 0$), on applique la loi d'additivité des tensions : $u_L + u_C = 0$. Sachant que $u_L = L \frac{di}{dt}$ et $i = C \frac{du_C}{dt}$, on obtient :</p>
+                
+                <div class="formula-box">
+                    <p><strong>L'équation différentielle :</strong></p>
+                    $$\frac{d^2u_C}{dt^2} + \frac{1}{L \cdot C} u_C = 0$$
+                </div>
+
+                <div class="astuce-box" style="background: #e3f2fd; box-shadow: 0 4px 15px rgba(33, 150, 243, 0.15);">
+                    <strong style="color: #1565c0;">🛠 La solution mathématique (au programme !)</strong>
+                    <p>La solution de cette équation est une fonction sinusoïdale :</p>
+                    $$u_C(t) = U_m \cos\left(\frac{2\pi}{T_0} \cdot t + \varphi\right)$$
+                    <p>Où $U_m$ est l'amplitude maximale, $\varphi$ la phase à l'origine, et <strong>$T_0$ la période propre</strong>, donnée par la formule de Thomson :</p>
+                    <p style="text-align: center; font-size: 1.2rem; font-weight: bold; color: #1565c0;">$T_0 = 2\pi\sqrt{L \cdot C}$</p>
+                </div>
+            </section>
+
+            <section id="rlc" class="reveal">
+                <h3>3. Le circuit réel RLC (Amortissement)</h3>
+                <p>Dans la réalité, il y a toujours une résistance $R_{tot} > 0$. L'équation différentielle devient alors :</p>
+                
+                <div class="formula-box" style="border-left-color: #d63031;">
+                    $$\frac{d^2u_C}{dt^2} + \frac{R_{tot}}{L} \frac{du_C}{dt} + \frac{1}{L \cdot C} u_C = 0$$
+                </div>
+                
+                <p>La présence de la dérivée première $\frac{du_C}{dt}$ (liée à $R_{tot}$) explique <strong>l'amortissement</strong> des oscillations. La durée d'une oscillation est appelée <em>pseudo-période $T$</em>. <br>Pour un amortissement faible, on admet que <strong>$T \approx T_0$</strong>.</p>
+            </section>
+
+            <section id="energie" class="reveal">
+                <h3>4. Échanges d'énergie</h3>
+                <p>L'énergie totale du circuit est la somme de l'énergie électrique emmagasinée dans le condensateur ($E_e$) et de l'énergie magnétique emmagasinée dans la bobine ($E_m$).</p>
+                
+                $$E_{tot} = E_e + E_m = \frac{1}{2} C u_C^2 + \frac{1}{2} L i^2$$
+
+                <div class="astuce-box" style="background: #ffcccb; box-shadow: 0 4px 15px rgba(255, 0, 0, 0.15);">
+                    <strong style="color: #c0392b;">⚠️ Bilan énergétique (Très demandé au Bac)</strong> 
+                    <ul>
+                        <li><strong>Dans un circuit LC idéal :</strong> $E_{tot} = \text{Constante}$. L'énergie se transvase parfaitement entre le condensateur et la bobine.</li>
+                        <li><strong>Dans un circuit RLC réel :</strong> $E_{tot}$ diminue au cours du temps. On le démontre en dérivant l'énergie par rapport au temps : <br> $\frac{dE_{tot}}{dt} = - R_{tot} \cdot i^2 < 0$. <br>Cette perte d'énergie sous forme de chaleur est due à <strong>l'effet Joule</strong> dans la résistance.</li>
+                    </ul>
+                </div>
+            </section>
+        </main>
+
+        <aside class="sidebar-box sticky-sidebar slide-up">
+            <h3 class="sidebar-title">Graphes</h3>
+            <p style="font-size: 0.85rem; color: var(--text-muted);">Clique sur l'image pour l'agrandir.</p>
+            
+            <img src="../../images/regimes-rlc-schema.jpg" alt="Régimes périodique, pseudo-périodique et apériodique" class="zoomable-img" style="margin-bottom: 20px;">
+            <p class="caption">1. Les 3 régimes d'oscillations selon la résistance du circuit.</p>
+            
+            <hr style="border: none; border-top: 1px dashed var(--border-color); margin: 20px 0;">
+
+            <img src="../../images/energie-rlc-schema.jpg" alt="Évolution de l'énergie électrique et magnétique" class="zoomable-img">
+            <p class="caption">2. Échange d'énergie (Ping-Pong) entre la bobine et le condensateur (cas non amorti).</p>
+        </aside>
+
+    </div>
+
+    <div class="lightbox-overlay" id="lightbox">
+        <span class="lightbox-close-btn" id="close-lightbox">&times;</span>
+        <img id="lightbox-img" src="" alt="Zoomed Image">
+    </div>
+
+    <script src="../../script.js"></script>
+</body>
+</html>
