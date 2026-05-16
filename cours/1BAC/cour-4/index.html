@@ -1,1 +1,200 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+    <script>
+      window.MathJax = {
+        tex: {
+          inlineMath: [['$', '$'], ['\\(', '\\)']],
+          displayMath: [['$$', '$$'], ['\\[', '\\]']],
+          tags: 'ams'
+        }
+      };
+    </script>
+    <script id="MathJax-script" async src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js"></script>
 
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Suivi d'une Transformation | 1ère Année Bac</title>
+    <link rel="stylesheet" href="../../style.css">
+    
+    <style>
+        .avancement-table {
+            width: 100%;
+            border-collapse: collapse;
+            margin: 20px 0;
+            background: white;
+            border-radius: 8px;
+            overflow: hidden;
+            box-shadow: 0 4px 15px rgba(0,0,0,0.05);
+        }
+        .avancement-table th, .avancement-table td {
+            border: 1px solid var(--border-color);
+            padding: 12px;
+            text-align: center;
+        }
+        .avancement-table th {
+            background-color: #00b894;
+            color: white;
+            font-weight: 600;
+        }
+        .avancement-table tr:nth-child(even) { background-color: #f8f9fa; }
+    </style>
+</head>
+<body class="article-page">
+
+    <header>
+        <div class="header-content">
+            <div class="logo-container">
+                <img src="/images/logo.png" alt="Logo">
+            </div>
+            <div class="title-container">
+                <h1>THE TIME REVERSAL</h1>
+                <p class="tagline">Portail Lycée - 1ère Année Bac Scientifique</p>
+            </div>
+        </div>
+        <div class="header-divider"></div>
+    </header>
+
+    <div class="top-icon-row">
+        <a href="/index-fr.html" class="img-icon-link"><img src="/images/home.png" alt="Accueil"></a>
+        <a href="#" class="img-icon-link"><img src="/images/chemistry.png" alt="Chimie"></a>
+    </div>
+
+    <div class="main-wrapper">
+        
+        <aside class="sidebar-box slide-up">
+            <h3 class="sidebar-title">Sommaire du Cours</h3>
+            <ul class="lesson-nav">
+                <li><a href="#systeme">1. Évolution du système</a></li>
+                <li><a href="#tableau">2. Le Tableau d'Avancement</a></li>
+                <li><a href="#limitant">3. Trouver le réactif limitant</a></li>
+            </ul>
+        </aside>
+
+        <main class="journal-entry slide-up">
+            <div class="lesson-header">
+                <span class="badge" style="background: linear-gradient(135deg, #55efc4, #00b894);">Chimie</span>
+                <h2>Suivi d'une Transformation Chimique</h2>
+                <p class="author-meta">👨‍🏫 Cours rédigé par Morad | Niveau : 1ère Année Bac Scientifique</p>
+            </div>
+
+            <section id="systeme" class="reveal">
+                <h3>1. L'évolution d'un système chimique</h3>
+                <p>Lors d'une réaction chimique, les <strong>réactifs</strong> (ce qu'on met au départ) se consomment et disparaissent progressivement, tandis que les <strong>produits</strong> (ce qui est créé) apparaissent.</p>
+                
+                <p>Pour suivre exactement combien de moles il reste ou combien de moles ont été créées à n'importe quel instant, on utilise une grandeur magique : <strong>L'avancement de la réaction</strong>.</p>
+                
+                <div class="formula-box">
+                    <p>L'avancement est noté $x$. Il s'exprime en <strong>moles ($mol$)</strong>.</p>
+                    <ul style="margin-bottom: 0;">
+                        <li>À l'état initial : $x = 0$ (la réaction n'a pas commencé).</li>
+                        <li>En cours de réaction : $x > 0$ (l'état intermédiaire).</li>
+                        <li>À l'état final : $x = x_{max}$ (la réaction est terminée).</li>
+                    </ul>
+                </div>
+            </section>
+
+            <section id="tableau" class="reveal">
+                <h3>2. L'outil ultime : Le Tableau d'Avancement</h3>
+                <p>Le tableau descriptif d'évolution du système (ou tableau d'avancement) permet de faire le <strong>bilan de matière</strong>. Considérons l'équation chimique générale suivante :</p>
+                
+                <p style="text-align: center; font-size: 1.2rem; font-weight: bold; color: #00b894;">
+                    $a \cdot A + b \cdot B \longrightarrow c \cdot C + d \cdot D$
+                </p>
+                <p style="font-size: 0.9rem; text-align: center; color: var(--text-muted);">(Où $a, b, c, d$ sont les coefficients stœchiométriques).</p>
+
+                <table class="avancement-table">
+                    <thead>
+                        <tr>
+                            <th>État du système</th>
+                            <th>Avancement ($x$)</th>
+                            <th colspan="4">Quantités de matière (en $mol$)</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        <tr>
+                            <td><strong>Équation</strong></td>
+                            <td></td>
+                            <td style="color: #d63031; font-weight: bold;">$a \cdot A$</td>
+                            <td style="color: #d63031; font-weight: bold;">$+ \quad b \cdot B$</td>
+                            <td style="color: #0984e3; font-weight: bold;">$\longrightarrow \quad c \cdot C$</td>
+                            <td style="color: #0984e3; font-weight: bold;">$+ \quad d \cdot D$</td>
+                        </tr>
+                        <tr>
+                            <td><strong>Initial</strong></td>
+                            <td>$x = 0$</td>
+                            <td>$n_i(A)$</td>
+                            <td>$n_i(B)$</td>
+                            <td>$0$</td>
+                            <td>$0$</td>
+                        </tr>
+                        <tr>
+                            <td><strong>Intermédiaire</strong></td>
+                            <td>$x$</td>
+                            <td>$n_i(A) - a \cdot x$</td>
+                            <td>$n_i(B) - b \cdot x$</td>
+                            <td>$c \cdot x$</td>
+                            <td>$d \cdot x$</td>
+                        </tr>
+                        <tr>
+                            <td><strong>Final</strong></td>
+                            <td>$x_{max}$</td>
+                            <td>$n_i(A) - a \cdot x_{max}$</td>
+                            <td>$n_i(B) - b \cdot x_{max}$</td>
+                            <td>$c \cdot x_{max}$</td>
+                            <td>$d \cdot x_{max}$</td>
+                        </tr>
+                    </tbody>
+                </table>
+
+                <div class="astuce-box" style="background: #ffcccb; box-shadow: 0 4px 15px rgba(255, 0, 0, 0.15);">
+                    <strong style="color: #c0392b;">⚠️ L'erreur fatale !</strong> 
+                    <p style="color: #333;">N'oublie <strong>jamais</strong> de multiplier $x$ par le coefficient stœchiométrique ($a, b, c$ ou $d$). Si l'équation est $2H_2 + O_2 \rightarrow 2H_2O$, il disparaît $2x$ moles de $H_2$ et il se forme $2x$ moles d'eau !</p>
+                </div>
+            </section>
+
+            <section id="limitant" class="reveal">
+                <h3>3. Trouver le réactif limitant et $x_{max}$</h3>
+                <p>La réaction s'arrête dès que l'un des réactifs est totalement épuisé. Ce réactif est appelé le <strong>réactif limitant</strong>. L'avancement maximal $x_{max}$ correspond à ce moment précis.</p>
+                
+                <div class="astuce-box" style="background: #e3f2fd; box-shadow: 0 4px 15px rgba(33, 150, 243, 0.15);">
+                    <strong style="color: #1565c0;">🛠 La méthode des hypothèses :</strong>
+                    <p>Pour trouver qui s'épuise en premier, on teste les deux scénarios (à l'état final) :</p>
+                    <ol>
+                        <li><strong>Hypothèse 1 :</strong> Si $A$ est le réactif limitant, sa quantité finale est nulle.<br>
+                        Donc : $n_i(A) - a \cdot x_{max1} = 0 \implies x_{max1} = \frac{n_i(A)}{a}$</li>
+                        <br>
+                        <li><strong>Hypothèse 2 :</strong> Si $B$ est le réactif limitant, sa quantité finale est nulle.<br>
+                        Donc : $n_i(B) - b \cdot x_{max2} = 0 \implies x_{max2} = \frac{n_i(B)}{b}$</li>
+                    </ol>
+                    <p style="border-top: 1px solid #1565c0; padding-top: 10px; margin-top: 10px; font-weight: bold;">Conclusion : On compare $x_{max1}$ et $x_{max2}$. La plus petite valeur est le VRAI $x_{max}$, et le réactif correspondant est le réactif limitant !</p>
+                </div>
+
+                <p><strong>Note :</strong> Si $x_{max1} = x_{max2}$, les deux réactifs s'épuisent exactement en même temps. On dit que les réactifs ont été introduits dans les <strong>proportions stœchiométriques</strong>.</p>
+            </section>
+        </main>
+
+        <aside class="sidebar-box sticky-sidebar slide-up">
+            <h3 class="sidebar-title">Graphiques</h3>
+            <p style="font-size: 0.85rem; color: var(--text-muted);">Clique sur l'image pour l'agrandir.</p>
+            
+            
+            <img src="../../images/graphe-avancement-schema.jpg" alt="Évolution des quantités de matière en fonction de x" class="zoomable-img" style="margin-bottom: 20px;">
+            <p class="caption">1. Les réactifs diminuent jusqu'à ce que le limitant touche zéro. Les produits augmentent.</p>
+            
+            <hr style="border: none; border-top: 1px dashed var(--border-color); margin: 20px 0;">
+
+            <img src="../../images/etat-final-schema.jpg" alt="Bilan de matière à l'état final" class="zoomable-img">
+            <p class="caption">2. Représentation visuelle du bilan de matière (Bécher initial vs final).</p>
+        </aside>
+
+    </div>
+
+    <div class="lightbox-overlay" id="lightbox">
+        <span class="lightbox-close-btn" id="close-lightbox">&times;</span>
+        <img id="lightbox-img" src="" alt="Zoomed Image">
+    </div>
+
+    <script src="../../script.js"></script>
+</body>
+</html>
