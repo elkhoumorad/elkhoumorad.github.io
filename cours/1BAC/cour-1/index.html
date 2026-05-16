@@ -1,1 +1,148 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+    <script>
+      window.MathJax = {
+        tex: {
+          inlineMath: [['$', '$'], ['\\(', '\\)']],
+          displayMath: [['$$', '$$'], ['\\[', '\\]']],
+          tags: 'ams'
+        }
+      };
+    </script>
+    <script id="MathJax-script" async src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js"></script>
 
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Travail et Puissance | 1ère Année Bac</title>
+    <link rel="stylesheet" href="../../style-cours.css">
+</head>
+<body class="article-page">
+
+    <header>
+        <div class="header-content">
+            <div class="logo-container">
+                <img src="../../images/logo.png" alt="Logo">
+            </div>
+            <div class="title-container">
+                <h1>THE TIME REVERSAL</h1>
+                <p class="tagline">Portail Lycée - 1ère Année Bac Scientifique</p>
+            </div>
+        </div>
+        <div class="header-divider"></div>
+    </header>
+
+    <div class="top-icon-row">
+        <a href="../../index-fr.html" class="img-icon-link"><img src="../../images/home.png" alt="Accueil"></a>
+        <a href="#" class="img-icon-link"><img src="../../images/physics.png" alt="Physique"></a>
+    </div>
+
+    <div class="main-wrapper">
+        
+        <aside class="sidebar-box slide-up">
+            <h3 class="sidebar-title">Sommaire du Cours</h3>
+            <ul class="lesson-nav">
+                <li><a href="#travail-force">1. Travail d'une force constante</a></li>
+                <li><a href="#nature-travail">2. Nature du travail</a></li>
+                <li><a href="#travail-poids">3. Cas particulier : Le Poids</a></li>
+                <li><a href="#puissance">4. Puissance d'une force</a></li>
+            </ul>
+        </aside>
+
+        <main class="journal-entry slide-up">
+            <div class="lesson-header">
+                <span class="badge">Mécanique</span>
+                <h2>Travail et Puissance d'une Force</h2>
+                <p class="author-meta">👨‍🏫 Cours rédigé par Morad | Niveau : 1ère Année Bac Scientifique</p>
+            </div>
+
+            <section id="travail-force" class="reveal">
+                <h3>1. Travail d'une force constante en translation</h3>
+                <p>En physique, une force travaille si son point d'application se déplace et si sa direction n'est pas perpendiculaire au déplacement. Le travail est une grandeur algébrique (il peut être positif, négatif ou nul).</p>
+                
+                <div class="formula-box">
+                    <p>Le travail d'une force constante $\vec{F}$ lors d'un déplacement de $A$ vers $B$ est égal au <strong>produit scalaire</strong> du vecteur force et du vecteur déplacement :</p>
+                    $$W_{A \rightarrow B}(\vec{F}) = \vec{F} \cdot \vec{AB} = F \cdot AB \cdot \cos(\alpha)$$
+                </div>
+                
+                <ul class="data-list">
+                    <li><strong>$W$</strong> : Travail de la force en <strong>Joules (J)</strong>.</li>
+                    <li><strong>$F$</strong> : Intensité de la force en Newton ($N$).</li>
+                    <li><strong>$AB$</strong> : Distance parcourue en mètres ($m$).</li>
+                    <li><strong>$\alpha$</strong> : Angle entre le vecteur force $\vec{F}$ et le vecteur déplacement $\vec{AB}$.</li>
+                </ul>
+            </section>
+
+            <section id="nature-travail" class="reveal">
+                <h3>2. Nature du travail : Moteur ou Résistant ?</h3>
+                <p>La nature du travail dépend uniquement du signe du cosinus, donc de l'angle $\alpha$ :</p>
+                
+                <div class="astuce-box">
+                    <ul>
+                        <li><strong>Travail Moteur ($W > 0$) :</strong> Si $0 \leq \alpha < 90^\circ$. La force aide le mouvement (elle "tire" l'objet vers l'avant).</li>
+                        <li><strong>Travail Résistant ($W < 0$) :</strong> Si $90^\circ < \alpha \leq 180^\circ$. La force s'oppose au mouvement (comme une force de frottement).</li>
+                        <li><strong>Travail Nul ($W = 0$) :</strong> Si $\alpha = 90^\circ$. Une force perpendiculaire au déplacement ne travaille pas ! (ex: la réaction normale du support).</li>
+                    </ul>
+                </div>
+            </section>
+
+            <section id="travail-poids" class="reveal">
+                <h3>3. Le travail du Poids d'un corps</h3>
+                <p>Le poids $\vec{P}$ possède une propriété remarquable : son travail ne dépend pas du chemin suivi par l'objet, mais uniquement de son altitude de départ et de son altitude d'arrivée !</p>
+                
+                <div class="formula-box">
+                    $$W_{A \rightarrow B}(\vec{P}) = m \cdot g \cdot (z_A - z_B)$$
+                </div>
+
+                <ul class="data-list">
+                    <li><strong>$z_A$</strong> : Altitude initiale (en $m$).</li>
+                    <li><strong>$z_B$</strong> : Altitude finale (en $m$).</li>
+                </ul>
+                <p><em>Attention : Si l'objet descend ($z_A > z_B$), le travail est moteur. S'il monte ($z_A < z_B$), le travail est résistant.</em></p>
+            </section>
+
+            <section id="puissance" class="reveal">
+                <h3>4. Puissance d'une force</h3>
+                <p>Le travail ne tient pas compte du temps. Un ouvrier et une grue peuvent fournir le même travail pour monter des briques, mais la grue le fait beaucoup plus vite : elle a plus de <strong>puissance</strong>.</p>
+
+                <div class="formula-box">
+                    <p><strong>Puissance moyenne ($P_m$) :</strong> C'est le travail fourni divisé par la durée $\Delta t$ :</p>
+                    $$P_m = \frac{W}{\Delta t}$$
+                    
+                    <p><strong>Puissance instantanée ($P$) :</strong> À un instant $t$, où l'objet a une vitesse $\vec{v}$ :</p>
+                    $$P = \vec{F} \cdot \vec{v} = F \cdot v \cdot \cos(\alpha)$$
+                </div>
+
+                <ul class="data-list">
+                    <li><strong>$P$</strong> : Puissance en <strong>Watts (W)</strong>.</li>
+                    <li><strong>$\Delta t$</strong> : Durée en secondes ($s$).</li>
+                    <li><strong>$v$</strong> : Vitesse instantanée en $m/s$.</li>
+                </ul>
+            </section>
+        </main>
+
+        <aside class="sidebar-box sticky-sidebar slide-up">
+            <h3 class="sidebar-title">Schémas</h3>
+            <p style="font-size: 0.85rem; color: var(--text-muted);">Clique sur l'image pour l'agrandir.</p>
+            
+            
+            <img src="../../images/travail-force-schema.jpg" alt="Travail d'une force avec un angle alpha" class="zoomable-img" style="margin-bottom: 20px;">
+            <p class="caption">1. Le travail dépend de l'angle $\alpha$ entre la force et le déplacement.</p>
+            
+            <hr style="border: none; border-top: 1px dashed var(--border-color); margin: 20px 0;">
+
+            
+            <img src="../../images/travail-poids-schema.jpg" alt="Travail du poids indépendant du chemin" class="zoomable-img">
+            <p class="caption">2. Le travail du poids est indépendant du chemin suivi, seule la dénivellation ($z_A - z_B$) compte.</p>
+        </aside>
+
+    </div>
+
+    <div class="lightbox-overlay" id="lightbox">
+        <span class="lightbox-close-btn" id="close-lightbox">&times;</span>
+        <img id="lightbox-img" src="" alt="Zoomed Image">
+    </div>
+
+    <script src="../../script-cours.js"></script>
+</body>
+</html>
