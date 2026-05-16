@@ -159,3 +159,29 @@ document.querySelectorAll('.btn, .level-btn, .chip').forEach(button => {
         setTimeout(() => { ripples.remove() }, 600); // Remove after animation
     });
 });
+
+
+
+// --- 5. EXPANDABLE CURRICULUM LOGIC ---
+document.querySelectorAll('.expand-btn').forEach(button => {
+    button.addEventListener('click', function(e) {
+        e.preventDefault(); // Empêche le lien de recharger la page
+        
+        // Trouve la liste <ul> juste au-dessus de ce bouton précis
+        const ul = this.previousElementSibling; 
+        
+        // Alterne l'état "déplié" / "plié"
+        ul.classList.toggle('expanded');
+        
+        // Change le texte du bouton en fonction de l'état
+        if (ul.classList.contains('expanded')) {
+            this.innerHTML = 'Réduire le programme &uarr;';
+            this.style.background = 'var(--primary)'; // Devient plein
+            this.style.color = 'white';
+        } else {
+            this.innerHTML = 'Voir tout le programme &rarr;';
+            this.style.background = 'var(--app-bg)'; // Reprend sa couleur douce
+            this.style.color = 'var(--primary)';
+        }
+    });
+});
