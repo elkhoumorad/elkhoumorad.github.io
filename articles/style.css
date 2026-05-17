@@ -19,14 +19,11 @@ body {
 
 /* --- 3. APP BAR (Sticky Header with Glassmorphism) --- */
 header {
-    background: rgba(255, 255, 255, 0.85);
-    backdrop-filter: blur(12px); /* Frosted glass effect */
-    -webkit-backdrop-filter: blur(12px);
-    position: sticky;
-    top: 0;
+    background: white; /* Changed to solid white for a cleaner look */
+    position: relative; /* THIS FIXES IT: Stops the header from following you */
     z-index: 100;
     border-bottom: 1px solid var(--border-color);
-    box-shadow: var(--shadow-sm);
+    box-shadow: 0 2px 10px rgba(0,0,0,0.05);
     padding: 15px 0;
 }
 
