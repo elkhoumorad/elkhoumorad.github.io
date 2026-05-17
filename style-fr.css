@@ -1,532 +1,185 @@
 /* ==========================================================================
-   THE TIME REVERSAL - MATERIAL 'ANDROID' APP THEME
+   THE TIME REVERSAL - SCRIPT PORTAIL LYCÉE (FRENCH)
    ========================================================================== */
 
-/* --- 1. CORE VARIABLES (Material Color Palette) --- */
-:root {
-    --app-bg: #F0F4F8; /* Light grayish-blue app background */
-    --surface: #FFFFFF; /* Pure white for cards */
-    --primary: #1A73E8; /* Android/Google Blue */
-    --primary-hover: #1557B0;
-    --text-main: #202124;
-    --text-muted: #5F6368;
-    --border-color: #E8EAED;
-    
-    /* Android Geometry */
-    --radius-card: 24px;
-    --radius-btn: 50px; /* Pill shape */
-    
-    /* Layered Shadows */
-    --shadow-sm: 0 2px 6px rgba(0,0,0,0.04);
-    --shadow-md: 0 8px 24px rgba(0,0,0,0.08);
-    --shadow-hover: 0 12px 32px rgba(26, 115, 232, 0.15);
-}
-
-/* --- 2. GLOBAL RESET & ANIMATIONS --- */
-* {
-    box-sizing: border-box;
-    font-family: 'Inter', 'Roboto', 'Segoe UI', sans-serif;
-}
-
-body {
-    margin: 0;
-    background-color: var(--app-bg);
-    color: var(--text-main);
-    line-height: 1.6;
-    overflow-x: hidden;
-}
-
-/* The "App Open" Cascade Animation */
-@keyframes slideUpFade {
-    from { opacity: 0; transform: translateY(30px); }
-    to { opacity: 1; transform: translateY(0); }
-}
-
-/* --- 3. APP BAR (Sticky Header with Glassmorphism) --- */
-header {
-    background: rgba(255, 255, 255, 0.85);
-    backdrop-filter: blur(12px); /* Frosted glass effect */
-    -webkit-backdrop-filter: blur(12px);
-    position: sticky;
-    top: 0;
-    z-index: 100;
-    border-bottom: 1px solid var(--border-color);
-    box-shadow: var(--shadow-sm);
-    padding: 15px 0;
-}
-
-.header-content {
-    max-width: 1400px;
-    margin: 0 auto;
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    position: relative;
-    padding: 0 20px;
-}
-
-.logo-container img {
-    height: 50px;
-    margin-right: 15px;
-}
-
-.title-container h1 {
-    margin: 0;
-    font-size: 1.8rem;
-    font-weight: 800;
-    letter-spacing: -0.5px;
-    color: var(--primary);
-}
-
-.tagline {
-    margin: 0;
-    font-size: 0.85rem;
-    color: var(--text-muted);
-}
-
-/* --- 4. LANGUAGE SWITCHER (Segmented Control) --- */
-.lang-switcher {
-    position: absolute;
-    right: 20px;
-    background: var(--app-bg);
-    padding: 4px;
-    border-radius: var(--radius-btn);
-    display: flex;
-    gap: 2px;
-}
-
-.lang-btn {
-    text-decoration: none;
-    color: var(--text-muted);
-    padding: 6px 14px;
-    border-radius: var(--radius-btn);
-    font-size: 0.85rem;
-    font-weight: 600;
-    transition: all 0.3s ease;
-}
-
-.lang-btn.active {
-    background: var(--surface);
-    color: var(--primary);
-    box-shadow: var(--shadow-sm);
-}
-
-/* --- 5. TOP NAVIGATION ICONS --- */
-.top-icon-row {
-    display: flex;
-    justify-content: center;
-    gap: 25px;
-    margin: 30px 0;
-    animation: slideUpFade 0.6s ease-out backwards;
-    animation-delay: 0.1s;
-}
-
-.img-icon-link img {
-    height: 40px;
-    width: 40px;
-    border-radius: 50%;
-    background: var(--surface);
-    padding: 8px;
-    box-shadow: var(--shadow-md);
-    transition: transform 0.3s cubic-bezier(0.175, 0.885, 0.32, 1.275);
-}
-
-.img-icon-link:hover img {
-    transform: scale(1.15) translateY(-5px);
-}
-
-/* --- 6. MAIN APP LAYOUT (Grid System) --- */
-.main-wrapper {
-    max-width: 1400px;
-    margin: 0 auto;
-    padding: 0 20px 50px;
-    display: grid;
-    grid-template-columns: 300px 1fr 300px;
-    gap: 30px;
-    align-items: start;
-}
-
-/* --- 7. CARDS & SURFACES (Android Style) --- */
-.sidebar-box, .tool-card, .scoop-container, .article-card, .level-container {
-    background: var(--surface);
-    border-radius: var(--radius-card);
-    padding: 25px;
-    box-shadow: var(--shadow-md);
-    border: 1px solid var(--border-color);
-    transition: all 0.3s ease;
-}
-
-/* Override padding for level-container so header touches edges */
-.level-container { padding: 0; }
-
-/* Apply staggered animations to layout columns */
-.sidebar-box { animation: slideUpFade 0.6s ease-out backwards; animation-delay: 0.2s; }
-.journal-entry { animation: slideUpFade 0.6s ease-out backwards; animation-delay: 0.3s; }
-.right-sidebar { animation: slideUpFade 0.6s ease-out backwards; animation-delay: 0.4s; }
-
-/* Interactive Hover States */
-.tool-card:hover, .article-card:hover {
-    transform: translateY(-6px);
-    box-shadow: var(--shadow-hover);
-    border-color: var(--primary);
-}
-
-.sidebar-title {
-    margin-top: 0;
-    font-size: 1.2rem;
-    color: var(--primary);
-    border-bottom: 2px solid var(--app-bg);
-    padding-bottom: 10px;
-}
-
-/* --- 8. BUTTONS (Pill Shapes) --- */
-.btn, .level-btn {
-    display: inline-block;
-    background: var(--app-bg);
-    color: var(--primary);
-    text-decoration: none;
-    padding: 10px 20px;
-    border-radius: var(--radius-btn);
-    font-weight: 600;
-    font-size: 0.9rem;
-    transition: all 0.3s ease;
-    text-align: center;
-    width: max-content;
-    margin-top: 10px;
-}
-
-.btn:hover, .level-btn:hover {
-    background: var(--primary);
-    color: var(--surface);
-    box-shadow: 0 4px 12px rgba(26, 115, 232, 0.3);
-}
-
-/* ==========================================================================
-   --- 9. HIGH SCHOOL STACKED CURRICULUM (THE NEW UI) --- 
-   ========================================================================== */
-
-.curriculum-grid {
-    display: grid;
-    grid-template-columns: 1fr;
-    gap: 40px; 
-    margin-top: 20px;
-}
-
-.level-header {
-    padding: 20px 25px;
-    color: white;
-}
-.level-header h3 { margin: 0 0 5px 0; font-size: 1.4rem; }
-.level-header span { font-size: 0.85rem; opacity: 0.9; }
-
-.tcs-bg { background: linear-gradient(135deg, #1A73E8, #4285F4); }
-.bac1-bg { background: linear-gradient(135deg, #00B4DB, #0083B0); }
-.bac2-bg { background: linear-gradient(135deg, #8E2DE2, #4A00E0); }
-
-.stacked-cards-wrapper {
-    position: relative;
-    padding: 30px 25px 20px 25px;
-    height: 350px; /* Tall enough to accommodate expanded list */
-    perspective: 1000px;
-}
-
-.stack-card {
-    position: absolute;
-    top: 20px;
-    left: 25px;
-    right: 25px;
-    background: white;
-    border-radius: 12px;
-    padding: 20px;
-    box-shadow: 0 4px 15px rgba(0,0,0,0.08);
-    border: 1px solid #eee;
-    transition: all 0.4s cubic-bezier(0.175, 0.885, 0.32, 1.275);
-    background-color: #fafbfc;
-    overflow-y: auto; /* Allows scrolling inside if expanded */
-    max-height: 290px; 
-}
-
-/* Stacked 3D visual logic */
-.card-3 { transform: translateY(20px) scale(0.90); z-index: 1; opacity: 0.6; filter: blur(1px); }
-.card-2 { transform: translateY(10px) scale(0.95); z-index: 2; opacity: 0.8; }
-.card-1 { transform: translateY(0) scale(1); z-index: 3; opacity: 1; background-color: white; }
-
-/* Fan out on hover */
-.stacked-cards-wrapper:hover .card-3 { transform: translateY(35px) scale(0.92); opacity: 0.8; filter: blur(0); }
-.stacked-cards-wrapper:hover .card-2 { transform: translateY(15px) scale(0.96); opacity: 0.9; }
-.stacked-cards-wrapper:hover .card-1 { transform: translateY(-5px) scale(1.02); }
-
-/* Active Card (Brought to front) */
-.stack-card.active-card {
-    transform: translateY(0) scale(1);
-    z-index: 10;
-    opacity: 1;
-    background-color: white;
-    filter: blur(0);
-    box-shadow: 0 10px 25px rgba(0,0,0,0.1);
-}
-
-.card-title {
-    font-weight: bold;
-    color: var(--primary);
-    margin-bottom: 15px;
-    border-bottom: 1px solid #eee;
-    padding-bottom: 5px;
-}
-
-/* Stack Controls (Tabs at the bottom) */
-.stack-controls {
-    display: flex;
-    justify-content: space-around;
-    background: #f8f9fa;
-    border-top: 1px solid var(--border-color);
-    padding: 10px;
-}
-
-.stack-btn {
-    background: none;
-    border: none;
-    color: var(--text-muted);
-    font-weight: 600;
-    font-size: 0.9rem;
-    cursor: pointer;
-    padding: 8px 15px;
-    transition: all 0.2s;
-    border-bottom: 2px solid transparent;
-}
-
-.stack-btn:hover { color: var(--primary); }
-
-/* ==========================================================================
-   --- 10. LISTS & EXPANDABLE LOGIC --- 
-   ========================================================================== */
-
-.course-list { list-style: none; padding: 0; margin: 0; }
-.course-list li { margin-bottom: 12px; padding-left: 24px; position: relative; }
-.course-list li::before { content: '→'; position: absolute; left: 0; color: var(--primary); font-weight: bold; }
-.course-list li a { text-decoration: none; color: var(--text-main); font-weight: 500; transition: color 0.2s; }
-.course-list li a:hover { color: var(--primary); }
-
-/* Hide items from 5th onwards by default */
-.course-list li:nth-child(n+5) {
-    display: none;
-    opacity: 0;
-    transform: translateY(-10px);
-}
-
-/* Show items when list gets .expanded class */
-.course-list.expanded li:nth-child(n+5) {
-    display: block;
-    animation: slideDownItem 0.4s ease forwards;
-}
-
-/* Cascade delay for new items */
-.course-list.expanded li:nth-child(5) { animation-delay: 0.05s; }
-.course-list.expanded li:nth-child(6) { animation-delay: 0.10s; }
-.course-list.expanded li:nth-child(7) { animation-delay: 0.15s; }
-.course-list.expanded li:nth-child(8) { animation-delay: 0.20s; }
-
-@keyframes slideDownItem {
-    to { opacity: 1; transform: translateY(0); }
-}
-
-/* ==========================================================================
-   --- 11. CHATBOT WIDGET --- 
-   ========================================================================== */
-#chat-widget {
-    position: fixed;
-    bottom: 30px;
-    right: 30px;
-    z-index: 1000;
-    display: flex;
-    flex-direction: column;
-    align-items: flex-end;
-}
-
-#chat-bubble {
-    width: 65px;
-    height: 65px;
-    background: var(--primary);
-    color: white;
-    border: none;
-    border-radius: 50%;
-    font-size: 1.8rem;
-    cursor: pointer;
-    box-shadow: 0 6px 16px rgba(26, 115, 232, 0.4);
-    transition: transform 0.3s cubic-bezier(0.175, 0.885, 0.32, 1.275);
-}
-
-#chat-bubble:hover {
-    transform: scale(1.1) rotate(5deg);
-}
-
-#chat-window {
-    width: 360px;
-    height: 550px;
-    background: var(--surface);
-    border-radius: var(--radius-card);
-    box-shadow: 0 12px 40px rgba(0,0,0,0.15);
-    margin-bottom: 20px;
-    display: flex;
-    flex-direction: column;
-    overflow: hidden;
-    animation: slideUpFade 0.3s ease-out;
-}
-
-.chat-header {
-    background: var(--primary);
-    color: white;
-    padding: 20px;
-    display: flex;
-    justify-content: space-between;
-    align-items: center;
-}
-
-.chat-header h4 { margin: 0; font-size: 1.1rem; }
-
-.chat-body {
-    flex: 1;
-    padding: 20px;
-    background: #F8FAFC;
-    overflow-y: auto;
-}
-
-.bot-msg, .user-msg {
-    padding: 12px 18px;
-    border-radius: 20px;
-    font-size: 0.95rem;
-    margin-bottom: 12px;
-    max-width: 85%;
-    line-height: 1.4;
-    animation: slideUpFade 0.3s ease;
-}
-
-.bot-msg {
-    background: white;
-    color: var(--text-main);
-    margin-right: auto;
-    border-bottom-left-radius: 4px;
-    box-shadow: var(--shadow-sm);
-}
-
-.user-msg {
-    background: var(--primary);
-    color: white;
-    margin-left: auto;
-    border-bottom-right-radius: 4px;
-    box-shadow: var(--shadow-sm);
-}
-
-.chat-input-area {
-    padding: 15px;
-    background: var(--surface);
-    border-top: 1px solid var(--border-color);
-    display: flex;
-    gap: 10px;
-}
-
-#chat-input {
-    flex-grow: 1;
-    padding: 12px 15px;
-    border: 1px solid var(--border-color);
-    border-radius: var(--radius-btn);
-    background: var(--app-bg);
-    outline: none;
-    transition: border 0.3s;
-}
-
-#chat-input:focus { border-color: var(--primary); }
-
-#chat-send {
-    padding: 10px 20px;
-    border-radius: var(--radius-btn);
-    background: var(--primary);
-    color: white;
-    border: none;
-    cursor: pointer;
-    font-weight: bold;
-    transition: background 0.3s;
-}
-
-#chat-send:hover { background: var(--primary-hover); }
-
-#chat-suggestions {
-    display: flex;
-    gap: 10px;
-    padding: 12px 15px;
-    background: var(--surface);
-    overflow-x: auto;
-    -ms-overflow-style: none;
-    scrollbar-width: none;
-    border-top: 1px solid var(--border-color);
-}
-
-#chat-suggestions::-webkit-scrollbar { display: none; }
-
-.chip {
-    background: var(--surface);
-    border: 1px solid var(--border-color);
-    color: var(--text-muted);
-    padding: 8px 16px;
-    border-radius: var(--radius-btn);
-    font-size: 0.85rem;
-    cursor: pointer;
-    transition: all 0.2s ease;
-    flex-shrink: 0;
-    box-shadow: var(--shadow-sm);
-}
-
-.chip:hover {
-    background: var(--app-bg);
-    color: var(--primary);
-    border-color: var(--primary);
-}
-
-/* ==========================================================================
-   --- 12. FX & EXTRAS --- 
-   ========================================================================== */
-
-/* Floating Background Bubbles */
-#bubble-wrap {
-    position: fixed;
-    top: 0;
-    left: 0;
-    width: 100vw;
-    height: 100vh;
-    z-index: -1; 
-    pointer-events: none; 
-    overflow: hidden;
-}
-
-.floating-bubble {
-    position: absolute;
-    bottom: -100px;
-    background: rgba(26, 115, 232, 0.05); 
-    border-radius: 50%;
-    animation: floatUp linear infinite;
-}
-
-@keyframes floatUp {
-    0% { transform: translateY(0) rotate(0deg); opacity: 1; }
-    100% { transform: translateY(-120vh) rotate(360deg); opacity: 0; }
-}
-
-/* Android Ripple Effect */
-.btn, .level-btn, .chip, .stack-btn {
-    position: relative;
-    overflow: hidden; 
-}
-
-.ripple-effect {
-    position: absolute;
-    background: rgba(255, 255, 255, 0.4);
-    transform: translate(-50%, -50%);
-    pointer-events: none;
-    border-radius: 50%;
-    animation: animateRipple 0.6s linear;
-}
-
-@keyframes animateRipple {
-    0% { width: 0; height: 0; opacity: 0.5; }
-    100% { width: 300px; height: 300px; opacity: 0; }
-}
+document.addEventListener("DOMContentLoaded", () => {
+
+    // --- 1. DYNAMIC BACKGROUND BUBBLES ---
+    function createBubbles() {
+        const bubbleContainer = document.createElement('div');
+        bubbleContainer.id = 'bubble-wrap';
+        document.body.appendChild(bubbleContainer);
+
+        const bubbleCount = 15; 
+        
+        for (let i = 0; i < bubbleCount; i++) {
+            const bubble = document.createElement('div');
+            bubble.classList.add('floating-bubble');
+            
+            const size = Math.random() * 60 + 20; 
+            bubble.style.width = `${size}px`;
+            bubble.style.height = `${size}px`;
+            bubble.style.left = `${Math.random() * 100}vw`;
+            bubble.style.animationDuration = `${Math.random() * 10 + 10}s`;
+            bubble.style.animationDelay = `${Math.random() * 5}s`;
+            
+            bubbleContainer.appendChild(bubble);
+        }
+    }
+    createBubbles();
+
+    // --- 2. ANDROID RIPPLE EFFECT ---
+    document.querySelectorAll('.btn, .level-btn, .chip, .stack-btn').forEach(button => {
+        button.addEventListener('click', function (e) {
+            // Empêche le ripple de s'activer de manière erratique si c'est un lien
+            if (this.classList.contains('expand-btn')) e.preventDefault();
+
+            let x = e.clientX - e.target.getBoundingClientRect().left;
+            let y = e.clientY - e.target.getBoundingClientRect().top;
+            
+            let ripples = document.createElement('span');
+            ripples.style.left = x + 'px';
+            ripples.style.top = y + 'px';
+            ripples.classList.add('ripple-effect');
+            this.appendChild(ripples);
+            
+            setTimeout(() => { ripples.remove() }, 600); 
+        });
+    });
+
+    // --- 3. EXPANDABLE CURRICULUM LOGIC ("Voir tout le programme") ---
+    document.querySelectorAll('.expand-btn').forEach(button => {
+        button.addEventListener('click', function(e) {
+            e.preventDefault(); 
+            const ul = this.previousElementSibling; 
+            ul.classList.toggle('expanded');
+            
+            if (ul.classList.contains('expanded')) {
+                this.innerHTML = 'Réduire le programme &uarr;';
+                this.style.background = 'var(--primary)';
+                this.style.color = 'white';
+            } else {
+                this.innerHTML = 'Voir tout le programme &rarr;';
+                this.style.background = 'var(--app-bg)';
+                this.style.color = 'var(--primary)';
+            }
+        });
+    });
+
+    // --- 4. STACKED CARDS LOGIC (Cours / Fiches / Planif) ---
+    document.querySelectorAll('.stack-btn').forEach(btn => {
+        btn.addEventListener('click', function(e) {
+            e.preventDefault();
+            
+            // 1. Trouver le conteneur principal du niveau cliqué
+            const levelContainer = this.closest('.level-container');
+            
+            // 2. Trouver toutes les cartes dans ce niveau
+            const cards = levelContainer.querySelectorAll('.stack-card');
+            
+            // 3. Trouver la classe de la carte cible (ex: "card-2")
+            const targetClass = this.getAttribute('data-target');
+            
+            // 4. Réinitialiser TOUTES les cartes (enlever la classe active et nettoyer le z-index)
+            cards.forEach(card => {
+                card.classList.remove('active-card');
+                card.style.zIndex = ""; // Crucial : laisse le CSS gérer l'ordre par défaut !
+            });
+            
+            // 5. Mettre la carte ciblée au premier plan
+            const activeCard = levelContainer.querySelector('.' + targetClass);
+            if (activeCard) {
+                activeCard.classList.add('active-card');
+                activeCard.style.zIndex = "10"; // La force à passer par-dessus tout
+            }
+            
+            // 6. Mettre à jour le style visuel des boutons (barre bleue en bas)
+            const allBtns = levelContainer.querySelectorAll('.stack-btn');
+            allBtns.forEach(b => {
+                b.style.color = 'var(--text-muted)';
+                b.style.borderBottom = '2px solid transparent';
+            });
+            
+            this.style.color = 'var(--primary)';
+            this.style.borderBottom = '2px solid var(--primary)';
+        });
+    });
+
+    // --- 5. THE CHATBOT BRAIN ---
+    const chatBubble = document.getElementById('chat-bubble');
+    const chatWindow = document.getElementById('chat-window');
+    const closeChat = document.getElementById('close-chat');
+    const chatInput = document.getElementById('chat-input');
+    const chatSend = document.getElementById('chat-send');
+    const chatBody = document.getElementById('chat-body');
+
+    if (chatBubble && chatWindow) {
+        chatBubble.addEventListener('click', () => {
+            chatWindow.style.display = 'flex';
+            chatBubble.style.display = 'none';
+            chatBubble.style.transform = 'scale(0)';
+        });
+
+        closeChat.addEventListener('click', () => {
+            chatWindow.style.display = 'none';
+            chatBubble.style.display = 'block';
+            setTimeout(() => chatBubble.style.transform = 'scale(1)', 50);
+        });
+
+        // Les connaissances du Bot
+        const brain = [
+            { keywords: ["rlc", "circuit"], response: "Ah, les circuits RLC ! ⚡ L'équation différentielle s'écrit avec la loi d'additivité. Tu bloques sur l'amortissement ?" },
+            { keywords: ["ondes", "lumière"], response: "Les ondes 🌊 ! Rappelle-toi : la fréquence ne change JAMAIS quand on change de milieu. C'est la longueur d'onde qui varie." },
+            { keywords: ["chimie", "tableau"], response: "La chimie ! N'oublie jamais que le réactif limitant dicte la fin de la réaction. Besoin d'aide sur le calcul de x_max ?" },
+            { keywords: ["salut", "bonjour", "yo"], response: "Salut ! 👋 Je suis l'assistant de Morad. Sur quel chapitre tu travailles aujourd'hui ?" }
+        ];
+
+        function getSmartResponse(userInput) {
+            const query = userInput.toLowerCase();
+            for (const knowledge of brain) {
+                if (knowledge.keywords.some(kw => query.includes(kw))) {
+                    return knowledge.response;
+                }
+            }
+            return "C'est une bonne question 🤔 ! Essaie de me demander des choses sur les Ondes, les circuits RLC, ou la chimie.";
+        }
+
+        function sendMessage() {
+            const text = chatInput.value.trim();
+            if (text === '') return;
+
+            const userMsg = document.createElement('p');
+            userMsg.className = 'user-msg';
+            userMsg.textContent = text;
+            chatBody.appendChild(userMsg);
+            
+            chatInput.value = '';
+            chatBody.scrollTop = chatBody.scrollHeight;
+
+            const typing = document.createElement('p');
+            typing.className = 'bot-msg';
+            typing.innerHTML = '...';
+            chatBody.appendChild(typing);
+
+            setTimeout(() => {
+                chatBody.removeChild(typing);
+                const botMsg = document.createElement('p');
+                botMsg.className = 'bot-msg';
+                botMsg.innerHTML = getSmartResponse(text); 
+                chatBody.appendChild(botMsg);
+                chatBody.scrollTop = chatBody.scrollHeight;
+            }, 600);
+        }
+
+        chatSend.addEventListener('click', sendMessage);
+        chatInput.addEventListener('keypress', (e) => {
+            if (e.key === 'Enter') sendMessage();
+        });
+
+        // Pour les suggestions rapides (les boutons "chip")
+        window.handleChip = function(text) {
+            chatInput.value = text;
+            sendMessage();
+        };
+    }
+});
