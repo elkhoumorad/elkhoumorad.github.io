@@ -202,14 +202,23 @@ header {
 }
 
 /* ==========================================================================
-   --- 9. HIGH SCHOOL STACKED CURRICULUM (THE NEW UI) --- 
+   --- 9. HIGH SCHOOL DYNAMIC TABS (CLEAN APP THEME) --- 
    ========================================================================== */
 
 .curriculum-grid {
     display: grid;
     grid-template-columns: 1fr;
-    gap: 40px; 
+    gap: 30px;
     margin-top: 20px;
+}
+
+.level-container {
+    background: var(--surface);
+    border-radius: var(--radius-card);
+    box-shadow: var(--shadow-md);
+    border: 1px solid var(--border-color);
+    overflow: hidden;
+    transition: transform 0.3s ease, box-shadow 0.3s ease;
 }
 
 .level-header {
@@ -223,79 +232,86 @@ header {
 .bac1-bg { background: linear-gradient(135deg, #00B4DB, #0083B0); }
 .bac2-bg { background: linear-gradient(135deg, #8E2DE2, #4A00E0); }
 
-.stacked-cards-wrapper {
+/* Zone de contenu flexible sans hauteur fixe */
+.dynamic-tabs-content {
+    padding: 25px;
+    background-color: var(--surface);
     position: relative;
-    padding: 30px 25px 20px 25px;
-    height: 350px; /* Tall enough to accommodate expanded list */
-    perspective: 1000px;
 }
 
-.stack-card {
-    position: absolute;
-    top: 20px;
-    left: 25px;
-    right: 25px;
-    background: white;
-    border-radius: 12px;
-    padding: 20px;
-    box-shadow: 0 4px 15px rgba(0,0,0,0.08);
-    border: 1px solid #eee;
-    transition: all 0.4s cubic-bezier(0.175, 0.885, 0.32, 1.275);
-    background-color: #fafbfc;
-    overflow-y: auto; /* Allows scrolling inside if expanded */
-    max-height: 290px; 
+/* Par défaut, on cache complètement les panneaux inactifs pour éviter les superpositions transparentes */
+.tab-panel {
+    display: none;
+    opacity: 0;
+    transform: translateY(10px);
+    transition: opacity 0.3s ease, transform 0.3s ease;
 }
 
-/* Stacked 3D visual logic */
-.card-3 { transform: translateY(20px) scale(0.90); z-index: 1; opacity: 0.6; filter: blur(1px); }
-.card-2 { transform: translateY(10px) scale(0.95); z-index: 2; opacity: 0.8; }
-.card-1 { transform: translateY(0) scale(1); z-index: 3; opacity: 1; background-color: white; }
-
-/* Fan out on hover */
-.stacked-cards-wrapper:hover .card-3 { transform: translateY(35px) scale(0.92); opacity: 0.8; filter: blur(0); }
-.stacked-cards-wrapper:hover .card-2 { transform: translateY(15px) scale(0.96); opacity: 0.9; }
-.stacked-cards-wrapper:hover .card-1 { transform: translateY(-5px) scale(1.02); }
-
-/* Active Card (Brought to front) */
-.stack-card.active-card {
-    transform: translateY(0) scale(1);
-    z-index: 10;
+/* Le panneau actif s'affiche proprement et s'agrandit */
+.tab-panel.active-panel {
+    display: block;
     opacity: 1;
-    background-color: white;
-    filter: blur(0);
-    box-shadow: 0 10px 25px rgba(0,0,0,0.1);
+    transform: translateY(0);
 }
 
-.card-title {
-    font-weight: bold;
+.panel-title {
+    font-weight: 800;
+    font-size: 1.1rem;
+    color: var(--text-main);
+    margin-bottom: 20px;
+    padding-bottom: 8px;
+    border-bottom: 2px solid var(--app-bg);
+}
+
+/* Style des nouvelles sous-sections (Annuelle / Mensuelle) */
+.sub-section-title {
+    font-size: 0.95rem;
+    font-weight: 700;
     color: var(--primary);
-    margin-bottom: 15px;
-    border-bottom: 1px solid #eee;
-    padding-bottom: 5px;
+    margin: 15px 0 8px 0;
+    padding-left: 5px;
 }
 
-/* Stack Controls (Tabs at the bottom) */
+/* Barre de navigation basse (Style onglets Android) */
 .stack-controls {
     display: flex;
     justify-content: space-around;
-    background: #f8f9fa;
+    background: #F8FAFC;
     border-top: 1px solid var(--border-color);
-    padding: 10px;
+    padding: 5px 0;
 }
 
 .stack-btn {
     background: none;
     border: none;
     color: var(--text-muted);
-    font-weight: 600;
+    font-weight: 700;
     font-size: 0.9rem;
     cursor: pointer;
-    padding: 8px 15px;
-    transition: all 0.2s;
-    border-bottom: 2px solid transparent;
+    padding: 12px 20px;
+    transition: all 0.2s ease;
+    border-bottom: 3px solid transparent;
+    flex-grow: 1;
+    text-align: center;
 }
 
-.stack-btn:hover { color: var(--primary); }
+.stack-btn:hover {
+    color: var(--primary);
+    background-color: rgba(26, 115, 232, 0.04);
+}
+
+/* Style de l'onglet actif */
+.stack-btn.active-btn {
+    color: var(--primary);
+    border-bottom-color: var(--primary);
+}
+
+/* Forcer l'affichage complet pour fiches et planification (sans couper au 5éme élément) */
+.standard-visible li {
+    display: block !important;
+    opacity: 1 !important;
+    transform: none !important;
+}
 
 /* ==========================================================================
    --- 10. LISTS & EXPANDABLE LOGIC --- 
