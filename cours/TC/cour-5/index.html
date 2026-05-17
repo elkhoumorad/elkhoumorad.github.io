@@ -1,1 +1,138 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+    <script>
+      window.MathJax = {
+        tex: {
+          inlineMath: [['$', '$'], ['\\(', '\\)']],
+          displayMath: [['$$', '$$'], ['\\[', '\\]']],
+          tags: 'ams'
+        }
+      };
+    </script>
+    <script id="MathJax-script" async src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js"></script>
 
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Le Mouvement | Tronc Commun</title>
+    <link rel="stylesheet" href="../../style.css">
+</head>
+<body class="article-page">
+
+    <header>
+        <div class="header-content">
+            <div class="logo-container">
+                <img src="/images/logo.png" alt="Logo">
+            </div>
+            <div class="title-container">
+                <h1>THE TIME REVERSAL</h1>
+                <p class="tagline">Portail Lycée - Tronc Commun Scientifique</p>
+            </div>
+        </div>
+        <div class="header-divider"></div>
+    </header>
+
+    <div class="top-icon-row">
+        <a href="/index-fr.html" class="img-icon-link"><img src="/images/home.png" alt="Accueil"></a>
+        <a href="#" class="img-icon-link"><img src="/images/physics.png" alt="Physique"></a>
+    </div>
+
+    <div class="main-wrapper">
+        
+        <aside class="sidebar-box slide-up">
+            <h3 class="sidebar-title">Sommaire du Cours</h3>
+            <ul class="lesson-nav">
+                <li><a href="#relativite">1. Relativité du mouvement</a></li>
+                <li><a href="#trajectoire">2. Notion de trajectoire</a></li>
+                <li><a href="#vitesse">3. La vitesse d'un mobile</a></li>
+                <li><a href="#mru">4. Mouvement Rectiligne Uniforme</a></li>
+            </ul>
+        </aside>
+
+        <main class="journal-entry slide-up">
+            <div class="lesson-header">
+                <span class="badge">Mécanique</span>
+                <h2>Le Mouvement</h2>
+                <p class="author-meta">👨‍🏫 Cours rédigé par Morad | Niveau : Tronc Commun Scientifique</p>
+            </div>
+
+            <section id="relativite" class="reveal">
+                <h3>1. Relativité du mouvement : Système et Référentiel</h3>
+                <p>Pour décrire le mouvement ou l'état de repos d’un objet (appelé <strong>système</strong>), il est indispensable de choisir un corps solide de référence fixe, appelé <strong>référentiel</strong>.</p>
+                <p>Un même objet peut être en mouvement par rapport à un premier référentiel, et simultanément au repos par rapport à un autre. On en conclut que le mouvement est une notion entièrement <strong>relative</strong>.</p>
+                
+                <div class="astuce-box">
+                    <strong>🌌 Les référentiels d'étude usuels :</strong> 
+                    <ul>
+                        <li><strong>Le référentiel terrestre :</strong> Lié à la surface de la Terre (ex: le laboratoire, la salle de classe). Idéal pour les expériences de courte durée.</li>
+                        <li><strong>Le référentiel géocentrique :</strong> Lié au centre de la Terre, ses axes pointent vers des étoiles lointaines. Idéal pour étudier le mouvement des satellites artificiels ou de la Lune.</li>
+                        <li><strong>Le référentiel héliocentrique :</strong> Lié au centre du Soleil. Utilisé pour étudier le mouvement des planètes de notre système solaire.</li>
+                    </ul>
+                </div>
+                <p>Pour quantifier les positions et le temps, on associe au référentiel un <strong>repère d'espace</strong> (axes orthonormés munis d'une origine) et un <strong>repère de temps</strong> (une origine des dates où $t = 0$ s et une unité de mesure).</p>
+            </section>
+
+            <section id="trajectoire" class="reveal">
+                <h3>2. Notion de trajectoire</h3>
+                <p>La <strong>trajectoire</strong> d'un point mobile est l'ensemble des positions successives qu'il occupe au cours de son déplacement.</p>
+                <p>La forme géométrique de la trajectoire dépend elle aussi du référentiel d'étude choisi. On distingue principalement :</p>
+                <ul class="data-list">
+                    <li><strong>La trajectoire rectiligne :</strong> Lorsque l'ensemble des positions forme une ligne droite.</li>
+                    <li><strong>La trajectoire circulaire :</strong> Lorsque l'ensemble des positions décrit un cercle ou un arc de cercle.</li>
+                    <li><strong>La trajectoire curviligne :</strong> Lorsque le parcours prend la forme d'une courbe plane quelconque.</li>
+                </ul>
+            </section>
+
+            <section id="vitesse" class="reveal">
+                <h3>3. La vitesse d'un point mobile</h3>
+                
+                <h4>A. Vitesse moyenne</h4>
+                <p>La vitesse moyenne $v_m$ correspond au quotient de la distance parcourue $d$ par la durée globale $\Delta t$ employée pour effectuer le parcours :</p>
+                <div class="formula-box">
+                    $$v_m = \frac{d}{\Delta t} = \frac{d}{t_2 - t_1}$$
+                </div>
+
+                <h4>B. Vitesse instantanée</h4>
+                <p>La vitesse instantanée représente la vitesse du mobile à un instant précis $t_i$. Sur un enregistrement de positions successives séparées par un intervalle de temps constant $\tau$, on l'estime par la méthode des milieux :</p>
+                <div class="formula-box">
+                    $$v_i = \frac{M_{i-1}M_{i+1}}{2\tau}$$
+                </div>
+                <p>Le <strong>vecteur vitesse</strong> $\vec{v}_i$ au point $M_i$ possède quatre caractéristiques fondamentales : son origine (le point $M_i$), sa direction (la tangente à la trajectoire au point étudié), son sens (celui du mouvement) et sa valeur ($v_i$ en $m \cdot s^{-1}$).</p>
+            </section>
+
+            <section id="mru" class="reveal">
+                <h3>4. Le Mouvement Rectiligne Uniforme (MRU)</h3>
+                <p>Un mouvement est qualifié de <strong>rectiligne uniforme</strong> si la trajectoire suivie est une ligne droite et si la valeur de la vitesse instantanée reste rigoureusement constante au cours du temps ($v = \text{cte}$). Le vecteur vitesse conserve alors une direction, un sens et une valeur invariants ($\vec{v} = \vec{\text{cte}}$).</p>
+                
+                <div class="formula-box">
+                    <p>L'<strong>équation horaire</strong> d'un mouvement rectiligne uniforme est une fonction affine du temps exprimée par la relation :</p>
+                    $$x(t) = v \cdot t + x_0$$
+                </div>
+                
+                <ul class="data-list">
+                    <li><strong>$x(t)$ :</strong> L'abscisse (position) du mobile à la date $t$ en mètres ($m$).</li>
+                    <li><strong>$v$ :</strong> La vitesse constante du point mobile en mètres par seconde ($m \cdot s^{-1}$).</li>
+                    <li><strong>$t$ :</strong> La date correspondante en secondes ($s$).</li>
+                    <li><strong>$x_0$ :</strong> L'abscisse initiale du mobile à l'origine des temps $t = 0$ ($m$).</li>
+                </ul>
+            </section>
+        </main>
+
+        <aside class="sidebar-box sticky-sidebar slide-up">
+            <h3 class="sidebar-title">Schémas</h3>
+            <p style="font-size: 0.85rem; color: var(--text-muted);">Clique sur l'image pour l'agrandir.</p>
+            
+            <img src="../../images/mouvement-schema.jpg" alt="Chronophotographie et vecteur vitesse" class="zoomable-img">
+            <p class="caption">Tracé du vecteur vitesse instantanée $\vec{v}_2$ à l'aide de l'enregistrement des positions successives.</p>
+        </aside>
+
+    </div>
+
+    <div class="lightbox-overlay" id="lightbox">
+        <span class="lightbox-close-btn" id="close-lightbox">&times;</span>
+        <img id="lightbox-img" src="" alt="Zoomed Image">
+    </div>
+
+    <script src="../../script.js"></script>
+</body>
+</html>
