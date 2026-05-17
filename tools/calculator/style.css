@@ -7,6 +7,12 @@
     --text-muted: #5F6368;
     --border-color: #E8EAED;
     
+    /* FIX: Mapping the missing calculator colors to your theme variables */
+    --accent-blue: var(--primary);       /* Maps your blue tint */
+    --btn-bg: var(--app-bg);             /* Uses the light gray-blue for normal buttons */
+    --btn-hover: #E2E8F0;                /* Soft gray for button hover states */
+    --bg-color: var(--app-bg);           /* Maps old background name to new one */
+    
     /* Android Geometry */
     --radius-card: 24px;
     --radius-btn: 50px; /* Pill shape */
