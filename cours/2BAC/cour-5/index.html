@@ -1,1 +1,146 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+    <script>
+      window.MathJax = {
+        tex: {
+          inlineMath: [['$', '$'], ['\\(', '\\)']],
+          displayMath: [['$$', '$$'], ['\\[', '\\]']],
+          tags: 'ams'
+        }
+      };
+    </script>
+    <script id="MathJax-script" async src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js"></script>
 
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Les Transformations Nucléaires | 2ème Bac</title>
+    <link rel="stylesheet" href="../../style.css">
+</head>
+<body class="article-page">
+
+    <header>
+        <div class="header-content">
+            <div class="logo-container">
+                <img src="/images/logo.png" alt="Logo">
+            </div>
+            <div class="title-container">
+                <h1>THE TIME REVERSAL</h1>
+                <p class="tagline">Portail Lycée - 2ème Année Baccalauréat</p>
+            </div>
+        </div>
+        <div class="header-divider"></div>
+    </header>
+
+    <div class="top-icon-row">
+        <a href="/index-fr.html" class="img-icon-link"><img src="/images/home.png" alt="Accueil"></a>
+        <a href="#" class="img-icon-link"><img src="/images/physics.png" alt="Physique"></a>
+    </div>
+
+    <div class="main-wrapper">
+        
+        <aside class="sidebar-box slide-up">
+            <h3 class="sidebar-title">Sommaire du Cours</h3>
+            <ul class="lesson-nav">
+                <li><a href="#radioactivite">1. Stabilité du noyau et Radioactivité</a></li>
+                <li><a href="#loi-decroissance">2. Loi de décroissance radioactive</a></li>
+                <li><a href="#masse-energie">3. Défaut de masse et Énergie de liaison</a></li>
+                <li><a href="#fission-fusion">4. Fission et Fusion nucléaires</a></li>
+            </ul>
+        </aside>
+
+        <main class="journal-entry slide-up">
+            <div class="lesson-header">
+                <span class="badge" style="background-color: #8E2DE2;">Physique Nucléaire</span>
+                <h2>Les Transformations Nucléaires</h2>
+                <p class="author-meta">👨‍🏫 Cours rédigé par Morad | Niveau : 2ème Année Bac</p>
+            </div>
+
+            <section id="radioactivite" class="reveal">
+                <h3>1. Stabilité du noyau et Radioactivité</h3>
+                <p>Le noyau atomique, noté ${}^A_Z X$, est constitué de nucléons : $Z$ protons et $N = A - Z$ neutrons. Deux noyaux sont dits <strong>isotopes</strong> s'ils ont le même nombre de protons $Z$ mais un nombre de neutrons différent.</p>
+                
+                <p>La <strong>radioactivité</strong> est une transformation nucléaire spontanée, inéluctable et aléatoire au cours de laquelle un noyau instable (père) se désintègre pour former un noyau plus stable (fils) avec émission d'une particule et de rayonnement électromagnétique.</p>
+                
+                <div class="astuce-box">
+                    <strong>⚖️ Lois de conservation de Soddy :</strong> 
+                    <p>Lors d'une transformation nucléaire, il y a conservation du nombre de charge $Z$ et du nombre de masse $A$.</p>
+                    <p style="text-align: center;">${}^{A_1}_{Z_1} X_1 \rightarrow {}^{A_2}_{Z_2} X_2 + {}^{A_3}_{Z_3} P \implies \begin{cases} A_1 = A_2 + A_3 \\ Z_1 = Z_2 + Z_3 \end{cases}$</p>
+                </div>
+
+                <h4>Les types de radioactivité :</h4>
+                <ul class="data-list">
+                    <li><strong>Radioactivité $\alpha$ :</strong> Émission d'un noyau d'hélium ${}^4_2 He$. (Concerne les noyaux lourds).</li>
+                    <li><strong>Radioactivité $\beta^-$ :</strong> Émission d'un électron ${}^0_{-1} e$. (Noyaux riches en neutrons).</li>
+                    <li><strong>Radioactivité $\beta^+$ :</strong> Émission d'un positron ${}^0_{+1} e$. (Noyaux riches en protons).</li>
+                    <li><strong>Rayonnement $\gamma$ :</strong> Émission d'un photon (onde électromagnétique de très haute énergie) accompagnant souvent la désexcitation du noyau fils.</li>
+                </ul>
+            </section>
+
+            <section id="loi-decroissance" class="reveal">
+                <h3>2. Loi de décroissance radioactive</h3>
+                <p>L'évolution dans le temps du nombre de noyaux radioactifs d'un échantillon suit une loi exponentielle décroissante :</p>
+                
+                <div class="formula-box">
+                    $$N(t) = N_0 \cdot e^{-\lambda t}$$
+                </div>
+                
+                <ul class="data-list">
+                    <li><strong>$N(t)$ :</strong> Nombre de noyaux restants (non désintégrés) à l'instant $t$.</li>
+                    <li><strong>$N_0$ :</strong> Nombre de noyaux initiaux à $t = 0$.</li>
+                    <li><strong>$\lambda$ :</strong> Constante radioactive spécifique à chaque isotope (en $s^{-1}$).</li>
+                </ul>
+
+                <h4>Demi-vie et Activité</h4>
+                <p>La <strong>demi-vie radioactive</strong> $t_{1/2}$ est la durée au bout de laquelle la moitié des noyaux radioactifs initiaux se sont désintégrés : $N(t_{1/2}) = \frac{N_0}{2}$.</p>
+                <div class="formula-box">
+                    $$t_{1/2} = \frac{\ln(2)}{\lambda}$$
+                </div>
+                <p>L'<strong>activité</strong> $a(t)$ d'une source radioactive représente le nombre de désintégrations par seconde. Elle s'exprime en Becquerel ($Bq$) et vérifie : $a(t) = \lambda \cdot N(t) = a_0 \cdot e^{-\lambda t}$.</p>
+            </section>
+
+            <section id="masse-energie" class="reveal">
+                <h3>3. Équivalence Masse-Énergie et Énergie de liaison</h3>
+                <p>En 1905, Albert Einstein postule que toute particule de masse $m$ au repos possède une énergie de masse $E$, donnée par la célèbre relation :</p>
+                <div class="formula-box">
+                    $$E = m \cdot c^2$$
+                </div>
+                <p>Où $c$ est la vitesse de la lumière dans le vide ($c \approx 3 \times 10^8 \; m\cdot s^{-1}$).</p>
+
+                <h4>Défaut de masse et Énergie de liaison</h4>
+                <p>La masse d'un noyau est toujours <strong>inférieure</strong> à la somme des masses de ses nucléons isolés. Cette différence est appelée le défaut de masse $\Delta m$ :</p>
+                <div class="formula-box">
+                    $$\Delta m = [Z \cdot m_p + (A - Z) \cdot m_n] - m_{noyau} > 0$$
+                </div>
+                <p>L'<strong>énergie de liaison</strong> $E_l$ d'un noyau est l'énergie qu'il faut fournir pour dissocier le noyau en ses nucléons isolés au repos : <strong>$E_l = \Delta m \cdot c^2$</strong>. Pour comparer la stabilité de différents noyaux, on utilise l'énergie de liaison par nucléon : $\xi = \frac{E_l}{A}$ (plus elle est grande, plus le noyau est stable).</p>
+            </section>
+
+            <section id="fission-fusion" class="reveal">
+                <h3>4. Fission et Fusion nucléaires</h3>
+                <p>Contrairement à la radioactivité naturelle, ces transformations sont provoquées pour libérer d'immenses quantités d'énergie.</p>
+                <ul class="data-list">
+                    <li><strong>La Fission :</strong> Un noyau lourd (comme l'Uranium 235) se scinde en deux noyaux plus légers sous l'impact d'un neutron thermique. C'est le principe des centrales nucléaires.</li>
+                    <li><strong>La Fusion :</strong> Deux noyaux légers (comme les isotopes de l'hydrogène) s'unissent pour former un noyau plus lourd. Cela nécessite des températures extrêmes (comme au cœur des étoiles).</li>
+                </ul>
+                <p>Le <strong>bilan énergétique</strong> d'une réaction nucléaire se calcule par : $\Delta E = (m_{\text{produits}} - m_{\text{réactifs}}) \cdot c^2$. Si l'énergie est libérée vers le milieu extérieur, alors $\Delta E < 0$.</p>
+            </section>
+        </main>
+
+        <aside class="sidebar-box sticky-sidebar slide-up">
+            <h3 class="sidebar-title">Documents</h3>
+            <p style="font-size: 0.85rem; color: var(--text-muted);">Clique sur l'image pour l'agrandir.</p>
+            
+            <img src="../../images/courbe-aston.jpg" alt="Courbe d'Aston et stabilité des noyaux" class="zoomable-img">
+            <p class="caption">La courbe d'Aston ($-\frac{E_l}{A}$ en fonction de $A$) montre que les noyaux de masse moyenne ($50 < A < 80$) sont les plus stables.</p>
+        </aside>
+
+    </div>
+
+    <div class="lightbox-overlay" id="lightbox">
+        <span class="lightbox-close-btn" id="close-lightbox">&times;</span>
+        <img id="lightbox-img" src="" alt="Image agrandie">
+    </div>
+
+    <script src="../../script.js"></script>
+</body>
+</html>
