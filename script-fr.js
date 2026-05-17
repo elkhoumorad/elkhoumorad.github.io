@@ -215,8 +215,15 @@ document.addEventListener("DOMContentLoaded", () => {
             for (const knowledge of brain) {
                 if (knowledge.keywords.some(kw => query.includes(kw))) {
                     let finalHTML = knowledge.response;
+                    
                     if (knowledge.action) {
-                        finalHTML += `<br><br><button class="bot-action-btn popup-trigger" data-doc-type="${knowledge.action.type}" data-doc-id="${knowledge.action.id}">${knowledge.action.btnText}</button>`;
+                        if (knowledge.action.url) {
+                            // DUAL-MODE 1: It's a real web page, so we generate a standard <a> link
+                            finalHTML += `<br><br><a href="${knowledge.action.url}" class="bot-action-btn" style="text-decoration: none; display: block;">${knowledge.action.btnText}</a>`;
+                        } else {
+                            // DUAL-MODE 2: It's a popup, so we generate the old button with data-ids
+                            finalHTML += `<br><br><button class="bot-action-btn popup-trigger" data-doc-type="${knowledge.action.type}" data-doc-id="${knowledge.action.id}">${knowledge.action.btnText}</button>`;
+                        }
                     }
                     return finalHTML;
                 }
@@ -261,9 +268,10 @@ document.addEventListener("DOMContentLoaded", () => {
             sendMessage();
         };
 
-        // Permet au bouton du Bot de déclencher la popup des fiches
+        // Open popups from the Bot
         chatBody.addEventListener('click', (e) => {
-            if (e.target.classList.contains('bot-action-btn')) {
+            // THE FIX: We make sure it's a button AND it actually has a data-doc-id before trying to open a popup
+            if (e.target.classList.contains('bot-action-btn') && e.target.hasAttribute('data-doc-id')) {
                 const docId = e.target.getAttribute('data-doc-id');
                 const docType = e.target.getAttribute('data-doc-type');
                 
