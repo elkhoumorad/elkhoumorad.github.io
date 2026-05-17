@@ -1,1 +1,135 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+    <script>
+      window.MathJax = {
+        tex: {
+          inlineMath: [['$', '$'], ['\\(', '\\)']],
+          displayMath: [['$$', '$$'], ['\\[', '\\]']],
+          tags: 'ams'
+        }
+      };
+    </script>
+    <script id="MathJax-script" async src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js"></script>
 
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Les Dosages (Titrages) | 1ère Bac</title>
+    <link rel="stylesheet" href="../../style.css">
+</head>
+<body class="article-page">
+
+    <header>
+        <div class="header-content">
+            <div class="logo-container">
+                <img src="/images/logo.png" alt="Logo">
+            </div>
+            <div class="title-container">
+                <h1>THE TIME REVERSAL</h1>
+                <p class="tagline">Portail Lycée - 1ère Année Baccalauréat</p>
+            </div>
+        </div>
+        <div class="header-divider"></div>
+    </header>
+
+    <div class="top-icon-row">
+        <a href="/index-fr.html" class="img-icon-link"><img src="/images/home.png" alt="Accueil"></a>
+        <a href="#" class="img-icon-link"><img src="/images/chemistry.png" alt="Chimie"></a>
+    </div>
+
+    <div class="main-wrapper">
+        
+        <aside class="sidebar-box slide-up">
+            <h3 class="sidebar-title">Sommaire du Cours</h3>
+            <ul class="lesson-nav">
+                <li><a href="#principe">1. Principe du dosage</a></li>
+                <li><a href="#montage">2. Dispositif expérimental</a></li>
+                <li><a href="#equivalence">3. L'équivalence et calculs</a></li>
+                <li><a href="#exemples">4. Dosages colorimétriques</a></li>
+            </ul>
+        </aside>
+
+        <main class="journal-entry slide-up">
+            <div class="lesson-header">
+                <span class="badge" style="background-color: #e67e22;">Chimie</span>
+                <h2>Les dosages (Titrages) directs</h2>
+                <p class="author-meta">👨‍🏫 Cours rédigé par Morad | Niveau : 1ère Année Bac</p>
+            </div>
+
+            <section id="principe" class="reveal">
+                <h3>1. Principe du dosage (ou titrage)</h3>
+                <p>Le dosage (ou titrage) direct est une technique expérimentale d'analyse quantitative. Son but est de <strong>déterminer la concentration molaire (ou massique) inconnue</strong> d'une espèce chimique en solution.</p>
+                <p>Pour cela, on fait réagir cette espèce (le réactif titré) avec une autre espèce chimique de concentration connue avec précision (le réactif titrant).</p>
+                
+                <div class="astuce-box">
+                    <strong>⚠️ Conditions de la réaction de dosage :</strong> 
+                    <p>Pour qu'une réaction chimique puisse être utilisée comme réaction de dosage, elle doit impérativement être :</p>
+                    <ul>
+                        <li><strong>Totale :</strong> Le réactif limitant doit être entièrement consommé.</li>
+                        <li><strong>Rapide :</strong> L'état final doit être atteint quasi-instantanément.</li>
+                        <li><strong>Unique :</strong> Aucune autre réaction parasite ne doit se produire entre les réactifs.</li>
+                    </ul>
+                </div>
+            </section>
+
+            <section id="montage" class="reveal">
+                <h3>2. Dispositif expérimental d'un dosage</h3>
+                <p>Le montage classique d'un dosage nécessite du matériel de verrerie précis pour mesurer les volumes :</p>
+                <ul class="data-list">
+                    <li><strong>La burette graduée :</strong> Elle contient la <em>solution titrante</em> (de concentration $C_B$ connue). Elle permet de verser et de mesurer le volume $V_B$ ajouté avec précision.</li>
+                    <li><strong>L'erlenmeyer (ou bécher) :</strong> Il contient un volume précis $V_A$ de la <em>solution titrée</em> (de concentration $C_A$ inconnue), prélevé à l'aide d'une pipette jaugée.</li>
+                    <li><strong>L'agitateur magnétique :</strong> Équipé d'un barreau aimanté, il assure un mélange homogène et rapide des réactifs au fur et à mesure de l'ajout.</li>
+                </ul>
+            </section>
+
+            <section id="equivalence" class="reveal">
+                <h3>3. L'équivalence du dosage</h3>
+                <p>L'<strong>équivalence</strong> est le moment précis du dosage où les réactifs (titré et titrant) ont été mélangés dans des proportions stœchiométriques. À cet instant, les deux réactifs sont entièrement consommés : il n'y a plus de réactif titré, et la moindre goutte supplémentaire de titrant sera en excès.</p>
+                
+                <h4>Relation à l'équivalence :</h4>
+                <p>Considérons la réaction de dosage d'équation générale :</p>
+                <div class="formula-box">
+                    $$aA \text{ (titré)} + bB \text{ (titrant)} \rightarrow cC + dD$$
+                </div>
+                <p>À l'équivalence, on a versé un volume $V_{BE}$ (volume équivalent) de la solution titrante. La relation entre les quantités de matière initiales s'écrit :</p>
+                
+                <div class="formula-box">
+                    $$\frac{n_i(A)}{a} = \frac{n_{versé}(B)}{b} \implies \frac{C_A \cdot V_A}{a} = \frac{C_B \cdot V_{BE}}{b}$$
+                </div>
+                
+                <p>C'est cette relation fondamentale qui permet de calculer la concentration inconnue $C_A$.</p>
+            </section>
+
+            <section id="exemples" class="reveal">
+                <h3>4. Le repérage de l'équivalence (Dosages colorimétriques)</h3>
+                <p>Dans un dosage colorimétrique, l'équivalence est repérée visuellement par un <strong>changement brusque et persistant de la couleur</strong> du mélange réactionnel.</p>
+                
+                <ul class="data-list">
+                    <li><strong>Dosage d'oxydo-réduction (auto-indicateur) :</strong> 
+                        <br>Exemple : Dosage par les ions permanganate ($MnO_4^-$) de couleur violette. L'équivalence est repérée par la persistance de la coloration rose/violette dans le bécher.
+                    </li>
+                    <li><strong>Dosage acido-basique (avec indicateur coloré) :</strong> 
+                        <br>Si les réactifs sont incolores (ex: acide chlorhydrique et soude), on ajoute quelques gouttes d'un indicateur coloré (comme le Bleu de Bromothymol - BBT ou la Phénolphtaléine). Le virage de la couleur de l'indicateur marque l'équivalence.
+                    </li>
+                </ul>
+            </section>
+        </main>
+
+        <aside class="sidebar-box sticky-sidebar slide-up">
+            <h3 class="sidebar-title">Montage Expérimental</h3>
+            <p style="font-size: 0.85rem; color: var(--text-muted);">Clique sur l'image pour l'agrandir.</p>
+            
+            <img src="../../images/montage-dosage.jpg" alt="Montage expérimental de titrage avec burette graduée et agitateur magnétique" class="zoomable-img">
+            <p class="caption">Schéma légendé du dispositif de dosage colorimétrique.</p>
+        </aside>
+
+    </div>
+
+    <div class="lightbox-overlay" id="lightbox">
+        <span class="lightbox-close-btn" id="close-lightbox">&times;</span>
+        <img id="lightbox-img" src="" alt="Image agrandie">
+    </div>
+
+    <script src="../../script.js"></script>
+</body>
+</html>
