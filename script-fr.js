@@ -202,12 +202,35 @@ document.addEventListener("DOMContentLoaded", () => {
         });
 
         const brain = [
-            { keywords: ["mouvement", "vitesse", "trajectoire", "mru"], response: "Le mouvement d'un corps est toujours relatif au référentiel ! 🚗", action: { id: "tc-mouvement-fiche", type: "fiche", btnText: "📖 Le Mouvement (TC)" } },
-            { keywords: ["gravitation", "newton", "poids"], response: "Deux corps massiques s'attirent mutuellement selon la loi universelle de Newton.", action: { id: "tc-gravitation-fiche", type: "fiche", btnText: "📖 Gravitation (TC)" } },
-            { keywords: ["dosage", "titrage", "équivalence"], response: "À l'équivalence d'un dosage, les réactifs sont totalement consommés 💧.", action: { id: "1bac-les-dosages", type: "fiche", btnText: "📖 Les Dosages (1BAC)" } },
-            { keywords: ["nucléaire", "radioactivité", "demi-vie"], response: "L'évolution du nombre de noyaux suit une loi de décroissance exponentielle ☢️.", action: { id: "2bac-transformations-nucleaires", type: "fiche", btnText: "📖 Transfos Nucléaires (2BAC)" } },
-            { keywords: ["équilibre", "quotient", "constante"], response: "Quand une réaction est limitée, le système atteint un équilibre dynamique ⚖️.", action: { id: "2bac-equilibre-systeme", type: "fiche", btnText: "📖 État d'équilibre (2BAC)" } },
-            { keywords: ["salut", "bonjour", "yo"], response: "Salut ! 👋 Tape un mot-clé comme 'nucléaire', 'dosage', 'mouvement' pour trouver le bon cours !" }
+            { 
+                keywords: ["mouvement", "vitesse", "trajectoire", "mru"], 
+                response: "Le mouvement d'un corps est toujours relatif au référentiel ! 🚗", 
+                action: { url: "cours/TC/mouvement-fr.html", btnText: "📖 Le Mouvement (TC)" } 
+            },
+            { 
+                keywords: ["gravitation", "newton", "poids"], 
+                response: "Deux corps massiques s'attirent mutuellement selon la loi universelle de Newton.", 
+                action: { url: "cours/TC/cour-1/index.html", btnText: "📖 Gravitation (TC)" } 
+            },
+            { 
+                keywords: ["dosage", "titrage", "équivalence"], 
+                response: "À l'équivalence d'un dosage, les réactifs sont totalement consommés 💧.", 
+                action: { url: "cours/1BAC/cour-6/index.html", btnText: "📖 Les Dosages (1BAC)" } 
+            },
+            { 
+                keywords: ["nucléaire", "radioactivité", "demi-vie"], 
+                response: "L'évolution du nombre de noyaux suit une loi de décroissance exponentielle ☢️.", 
+                action: { url: "cours/2BAC/cour-5/index.html", btnText: "📖 Transfos Nucléaires (2BAC)" } 
+            },
+            { 
+                keywords: ["équilibre", "quotient", "constante"], 
+                response: "Quand une réaction est limitée, le système atteint un équilibre dynamique ⚖️.", 
+                action: { url: "cours/2BAC/cour-6/index.html", btnText: "📖 État d'équilibre (2BAC)" } 
+            },
+            { 
+                keywords: ["salut", "bonjour", "yo"], 
+                response: "Salut ! 👋 Tape un mot-clé comme 'nucléaire', 'dosage', 'mouvement' pour trouver le bon cours !" 
+            }
         ];
 
         function getSmartResponse(userInput) {
