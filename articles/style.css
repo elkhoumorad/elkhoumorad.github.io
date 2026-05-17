@@ -23,6 +23,7 @@ body {
     margin: 0;
     background-color: var(--app-bg);
     color: var(--text-main);
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif; /* THIS RESTORES THE FONT */
     line-height: 1.6;
     overflow-x: hidden;
 }
