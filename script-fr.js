@@ -256,7 +256,7 @@ document.addEventListener("DOMContentLoaded", () => {
                 const docId = e.target.getAttribute('data-doc-id');
                 const docType = e.target.getAttribute('data-doc-type');
                 
-                let filePath = 'cours/fiches/TC.html';
+                let filePath = 'cours/fiches/fiches.html';
                 if (docType === 'plan') filePath = 'cours/fiches/plan.html';
 
                 fetch(filePath)
