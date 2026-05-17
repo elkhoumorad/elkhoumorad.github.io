@@ -122,10 +122,13 @@ document.addEventListener("DOMContentLoaded", () => {
             const docId = this.getAttribute('data-doc-id');
             const docType = this.getAttribute('data-doc-type');
 
-            // Détermine le fichier source
-            let filePath = 'cours/fiches/fiches.html'; 
+            // Détermine le fichier source en fonction du data-doc-type
+            let filePath = 'cours/fiches/fiches.html'; // Fichier par défaut (pour "fiche")
+            
             if (docType === 'plan') {
                 filePath = 'cours/fiches/plan.html';
+            } else if (docType === 'vacances') {
+                filePath = 'cours/fiches/vacances.html'; // 👈 Change ceci si tu as mis le code des vacances dans un fichier séparé (ex: 'cours/fiches/vacances.html')
             }
 
             fetch(filePath)
