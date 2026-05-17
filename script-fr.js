@@ -110,6 +110,7 @@ document.addEventListener("DOMContentLoaded", () => {
     });
 
     // --- 5. CHARGEMENT DYNAMIQUE POPUP (FICHES / PLAN) VIA FETCH ---
+    // --- 5. CHARGEMENT DYNAMIQUE POPUP (FICHES / PLAN) VIA FETCH ---
     const popup = document.getElementById('document-popup');
     const popupTitle = document.getElementById('popup-title');
     const popupContent = document.getElementById('popup-content');
@@ -121,8 +122,8 @@ document.addEventListener("DOMContentLoaded", () => {
             const docId = this.getAttribute('data-doc-id');
             const docType = this.getAttribute('data-doc-type');
 
-            // Cible tes fichiers distants
-            let filePath = 'cours/fiches/fiches.html'; // Fichier par défaut
+            // Détermine le fichier source
+            let filePath = 'cours/fiches/TC.html'; 
             if (docType === 'plan') {
                 filePath = 'cours/fiches/plan.html';
             }
@@ -138,17 +139,24 @@ document.addEventListener("DOMContentLoaded", () => {
                     const targetSnippet = doc.getElementById(docId);
 
                     if (targetSnippet) {
+                        // 1. On injecte le titre et le contenu
                         popupTitle.textContent = targetSnippet.getAttribute('data-title') || "Document";
                         popupContent.innerHTML = targetSnippet.innerHTML;
                         
+                        // 2. On affiche la popup à l'écran
                         popup.style.display = 'flex';
                         document.body.style.overflow = 'hidden';
 
-                        if (window.MathJax) {
-                            MathJax.typesetPromise([popupContent]);
+                        // 3. CRUCIAL : On force MathJax à compiler immédiatement le LaTeX injecté dans la popup
+                        if (window.MathJax && typeof MathJax.typesetPromise === 'function') {
+                            // On attend que le DOM de la popup soit à jour et on compile
+                            setTimeout(() => {
+                                MathJax.typesetPromise([popupContent])
+                                    .catch(err => console.error("MathJax compilation error:", err));
+                            }, 50); // Un léger micro-délai de 50ms garantit que l'HTML est bien stable
                         }
                     } else {
-                        console.error("L'ID " + docId + " est introuvable !");
+                        console.error("L'ID " + docId + " est introuvable dans " + filePath);
                     }
                 })
                 .catch(err => console.error(err));
