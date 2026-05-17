@@ -161,7 +161,7 @@ header {
 #calc-result {
     font-size: 1.8rem;
     font-weight: bold;
-    color: var(--border-color);
+    color: var(--text-main); /* FIX: Changed from light border-color to dark text-main */
     text-align: right;
     min-height: 40px;
     padding: 0 10px;
@@ -186,8 +186,16 @@ header {
 
 .calc-btn:hover { background-color: var(--btn-hover); }
 .calc-btn.op { background-color: #d1d8e0; font-weight: bold; }
-.calc-btn.eval { background-color: var(--border-color); color: white; }
-.calc-btn.eval:hover { background-color: #1a252f; }
+
+.calc-btn.eval { 
+    background-color: var(--primary); /* FIX: Uses your solid primary blue for the "=" button */
+    color: white; 
+    font-weight: bold;
+}
+.calc-btn.eval:hover { 
+    background-color: var(--primary-hover); /* Darkens cleanly on hover */
+}
+
 .calc-btn.clear { background-color: #ff7675; color: white; }
 
 /* --- Sidebars & Lists --- */
