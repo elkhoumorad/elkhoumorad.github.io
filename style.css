@@ -24,13 +24,15 @@ header {
 
 .header-content {
     display: flex;
-    align-items: center; /* Vertically centers the text with the logo */
-    gap: 20px; /* Space between the logo and the title */
+    justify-content: center; /* This is the magic line that centers the logo and text! */
+    align-items: center; 
+    gap: 20px; 
     margin-bottom: 20px;
+    position: relative; /* This keeps the EN/FR switcher pinned to the far right */
 }
 
 .logo-container img {
-    max-height: 90px; /* Sized to match your screenshot */
+    max-height: 80px; /* Slightly scaled down to match the clean French proportions */
     display: block;
 }
 
