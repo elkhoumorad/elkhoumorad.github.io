@@ -115,6 +115,16 @@ header {
     min-width: 0; /* Prevents long math formulas from breaking the grid */
 }
 
+/* FIX: This makes the article title match your French portal blue exactly */
+.journal-entry h2 {
+    color: var(--accent-blue); /* Uses your defined #007bff accent color */
+    margin-top: 0;
+    margin-bottom: 10px;
+    font-size: 2.2rem;
+    font-weight: 800;
+    letter-spacing: -0.5px;
+}
+
 /* Sidebars (Links & Figures) */
 .sidebar-box {
     background: white;
