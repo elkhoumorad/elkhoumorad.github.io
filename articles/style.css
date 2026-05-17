@@ -20,13 +20,19 @@
 }
 
 body {
-    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
-    line-height: 1.6;
-    color: var(--text-main);
-    background-color: var(--bg-color);
     margin: 0;
-    padding: 0;
+    background-color: var(--app-bg);
+    color: var(--text-main);
+    line-height: 1.6;
+    overflow-x: hidden;
 }
+
+/* The "App Open" Cascade Animation */
+@keyframes slideUpFade {
+    from { opacity: 0; transform: translateY(30px); }
+    to { opacity: 1; transform: translateY(0); }
+}
+
 
 /* --- 3. APP BAR (Sticky Header with Glassmorphism) --- */
 header {
