@@ -123,7 +123,7 @@ document.addEventListener("DOMContentLoaded", () => {
             const docType = this.getAttribute('data-doc-type');
 
             // Détermine le fichier source
-            let filePath = 'cours/fiches/TC.html'; 
+            let filePath = 'cours/fiches/fiches.html'; 
             if (docType === 'plan') {
                 filePath = 'cours/fiches/plan.html';
             }
