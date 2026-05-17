@@ -1,7 +1,7 @@
 /* articles/style.css */
 
 :root {
-    --bg-color: #f4f4f9;
+    --app-bg: #F0F4F8; /* Light grayish-blue app background */
     --text-main: #333;
     --text-muted: #7f8c8d;
     --accent-blue: #007bff;
