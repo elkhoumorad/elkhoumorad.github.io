@@ -1,1 +1,146 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+    <script>
+      window.MathJax = {
+        tex: {
+          inlineMath: [['$', '$'], ['\\(', '\\)']],
+          displayMath: [['$$', '$$'], ['\\[', '\\]']],
+          tags: 'ams'
+        }
+      };
+    </script>
+    <script id="MathJax-script" async src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js"></script>
 
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Travail du poids et Énergie Potentielle | 1ère Bac</title>
+    <link rel="stylesheet" href="../../style.css">
+</head>
+<body class="article-page">
+
+    <header>
+        <div class="header-content">
+            <div class="logo-container">
+                <img src="/images/logo.png" alt="Logo">
+            </div>
+            <div class="title-container">
+                <h1>THE TIME REVERSAL</h1>
+                <p class="tagline">Portail Lycée - 1ère Année Baccalauréat</p>
+            </div>
+        </div>
+        <div class="header-divider"></div>
+    </header>
+
+    <div class="top-icon-row">
+        <a href="/index-fr.html" class="img-icon-link"><img src="/images/home.png" alt="Accueil"></a>
+        <a href="#" class="img-icon-link"><img src="/images/physics.png" alt="Physique"></a>
+    </div>
+
+    <div class="main-wrapper">
+        
+        <aside class="sidebar-box slide-up">
+            <h3 class="sidebar-title">Sommaire du Cours</h3>
+            <ul class="lesson-nav">
+                <li><a href="#travail-poids">1. Travail du poids d'un corps</a></li>
+                <li><a href="#e-potentielle">2. Énergie potentielle de pesanteur</a></li>
+                <li><a href="#relation-travail">3. Relation entre Travail et Énergie</a></li>
+                <li><a href="#e-mecanique">4. Applications & Conservation</a></li>
+            </ul>
+        </aside>
+
+        <main class="journal-entry slide-up">
+            <div class="lesson-header">
+                <span class="badge">Mécanique</span>
+                <h2>Travail du poids et Énergie Potentielle</h2>
+                <p class="author-meta">👨‍🏫 Cours rédigé par Morad | Niveau : 1ère Année Bac</p>
+            </div>
+
+            <section id="travail-poids" class="reveal">
+                <h3>1. Travail du poids d'un corps solide</h3>
+                <p>Le poids $\vec{P}$ d'un corps est une force constante lorsque le déplacement s'effectue au voisinage de la surface de la Terre. Lors du déplacement de son centre d'inertie d'un point $A$ (d'altitude $z_A$) vers un point $B$ (d'altitude $z_B$), le travail du poids s'exprime par la relation suivante :</p>
+                
+                <div class="formula-box">
+                    $$W_{A \rightarrow B}(\vec{P}) = m \cdot g \cdot (z_A - z_B)$$
+                </div>
+                
+                <ul class="data-list">
+                    <li><strong>$W(\vec{P})$ :</strong> Travail du poids en Joules ($J$).</li>
+                    <li><strong>$m$ :</strong> Masse du solide en kilogrammes ($kg$).</li>
+                    <li><strong>$g$ :</strong> Intensité de la pesanteur en $N \cdot kg^{-1}$ ou $m \cdot s^{-2}$.</li>
+                    <li><strong>$z_A, z_B$ :</strong> Altitudes respectives des points $A$ et $B$ en mètres ($m$) sur un axe vertical orienté vers le haut.</li>
+                </ul>
+
+                <div class="astuce-box">
+                    <strong>💡 Propriété fondamentale :</strong> 
+                    <p>Le travail du poids d'un corps solide <strong>ne dépend pas du chemin suivi</strong> par le mobile entre $A$ et $B$. Il dépend uniquement des altitudes initiale $z_A$ et finale $z_B$. On dit que le poids est une <strong>force conservative</strong>.</p>
+                    <p>- Si le corps descend ($z_A > z_B$) : $W(\vec{P}) > 0$, le travail est <strong>moteur</strong>.</p>
+                    <p>- Si le corps monte ($z_A < z_B$) : $W(\vec{P}) < 0$, le travail est <strong>résistant</strong>.</p>
+                </div>
+            </section>
+
+            <section id="e-potentielle" class="reveal">
+                <h3>2. Énergie potentielle de pesanteur</h3>
+                <p>L'<strong>énergie potentielle de pesanteur</strong>, notée $E_{pp}$, est l'énergie que possède un corps en raison de sa position par rapport à la Terre (son altitude).</p>
+                <p>Pour un solide de masse $m$ situé à une altitude $z$ sur un axe vertical orienté vers le haut, elle est définie par :</p>
+                
+                <div class="formula-box">
+                    $$E_{pp} = m \cdot g \cdot z + C$$
+                </div>
+                <p>Où $C$ est une constante d'intégration qui dépend du choix de l'état de référence.</p>
+
+                <div class="astuce-box">
+                    <strong>📐 Choix de l'état de référence :</strong>
+                    <p>Par convention, on choisit généralement le niveau du sol ($z = 0$) comme état de référence où l'énergie potentielle est nulle ($E_{pp} = 0$), ce qui implique que la constante $C = 0$. La formule simplifiée devient alors :</p>
+                    <p style="text-align: center; font-weight: bold; font-size: 1.15rem;">$$E_{pp} = m \cdot g \cdot z$$</p>
+                </div>
+            </section>
+
+            <section id="relation-travail" class="reveal">
+                <h3>3. Relation entre travail du poids et énergie potentielle</h3>
+                <p>Lors d'un déplacement d'un point $A$ vers un point $B$, la variation de l'énergie potentielle de pesanteur $\Delta E_{pp}$ du système est égale à l'opposé du travail du poids de ce corps :</p>
+                
+                <div class="formula-box">
+                    $$\Delta E_{pp} = E_{pp}(B) - E_{pp}(A) = - W_{A \rightarrow B}(\vec{P})$$
+                </div>
+
+                <ul class="data-list">
+                    <li>Lors d'une **chute** (descente) : Le travail du poids est moteur ($W > 0$), donc la variation d'énergie potentielle est négative ($\Delta E_{pp} < 0$). Le corps **perd** de l'énergie potentielle.</li>
+                    <li>Lors d'une **ascension** (montée) : Le travail du poids est résistant ($W < 0$), donc la variation d'énergie potentielle est positive ($\Delta E_{pp} > 0$). Le corps **gagne** de l'énergie potentielle.</li>
+                </ul>
+            </section>
+
+            <section id="e-mecanique" class="reveal">
+                <h3>4. Énergie mécanique et théorème de conservation</h3>
+                <p>L'énergie mécanique $E_m$ d'un corps solide est la somme de son énergie cinétique ($E_c$) et de son énergie potentielle de pesanteur ($E_{pp}$) :</p>
+                <div class="formula-box">
+                    $$E_m = E_c + E_{pp} = \frac{1}{2}m\cdot v^2 + m\cdot g\cdot z$$
+                </div>
+
+                <h4>Théorème de conservation :</h4>
+                <p>Lorsqu'un corps solide est soumis uniquement à son poids (ou à des forces dont le travail est nul, comme la réaction d'un plan sans frottement), son énergie mécanique se conserve et reste constante au cours du temps :</p>
+                <div class="formula-box">
+                    $$E_m(A) = E_m(B) \implies \Delta E_m = 0$$
+                </div>
+                <p>S'il y a des frottements, l'énergie mécanique ne se conserve pas ($\Delta E_m < 0$). Elle diminue en se dissipant sous forme d'énergie thermique (chaleur).</p>
+            </section>
+        </main>
+
+        <aside class="sidebar-box sticky-sidebar slide-up">
+            <h3 class="sidebar-title">Schémas</h3>
+            <p style="font-size: 0.85rem; color: var(--text-muted);">Clique sur l'image pour l'agrandir.</p>
+            
+            <img src="../../images/energie-potentielle-schema.jpg" alt="Schéma travail du poids et axe des altitudes" class="zoomable-img">
+            <p class="caption">Représentation du repère d'altitude vertical $z$ et de la trajectoire curviligne indépendante pour le calcul du travail du poids.</p>
+        </aside>
+
+    </div>
+
+    <div class="lightbox-overlay" id="lightbox">
+        <span class="lightbox-close-btn" id="close-lightbox">&times;</span>
+        <img id="lightbox-img" src="" alt="Image agrandie">
+    </div>
+
+    <script src="../../script.js"></script>
+</body>
+</html>
