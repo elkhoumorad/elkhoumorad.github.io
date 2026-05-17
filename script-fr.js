@@ -122,7 +122,7 @@ document.addEventListener("DOMContentLoaded", () => {
             const docType = this.getAttribute('data-doc-type');
 
             // Cible tes fichiers distants
-            let filePath = 'cours/fiches/TC.html'; // Fichier par défaut
+            let filePath = 'cours/fiches/fiches.html'; // Fichier par défaut
             if (docType === 'plan') {
                 filePath = 'cours/fiches/plan.html';
             }
