@@ -147,7 +147,8 @@ header {
 }
 
 /* --- 7. CARDS & SURFACES (Android Style) --- */
-.sidebar-box, .tool-card, .scoop-container, .article-card, .level-container {
+/* REMOVED .tool-card from this block so it can be styled properly below */
+.sidebar-box, .scoop-container, .article-card, .level-container {
     background: var(--surface);
     border-radius: var(--radius-card);
     padding: 25px;
@@ -165,7 +166,7 @@ header {
 .right-sidebar { animation: slideUpFade 0.6s ease-out backwards; animation-delay: 0.4s; }
 
 /* Interactive Hover States */
-.tool-card:hover, .article-card:hover {
+.article-card:hover {
     transform: translateY(-6px);
     box-shadow: var(--shadow-hover);
     border-color: var(--primary);
@@ -199,6 +200,72 @@ header {
     background: var(--primary);
     color: var(--surface);
     box-shadow: 0 4px 12px rgba(26, 115, 232, 0.3);
+}
+
+/* --- 8.5 SLEEK INTERACTIVE TOOLS (SIDEBAR) --- */
+.tool-card {
+    background: var(--surface); 
+    padding: 16px;
+    border-radius: 8px;
+    margin-bottom: 15px;
+    border: 1px solid var(--border-color); 
+    transition: all 0.25s cubic-bezier(0.2, 0.8, 0.2, 1);
+    border-left: 4px solid transparent; 
+}
+
+.tool-card:hover {
+    border-color: transparent;
+    border-left: 4px solid var(--primary);
+    box-shadow: var(--shadow-md);
+    transform: translateX(4px); 
+}
+
+.tool-card h4 {
+    margin: 0 0 6px 0;
+    font-size: 0.95rem;
+    color: var(--text-main);
+    transition: color 0.2s;
+}
+
+.tool-card:hover h4 {
+    color: var(--primary);
+}
+
+.tool-card p {
+    font-size: 0.82rem; 
+    margin: 0 0 12px 0;
+    color: var(--text-muted);
+    line-height: 1.4;
+}
+
+/* Transform the big bulky button into a sleek text link */
+.tool-card .btn {
+    display: inline-block;
+    background: transparent;
+    color: var(--primary);
+    padding: 0;
+    box-shadow: none;
+    text-decoration: none;
+    font-size: 0.85rem;
+    font-weight: 700;
+    margin-top: 5px;
+}
+
+.tool-card .btn::after {
+    content: " \2192"; 
+    display: inline-block;
+    margin-left: 4px;
+    transition: transform 0.2s ease;
+}
+
+.tool-card .btn:hover {
+    background: transparent;
+    color: var(--primary-hover);
+    box-shadow: none;
+}
+
+.tool-card:hover .btn::after {
+    transform: translateX(4px); 
 }
 
 /* ==========================================================================
@@ -493,11 +560,6 @@ header {
     border-color: var(--primary);
 }
 
-
-
-
-
-
 /* Animation d'attente (Les petits points de suspension) */
 .typing-dots {
     animation: typing 1.5s infinite;
@@ -556,15 +618,6 @@ header {
     0% { width: 0; height: 0; opacity: 0.5; }
     100% { width: 300px; height: 300px; opacity: 0; }
 }
-
-
-
-
-
-
-
-
-
 
 /* --- DOCUMENT POPUP (MODAL) THEME --- */
 .popup-overlay {
@@ -637,8 +690,6 @@ header {
 @keyframes fadeIn { from { opacity: 0; } to { opacity: 1; } }
 @keyframes scaleUp { from { transform: scale(0.9) translateY(20px); opacity: 0; } to { transform: scale(1) translateY(0); opacity: 1; } }
 
-
-
 /* ==========================================================================
    ENGLISH PAGE SPECIFIC STYLES (RESEARCH ARTICLES & SCOOP)
    ========================================================================== */
@@ -683,7 +734,7 @@ header {
 
 .card-image {
     width: 100%;
-    height: 200px; /* This is the line that prevents the giant images! */
+    height: 200px; 
     object-fit: cover; 
     object-position: center;
     border-bottom: 1px solid #eee; 
@@ -732,7 +783,7 @@ header {
 .read-more {
     align-self: flex-start; 
     font-weight: bold;
-    color: #1A73E8; 
+    color: var(--primary); 
     text-decoration: none;
     font-size: 0.9rem;
 }
@@ -754,33 +805,25 @@ header {
 }
 
 .recent-list a {
-    color: #333;
+    color: var(--text-main);
     text-decoration: none;
 }
 
 .recent-list a:hover {
-    color: #1A73E8;
+    color: var(--primary);
     text-decoration: underline;
 }
 
-
-
 /* --- Bottom Layout Containment Fix --- */
 .main-wrapper {
-    align-items: start; /* Prevents column boxes from stretching unevenly */
+    align-items: start; 
 }
 
 .journal-entry {
     display: flex;
     flex-direction: column;
-    min-height: 100%; /* Ensures background color fills down to the grid base */
+    min-height: 100%; 
 }
-
-
-
-
-
-
 
 /* Modern Unified Footer */
 footer {
