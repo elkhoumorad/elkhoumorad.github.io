@@ -183,3 +183,32 @@ document.addEventListener("DOMContentLoaded", () => {
         };
     }
 });
+
+// --- LOGIQUE DES ONGLETS DYNAMIQUES PORTAIL ---
+document.querySelectorAll('.stack-btn').forEach(btn => {
+    btn.addEventListener('click', function(e) {
+        e.preventDefault();
+        
+        const levelContainer = this.closest('.level-container');
+        if (!levelContainer) return;
+        
+        const targetPanelClass = this.getAttribute('data-target');
+        
+        // 1. Désactiver tous les panneaux de ce niveau
+        levelContainer.querySelectorAll('.tab-panel').forEach(panel => {
+            panel.classList.remove('active-panel');
+        });
+        
+        // 2. Activer le panneau ciblé
+        const targetPanel = levelContainer.querySelector('.' + targetPanelClass);
+        if (targetPanel) {
+            targetPanel.classList.add('active-panel');
+        }
+        
+        // 3. Mettre à jour le style visuel des boutons de navigation
+        levelContainer.querySelectorAll('.stack-btn').forEach(b => {
+            b.classList.remove('active-btn');
+        });
+        this.classList.add('active-btn');
+    });
+});
