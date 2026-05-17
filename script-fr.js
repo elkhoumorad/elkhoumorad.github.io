@@ -212,3 +212,85 @@ document.querySelectorAll('.stack-btn').forEach(btn => {
         this.classList.add('active-btn');
     });
 });
+
+
+
+// --- CENTRALISATION DES FICHES ET PLANIFICATIONS ---
+const documentDatabase = {
+    // Fiches Tronc Commun
+    "tc-mecanique-fiche": {
+        title: "Fiche Pédagogique : Mécanique (TC)",
+        content: `<h4>Objectifs cardinaux de la leçon :</h4>
+                  <p>Introduire les concepts de forces, d'actions mécaniques et de modélisation par un vecteur force.</p>
+                  <table border="1" style="width:100%; border-collapse:collapse; margin-top:15px;">
+                    <tr style="background:#f2f2f2;"><th>Étapes</th><th>Durée</th><th>Activités du professeur</th></tr>
+                    <tr><td>Situation problème</td><td>15 min</td><td>Présenter le cas du solide sur un plan incliné.</td></tr>
+                    <tr><td>Dédiement théorique</td><td>30 min</td><td>Définir les caractéristiques d'une force constante.</td></tr>
+                  </table>`
+    },
+    "tc-chimie-fiche": {
+        title: "Fiche Pédagogique : Extraction & Séparation (TC)",
+        content: `<h4>Compétences visées :</h4>
+                  <p>Savoir choisir le bon solvant extracteur en fonction de la solubilité et de la densité.</p>
+                  <ul>
+                    <li>Mise en œuvre d'une hydrodistillation.</li>
+                    <li>Utilisation d'une ampoule à décanter.</li>
+                  </ul>`
+    },
+    // Planifications
+    "tc-progression-annuelle": {
+        title: "Progression Annuelle Globale - Physique-Chimie TC",
+        content: `<h4>Répartition semestrielle du programme :</h4>
+                  <p><strong>Semestre 1 :</strong> Gravitation universelle, Éléments chimiques, Modèle de l'atome.</p>
+                  <p><strong>Semestre 2 :</strong> Équilibre d'un solide, Solutions aqueuses, Analyse chimique.</p>`
+    }
+};
+
+// --- LOGIQUE D'AFFICHAGE POPUP ---
+document.addEventListener("DOMContentLoaded", () => {
+    const popup = document.getElementById('document-popup');
+    const popupTitle = document.getElementById('popup-title');
+    const popupContent = document.getElementById('popup-content');
+    const closeBtn = document.getElementById('close-document-popup');
+
+    // Écouteur générique sur tous les liens de fiches et planifications ayant un attribut 'data-doc-id'
+    document.body.addEventListener('click', function(e) {
+        const targetLink = e.target.closest('[data-doc-id]');
+        if (targetLink) {
+            e.preventDefault();
+            const docId = targetLink.getAttribute('data-doc-id');
+            const documentData = documentDatabase[docId];
+
+            if (documentData) {
+                // Injection dynamique du contenu et du titre
+                popupTitle.textContent = documentData.title;
+                popupContent.innerHTML = documentData.content;
+                
+                // Affichage fluide de la popup
+                popup.style.display = 'flex';
+                document.body.style.overflow = 'hidden'; // Bloque le scroll de la page principale arrière
+                
+                // Si le document contient des formules physiques complexes, on force MathJax à les re-rendre
+                if (window.MathJax) {
+                    MathJax.typesetPromise([popupContent]);
+                }
+            }
+        }
+    });
+
+    // Fermeture de la popup
+    if (closeBtn && popup) {
+        closeBtn.addEventListener('click', () => {
+            popup.style.display = 'none';
+            document.body.style.overflow = ''; // Libère le scroll arrière
+        });
+
+        // Fermer si l'utilisateur clique en dehors de la carte centrale blanche
+        popup.addEventListener('click', (e) => {
+            if (e.target === popup) {
+                popup.style.display = 'none';
+                document.body.style.overflow = '';
+            }
+        });
+    }
+});
