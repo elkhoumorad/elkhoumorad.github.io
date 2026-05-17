@@ -160,8 +160,8 @@ header {
 
 #calc-result {
     font-size: 1.8rem;
-    font-weight: bold;
-    color: var(--text-main); /* FIX: Changed from light border-color to dark text-main */
+    font-weight: 800; /* Extra bold so numbers pop out clearly */
+    color: #202124 !important; /* Forces it to use your dark text color */
     text-align: right;
     min-height: 40px;
     padding: 0 10px;
