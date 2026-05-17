@@ -311,7 +311,7 @@ document.addEventListener("DOMContentLoaded", () => {
             const docId = this.getAttribute('data-doc-id');
 
             // On va chercher le fichier de données HTML à distance sur ton GitHub Pages
-            fetch('cours/fiches/TC.html')
+            fetch('cours/fiches/fiches.html')
                 .then(response => {
                     if (!response.ok) throw new Error("Fichier de fiches introuvable");
                     return response.text();
@@ -341,7 +341,7 @@ document.addEventListener("DOMContentLoaded", () => {
                             MathJax.typesetPromise([popupContent]);
                         }
                     } else {
-                        console.error("L'ID " + docId + " n'existe pas dans TC.html");
+                        console.error("L'ID " + docId + " n'existe pas dans fiches.html");
                     }
                 })
                 .catch(err => console.error("Erreur lors du chargement de la fiche :", err));
