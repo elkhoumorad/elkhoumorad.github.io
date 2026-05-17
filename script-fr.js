@@ -1,187 +1,185 @@
 /* ==========================================================================
-   THE TIME REVERSAL - STUDENT PORTAL SCRIPT (FRENCH)
+   THE TIME REVERSAL - SCRIPT PORTAIL LYCÉE (FRENCH)
    ========================================================================== */
 
-// --- 1. DYNAMIC BACKGROUND BUBBLES ---
-function createBubbles() {
-    const bubbleContainer = document.createElement('div');
-    bubbleContainer.id = 'bubble-wrap';
-    document.body.appendChild(bubbleContainer);
+document.addEventListener("DOMContentLoaded", () => {
 
-    const bubbleCount = 15; // Number of floating bubbles
-    
-    for (let i = 0; i < bubbleCount; i++) {
-        const bubble = document.createElement('div');
-        bubble.classList.add('floating-bubble');
+    // --- 1. DYNAMIC BACKGROUND BUBBLES ---
+    function createBubbles() {
+        const bubbleContainer = document.createElement('div');
+        bubbleContainer.id = 'bubble-wrap';
+        document.body.appendChild(bubbleContainer);
+
+        const bubbleCount = 15; 
         
-        // Randomize size, position, and animation duration
-        const size = Math.random() * 60 + 20; 
-        bubble.style.width = `${size}px`;
-        bubble.style.height = `${size}px`;
-        bubble.style.left = `${Math.random() * 100}vw`;
-        bubble.style.animationDuration = `${Math.random() * 10 + 10}s`;
-        bubble.style.animationDelay = `${Math.random() * 5}s`;
-        
-        bubbleContainer.appendChild(bubble);
+        for (let i = 0; i < bubbleCount; i++) {
+            const bubble = document.createElement('div');
+            bubble.classList.add('floating-bubble');
+            
+            const size = Math.random() * 60 + 20; 
+            bubble.style.width = `${size}px`;
+            bubble.style.height = `${size}px`;
+            bubble.style.left = `${Math.random() * 100}vw`;
+            bubble.style.animationDuration = `${Math.random() * 10 + 10}s`;
+            bubble.style.animationDelay = `${Math.random() * 5}s`;
+            
+            bubbleContainer.appendChild(bubble);
+        }
     }
-}
+    createBubbles();
 
-// Initialize bubbles on load
-window.addEventListener('DOMContentLoaded', createBubbles);
+    // --- 2. ANDROID RIPPLE EFFECT ---
+    document.querySelectorAll('.btn, .level-btn, .chip, .stack-btn').forEach(button => {
+        button.addEventListener('click', function (e) {
+            // Empêche le ripple de s'activer de manière erratique si c'est un lien
+            if (this.classList.contains('expand-btn')) e.preventDefault();
 
-// --- 2. THE CHATBOT BRAIN (High School Edition) ---
-const brain = [
-    {
-        topic: "rlc",
-        keywords: ["rlc", "circuit", "condensateur", "bobine", "electricité", "électricité"],
-        response: "Ah, les circuits RLC ! ⚡ Super important pour le Bac. C'est là qu'on voit l'échange d'énergie entre le condensateur et la bobine. Tu bloques sur l'équation différentielle ?"
-    },
-    {
-        topic: "ondes",
-        keywords: ["onde", "ondes", "mécanique", "lumineuse", "lumière", "diffraction"],
-        response: "Les ondes 🌊 ! Rappelle-toi : une onde transporte de l'énergie, pas de la matière. Tu veux revoir la relation entre la longueur d'onde et la fréquence (v = λ/T) ?"
-    },
-    {
-        topic: "chimie",
-        keywords: ["chimie", "acide", "base", "ph", "titrage", "dosage", "tableau d'avancement"],
-        response: "La chimie, c'est comme de la cuisine mais on ne lèche pas la cuillère 🧪 ! Pour les titrages, n'oublie jamais que le réactif limitant dicte la fin de la réaction. Besoin d'aide sur le tableau d'avancement ?"
-    },
-    {
-        topic: "mecanique",
-        keywords: ["mécanique", "newton", "projectile", "chute libre", "vitesse", "accélération"],
-        response: "La mécanique de Newton 🍎 ! La 2ème loi (ΣF = m.a) est ton meilleur ami ici. N'oublie pas de bien définir ton système et ton repère avant de commencer un exercice."
-    },
-    {
-        topic: "greeting",
-        keywords: ["salut", "bonjour", "yo", "coucou", "hey"],
-        response: "Salut ! 👋 Je suis l'assistant du prof Morad. Je suis là pour t'aider à réviser la Physique-Chimie. Sur quel chapitre tu travailles aujourd'hui ?"
-    }
-];
+            let x = e.clientX - e.target.getBoundingClientRect().left;
+            let y = e.clientY - e.target.getBoundingClientRect().top;
+            
+            let ripples = document.createElement('span');
+            ripples.style.left = x + 'px';
+            ripples.style.top = y + 'px';
+            ripples.classList.add('ripple-effect');
+            this.appendChild(ripples);
+            
+            setTimeout(() => { ripples.remove() }, 600); 
+        });
+    });
 
-let lastTopic = null;
-
-// --- 3. CHATBOT LOGIC ---
-const chatBubble = document.getElementById('chat-bubble');
-const chatWindow = document.getElementById('chat-window');
-const closeChat = document.getElementById('close-chat');
-const chatInput = document.getElementById('chat-input');
-const chatSend = document.getElementById('chat-send');
-const chatBody = document.getElementById('chat-body');
-
-chatBubble.addEventListener('click', () => {
-    chatWindow.style.display = 'flex';
-    chatBubble.style.display = 'none';
-    chatBubble.style.transform = 'scale(0)'; // Animation
-});
-
-closeChat.addEventListener('click', () => {
-    chatWindow.style.display = 'none';
-    chatBubble.style.display = 'block';
-    setTimeout(() => chatBubble.style.transform = 'scale(1)', 50);
-});
-
-function getSmartResponse(userInput) {
-    const query = userInput.toLowerCase().replace(/[^\w\s\dàâçéèêëîïôûùü]/gi, ''); // Includes French accents
-    
-    // Follow-up logic
-    const followUpWords = ["oui", "comment", "pourquoi", "plus", "explique"];
-    const isFollowUp = followUpWords.some(word => query.includes(word));
-
-    if (isFollowUp && lastTopic) {
-        if (lastTopic === "rlc") return "Pour l'équation diff, commence toujours par la loi d'additivité des tensions : Ur + Ul + Uc = 0 (en régime libre). Puis remplace par les expressions avec 'i' et 'q' ! 🧠";
-        if (lastTopic === "chimie") return "Le secret du tableau d'avancement, c'est de bien équilibrer l'équation de base. Si tes coefficients stœchiométriques sont faux, tout le reste le sera ! ⚠️";
-    }
-
-    for (const knowledge of brain) {
-        for (const keyword of knowledge.keywords) {
-            if (query.includes(keyword)) {
-                lastTopic = knowledge.topic; 
-                return knowledge.response;
+    // --- 3. EXPANDABLE CURRICULUM LOGIC ("Voir tout le programme") ---
+    document.querySelectorAll('.expand-btn').forEach(button => {
+        button.addEventListener('click', function(e) {
+            e.preventDefault(); 
+            const ul = this.previousElementSibling; 
+            ul.classList.toggle('expanded');
+            
+            if (ul.classList.contains('expanded')) {
+                this.innerHTML = 'Réduire le programme &uarr;';
+                this.style.background = 'var(--primary)';
+                this.style.color = 'white';
+            } else {
+                this.innerHTML = 'Voir tout le programme &rarr;';
+                this.style.background = 'var(--app-bg)';
+                this.style.color = 'var(--primary)';
             }
-        }
-    }
-
-    return "C'est une bonne question 🤔 ! Essaie de me demander des choses sur les Ondes, les circuits RLC, ou la mécanique de Newton.";
-}
-
-function sendMessage() {
-    const text = chatInput.value.trim();
-    if (text === '') return;
-
-    // Add user message
-    const userMsg = document.createElement('p');
-    userMsg.className = 'user-msg';
-    userMsg.textContent = text;
-    chatBody.appendChild(userMsg);
-    
-    chatInput.value = '';
-    chatBody.scrollTop = chatBody.scrollHeight;
-
-    // Show Typing Indicator
-    const typingIndicator = document.createElement('p');
-    typingIndicator.className = 'bot-msg typing-dots';
-    typingIndicator.innerHTML = '<span>.</span><span>.</span><span>.</span>';
-    chatBody.appendChild(typingIndicator);
-
-    // Get response with a slight delay
-    setTimeout(() => {
-        chatBody.removeChild(typingIndicator);
-        const botMsg = document.createElement('p');
-        botMsg.className = 'bot-msg';
-        botMsg.innerHTML = getSmartResponse(text); 
-        chatBody.appendChild(botMsg);
-        chatBody.scrollTop = chatBody.scrollHeight;
-    }, 700);
-}
-
-function handleChip(text) {
-    chatInput.value = text;
-    sendMessage();
-}
-
-chatSend.addEventListener('click', sendMessage);
-chatInput.addEventListener('keypress', (e) => {
-    if (e.key === 'Enter') sendMessage();
-});
-
-// --- 4. ANDROID RIPPLE EFFECT FOR BUTTONS ---
-document.querySelectorAll('.btn, .level-btn, .chip').forEach(button => {
-    button.addEventListener('click', function (e) {
-        let x = e.clientX - e.target.getBoundingClientRect().left;
-        let y = e.clientY - e.target.getBoundingClientRect().top;
-        
-        let ripples = document.createElement('span');
-        ripples.style.left = x + 'px';
-        ripples.style.top = y + 'px';
-        ripples.classList.add('ripple-effect');
-        this.appendChild(ripples);
-        
-        setTimeout(() => { ripples.remove() }, 600); // Remove after animation
+        });
     });
-});
 
-
-
-// --- 5. EXPANDABLE CURRICULUM LOGIC ---
-document.querySelectorAll('.expand-btn').forEach(button => {
-    button.addEventListener('click', function(e) {
-        e.preventDefault(); // Empêche le lien de recharger la page
-        
-        // Trouve la liste <ul> juste au-dessus de ce bouton précis
-        const ul = this.previousElementSibling; 
-        
-        // Alterne l'état "déplié" / "plié"
-        ul.classList.toggle('expanded');
-        
-        // Change le texte du bouton en fonction de l'état
-        if (ul.classList.contains('expanded')) {
-            this.innerHTML = 'Réduire le programme &uarr;';
-            this.style.background = 'var(--primary)'; // Devient plein
-            this.style.color = 'white';
-        } else {
-            this.innerHTML = 'Voir tout le programme &rarr;';
-            this.style.background = 'var(--app-bg)'; // Reprend sa couleur douce
+    // --- 4. STACKED CARDS LOGIC (Cours / Fiches / Planif) ---
+    document.querySelectorAll('.stack-btn').forEach(btn => {
+        btn.addEventListener('click', function(e) {
+            e.preventDefault();
+            
+            // 1. Trouver le conteneur principal du niveau cliqué
+            const levelContainer = this.closest('.level-container');
+            
+            // 2. Trouver toutes les cartes dans ce niveau
+            const cards = levelContainer.querySelectorAll('.stack-card');
+            
+            // 3. Trouver la classe de la carte cible (ex: "card-2")
+            const targetClass = this.getAttribute('data-target');
+            
+            // 4. Réinitialiser TOUTES les cartes (enlever la classe active et nettoyer le z-index)
+            cards.forEach(card => {
+                card.classList.remove('active-card');
+                card.style.zIndex = ""; // Crucial : laisse le CSS gérer l'ordre par défaut !
+            });
+            
+            // 5. Mettre la carte ciblée au premier plan
+            const activeCard = levelContainer.querySelector('.' + targetClass);
+            if (activeCard) {
+                activeCard.classList.add('active-card');
+                activeCard.style.zIndex = "10"; // La force à passer par-dessus tout
+            }
+            
+            // 6. Mettre à jour le style visuel des boutons (barre bleue en bas)
+            const allBtns = levelContainer.querySelectorAll('.stack-btn');
+            allBtns.forEach(b => {
+                b.style.color = 'var(--text-muted)';
+                b.style.borderBottom = '2px solid transparent';
+            });
+            
             this.style.color = 'var(--primary)';
-        }
+            this.style.borderBottom = '2px solid var(--primary)';
+        });
     });
+
+    // --- 5. THE CHATBOT BRAIN ---
+    const chatBubble = document.getElementById('chat-bubble');
+    const chatWindow = document.getElementById('chat-window');
+    const closeChat = document.getElementById('close-chat');
+    const chatInput = document.getElementById('chat-input');
+    const chatSend = document.getElementById('chat-send');
+    const chatBody = document.getElementById('chat-body');
+
+    if (chatBubble && chatWindow) {
+        chatBubble.addEventListener('click', () => {
+            chatWindow.style.display = 'flex';
+            chatBubble.style.display = 'none';
+            chatBubble.style.transform = 'scale(0)';
+        });
+
+        closeChat.addEventListener('click', () => {
+            chatWindow.style.display = 'none';
+            chatBubble.style.display = 'block';
+            setTimeout(() => chatBubble.style.transform = 'scale(1)', 50);
+        });
+
+        // Les connaissances du Bot
+        const brain = [
+            { keywords: ["rlc", "circuit"], response: "Ah, les circuits RLC ! ⚡ L'équation différentielle s'écrit avec la loi d'additivité. Tu bloques sur l'amortissement ?" },
+            { keywords: ["ondes", "lumière"], response: "Les ondes 🌊 ! Rappelle-toi : la fréquence ne change JAMAIS quand on change de milieu. C'est la longueur d'onde qui varie." },
+            { keywords: ["chimie", "tableau"], response: "La chimie ! N'oublie jamais que le réactif limitant dicte la fin de la réaction. Besoin d'aide sur le calcul de x_max ?" },
+            { keywords: ["salut", "bonjour", "yo"], response: "Salut ! 👋 Je suis l'assistant de Morad. Sur quel chapitre tu travailles aujourd'hui ?" }
+        ];
+
+        function getSmartResponse(userInput) {
+            const query = userInput.toLowerCase();
+            for (const knowledge of brain) {
+                if (knowledge.keywords.some(kw => query.includes(kw))) {
+                    return knowledge.response;
+                }
+            }
+            return "C'est une bonne question 🤔 ! Essaie de me demander des choses sur les Ondes, les circuits RLC, ou la chimie.";
+        }
+
+        function sendMessage() {
+            const text = chatInput.value.trim();
+            if (text === '') return;
+
+            const userMsg = document.createElement('p');
+            userMsg.className = 'user-msg';
+            userMsg.textContent = text;
+            chatBody.appendChild(userMsg);
+            
+            chatInput.value = '';
+            chatBody.scrollTop = chatBody.scrollHeight;
+
+            const typing = document.createElement('p');
+            typing.className = 'bot-msg';
+            typing.innerHTML = '...';
+            chatBody.appendChild(typing);
+
+            setTimeout(() => {
+                chatBody.removeChild(typing);
+                const botMsg = document.createElement('p');
+                botMsg.className = 'bot-msg';
+                botMsg.innerHTML = getSmartResponse(text); 
+                chatBody.appendChild(botMsg);
+                chatBody.scrollTop = chatBody.scrollHeight;
+            }, 600);
+        }
+
+        chatSend.addEventListener('click', sendMessage);
+        chatInput.addEventListener('keypress', (e) => {
+            if (e.key === 'Enter') sendMessage();
+        });
+
+        // Pour les suggestions rapides (les boutons "chip")
+        window.handleChip = function(text) {
+            chatInput.value = text;
+            sendMessage();
+        };
+    }
 });
