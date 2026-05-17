@@ -496,28 +496,7 @@ header {
 
 
 
-/* Bouton généré dynamiquement par le bot */
-.bot-action-btn {
-    display: inline-block;
-    margin-top: 10px;
-    padding: 10px 15px;
-    background-color: var(--primary);
-    color: white;
-    border: none;
-    border-radius: var(--radius-btn);
-    font-size: 0.85rem;
-    font-weight: bold;
-    cursor: pointer;
-    box-shadow: 0 4px 6px rgba(0,0,0,0.1);
-    transition: background-color 0.2s, transform 0.2s;
-    width: 100%;
-    text-align: center;
-}
 
-.bot-action-btn:hover {
-    background-color: #0d47a1; /* Un bleu plus foncé */
-    transform: translateY(-2px);
-}
 
 /* Animation d'attente (Les petits points de suspension) */
 .typing-dots {
