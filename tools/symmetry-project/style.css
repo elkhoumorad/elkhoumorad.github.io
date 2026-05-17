@@ -76,10 +76,7 @@ header {
     font-size: 0.85rem;
     color: var(--text-muted);
 }
-.header-divider {
-    width: 100%;
-    border-bottom: 2px solid var(--border-color);
-}
+
 
 /* --- Top Icon Row Styling --- */
 .top-icon-row {
