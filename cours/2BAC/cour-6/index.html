@@ -1,1 +1,141 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+    <script>
+      window.MathJax = {
+        tex: {
+          inlineMath: [['$', '$'], ['\\(', '\\)']],
+          displayMath: [['$$', '$$'], ['\\[', '\\]']],
+          tags: 'ams'
+        }
+      };
+    </script>
+    <script id="MathJax-script" async src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js"></script>
 
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>L'état d'équilibre d'un système | 2ème Bac</title>
+    <link rel="stylesheet" href="../../style.css">
+</head>
+<body class="article-page">
+
+    <header>
+        <div class="header-content">
+            <div class="logo-container">
+                <img src="/images/logo.png" alt="Logo">
+            </div>
+            <div class="title-container">
+                <h1>THE TIME REVERSAL</h1>
+                <p class="tagline">Portail Lycée - 2ème Année Baccalauréat</p>
+            </div>
+        </div>
+        <div class="header-divider"></div>
+    </header>
+
+    <div class="top-icon-row">
+        <a href="/index-fr.html" class="img-icon-link"><img src="/images/home.png" alt="Accueil"></a>
+        <a href="#" class="img-icon-link"><img src="/images/chemistry.png" alt="Chimie"></a>
+    </div>
+
+    <div class="main-wrapper">
+        
+        <aside class="sidebar-box slide-up">
+            <h3 class="sidebar-title">Sommaire du Cours</h3>
+            <ul class="lesson-nav">
+                <li><a href="#avancement">1. Taux d'avancement final</a></li>
+                <li><a href="#quotient">2. Quotient de réaction $Q_r$</a></li>
+                <li><a href="#constante">3. Constante d'équilibre $K$</a></li>
+                <li><a href="#conductivite">4. Équilibre et Conductimétrie</a></li>
+            </ul>
+        </aside>
+
+        <main class="journal-entry slide-up">
+            <div class="lesson-header">
+                <span class="badge" style="background-color: #e67e22;">Chimie</span>
+                <h2>L'état d'équilibre d'un système</h2>
+                <p class="author-meta">👨‍🏫 Cours rédigé par Morad | Niveau : 2ème Année Bac</p>
+            </div>
+
+            <section id="avancement" class="reveal">
+                <h3>1. Le taux d'avancement final $\tau$</h3>
+                <p>Lors d'une réaction chimique limitée (non totale), l'avancement n'atteint pas sa valeur maximale théorique $x_{max}$. L'état final obtenu est un état d'équilibre dynamique où coexistent les réactifs et les produits.</p>
+                <p>Le <strong>taux d'avancement final</strong>, noté $\tau$, est le quotient de l'avancement final (ou à l'équilibre) $x_{eq}$ par l'avancement maximal $x_{max}$ :</p>
+                
+                <div class="formula-box">
+                    $$\tau = \frac{x_{eq}}{x_{max}}$$
+                </div>
+                
+                <div class="astuce-box">
+                    <strong>📊 Interprétation de la valeur de $\tau$ :</strong> 
+                    <ul>
+                        <li>Si $\tau = 1$ (soit $100\%$) : La réaction est **totale** (le réactif limitant est entièrement consommé).</li>
+                        <li>Si $\tau < 1$ : La réaction est **limitée** ou partielle. Le système atteint un état d'équilibre chimique.</li>
+                    </ul>
+                </div>
+            </section>
+
+            <section id="quotient" class="reveal">
+                <h3>2. Le quotient de réaction $Q_r$</h3>
+                <p>Le quotient de réaction $Q_r$ est une grandeur sans unité qui caractérise l'état d'avancement d'un système chimique à un instant donné.</p>
+                <p>Pour une réaction réversible d'équation générale homogène en solution aqueuse :</p>
+                <div class="formula-box">
+                    $$aA_{(aq)} + bB_{(aq)} \rightleftharpoons cC_{(aq)} + dD_{(aq)}$$
+                </div>
+                <p>L'expression de $Q_r$ à un instant quelconque est donnée par la relation :</p>
+                <div class="formula-box">
+                    $$Q_r = \frac{[C]^c \cdot [D]^d}{[A]^a \cdot [B]^b}$$
+                </div>
+
+                <div class="astuce-box">
+                    <strong>⚠️ Règles importantes d'écriture du $Q_r$ :</strong>
+                    <p>Dans l'expression du quotient de réaction $Q_r$ :</p>
+                    <ul>
+                        <li>Les concentrations molaires des espèces dissoutes doivent être exprimées en $mol \cdot L^{-1}$.</li>
+                        <li>Le solvant (généralement l'eau $\text{H}_2\text{O}$) et les **corps solides** n'apparaissent pas explicitement : on remplace conventionnellement leur valeur par le nombre **1**.</li>
+                    </ul>
+                </div>
+            </section>
+
+            <section id="constante" class="reveal">
+                <h3>3. La constante d'équilibre $K$</h3>
+                <p>Lorsque le système chimique atteint son état d'équilibre, les concentrations des espèces chimiques n'évoluent plus à l'échelle macroscopique. Le quotient de réaction prend alors une valeur particulière constante appelée **constante d'équilibre** et notée $K$ :</p>
+                
+                <div class="formula-box">
+                    $$K = Q_{r,eq} = \frac{[C]_{eq}^c \cdot [D]_{eq}^d}{[A]_{eq}^a \cdot [B]_{eq}^b}$$
+                </div>
+
+                <div class="astuce-box">
+                    <strong>💡 Propriété fondamentale :</strong>
+                    <p>La constante d'équilibre $K$ est une grandeur intrinsèque à la réaction. Elle **dépend uniquement de la température $T$** du milieu réactionnel. Elle est totalement indépendante de la composition initiale du système ou des concentrations de départ.</p>
+                </div>
+            </section>
+
+            <section id="conductivite" class="reveal">
+                <h3>4. Détermination de l'état d'équilibre par conductimétrie</h3>
+                <p>Pour les réactions faisant intervenir des ions (comme les réactions d'un acide avec l'eau), la mesure expérimentale de la **conductivité** $\sigma$ de la solution permet de déterminer l'avancement à l'équilibre $x_{eq}$ sans perturber le système.</p>
+                <p>D'après la loi de Kohlrausch, la conductivité de la solution à l'équilibre s'écrit :</p>
+                <div class="formula-box">
+                    $$\sigma = \sum \lambda_i \cdot [X_i]_{eq}$$
+                </div>
+                <p>Où $\lambda_i$ représente la conductivité molaire ionique de chaque ion présent. En isolant les concentrations ioniques à l'équilibre, on calcule facilement la quantité de matière finale à l'équilibre, d'où l'accès direct à $x_{eq}$, puis au calcul numérique de $K$.</p>
+            </section>
+        </main>
+
+        <aside class="sidebar-box sticky-sidebar slide-up">
+            <h3 class="sidebar-title">Documents</h3>
+            <p style="font-size: 0.85rem; color: var(--text-muted);">Clique sur l'image pour l'agrandir.</p>
+            
+            <img src="../../images/equilibre-schema.jpg" alt="Graphique de l'évolution des concentrations au cours du temps jusqu'à l'état d'équilibre" class="zoomable-img">
+            <p class="caption"> Évolution temporelle des concentrations d'un système menant à un état d'équilibre dynamique (concentrations constantes).</p>
+        </aside>
+
+    </div>
+
+    <div class="lightbox-overlay" id="lightbox">
+        <span class="lightbox-close-btn" id="close-lightbox">&times;</span>
+        <img id="lightbox-img" src="" alt="Image agrandie">
+    </div>
+
+    <script src="../../script.js"></script>
+</body>
+</html>
