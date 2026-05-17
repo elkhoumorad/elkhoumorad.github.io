@@ -94,27 +94,9 @@
                         <span>Scientifique & Technologique</span>
                     </div>
                     
-                    <div class="stacked-cards-wrapper">
-                        <div class="stack-card card-3">
-                            <div class="card-title">📅 Planification Annuelle</div>
-                            <ul class="course-list">
-                                <li><a href="#">Progression Physique</a></li>
-                                <li><a href="#">Progression Chimie</a></li>
-                                <li><a href="#">Cahier de textes</a></li>
-                            </ul>
-                        </div>
-                        
-                        <div class="stack-card card-2">
-                            <div class="card-title">📝 Fiches Pédagogiques</div>
-                            <ul class="course-list">
-                                <li><a href="#">Fiches Mécanique</a></li>
-                                <li><a href="#">Fiches Chimie</a></li>
-                                <li><a href="#">Travaux Pratiques (TP)</a></li>
-                            </ul>
-                        </div>
-
-                        <div class="stack-card card-1 active-card">
-                            <div class="card-title">📚 Cours & Résumés</div>
+                    <div class="dynamic-tabs-content">
+                        <div class="tab-panel panel-cours active-panel">
+                            <div class="panel-title">📚 Cours & Résumés</div>
                             <ul class="course-list">
                                 <li><a href="cours/TC/cour-1/">Gravitation Universelle</a></li>
                                 <li><a href="cours/TC/cour-2/">Actions Mécaniques</a></li>
@@ -123,14 +105,39 @@
                                 <li><a href="cours/TC/cour-5/">Le Mouvement</a></li>
                                 <li><a href="cours/TC/cour-6/">La classification périodique</a></li>
                             </ul>
-                            <a href="#" class="level-btn expand-btn" style="margin-top: 15px;">Voir tout le programme &rarr;</a>
+                            <a href="#" class="level-btn expand-btn">Voir tout le programme &rarr;</a>
+                        </div>
+                        
+                        <div class="tab-panel panel-fiches">
+                            <div class="panel-title">📝 Fiches Pédagogiques</div>
+                            <ul class="course-list standard-visible">
+                                <li><a href="#">Fiches de cours : Mécanique</a></li>
+                                <li><a href="#">Fiches de cours : Chimie</a></li>
+                                <li><a href="#">Fiches de Travaux Pratiques (TP)</a></li>
+                            </ul>
+                        </div>
+
+                        <div class="tab-panel panel-planification">
+                            <div class="panel-title">📅 Planification & Organisation</div>
+                            
+                            <div class="sub-section-title">✨ Planification Annuelle</div>
+                            <ul class="course-list standard-visible" style="margin-bottom: 20px;">
+                                <li><a href="#">Progression Annuelle Globale (Physique-Chimie)</a></li>
+                                <li><a href="#">Cahier de textes annuel</a></li>
+                            </ul>
+
+                            <div class="sub-section-title">📆 Suivi Mensuel</div>
+                            <ul class="course-list standard-visible">
+                                <li><a href="#">Planification Mensuelle : Semestre 1</a></li>
+                                <li><a href="#">Planification Mensuelle : Semestre 2</a></li>
+                            </ul>
                         </div>
                     </div>
                     
                     <div class="stack-controls">
-                        <button class="stack-btn" data-target="card-1" style="color: var(--primary); border-bottom: 2px solid var(--primary);">Cours</button>
-                        <button class="stack-btn" data-target="card-2">Fiches</button>
-                        <button class="stack-btn" data-target="card-3">Planification</button>
+                        <button class="stack-btn active-btn" data-target="panel-cours">Cours</button>
+                        <button class="stack-btn" data-target="panel-fiches">Fiches</button>
+                        <button class="stack-btn" data-target="panel-planification">Planification</button>
                     </div>
                 </div>
 
