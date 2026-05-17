@@ -298,7 +298,12 @@ document.addEventListener("DOMContentLoaded", () => {
 
 
 
-// --- CHARGEMENT DYNAMIQUE DES FICHES VIA FETCH (POPUP) ---
+
+
+
+
+
+// --- CHARGEMENT DYNAMIQUE INTELLIGENT (FICHE OU PLAN) VIA FETCH ---
 document.addEventListener("DOMContentLoaded", () => {
     const popup = document.getElementById('document-popup');
     const popupTitle = document.getElementById('popup-title');
@@ -309,46 +314,46 @@ document.addEventListener("DOMContentLoaded", () => {
         trigger.addEventListener('click', function(e) {
             e.preventDefault();
             const docId = this.getAttribute('data-doc-id');
+            const docType = this.getAttribute('data-doc-type'); // Récupère 'fiche' ou 'plan'
 
-            // On va chercher le fichier de données HTML à distance sur ton GitHub Pages
-            fetch('cours/fiches/fiches.html')
+            // Détermine le bon chemin de fichier selon le type
+            let filePath = 'cours/fiches/fiches.html'; // Par défaut
+            if (docType === 'plan') {
+                filePath = 'cours/fiches/plan.html';
+            }
+
+            // Exécution du fetch dynamique
+            fetch(filePath)
                 .then(response => {
-                    if (!response.ok) throw new Error("Fichier de fiches introuvable");
+                    if (!response.ok) throw new Error("Fichier source introuvable : " + filePath);
                     return response.text();
                 })
                 .then(htmlString => {
-                    // Création d'un parseur virtuel pour lire le HTML reçu comme un DOM
                     const parser = new DOMParser();
                     const doc = parser.parseFromString(htmlString, 'text/html');
-                    
-                    // On cherche l'ID spécifique demandé par le lien
                     const targetSnippet = doc.getElementById(docId);
 
                     if (targetSnippet) {
-                        // Récupération du titre stocké dans l'attribut data-title
                         const title = targetSnippet.getAttribute('data-title') || "Document";
                         
-                        // Injection dans la popup d'accueil
                         popupTitle.textContent = title;
                         popupContent.innerHTML = targetSnippet.innerHTML;
 
-                        // Affichage de la popup
                         popup.style.display = 'flex';
                         document.body.style.overflow = 'hidden';
 
-                        // Rendu des formules LaTeX si présentes
                         if (window.MathJax && typeof MathJax.typesetPromise === 'function') {
                             MathJax.typesetPromise([popupContent]);
                         }
                     } else {
-                        console.error("L'ID " + docId + " n'existe pas dans fiches.html");
+                        console.error("L'ID '" + docId + "' n'existe pas dans " + filePath);
                     }
                 })
-                .catch(err => console.error("Erreur lors du chargement de la fiche :", err));
+                .catch(err => console.error("Erreur lors du chargement du document :", err));
         });
     });
 
-    // Gestionnaires de fermeture standards
+    // Fermetures standards de la popup
     if (closeBtn && popup) {
         closeBtn.addEventListener('click', () => {
             popup.style.display = 'none';
