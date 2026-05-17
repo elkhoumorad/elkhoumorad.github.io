@@ -17,50 +17,47 @@ body {
     padding: 0;
 }
 
-/* Header Styling */
+/* --- 3. APP BAR (Sticky Header with Glassmorphism) --- */
 header {
-    padding: 40px 20px 20px;
-    max-width: 1400px;
-    margin: 0 auto;
+    background: rgba(255, 255, 255, 0.85);
+    backdrop-filter: blur(12px); /* Frosted glass effect */
+    -webkit-backdrop-filter: blur(12px);
+    position: sticky;
+    top: 0;
+    z-index: 100;
+    border-bottom: 1px solid var(--border-color);
+    box-shadow: var(--shadow-sm);
+    padding: 15px 0;
 }
 
 .header-content {
+    max-width: 1400px;
+    margin: 0 auto;
     display: flex;
-    align-items: center; /* Vertically centers the text with the logo */
-    gap: 20px; /* Space between the logo and the title */
-    margin-bottom: 20px;
+    align-items: center;
+    justify-content: center;
+    position: relative;
+    padding: 0 20px;
 }
 
 .logo-container img {
-    max-height: 90px; /* Sized to match your screenshot */
-    display: block;
+    height: 50px;
+    margin-right: 15px;
 }
 
-.title-container {
-    display: flex;
-    flex-direction: column;
-    justify-content: center;
-}
-
-h1 {
-    color: var(--border-color);
-    font-size: 2.5rem;
-    margin: 0; /* Tucked tight against the tagline */
-    font-style: italic;
-    letter-spacing: 2px;
+.title-container h1 {
+    margin: 0;
+    font-size: 1.8rem;
+    font-weight: 800;
+    letter-spacing: -0.5px;
+    color: var(--primary);
 }
 
 .tagline {
-    font-size: 0.95rem;
+    margin: 0;
+    font-size: 0.85rem;
     color: var(--text-muted);
-    margin: 5px 0 0 0; /* Just a tiny gap below the h1 */
 }
-
-.header-divider {
-    width: 100%;
-    border-bottom: 2px solid var(--border-color);
-}
-
 
 /* --- NEW: Top Icon Row Styling --- */
 /* Styling for the icon row container */
