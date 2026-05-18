@@ -129,6 +129,8 @@ document.addEventListener("DOMContentLoaded", () => {
                 filePath = 'cours/fiches/plan.html';
             } else if (docType === 'vacances') {
                 filePath = 'cours/fiches/vacances.html'; // 👈 Change ceci si tu as mis le code des vacances dans un fichier séparé (ex: 'cours/fiches/vacances.html')
+            } else if (docType === 'dossier') {
+                filePath = 'cours/fiches/dossier.html'; // 👈 Change ceci si tu as mis le code des vacances dans un fichier séparé (ex: 'cours/fiches/vacances.html')
             }
 
             fetch(filePath)
