@@ -205,7 +205,7 @@ document.addEventListener("DOMContentLoaded", () => {
             { 
                 keywords: ["mouvement", "vitesse", "trajectoire", "mru"], 
                 response: "Le mouvement d'un corps est toujours relatif au référentiel ! 🚗", 
-                action: { url: "cours/TC/mouvement-fr.html", btnText: "📖 Le Mouvement (TC)" } 
+                action: { url: "cours/TC/cour-5/index.html", btnText: "📖 Le Mouvement (TC)" } 
             },
             { 
                 keywords: ["gravitation", "newton", "poids"], 
