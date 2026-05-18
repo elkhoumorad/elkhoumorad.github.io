@@ -384,12 +384,68 @@ header {
    --- 10. LISTS & EXPANDABLE LOGIC --- 
    ========================================================================== */
 
-.course-list { list-style: none; padding: 0; margin: 0; }
-.course-list li { margin-bottom: 12px; padding-left: 24px; position: relative; }
-.course-list li::before { content: '→'; position: absolute; left: 0; color: var(--primary); font-weight: bold; }
-.course-list li a { text-decoration: none; color: var(--text-main); font-weight: 500; transition: color 0.2s; }
-.course-list li a:hover { color: var(--primary); }
+.course-list { 
+    list-style: none; 
+    padding: 0; 
+    margin: 0; 
+}
 
+.course-list li { 
+    margin-bottom: 8px; 
+    position: relative; 
+}
+
+/* Targets both standard links and popup buttons */
+.course-list li a,
+.course-list li button { 
+    display: block; 
+    width: 100%;
+    text-align: left;
+    text-decoration: none; 
+    color: var(--text-main); 
+    font-family: 'Inter', 'Segoe UI', sans-serif;
+    font-weight: 600; /* Makes the text bolder and more professional */
+    font-size: 0.95rem;
+    padding: 10px 15px 10px 35px; /* 35px left padding leaves perfect room for the arrow */
+    border-radius: 8px;
+    background: transparent;
+    border: 1px solid transparent;
+    transition: all 0.25s cubic-bezier(0.2, 0.8, 0.2, 1);
+    cursor: pointer;
+}
+
+/* The Arrow */
+.course-list li::before { 
+    content: '→'; 
+    position: absolute; 
+    left: 10px; 
+    top: 50%;
+    transform: translateY(-50%); /* Perfectly centers the arrow vertically */
+    color: var(--text-muted); /* Subdued grey by default */
+    font-weight: bold; 
+    font-size: 1.1rem;
+    transition: all 0.25s cubic-bezier(0.2, 0.8, 0.2, 1);
+    pointer-events: none; /* Prevents the arrow from blocking your clicks */
+    z-index: 2;
+}
+
+/* --- Premium Hover States --- */
+.course-list li a:hover,
+.course-list li button:hover { 
+    color: var(--primary); 
+    background-color: #F8FAFC; /* Adds a soft premium background */
+    box-shadow: 0 2px 8px rgba(0,0,0,0.02);
+    border-color: var(--border-color); /* Adds a crisp outline */
+    transform: translateX(4px); /* The whole block nudges right */
+}
+
+/* The arrow lights up and shoots forward! */
+.course-list li:hover::before {
+    color: var(--primary);
+    transform: translate(6px, -50%); 
+}
+
+/* --- Expandable Logic --- */
 /* Hide items from 5th onwards by default */
 .course-list li:nth-child(n+5) {
     display: none;
